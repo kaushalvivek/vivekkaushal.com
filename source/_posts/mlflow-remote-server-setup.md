@@ -96,7 +96,7 @@ In this article, I'll tell you how to deploy MLFlow on a remote server using [Do
 ## Using MySQL instead of SQLite
 If you wish to use MySQL instead of SQLite, you'll need to setup your MySQL server up and create a database for MLFlow. The steps to do so are as follows:
 - [Install mySQL](https://linuxize.com/post/how-to-install-mysql-on-ubuntu-18-04/)
-- Install PyMySQL
+- Install PyMySQL in your python envirionment which has MLFlow.
   ```bash
   pip3 install pymysql
   ```
@@ -104,7 +104,7 @@ If you wish to use MySQL instead of SQLite, you'll need to setup your MySQL serv
   ```sql
   CREATE USER 'mlflow-user' IDENTIFIED BY 'password';
   CREATE DATABASE 'mlflowruns';
-  GRANT ALL ON mlflow.* TO 'mlflow-user';
+  GRANT ALL PRIVILEGES ON mlflowruns.* TO 'mlflow-user';
   ```
 - Now when you create your MLFlow server, use the following *backend-store-uri* instead:
   ```bash
