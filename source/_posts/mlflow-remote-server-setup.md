@@ -1,5 +1,5 @@
 ---
-title: "Deploying an MLFlow Remote Server with Docker, Minio and SQLite "
+title: "Deploying an MLFlow Remote Server with Docker, Minio and SQLite or MySQL "
 date: 2020-9-8
 categories:
 - Guide
@@ -91,6 +91,27 @@ In this article, I'll tell you how to deploy MLFlow on a remote server using [Do
 
   export AWS_ACCESS_KEY_ID=minio_access_key
   export AWS_SECRET_ACCESS_KEY=minio_secret_key
+  ```
+
+## Using MySQL instead of SQLite
+If you wish to use MySQL instead of SQLite, you'll need to setup your MySQL server up and create a database for MLFlow. The steps to do so are as follows:
+- [Install mySQL](https://linuxize.com/post/how-to-install-mysql-on-ubuntu-18-04/)
+- Install PyMySQL
+  ```bash
+  pip3 install pymysql
+  ```
+- Sign in to you mysql shell and create a new database for MLFlow. Also create a new user/use an existing user and assign access to the MLFLow database.
+  ```sql
+  CREATE USER 'mlflow-user' IDENTIFIED BY 'password';
+  CREATE DATABASE 'mlflowruns';
+  GRANT ALL ON mlflow.* TO 'mlflow-user';
+  ```
+- Now when you create your MLFlow server, use the following *backend-store-uri* instead:
+  ```bash
+  mlflow server -p <exposed_port_for_mlflow> \
+  --host 0.0.0.0 \
+  --backend-store-uri mysql+pymysql://'mlflow-user':'password'@localhost:3306/mlflowruns \
+  --default-artifact-root s3://mlflow/artifacts
   ```
 
 And you're all set! You can download example code from [MLFlow examples](https://github.com/mlflow/mlflow/tree/master/examples), and start executing them directly in your *mlflow-work* directory. For more information about MLFlow checkout [MLFlow Documentation](https://www.mlflow.org/docs/latest/quickstart.html).
