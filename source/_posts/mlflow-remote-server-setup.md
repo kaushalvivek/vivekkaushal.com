@@ -12,7 +12,7 @@ thumbnail: https://www.mlflow.org/docs/latest/_static/MLflow-logo-final-black.pn
 
 [MLFlow](https://mlflow.org/) is an open-source platform for managing your machine learning lifecycle. You can either run MLFlow locally on your system, or host an [MLFlow Tracking server](https://www.mlflow.org/docs/latest/tracking.html), which allows for mutiple people to log models and store them remotely in a model repository for quick deployment/reuse.
 
-In this article, I'll tell you how to deploy MLFlow on a remote server using [Docker](https://www.docker.com/), an S3 storage container of your choice ([Minio](https://min.io/) or ([Ceph](https://github.com/ceph/)) and SQL ([SQLite](https://www.sqlite.org/index.html) or [MySQL](https://www.mysql.com/).
+In this article, I'll tell you how to deploy MLFlow on a remote server using [Docker](https://www.docker.com/), an S3 storage container of your choice *[Minio](https://min.io/) or [Ceph](https://github.com/ceph/)* and SQL *[SQLite](https://www.sqlite.org/index.html) or [MySQL](https://www.mysql.com/)*.
 
 <!--more-->
 
