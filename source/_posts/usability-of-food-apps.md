@@ -6,7 +6,7 @@ categories:
 - HCI
 tags:
 - Usability
-cover: [/images/clickbait.png](https://lh3.googleusercontent.com/ib4225MD0T0DMtOGmMOF9BkGqJJFTWc5qEOyBf2MeVZh25pD_m5iuztPPFf3MfYVgNRczZ_1zpcK_VFaz1Mw74JE8HWd8yGQuamAdVps2K21AcJ4Y4UxPU-6D4LP9uJhYiZ8svyf)
+cover: https://lh3.googleusercontent.com/ib4225MD0T0DMtOGmMOF9BkGqJJFTWc5qEOyBf2MeVZh25pD_m5iuztPPFf3MfYVgNRczZ_1zpcK_VFaz1Mw74JE8HWd8yGQuamAdVps2K21AcJ4Y4UxPU-6D4LP9uJhYiZ8svyf
 thumbnail: https://lh3.googleusercontent.com/ib4225MD0T0DMtOGmMOF9BkGqJJFTWc5qEOyBf2MeVZh25pD_m5iuztPPFf3MfYVgNRczZ_1zpcK_VFaz1Mw74JE8HWd8yGQuamAdVps2K21AcJ4Y4UxPU-6D4LP9uJhYiZ8svyf
 ---
 
