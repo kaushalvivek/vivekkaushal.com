@@ -1,6 +1,6 @@
 ---
 title: "A Usability Analysis of the Food-Delivery Duopoly in India"
-date: 2020-10-28
+date: 2020-10-24
 categories:
 - Research
 - HCI
