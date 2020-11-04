@@ -1,8 +1,9 @@
 ---
 title: "What is Clickbait?"
-date: 2020-10-24
+date: 2020-10-03
 categories:
 - Research
+- HCI
 tags:
 - Clickbait
 cover: /images/clickbait.png
@@ -11,6 +12,7 @@ thumbnail: /images/clickbait.png
 
 A clickbait can roughly be defined as an article/webpage that purposefully conceals information from the user in its title link in order to generate artificial ‘information gaps’ that arise curiosity and make people click on the article link -- hereby generating traffic and in turn revenue for the creator of the clickbait. Clickbait isn’t a new concept. It has been around ever since journalism gained mass popularity. Newspapers have been known to compete with each other for readership, and use curiosity enticing article headings all the way back in the 1800s.
 
+<!--more-->
 
 An argument can be made though, and with merit, that the above mentioned definition is narrow in its approach. The line between clickbait and non-clickbait articles has increasingly blurred over the course of the last decade, with the editor of BuzzFeed, Ben Smith, proudly proclaiming in 2014 that BuzzFeed does not use Clickbait, despite the notorious reputation of BuzzFeed on the matter. In all fairness, Smith is right, BuzzFeed does not use title headings that purposefully hide hide key information points from the reader, but whether that implies that BuzzFeed doesn’t use Clickbait or not is a tricky question -- with the site frequently relying on questions and creatively portrayed listicles as article headlines.
 
