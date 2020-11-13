@@ -56,6 +56,6 @@ def headlines():
   return redirect('some_path')
 ```
 
-For more information checkout : [https://pythonhosted.org/Flask-Session/](https://pythonhosted.org/Flask-Session/)  
+For more information checkout : [https://flask-session.readthedocs.io/en/latest/](https://flask-session.readthedocs.io/en/latest/)  
 
 You can also checkout an implementation of sessions in this app I created. Link : [https://github.com/kaushalvivek/attention-online-survey](https://github.com/kaushalvivek/attention-online-survey)
