@@ -5,15 +5,18 @@ date: 2019-10-10 03:10:44
 
 ## Human Computer Interaction and Cognitive Sciences
 
-- **Attentional Model of Clickbait**
-  Working on building an understanding of how user attention is manipulated by clickbait headlines in digital media based journalism. The scope of the project includes understanding the impact and effectiveness of clickbait as well as a breakdown of underlying curiosity. Project a part of masters' thesis at IIIT Hyderabad.
+- **Clickbait and Credibility**
+  Worked on identifying the impact of clickbait on the credibility of news items in digital media through carefully designed experiments on the Webis-Clickbiat-17 dataset. The study was conducted on 200 participants from the US and India. Results published in IEEE International Symposium on Technology and Society - ISTAS'20.
+
+- **Clickbait in Hindi**
+  A pioneering study on clickbait in mainstream Hindi news media -- we analyzed news stories posted on Twitter by mainstream Hindi news sources and found remarkable similarities in the proportion of clickbiat content to existing research in English language clickbait. Work published in International Conference on Natural Language Processing - ICON'20.
 
 - **Clickbait and Advertisements**
   Worked with Dr. Prithviraj Mukherjee from IIM-Bangalore on an eye-tracker study to identify user-behaviour on clickbait articles and its implication on the advertising industry. Check notes for details.
 
 - [**Academic Performance and Financial Risk Taking**](https://www.researchgate.net/publication/336261895_Investigating_Academic_Performance_and_Financial_Risk-Taking) Paper accepted at the Sixth Annual Conference of the Association for Cognitive Sciences in India. Initial work also presented at the F.U.R. Conference, University of York, UK.
 
-## Data Science
+## Data Science and Machine Learning
 
 - **Big Data Analysis in R - Consumer Freedom Measure**
   Undertaken as a Research Assistant at the National Taiwan University, Taipei, under professor Hendrik Rommeswinkel. Worked on a large-scale consumer behavior database that tracked 60,000+ US families’ expenditure on all goods for a period of 14 years, and developed a data analytics codebase in R to draw inferences.
