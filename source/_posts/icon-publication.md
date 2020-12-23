@@ -1,8 +1,9 @@
 ---
-title: "Paper published in ICON'20 on Clickbait in Hindi Media"
+title: "Paper Published in ICON'20 on Clickbait in Hindi Media"
 date: 2020-12-23
 categories:
 - Research
+- HCI
 tags:
 - Clickbait
 - NLP
@@ -12,6 +13,10 @@ thumbnail : https://2.bp.blogspot.com/-kmUypjCEBtg/V5h3FuD8s3I/AAAAAAAALFI/00Act
 I am glad to inform you that our paper on clickbait in mainstream Hindi News Media has been accepted at the International Conference on Natural Language and Processing - 2020. 
 You can find the abstract of the work we've done here, and the full paper is up on arxiv. 
 <!-- more -->
+
+## TLDR
+
+The proliferation of clickbait in Hindi media is just as severe as English. There isn't a body of research on clickbait detection in Hindi yet, as against a lot of work done on clickbait in English media. It's time to get started.
 
 ## Abstract
 
