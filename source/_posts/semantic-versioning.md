@@ -1,5 +1,5 @@
 ---
-title: "Naming your software versions correctly : A Guide to Semantic Versioning"
+title: "Versioning Your Software Correctly : A Guide to Semantic Versioning"
 date: 2021-1-03
 categories:
 - Guide
