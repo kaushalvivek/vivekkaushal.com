@@ -10,8 +10,7 @@ tags:
 cover : https://2.bp.blogspot.com/-kmUypjCEBtg/V5h3FuD8s3I/AAAAAAAALFI/00Act6ByqWsMpllIPXZwQK0ZI7QYPo56ACLcB/s1600/HOW%2BTO%2BGET%2BPUBLISHED%2BIN%2BMAGAZINE%252C%2BNEWS%2BPAPERS%252C%2BREAD%2BTHIS%2BHINDI%2BARTICLE%252C%2Bhow%2Bto%2Bknow.jpg
 thumbnail : https://2.bp.blogspot.com/-kmUypjCEBtg/V5h3FuD8s3I/AAAAAAAALFI/00Act6ByqWsMpllIPXZwQK0ZI7QYPo56ACLcB/s1600/HOW%2BTO%2BGET%2BPUBLISHED%2BIN%2BMAGAZINE%252C%2BNEWS%2BPAPERS%252C%2BREAD%2BTHIS%2BHINDI%2BARTICLE%252C%2Bhow%2Bto%2Bknow.jpg
 ---
-I am glad to inform you that our paper on clickbait in mainstream Hindi News Media has been accepted at the International Conference on Natural Language and Processing - 2020. 
-You can find the abstract of the work we've done here, and the full paper is up on arxiv. 
+I am glad to inform you that our paper on clickbait in mainstream Hindi News Media has been accepted at the International Conference on Natural Language and Processing - 2020. You can find the abstract of the work we've done here, and the full paper is up on arxiv. 
 <!-- more -->
 
 ## TLDR
