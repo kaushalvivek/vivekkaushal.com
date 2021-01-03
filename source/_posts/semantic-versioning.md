@@ -9,7 +9,7 @@ tags:
 cover : https://media.geeksforgeeks.org/wp-content/uploads/semver.png
 thumbnail : https://media.geeksforgeeks.org/wp-content/uploads/semver.png
 ---
-I don't believe enough has been written towards understanding how software products are, and should be versioned. I have always meant to read through proper documentation and understand semantic versioning but have procrastinated furiously. Today though, I took out the time to go through the documentation and I am writing this post to summarize what I've understood. Let this be a `tldr;` for the next project you're going to release, and how you're planning to version it.
+I don't believe enough has been written towards understanding how software products are and should be versioned. I have always meant to read through proper documentation and understand semantic versioning but have procrastinated furiously. Today though, I took out the time to go through the documentation and I am writing this post to summarize what I've understood. Let this be a `tldr;` for the next project you're going to release, and how you're planning to version it.
 
 <!-- more -->
 
