@@ -1,6 +1,6 @@
 ---
 title: "Parallelization of Inference on GPUs for TFServing using Nginx"
-date: 2021-1-03
+date: 2021-1-17
 categories:
 - MLOps
 tags:
