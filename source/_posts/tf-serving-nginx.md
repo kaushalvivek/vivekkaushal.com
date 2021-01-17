@@ -26,7 +26,7 @@ I created a script which looks at information from `nvidia-smi` to get the numbe
 - it creates a docker-compose file to start an independent container of TFserving's GPU image on each GPU either available or entered as input by the user. So for example, if a system as 5 GPUs and the user doesn't provide the number of GPUs they want to use, then it would create and launch 5 containers of TFserving's GPU image on the GPUs — 0, 1, 2, 3 and 4. Note that each container has its own API endpoint which is exposed.
 - It then creates an nginx configuration file which redirects request from an exposed API endpoint (*the endpoint where inference requests would be sent to*) to all the endpointssof created containers, and uses nginx load balancer to distribute incoming requests. *(I use round robin balancing here, but suit your architecture)*
 
-```markdown
+```
                                                            |---->[container0]--->[GPU_0]
 [req]->[nginx load balancer]-->|---->[container1]--->[GPU_1]
                                                            |---->[container2]--->[GPU_2]
