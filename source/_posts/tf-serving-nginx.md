@@ -27,9 +27,9 @@ I created a script which looks at information from `nvidia-smi` to get the numbe
 - It then creates an nginx configuration file which redirects request from an exposed API endpoint (*the endpoint where inference requests would be sent to*) to all the endpointssof created containers, and uses nginx load balancer to distribute incoming requests. *(I use round robin balancing here, but suit your architecture)*
 
 ```markdown
-														   |---->[container0]--->[GPU_0]
+                                                           |---->[container0]--->[GPU_0]
 [req]->[nginx load balancer]-->|---->[container1]--->[GPU_1]
-														   |---->[container2]--->[GPU_2]
+                                                           |---->[container2]--->[GPU_2]
 ```
 
 The end result is that we have n docker containers of TFserving running on your system where n is the number of GPUs (or a subset, depending on what you choose) and each of them are available for inference requests. Hence — partial distribution of workload is achieved. 
