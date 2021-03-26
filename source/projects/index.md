@@ -66,6 +66,8 @@ Looked at the usability of Swiggy and Zomato through carefully designed user stu
 - [**Bomberman**](https://github.com/kaushalvivek/Bomberman) A terminal based implementation of Bomberman in Python -- done to get hold of good coding practices in large-medium scale projects.
 
 ## Full Stack Web Development
+- [**Skillbee Backend**](https://skillbee.com/) Building and deploying scalable REST APIs and microservices for Skillbee's applicant facing Androidapp and employer facing react web-app. Stack used includes Node, Express, Postgres and NestJS.
+- [**Notification Micro-service**](https://github.com/kaushalvivek/notification-microservice) Created a highly scalable notification micro-service API and consumer which internally maintainschannel specific queues on AWS SQS and is a one-stop solution for Email/SMS/WhatsApp communica-tion for small-businesses and start-ups. Dockerized with a single command deployment for ease of use.
 - [**South Delhi COVID-19 Containment Prediction**](https://kaushalvivek.github.io/2020-06-27-south-delhi-covid/) Created a full stack solution to take COVID-19 data from live sources,geocode location on map and suggest containment zones based on k-means clustering.
 - [**Home Quarantine Management Platform**](https://github.com/kaushalvivek/home-quarantine-management) An application to manage the symptom reporting of patients in home quarantine -- built for the Patna District Administration.
 - [**Voice Interview with User Authentication**](https://github.com/kaushalvivek/mern-voice-recorder) A web-app in the MERN stack to record voice responses to questions and automate a voice interview process, complete with user authentication.
