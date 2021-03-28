@@ -10,7 +10,7 @@ tags:
 cover : https://www.nginx.com/wp-content/uploads/2017/09/NGINX-Plus-product-page_Load-Balancer@2x.png
 thumbnail : https://www.nginx.com/wp-content/uploads/2017/09/NGINX-Plus-product-page_Load-Balancer@2x.png
 ---
-A guiding to load balancing your TFServing Inference API over multiple GPUs.
+A guide to load balancing your TFServing Inference API over multiple GPUs.
 
 <!-- more -->
 
