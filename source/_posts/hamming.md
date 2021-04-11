@@ -18,16 +18,16 @@ Link to the talk: [https://www.youtube.com/watch?v=a1zDuOPkMSw](https://www.yout
 My reflection on points that I take away from this lecture, in a decreasing order of importance and relevance:
 
 ### Doing Important Things
-*If what you're working on is not important, and it's unlikely to do important things.*
+*If what you're working on is not important, it's unlikely that you'll do important things.*
 I agree in principle with the idea that one should dedicate time to work on important problems. But I raise my concerns on the 'definition' of important things. Importance is a dynamic and subjective factor which is often very different when one looks back at past decisions. The bottom-line being that 'what appear to be important problems right now, may not be so at a point in near future', so how does one really choose the important things to work on? One way Hamming suggests we go about this is by following— Importance is not the consequences. Importance of a problem is whether you have a way of going about the problem.
 
 ### The Death-bed view of Life
 *Live a life that you can be proud of when you're on your death-bed.*
-I categorically reject this view of life, because it places the power of judgement in the hands of a future imagined self, which is an embodiment of who *I think* I would be on my death-bed, and what *I think* I would be proud of. It's impossible to follow this advice, because one has no clue who one would be at their deathbed, and these words really are just a questionable attempt to simplify life goals. Live a life that you're proud of right now, keep re-inventing your priorities as you evolve. Do not imagine who you'd be and what you'd like 50-70 years from now. Live, now. Though keep a careful tab on your present — the unexamined life is not worth living.
+I categorically reject this view of life, because it places the power of judgement in the hands of a future imagined self, which is an embodiment of who *I think* I would be on my death-bed, and what *I think* I would be proud of. It's impossible to follow this advice, because one has no clue who one would be at their death-bed, and these words really are just a questionable attempt to simplify life goals. Live a life that you're proud of right now, keep re-inventing your priorities as you evolve. Do not imagine who you'd be and what you'd like 50-70 years from now. Live, now. Though keep a careful tab on your present — the unexamined life is not worth living.
 
 ### Professional Extroversion Pays Off
 *Open doors and open minds are correlated.*
-Being aware of what's on people's minds in your professional community and being aware of people's point of views creates a tangible difference in your own world-view and 'keeps you up-to-date'. I do not deny that success can come out of deep work in silos, but I do think that siloed work when coupled with a grip on herd knowledge and different points of views can create success stories. Building on professional extroversion, clear and concise professional communication through talks and/or write-ups is also very important. Getting your ideas out in easy-to-understand pieces of communication is essential.
+Being aware of what's on people's minds in your professional community and being aware of people's points of view creates a tangible difference in your own world-view and 'keeps you up-to-date'. I do not deny that success can come out of deep work in silos, but I do think that siloed work when coupled with a grip on herd knowledge and different points of view can create success stories. Building on professional extroversion, clear and concise professional communication through talks and/or write-ups is also very important. Getting your ideas out in easy-to-understand pieces of communication is essential.
 
 ### Success breeds Success
 *Mathews' Law — after St. Mathew's quote from the Bible.*
@@ -45,7 +45,7 @@ Hamming says that one should have a vision for what one's gonna do, and who one'
 Hamming paints a beautiful picture around ambiguity and the need for self-doubt. I cannot agree more. Doubt is essential to growth and learning, question everything from first principles and onwards. Never be so strongly absorbed by an idea that you're blind to criticism and critique. Understand and question fundamentals, assumptions.
 
 ### What Counts
-*The person who works at the right time, at the right problem, in the right way counts — and nothing else. Having a hunch on that is what he was teaching in the course.*
+*The person who works at the right time, on the right problem, in the right way counts — and nothing else. Having a hunch on that is what he was teaching in the course.*
 I am very skeptical about this statement. This statement can only be verified in hindsight, and in the moment of action, this statement is of no use whatsoever. Hamming suggests we develop a *hunch* for choosing the right problem, at the right time, and going about it the right way — but I don't really think this is a smart thing to do. Such a hunch is very likely to be an illusion built out of the bias of seeing success stories. I do agree that doing things the *right way* is important. Make things simple, straight-forward and clear. Hamming says that there is a fine line between being strong-willed and stubborn. I don't see any utility in this statement, as more often than not, the difference can only be seen in hindsight.
 
 ### The Bigger Picture
