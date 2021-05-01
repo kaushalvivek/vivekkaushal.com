@@ -5,10 +5,10 @@ date: 2019-10-10 03:10:44
 
 ## Human Computer Interaction and Cognitive Sciences
 
-- **Clickbait and Credibility**
-  Worked on identifying the impact of clickbait on the credibility of news items in digital media through carefully designed experiments on the Webis-Clickbiat-17 dataset. The study was conducted on 200 participants from the US and India. Results published in IEEE International Symposium on Technology and Society - ISTAS'20.
+- [**Clickbait and Credibility**](https://ieeexplore.ieee.org/document/9405359)
+  Worked on identifying the impact of clickbait on the credibility of news items in digital media through carefully designed experiments on the Webis-Clickbiat-17 dataset. The study was conducted on 200 participants from the US and India. Results published in IEEE Transactions on Technology and Society in 2021.
 
-- **Clickbait in Hindi**
+- [**Clickbait in Hindi**](https://arxiv.org/abs/2012.07609)
   A pioneering study on clickbait in mainstream Hindi news media -- we analyzed news stories posted on Twitter by mainstream Hindi news sources and found remarkable similarities in the proportion of clickbiat content to existing research in English language clickbait. Work published in International Conference on Natural Language Processing - ICON'20.
 
 - **Clickbait and Advertisements**
@@ -32,6 +32,31 @@ date: 2019-10-10 03:10:44
 - **Apache Spark Model REST API** Wrote an in-production application to abstact the compilation and hosting of an Apache Spark model with exposed inference API through an intuitive GUI. Built on top of openscoring, using PMML. Code proprietary, work done for CoutureAI.
 
 - **Load Balanced Tensorflow Serving GPU Deployment** Deployed a custom configured TFServing on docker compose using NGINX load balancer to manage inference requests over multiple GPUs when serving a single model.
+
+## Full Stack Web Development
+- [**Skillbee Backend**](https://skillbee.com/) Building and deploying scalable REST APIs and microservices for Skillbee's applicant facing Androidapp and employer facing react web-app. Stack used includes Node, Express, Postgres and NestJS.
+- [**South Delhi COVID-19 Containment Prediction**](https://kaushalvivek.github.io/2020-06-27-south-delhi-covid/) Created a full stack solution to take COVID-19 data from live sources,geocode location on map and suggest containment zones based on k-means clustering.
+- [**Home Quarantine Management Platform**](https://github.com/kaushalvivek/home-quarantine-management) An application to manage the symptom reporting of patients in home quarantine -- built for the Patna District Administration.
+- [**Voice Interview with User Authentication**](https://github.com/kaushalvivek/mern-voice-recorder) A web-app in the MERN stack to record voice responses to questions and automate a voice interview process, complete with user authentication.
+- [**Train Escort Management**](https://github.com/kaushalvivek/train-escort-app) A web-app for the Indian Railways to manage police escorts on special trains and share the information with other government agencies in real time. Thousands of active users. Worked on it pro-bono to help the fight against COVID-19.
+- [**Flask Survey App**](https://github.com/kaushalvivek/flask-survey-app) A full featured survey application coded in Python *(Flask)* with SQL as the primary database and a bootstrap based front end. Application used for research pre-testing of clickbait and attention research.
+- [**Pomodoro Lite**](https://github.com/kaushalvivek/pomodoro-lite) A full featured pomodoro timer with logs, history and statistics for tracking my own productivity. Hosted live. Planned upgrades include wider launch.
+- [**paloaltosoft.com**](https://paloaltosoft.com) Developed a full fledged website for Palo Alto Soft LLC, a silicon valley based startup.
+- [**To-Do List in React**](https://github.com/kaushalvivek/react-to-do/) A simple to-do list in react with extensive functionality.
+- [**Entreprenuersip Cell Website**](https://github.com/gokulbnr/E-Cell-Website) A full-stack development project in Django -- designed and developed.
+- [**72Hours**](https://github.com/kaushalvivek/72Hours) A one-stop shopping portal coded in 72 hours in Django.
+- [**Megathon Website**](https://github.com/kaushalvivek/megathon/) Front-end development project with live updates and maintenance.
+
+## Major Miscellaneous Projects
+- [**Notification Micro-service**](https://github.com/kaushalvivek/notification-microservice) Created a highly scalable notification micro-service API and consumer which internally maintainschannel specific queues on AWS SQS and is a one-stop solution for Email/SMS/WhatsApp communica-tion for small-businesses and start-ups. Dockerized with a single command deployment for ease of use.
+- **Postgres Wrapper in Flask** A GUI wrapper for interaction with a POSTGRES database, coded in Flask - Python. Written code proprietary, work done as a freelance project for a client.
+- **Twilio and VoIP** Designed a VoIP based system built on top of the Twilio API for a silicon valley based risk assessment startup.
+- [**Messenger Unofficial API**](https://github.com/carpedm20/fbchat) Among the contributors to an unofficial API for Messenger, used by hundreds of developers.
+- **Plivo and VoIP** Designed automated workflows in Plivo with an integrated microservice for interview management. Code proprietary, worked on a freelance basis.
+- **Selenium-based Automation** Code in Python to automate an online interview portal with multiple pages, navigations and interactions. Run periodically to test portal for functionality, coded for a California based risk assessment startup. Project done as a freelancer. Code proprietary.
+- [**IIIT Courier Notification System**](https://github.com/kaushalvivek/IIIT-Courier-Notification) An internal courier/parcels notification system for all IIIT students, coded for personal use, amassed a significant userbase.
+- [**Usability Engineering in JAVA**](https://docs.google.com/document/d/e/2PACX-1vTHAi5TtJ9hPjHOqqB4LsiEi_WcRg9m55GjupitZjDLQF1mupOS1pws2d2pjMWbxbL15ER9fd_nieu7/pub) Added usability to an existing codebase, ensured code standards are met through extensive refactoring.
+
 
 ## Mobile Development
 
@@ -65,32 +90,8 @@ Looked at the usability of Swiggy and Zomato through carefully designed user stu
 - [**2D Game in OpenGL**](https://github.com/kaushalvivek/PacMan) This 2 dimensional game is a classic Pacman ball game with the objective of destroying incoming balls while staying away from procupines -- coded with OpenGL.
 - [**Bomberman**](https://github.com/kaushalvivek/Bomberman) A terminal based implementation of Bomberman in Python -- done to get hold of good coding practices in large-medium scale projects.
 
-## Full Stack Web Development
-- [**Skillbee Backend**](https://skillbee.com/) Building and deploying scalable REST APIs and microservices for Skillbee's applicant facing Androidapp and employer facing react web-app. Stack used includes Node, Express, Postgres and NestJS.
-- [**Notification Micro-service**](https://github.com/kaushalvivek/notification-microservice) Created a highly scalable notification micro-service API and consumer which internally maintainschannel specific queues on AWS SQS and is a one-stop solution for Email/SMS/WhatsApp communica-tion for small-businesses and start-ups. Dockerized with a single command deployment for ease of use.
-- [**South Delhi COVID-19 Containment Prediction**](https://kaushalvivek.github.io/2020-06-27-south-delhi-covid/) Created a full stack solution to take COVID-19 data from live sources,geocode location on map and suggest containment zones based on k-means clustering.
-- [**Home Quarantine Management Platform**](https://github.com/kaushalvivek/home-quarantine-management) An application to manage the symptom reporting of patients in home quarantine -- built for the Patna District Administration.
-- [**Voice Interview with User Authentication**](https://github.com/kaushalvivek/mern-voice-recorder) A web-app in the MERN stack to record voice responses to questions and automate a voice interview process, complete with user authentication.
-- [**Train Escort Management**](https://github.com/kaushalvivek/train-escort-app) A web-app for the Indian Railways to manage police escorts on special trains and share the information with other government agencies in real time. Thousands of active users. Worked on it pro-bono to help the fight against COVID-19.
-- [**Flask Survey App**](https://github.com/kaushalvivek/flask-survey-app) A full featured survey application coded in Python *(Flask)* with SQL as the primary database and a bootstrap based front end. Application used for research pre-testing of clickbait and attention research.
-- [**Pomodoro Lite**](https://github.com/kaushalvivek/pomodoro-lite) A full featured pomodoro timer with logs, history and statistics for tracking my own productivity. Hosted live. Planned upgrades include wider launch.
-- [**paloaltosoft.com**](https://paloaltosoft.com) Developed a full fledged website for Palo Alto Soft LLC, a silicon valley based startup.
-- [**To-Do List in React**](https://github.com/kaushalvivek/react-to-do/) A simple to-do list in react with extensive functionality.
-- [**Entreprenuersip Cell Website**](https://github.com/gokulbnr/E-Cell-Website) A full-stack development project in Django -- designed and developed.
-- [**72Hours**](https://github.com/kaushalvivek/72Hours) A one-stop shopping portal coded in 72 hours in Django.
-- [**Megathon Website**](https://github.com/kaushalvivek/megathon/) Front-end development project with live updates and maintenance.
-
-## Major Miscellaneous Projects
-
-- **Postgres Wrapper in Flask** A GUI wrapper for interaction with a POSTGRES database, coded in Flask - Python. Written code proprietary, work done as a freelance project for a client.
-- **Twilio and VoIP** Designed a VoIP based system built on top of the Twilio API for a silicon valley based risk assessment startup.
-- [**Messenger Unofficial API**](https://github.com/carpedm20/fbchat) Among the contributors to an unofficial API for Messenger, used by hundreds of developers.
-- **Plivo and VoIP** Designed automated workflows in Plivo with an integrated microservice for interview management. Code proprietary, worked on a freelance basis.
-- **Selenium-based Automation** Code in Python to automate an online interview portal with multiple pages, navigations and interactions. Run periodically to test portal for functionality, coded for a California based risk assessment startup. Project done as a freelancer. Code proprietary.
-- [**IIIT Courier Notification System**](https://github.com/kaushalvivek/IIIT-Courier-Notification) An internal courier/parcels notification system for all IIIT students, coded for personal use, amassed a significant userbase.
-- [**Usability Engineering in JAVA**](https://docs.google.com/document/d/e/2PACX-1vTHAi5TtJ9hPjHOqqB4LsiEi_WcRg9m55GjupitZjDLQF1mupOS1pws2d2pjMWbxbL15ER9fd_nieu7/pub) Added usability to an existing codebase, ensured code standards are met through extensive refactoring.
-
 ## Minor Miscellaneous Projects
+- [**S3-Upload-Portal**](https://github.com/kaushalvivek/s3-upload-portal) An upload portal to push files to an S3 bucket and throwback their URI for usage.
 - [**Google Script Upload Portal**](https://github.com/kaushalvivek/GSUploader) A secure upload portal in Google Script with captcha support.
 - [**CSE Algorithms**](https://github.com/kaushalvivek/CSE_Algorithms) A collection of popular algorithms, coded in C/C++ for incoming IIIT freshers, project archived. 
 - **POSTGRES Query and Result Email** A python script on top of a POSTGRES database to run queries and email results to a dynamically defined set of users automatically. Deployed as a cronjob for a California based risk assessment startup, project done as a freelancer. Code proprietary.
