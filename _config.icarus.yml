@@ -242,9 +242,13 @@ widgets:
         type: links
         # Names and URLs of the sites
         links:
-            Scholar: https://scholar.google.co.in/citations?user=juZg-YcAAAAJ&hl=en&oi=sra
-            Resume: Resume.pdf
-            Notes: notes
+            Published Papers: https://scholar.google.co.in/citations?user=juZg-YcAAAAJ&hl=en&oi=sra
+            Open Sourced Projects: https://www.kaggle.com/kaushalvivek
+            Open Sourced Datasets: https://www.kaggle.com/kaushalvivek/datasets
+            Notes on Software Engineering: https://www.notion.so/vivekkaushal/581f49fe424a47a3bf207f8dea802bac?v=69352992e5cf449e92cb4fb913f469b1
+            Notes on Data Engineering: https://www.notion.so/vivekkaushal/1ccb18983cc34d148a498145a2072b74?v=904d5e12726146dfada55c785614e2c9
+            Notes on Data Science: https://www.notion.so/vivekkaushal/5a0fe37778d249c39382f15f218cd0fa?v=1bdfe35c33444c0aa142cd490a6fa6f5
+            Tools and Libraries: https://www.notion.so/vivekkaushal/80ce2938d1ab4dbfb2d7b267612dfe75?v=761c7a4dba5647a881f83f7e38757c7c
     # Categories widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
