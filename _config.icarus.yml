@@ -243,7 +243,7 @@ widgets:
         # Names and URLs of the sites
         links:
             Published Papers: https://scholar.google.co.in/citations?user=juZg-YcAAAAJ&hl=en&oi=sra
-            Open Sourced Projects: https://www.kaggle.com/kaushalvivek
+            Open Sourced Projects: https://www.github.com/kaushalvivek
             Open Sourced Datasets: https://www.kaggle.com/kaushalvivek/datasets
             Notes on Software Engineering: https://www.notion.so/vivekkaushal/581f49fe424a47a3bf207f8dea802bac?v=69352992e5cf449e92cb4fb913f469b1
             Notes on Data Engineering: https://www.notion.so/vivekkaushal/1ccb18983cc34d148a498145a2072b74?v=904d5e12726146dfada55c785614e2c9
