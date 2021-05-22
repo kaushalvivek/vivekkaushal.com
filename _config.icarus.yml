@@ -218,9 +218,9 @@ widgets:
             LinkedIn:
                 icon: fab fa-linkedin
                 url : 'https://linkedin.com/in/vivekkaushal1998'
-            # Facebook:
-            #     icon: fab fa-facebook
-            #     url: 'https://facebook.com'
+            Kaggle:
+                icon: fab fa-kaggle
+                url: 'https://www.kaggle.com/kaushalvivek'
             Twitter:
                 icon: fab fa-twitter
                 url: 'https://twitter.com/vi_kaushal'
