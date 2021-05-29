@@ -14,7 +14,7 @@ A guide to load balancing your TFServing Inference API over multiple GPUs.
 
 <!-- more -->
 
-This is a mini-project I worked upon a few months ago, but never got around to writing about. TF serving is used to serve Tensorflow models for inferencing. It provides a REST/gRPC API that can be used to send inference requests and get results from one's ML model. You can read more about TFServing here:
+This is a mini-project I worked upon a few months ago, but never got around to writing about. TF serving is used to serve Tensorflow models for inference. It provides a REST/gRPC API that can be used to send inference requests and get results from one's ML model. You can read more about TFServing here:
 
 - [https://www.tensorflow.org/tfx/guide/serving](https://www.tensorflow.org/tfx/guide/serving)
 - [https://github.com/tensorflow/serving](https://github.com/tensorflow/serving)
@@ -24,7 +24,7 @@ TFserving can either be run on GPUs or CPUs — it has two different docker imag
 I created a script which looks at information from `nvidia-smi` to get the number of GPUs available in the system, alternatively it also accepts a user-input for the number of GPUs to use for deployment. Then this script does two things:
 
 - it creates a docker-compose file to start an independent container of TFserving's GPU image on each GPU either available or entered as input by the user. So for example, if a system as 5 GPUs and the user doesn't provide the number of GPUs they want to use, then it would create and launch 5 containers of TFserving's GPU image on the GPUs — 0, 1, 2, 3 and 4. Note that each container has its own API endpoint which is exposed.
-- It then creates an nginx configuration file which redirects request from an exposed API endpoint (*the endpoint where inference requests would be sent to*) to all the endpointssof created containers, and uses nginx load balancer to distribute incoming requests. *(I use round robin balancing here, but suit your architecture)*
+- It then creates an nginx configuration file which redirects request from an exposed API endpoint (*the endpoint where inference requests would be sent to*) to all the endpoints of created containers, and uses nginx load balancer to distribute incoming requests. *(I use round robin balancing here, but suit your architecture)*
 
 The end result is that we have n docker containers of TFserving running on your system where n is the number of GPUs (or a subset, depending on what you choose) and each of them are available for inference requests. Hence — partial distribution of workload is achieved. 
 
