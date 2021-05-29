@@ -80,7 +80,8 @@ navbar:
         About: /about
         Notes: /notes
         Projects: /projects
-        Resume: /resume
+        Resume: Resume.pdf
+        Research-CV: Research.pdf
     # Links to be shown on the right of the navigation bar
     links:
         Download on GitHub:
