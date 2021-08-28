@@ -1,0 +1,17 @@
+{
+    "notes": [
+        {"text": "My solutions to problems on LeetCode", "link": "https://github.com/kaushalvivek/leetcode-solutions"},
+        {"text": "Micro-notes for courses at IIIT-H", "link": "https://github.com/kaushalvivek/Micro-Notes-and-Checklists"}
+    ],
+    "datasets": [
+        {"text": "Mainstream Hindi Media Tweets, 2020 (Peak of the first COVID wave)", "link":"https://www.kaggle.com/kaushalvivek/hindimediatweets"}
+    ],
+    "oss": [
+        {"text": "A highly scalable micro-service for notifications, using SQS, Node and Docker", "link":"https://github.com/kaushalvivek/notification-microservice"},
+        {"text": "A web-app to manage security escorts on trains, (used by the Indian Railways in 2020)", "link":"https://github.com/kaushalvivek/train-escort-app"},
+        {"text": "A web-app based system to manage home quarantines", "link":"https://github.com/kaushalvivek/home-quarantine-management"},
+        {"text": "Pomodoro Lite : A light-weight, browser-based Pomodoro Timer", "link":"https://github.com/kaushalvivek/pomodoro-lite"},
+        {"text": "A web-app in flutter to track expenses", "link":"https://github.com/kaushalvivek/expenses-tracker-app"},
+        {"text": "Automated backup to Google Drive", "link":"https://github.com/kaushalvivek/cronjob-autobackup-gdrive"}
+    ]
+}
