@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
     render() {
+        const noDecor = {color : "inherit"};
         return (
             <Navbar bg="white" expand="lg" sticky="top">
                 <Container >
@@ -11,12 +12,12 @@ class Header extends React.Component {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="/blog" target="_blank" rel="noreferrer"> Blog </Nav.Link>
-                            <Nav.Link href="/projects" target="_blank" rel="noreferrer"> Projects </Nav.Link>
-                            <Nav.Link href="/research" target="_blank" rel="noreferrer"> Research </Nav.Link>
-                            <Nav.Link> <Link to='/bucketlist'> Bucket-List</Link> </Nav.Link>
+                            <Nav.Link href="/blog" target="_blank"  rel="noreferrer"> Blog </Nav.Link>
+                            <Nav.Link href="/projects" target="_blank"  rel="noreferrer"> Projects </Nav.Link>
+                            <Nav.Link href="/research" target="_blank"  rel="noreferrer"> Research </Nav.Link>
+                            <Nav.Link> <Link to='/bucketlist' style={noDecor}> Bucket-List</Link> </Nav.Link>
                             {/* <Nav.Link href="/r esources"> Resources </Nav.Link> */}
-                            <Nav.Link href="/resume" target="_blank" rel="noreferrer"> Resume </Nav.Link>
+                            <Nav.Link href="/resume" target="_blank"  rel="noreferrer"> Resume </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
