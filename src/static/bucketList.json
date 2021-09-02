@@ -73,8 +73,8 @@
             "done": true
         },
         {
-            "body": "Live in another country for a while",
-            "done": true
+            "body": "Live in another country for a year",
+            "done": false
         },
         {
             "body": "Sleep under a starlit sky",
@@ -153,7 +153,7 @@
             "done": false
         },
         {
-            "body": "Bench 250 pounds [132]",
+            "body": "Bench 250 pounds [145]",
             "done": false
         },
         {
@@ -217,5 +217,5 @@
             "done": false
         }
     ],
-    "lastUpdated":"28th Aug, 2021"
+    "lastUpdated":"2nd Sept, 2021"
 }
