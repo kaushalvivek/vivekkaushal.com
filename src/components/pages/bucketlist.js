@@ -14,7 +14,7 @@ class BucketList extends React.Component {
         })
         return (
             <Container>
-                <h1>Bucket List</h1>
+                {/* <h1>Bucket List</h1> */}
                 <Row md={8} xs={12} style={pad}>
                     <Col>
                         I was inspired by Chip Hyuen's <a href="https://huyenchip.com/list-100/" target="_blank" rel="noreferrer"> List 100</a> to create and maintain this list.
