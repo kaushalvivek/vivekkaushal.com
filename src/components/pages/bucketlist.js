@@ -5,7 +5,7 @@ import list from '../../static/bucketList.json'
 class BucketList extends React.Component {
 
     render() {
-        const pad = { padding: 15 };
+        const pad = { padding: 15, fontSize: 20 };
         let total = 0, done = 0;
         list["items"].forEach((item) =>{ 
             if (item.done)
@@ -24,7 +24,7 @@ class BucketList extends React.Component {
                         Current status : {done} / {total}
                     </Col>
                 </Row>
-                <Row>
+                <Row style={pad}>
                     <Col>
                         <ol>
                             {list["items"].map((item) => {

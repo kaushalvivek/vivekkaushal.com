@@ -17,8 +17,8 @@ class App extends React.Component {
     return (
       <div className="App">
         <Router>
-          <Header />
-          <Body page={this.state.page} />
+          <Header page={this.state.page} />
+          <Body />
         </Router>
         <Footer/>
       </div>
