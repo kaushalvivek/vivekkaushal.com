@@ -45,11 +45,11 @@
             "done": false
         },
         {
-            "body": "Run a (half) marathon",
+            "body": "Run a (half?) marathon",
             "done": false
         },
         {
-            "body": "Experience life in London",
+            "body": "Watch a football match in a British pub",
             "done": true
         },
         {
@@ -161,7 +161,7 @@
             "done": false
         },
         {
-            "body": "See the Amazon Rain forest",
+            "body": "See the Amazon rain-forest",
             "done": false
         },
         {
@@ -215,7 +215,11 @@
         {
             "body": "Be on a ship in the middle of an ocean",
             "done": false
+        },
+        {
+            "body": "See (participate in?) a Brazilian carnival",
+            "done": false
         }
     ],
-    "lastUpdated":"2nd Sept, 2021"
+    "lastUpdated":"25th Sept, 2021"
 }
