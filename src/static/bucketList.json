@@ -153,7 +153,7 @@
             "done": false
         },
         {
-            "body": "Bench 250 pounds [145]",
+            "body": "Bench 250 pounds [155]",
             "done": false
         },
         {
@@ -219,7 +219,11 @@
         {
             "body": "See (participate in?) a Brazilian carnival",
             "done": false
+        },
+        {
+            "body": "Witness a snowfall",
+            "done": false
         }
     ],
-    "lastUpdated":"25th Sept, 2021"
+    "lastUpdated":"26th Sept, 2021"
 }
