@@ -27,7 +27,7 @@ class Home extends React.Component {
                         </p>
                     </Col>
                     <Col md={4} xs={0} style={imageStyle} >
-                        <Image height="40%" src={avatar} roundedCircle />
+                        <Image height="40%" src={avatar} alt="Vivek Kaushal Image" roundedCircle />
                     </Col>
                 </Row>
             </Container>
