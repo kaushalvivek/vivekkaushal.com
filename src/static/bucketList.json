@@ -223,7 +223,11 @@
         {
             "body": "Witness a snowfall",
             "done": false
+        },
+        {
+            "body": "Sleep in an Igloo",
+            "done": false
         }
     ],
-    "lastUpdated":"26th Sept, 2021"
+    "lastUpdated":"12th October, 2021"
 }
