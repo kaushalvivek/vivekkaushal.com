@@ -4,7 +4,7 @@ import nonFiction from '../../static/nonFiction.json'
 
 class Recommendations extends React.Component {
     render() {
-        const pad = { padding: 15, };
+        const pad = { padding: 15, fontSize:20};
         return (
             <Container>
 
@@ -50,17 +50,17 @@ class Recommendations extends React.Component {
                     <Col md={3} xs={12} style={pad}>
                         <h3>Food</h3>
                         <ListGroup variant="flush">
-                            <ListGroup.Item><a href="https://www.zomato.com/hyderabad/bawarchi-rtc-x-roads" target="_blank">
+                            <ListGroup.Item><a href="https://www.zomato.com/hyderabad/bawarchi-rtc-x-roads" target="_blank" rel="noreferrer">
                                 Authentic Hyderabadi Biryani </a></ListGroup.Item>
-                            <ListGroup.Item><a href="https://www.facebook.com/enjoyshabushabu/" target="_blank">
+                            <ListGroup.Item><a href="https://www.facebook.com/enjoyshabushabu/" target="_blank" rel="noreferrer">
                                 Chinese Hot Pot</a></ListGroup.Item>
-                            <ListGroup.Item><a href="https://www.zomato.com/ncr/saravana-bhavan-connaught-place-new-delhi" target="_blank">
+                            <ListGroup.Item><a href="https://www.zomato.com/ncr/saravana-bhavan-connaught-place-new-delhi" target="_blank" rel="noreferrer">
                                 Ghee Paper Roast Masala Dosa</a></ListGroup.Item>
-                            <ListGroup.Item><a href="https://motimahal.in/" target="_blank">
+                            <ListGroup.Item><a href="https://motimahal.in/" target="_blank" rel="noreferrer">
                                 Butter Chicken and Garlic Naan</a></ListGroup.Item>
-                            <ListGroup.Item><a href="https://www.zomato.com/goa/burger-factory-anjuna" target="_blank">
+                            <ListGroup.Item><a href="https://www.zomato.com/goa/burger-factory-anjuna" target="_blank" rel="noreferrer">
                                 Blue Cheese, Bacon and Avocado Burger</a></ListGroup.Item>
-                            <ListGroup.Item><a href="https://www.zomato.com/ncr/the-big-chill-cafe-connaught-place-new-delhi" target="_blank">
+                            <ListGroup.Item><a href="https://www.zomato.com/ncr/the-big-chill-cafe-connaught-place-new-delhi" target="_blank" rel="noreferrer">
                                 New York Cheesecake</a></ListGroup.Item>
                         </ListGroup>
                     </Col>
@@ -91,15 +91,15 @@ class Recommendations extends React.Component {
                     <Col md={3} xs={12} style={pad}>
                         <h3>Blog Posts</h3>
                         <ListGroup variant="flush">
-                            <ListGroup.Item><a href="https://dilbertblog.typepad.com/the_dilbert_blog/2007/07/career-advice.html" target="_blank">
+                            <ListGroup.Item><a href="https://dilbertblog.typepad.com/the_dilbert_blog/2007/07/career-advice.html" target="_blank" rel="noreferrer">
                                 Career Advice</a></ListGroup.Item>
-                            <ListGroup.Item><a href="https://typesense.org/blog/the-unreasonable-effectiveness-of-just-showing-up-everyday/" target="_blank">
+                            <ListGroup.Item><a href="https://typesense.org/blog/the-unreasonable-effectiveness-of-just-showing-up-everyday/" target="_blank" rel="noreferrer">
                                 The Unreasonable Effectiveness of Just Showing Up Everyday</a></ListGroup.Item>
-                            <ListGroup.Item><a href="https://www.reddit.com/r/ExperiencedDevs/comments/nmodyl/drunk_post_things_ive_learned_as_a_sr_engineer/?utm_source=amp&utm_medium=&utm_content=post_body" target="_blank">
+                            <ListGroup.Item><a href="https://www.reddit.com/r/ExperiencedDevs/comments/nmodyl/drunk_post_things_ive_learned_as_a_sr_engineer/?utm_source=amp&utm_medium=&utm_content=post_body" target="_blank" rel="noreferrer">
                                 Drunk Post : Things I've Learnt as a Sr Engineer</a></ListGroup.Item>
-                            <ListGroup.Item><a href="http://paulgraham.com/think.html" target="_blank">
+                            <ListGroup.Item><a href="http://paulgraham.com/think.html" target="_blank" rel="noreferrer">
                                 How to Think for Yourself</a></ListGroup.Item>
-                            <ListGroup.Item><a href="https://waitbutwhy.com/2014/05/fermi-paradox.html" target="_blank">
+                            <ListGroup.Item><a href="https://waitbutwhy.com/2014/05/fermi-paradox.html" target="_blank" rel="noreferrer">
                                 The Fermi Paradox</a></ListGroup.Item>
                         </ListGroup>
                     </Col>

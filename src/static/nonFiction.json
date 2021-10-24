@@ -33,34 +33,22 @@
             "author": "Matt Ridley"
         },
         {
-            "book": "Homos Deus",
-            "author": "Yuval Noah Harari"
-        },
-        {
             "book": "India After Gandhi",
             "author": "Ramchandra Guha"
         },
         {
             "book": "Guns, Germs and Steel",
             "author": "Jared Diamond"
-        },
-        {
-            "book": "The Motorcycle Diaries",
-            "author": "Ernesto 'Che' Guvera"
         }
     ],
     "col2": [
         {
             "book": "Willpower",
-            "author": "John Tierney and Roy Baumeister"
+            "author": "J. Tierney and R. Baumeister"
         },
         {
             "book": "The Power of Habit",
             "author": "Charles Duhigg"
-        },
-        {
-            "book": "Chaos Monkeys",
-            "author": "Antonio García Martínez"
         },
         {
             "book": "The Psychology of Money",
@@ -89,10 +77,6 @@
         {
             "book": "Zero to One",
             "author": "Peter Thiel"
-        },
-        {
-            "book": "Atomic Habits",
-            "author": "James Clear"
         },
         {
             "book": "The Daily Stoic",
