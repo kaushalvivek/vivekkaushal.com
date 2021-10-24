@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Home from './pages/home';
 import BucketList from './pages/bucketlist';
 import Research from './pages/research';
+import Recommendations from './pages/recommendations';
 // import Projects from './pages/projects';
 // import Resources from './pages/resources';
 
@@ -12,6 +13,7 @@ class Body extends React.Component {
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route path="/research" component={Research} />
+                <Route path="/recommendations" component={Recommendations} />
                 {/* <Route path="/projects" component={Projects} /> */}
                 <Route path="/bucketlist" component={BucketList} />
                 {/* <Route path="/resources" component={Resources} /> */}

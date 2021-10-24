@@ -1,0 +1,102 @@
+{
+    "col1": [
+        {
+            "book": "Factfulness",
+            "author": "Hans Gosling"
+        },
+        {
+            "book": "Steve Jobs",
+            "author": "Walter Isaacson"
+        },
+        {
+            "book": "Sapiens",
+            "author": "Yuval Noah Harari"
+        },
+        {
+            "book": "Thinking Fast and Slow",
+            "author": "Daniel Kahneman"
+        },
+        {
+            "book": "Shoe Dog",
+            "author": "Phil Knight"
+        },
+        {
+            "book": "Flow",
+            "author": "Mihaly Csikszentmihalyi"
+        },
+        {
+            "book": "Man's Search for Meaning",
+            "author": "Victor E. Frankl"
+        },
+        {
+            "book": "The Rational Optimist",
+            "author": "Matt Ridley"
+        },
+        {
+            "book": "Homos Deus",
+            "author": "Yuval Noah Harari"
+        },
+        {
+            "book": "India After Gandhi",
+            "author": "Ramchandra Guha"
+        },
+        {
+            "book": "Guns, Germs and Steel",
+            "author": "Jared Diamond"
+        },
+        {
+            "book": "The Motorcycle Diaries",
+            "author": "Ernesto 'Che' Guvera"
+        }
+    ],
+    "col2": [
+        {
+            "book": "Willpower",
+            "author": "John Tierney and Roy Baumeister"
+        },
+        {
+            "book": "The Power of Habit",
+            "author": "Charles Duhigg"
+        },
+        {
+            "book": "Chaos Monkeys",
+            "author": "Antonio García Martínez"
+        },
+        {
+            "book": "The Psychology of Money",
+            "author": "Morgan Housel"
+        },
+        {
+            "book": "The Coding Career Handbook",
+            "author": "Shawn Swyx Wang"
+        },
+        {
+            "book": "How to Change Your Mind",
+            "author": "Michael Pollan"
+        },
+        {
+            "book": "The Mom Test",
+            "author": "Rob Fitzpatrick"
+        },
+        {
+            "book": "The Startup of You",
+            "author": "Reid Hoffman"
+        },
+        {
+            "book": "Lean Startup",
+            "author": "Eric Ries"
+        },
+        {
+            "book": "Zero to One",
+            "author": "Peter Thiel"
+        },
+        {
+            "book": "Atomic Habits",
+            "author": "James Clear"
+        },
+        {
+            "book": "The Daily Stoic",
+            "author": "Ryan Holiday"
+        }
+    ]
+}
