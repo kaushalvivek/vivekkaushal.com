@@ -27,7 +27,7 @@ class Recommendations extends React.Component {
                                     <ListGroup variant="flush">
                                         {nonFiction["col1"].map((item) => {
                                             return <ListGroup.Item>
-                                                <li>{item.book} - {item.author}</li>
+                                                <li>{item.book}, {item.author}</li>
                                             </ListGroup.Item>
                                         })}
                                     </ListGroup>
@@ -36,7 +36,7 @@ class Recommendations extends React.Component {
                                     <ListGroup variant="flush">
                                         {nonFiction["col2"].map((item) => {
                                             return <ListGroup.Item>
-                                                <li>{item.book} - {item.author}</li>
+                                                <li>{item.book}, {item.author}</li>
                                             </ListGroup.Item>
                                         })}
                                     </ListGroup>
