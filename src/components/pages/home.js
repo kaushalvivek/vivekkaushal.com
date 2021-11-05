@@ -14,7 +14,7 @@ class Home extends React.Component {
                     <Col md={8} xs={12} style={textStyle}>
                         <p>
                             Hi! 👋 <br /><br />
-                            I am Vivek Kaushal, and currently, I am helping build <a href="https://www.enterpret.com/" target="_blank" rel="noreferrer">Enterpret</a>.
+                            I am Vivek Kaushal, and currently, I am building <a href="https://www.enterpret.com/" target="_blank" rel="noreferrer">Enterpret</a>.
                             <br /><br />
                             I graduated out of IIIT Hyderabad, India with a B.Tech and an MS in Computer Science and Engineering in 2021. My <a href="/research">research</a> focused on Human Computer Interaction at the Cognitive Sciences Lab. Additionally, I have been a visiting research student studying Economics at the National Taiwan University, Taipei in 2019.
                             <br /><br />
