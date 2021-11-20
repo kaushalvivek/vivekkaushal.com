@@ -16,7 +16,7 @@ class Research extends React.Component {
                         <p>
                             Having forayed into research at the Cognitive Sciences Lab, IIIT Hyderabad under Dr Kavita Vemuri,
                             I have worked at the intersection of human computer interaction, neuroscience and economics over the last few years.
-                            My MS thesis explores the proliferation of <a href="https://en.wikipedia.org/wiki/Clickbait"><em> clickbait </em></a>
+                            My <a href="https://web2py.iiit.ac.in/research_centres/publications/view_publication/mastersthesis/1026" target="_blank" rel="noreferrer">MS thesis</a> explores the proliferation of <a href="https://en.wikipedia.org/wiki/Clickbait"><em> clickbait </em></a>
                             in news media and evaluates its impact on -- the credibility of news, and the distribution of readers' visual attention.
                         </p>
 
@@ -34,6 +34,8 @@ class Research extends React.Component {
                     <Col md={4} xs={12} style={pad}>
                         <h3>Papers</h3>
                         <ListGroup variant="flush">
+                        <ListGroup.Item><a href="https://web2py.iiit.ac.in/research_centres/publications/view_publication/mastersthesis/1026" target="_blank" rel="noreferrer">
+                                Clickbait - Credibility, Visual Attention, Propensity and Proliferation, MS Thesis - IIIT-Hyderabad Publications, 2021</a></ListGroup.Item>
                             <ListGroup.Item><a href="https://ieeexplore.ieee.org/abstract/document/9405359" target="_blank" rel="noreferrer">
                                 Clickbait-Trust and Credibility of Digital News, IEEE Transactions on Technology and Society, 2021</a></ListGroup.Item>
                             <ListGroup.Item><a href="https://aclanthology.org/2020.icon-main.11.pdf" target="_blank" rel="noreferrer">
