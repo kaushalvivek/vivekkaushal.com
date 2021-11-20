@@ -1,9 +1,10 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Home from './pages/home';
 import BucketList from './pages/bucketlist';
 import Research from './pages/research';
 import Recommendations from './pages/recommendations';
+import My404 from './pages/my404'
 // import Projects from './pages/projects';
 // import Resources from './pages/resources';
 
@@ -33,6 +34,8 @@ class Body extends React.Component {
                     window.location.href = 'https://calendly.com/kaushalvivek';
                     return null;
                 }} />
+                <Route path='/404' component={My404} />
+                <Redirect from='*' to='/404' />
             </Switch>
         );
     }
