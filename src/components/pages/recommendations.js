@@ -54,8 +54,8 @@ class Recommendations extends React.Component {
                                 Authentic Hyderabadi Biryani </a></ListGroup.Item>
                             <ListGroup.Item><a href="https://www.facebook.com/enjoyshabushabu/" target="_blank" rel="noreferrer">
                                 Chinese Hot Pot</a></ListGroup.Item>
-                            <ListGroup.Item><a href="https://www.zomato.com/ncr/saravana-bhavan-connaught-place-new-delhi" target="_blank" rel="noreferrer">
-                                Ghee Paper Roast Masala Dosa</a></ListGroup.Item>
+                            <ListGroup.Item><a href="https://www.zomato.com/bangalore/a2b-adyar-ananda-bhavan-marathahalli-bangalore" target="_blank" rel="noreferrer">
+                                Ghee Roast Dosa</a></ListGroup.Item>
                             <ListGroup.Item><a href="https://motimahal.in/" target="_blank" rel="noreferrer">
                                 Butter Chicken and Garlic Naan</a></ListGroup.Item>
                             <ListGroup.Item><a href="https://www.zomato.com/goa/burger-factory-anjuna" target="_blank" rel="noreferrer">

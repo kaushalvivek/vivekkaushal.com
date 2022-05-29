@@ -16,8 +16,8 @@ class Home extends React.Component {
                             Hi! 👋 <br /><br />
                             I am Vivek Kaushal, and currently, I am working on building <a href="https://www.enterpret.com/" target="_blank" rel="noreferrer">Enterpret</a>.
                             <br /><br />
-                            I graduated out of IIIT Hyderabad, India with a B.Tech and an MS in Computer Science and Engineering in 2021. My <a href="/research">research</a> focused on Human Computer Interaction at the Cognitive Sciences Lab. 
-                            Additionally, I have been a visiting research student studying Economics at the National Taiwan University, Taipei in 2019.
+                            I graduated out of IIIT Hyderabad, India with a B.Tech and an MS in Computer Science and Engineering in 2021. My <a href="/research">research</a> focused on HCI at the Cognitive Sciences Lab. 
+                            I have been a visiting research student of Economics at the National Taiwan University, Taipei, and a Senior Engineer at Samsung Research, Bangalore.
                             <br /><br />
                             I enjoy creating minimalist solutions that leverage technology to make lives easier.
                             You can checkout my <a href="/projects">projects</a> and <a href="https://vivek-kaushal.com" target="_blank"  rel="noreferrer">blog</a> to know more about my work, experiences and learnings.
