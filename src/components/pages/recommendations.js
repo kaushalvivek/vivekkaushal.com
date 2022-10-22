@@ -65,27 +65,24 @@ class Recommendations extends React.Component {
                         </ListGroup>
                     </Col>
                     <Col md={3} xs={12} style={pad}>
-                        <h3>Movies</h3>
+                        <h3>Movies and Shows</h3>
                         <ListGroup variant="flush">
-                            <ListGroup.Item>Spotlight</ListGroup.Item>
+                            <ListGroup.Item>BoJack Horseman</ListGroup.Item>
                             <ListGroup.Item>Almost Famous</ListGroup.Item>
                             <ListGroup.Item>Before Sunrise</ListGroup.Item>
-                            <ListGroup.Item>Fight Club</ListGroup.Item>
+                            <ListGroup.Item>Breaking Bad</ListGroup.Item>
                             <ListGroup.Item>Schindler's List</ListGroup.Item>
                             <ListGroup.Item>Your Name</ListGroup.Item>
-                            <ListGroup.Item>Joker</ListGroup.Item>
+                            <ListGroup.Item>Rick & Morty</ListGroup.Item>
                         </ListGroup>
                     </Col>
                     <Col md={3} xs={12} style={pad}>
-                        <h3>TV Shows</h3>
+                        <h3>Podcasts</h3>
                         <ListGroup variant="flush">
-                            <ListGroup.Item>BoJack Horseman</ListGroup.Item>
-                            <ListGroup.Item>Narcos</ListGroup.Item>
-                            <ListGroup.Item>Breaking Bad</ListGroup.Item>
-                            <ListGroup.Item>Rick & Morty</ListGroup.Item>
-                            <ListGroup.Item>Avatar: The Last Airbender</ListGroup.Item>
-                            <ListGroup.Item>Death Note</ListGroup.Item>
-                            <ListGroup.Item>Pitchers</ListGroup.Item>
+                            <ListGroup.Item><a href="https://lexfridman.com/podcast/">Lex Fridman Podcast</a></ListGroup.Item>
+                            <ListGroup.Item><a href="https://open.spotify.com/show/2dR1MUZEHCOnz1LVfNac0j?si=7d7f1e207fa74063">Lenny's Podcast</a></ListGroup.Item>
+                            <ListGroup.Item><a href="https://open.spotify.com/show/1VyK52NSZHaDKeMJzT4TSM?si=15912f00fb874019">The Knowledge Project</a></ListGroup.Item>
+                            <ListGroup.Item><a href="https://open.spotify.com/show/02fM1JHpt9HmHGp482K71b?si=d27fba75fbf14a09">Developer Tea</a></ListGroup.Item>
                         </ListGroup>
                     </Col>
                     <Col md={3} xs={12} style={pad}>
@@ -99,6 +96,8 @@ class Recommendations extends React.Component {
                                 Drunk Post : Things I've Learnt as a Sr Engineer</a></ListGroup.Item>
                             <ListGroup.Item><a href="http://paulgraham.com/think.html" target="_blank" rel="noreferrer">
                                 How to Think for Yourself</a></ListGroup.Item>
+                            <ListGroup.Item><a href="https://blog.samaltman.com/how-to-be-successful" target="_blank" rel="noreferrer">
+                                How to Be Successful</a></ListGroup.Item>
                             <ListGroup.Item><a href="https://waitbutwhy.com/2014/05/fermi-paradox.html" target="_blank" rel="noreferrer">
                                 The Fermi Paradox</a></ListGroup.Item>
                         </ListGroup>
