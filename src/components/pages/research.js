@@ -34,6 +34,8 @@ class Research extends React.Component {
                     <Col md={4} xs={12} style={pad}>
                         <h3>Papers</h3>
                         <ListGroup variant="flush">
+                        <ListGroup.Item><a href="https://escholarship.org/uc/item/8w80h7jp" target="_blank" rel="noreferrer">
+                                Clickbait's Impact on Visual Attention - An Eye Tracker Study, CogSci-2022</a></ListGroup.Item>
                         <ListGroup.Item><a href="https://web2py.iiit.ac.in/research_centres/publications/view_publication/mastersthesis/1026" target="_blank" rel="noreferrer">
                                 Clickbait - Credibility, Visual Attention, Propensity and Proliferation, MS Thesis - IIIT-Hyderabad Publications, 2021</a></ListGroup.Item>
                             <ListGroup.Item><a href="https://ieeexplore.ieee.org/abstract/document/9405359" target="_blank" rel="noreferrer">
@@ -51,6 +53,7 @@ class Research extends React.Component {
                     <Col md={8} xs={12} style={pad}>
                         <h3>Conferences</h3>
                         <ol>
+                            <li>Annual Conference of the Cognitive Sciences Society, 2022 (CogSci 2022) - Full Paper</li>
                             <li>International Conference on Natural Language Processing (ICON'20), IIT Patna, 2020 - Paper</li>
                             <li>IEEE International Symposium on Technology and Society (IEEE ISTAS'20), 2020 - Extended Abstract</li>
                             <li>6th Annual Conference of the Association for Cognitive Sciences in India, 2019 - Poster</li>
