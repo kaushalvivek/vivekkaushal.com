@@ -53,7 +53,7 @@ class Research extends React.Component {
                     <Col md={8} xs={12} style={pad}>
                         <h3>Conferences</h3>
                         <ol>
-                            <li>Annual Conference of the Cognitive Sciences Society, 2022 (CogSci 2022) - Full Paper</li>
+                            <li>Session Chair at the 44th Annual Meeting of the Cognitive Sciences Society, 2022 (CogSci 2022) - Full Paper</li>
                             <li>International Conference on Natural Language Processing (ICON'20), IIT Patna, 2020 - Paper</li>
                             <li>IEEE International Symposium on Technology and Society (IEEE ISTAS'20), 2020 - Extended Abstract</li>
                             <li>6th Annual Conference of the Association for Cognitive Sciences in India, 2019 - Poster</li>
