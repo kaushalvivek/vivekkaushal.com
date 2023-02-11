@@ -17,12 +17,12 @@ class Home extends React.Component {
                             I am Vivek Kaushal, and currently, I am working on building <a href="https://www.enterpret.com/" target="_blank" rel="noreferrer">Enterpret</a>.
                             <br /><br />
                             I graduated out of IIIT Hyderabad, India with a B.Tech and an MS in Computer Science and Engineering in 2021. My <a href="/research">research</a> focused on HCI at the Cognitive Sciences Lab. 
-                            I have been a visiting research student of Economics at the National Taiwan University, Taipei, and a Senior Engineer at Samsung Research, Bangalore.
+                            I have been a visiting research student of Behavioral Economics at the National Taiwan University, Taipei, and a Senior Engineer at Samsung Research, Bangalore.
                             <br /><br />
-                            I enjoy creating minimalist solutions that leverage technology to make lives easier.
+                            I work on the intersection of technology and human behavior to create products that are intuitive, powerful, and delightful.
                             You can checkout my <a href="/projects">projects</a> and <a href="https://vivek-kaushal.com" target="_blank"  rel="noreferrer">blog</a> to know more about my work, experiences and learnings.
                             <br /><br />
-                            I enjoy reading non-fiction, listening to old rock and working out. I frequently travel solo to off-beat destinations. I like changes.
+                            I enjoy reading non-fiction, listening to rock music and working out. I frequently travel solo to off-beat destinations. I like changes.
                             <br /><br />
                             Follow me on <a href="https://twitter.com/vi_kaushal" target="_blank"  rel="noreferrer">Twitter</a> to stay in touch! 🚀
                         </p>
