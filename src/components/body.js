@@ -16,10 +16,14 @@ class Body extends React.Component {
                 <Route path="/research" component={Research} />
                 <Route path="/recommendations" component={Recommendations} />
                 {/* <Route path="/projects" component={Projects} /> */}
-                <Route path="/bucketlist" component={BucketList} />
+                {/* <Route path="/bucketlist" component={BucketList} /> */}
                 {/* <Route path="/resources" component={Resources} /> */}
                 <Route path='/blog' component={() => {
                     window.location.href = 'https://vivek-kaushal.medium.com';
+                    return null;
+                }} />
+                <Route path='/bucketlist' component={() => {
+                    window.location.href = 'https://www.notion.so/kaushalvivek/Bucket-List-e97b0dc43ba14cb29f3e2a48f849a38a';
                     return null;
                 }} />
                 <Route path='/projects' component={() => {
