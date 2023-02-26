@@ -22,7 +22,7 @@ class Home extends React.Component {
                             <br /><br />
                             I enjoy reading non-fiction, listening to rock music and working out. I frequently travel solo to off-beat destinations. I like changes.
                             <br /><br />
-                            Subscribe to <a href="https://vivekkaushal.substack.com" target="_blank" rel="noreferrer">The Iterative Newsletter</a> to stay in touch! ✨<br /><br />
+                            Subscribe to <a href="https://vivekkaushal.substack.com" target="_blank" rel="noreferrer">my newsletter</a> to stay in touch! ✨<br /><br />
                         <Iframe url="https://vivekkaushal.substack.com/embed" width="350" height="80"></Iframe>
                         </p>
                     </Col>
