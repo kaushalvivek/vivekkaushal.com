@@ -15,15 +15,18 @@ class Home extends React.Component {
                     <Col md={8} xs={12} style={textStyle}>
                         <p>
                             Hi! 👋 <br /><br />
-                            I work on the intersection of technology and human behavior to create products that are intuitive, powerful, and delightful. Currently, I am working on building <a href="https://www.enterpret.com/" target="_blank" rel="noreferrer">Enterpret</a>.
+                            I create tools to help people build better products. Currently, I am building <a href="https://www.enterpret.com/" target="_blank" rel="noreferrer">Enterpret</a>.
                             <br /><br />
-                            I graduated from IIIT Hyderabad with a B.Tech and an MS in Computer Science and Engineering in 2021. My <a href="/research">research</a> focused on Human-Computer Interaction at the Cognitive Sciences Lab. 
-                            I was a visiting research student of Behavioral Economics at NTU, Taipei in the summers of 2019 and a Senior Engineer at Samsung Research in 2021.
+                            I graduated from IIIT-H with a B.Tech and an MS in CSE. My <a href="/research">research</a> focused on improving the reliability of online news. 
+                            In other gigs, I've been a behavioral economics researcher at NTU, Taipei, a senior engineer at Samsung Research, engineered systems at a few
+                            early-stage startups, and developed web-apps while freelancing for the Delhi Government, Indian Railways, among others.
                             <br /><br />
-                            I enjoy reading non-fiction, listening to rock music and working out. I frequently travel solo to off-beat destinations. I like changes.
+                            I enjoy non-fiction, rock music and working out. I frequently travel solo to off-beat destinations. I like changes. 
+                            I share my thoughts and ideas on <a href="https://twitter.com/vi_kaushal" target="_blank" rel="noreferrer">Twitter</a>,  
+                            and long form content on <a href="https://vivekkaushal.substack.com" target="_blank" rel="noreferrer">my notes</a>.
                             <br /><br />
-                            Subscribe to <a href="https://vivekkaushal.substack.com" target="_blank" rel="noreferrer">my newsletter</a> to stay in touch! ✨<br /><br />
-                        <Iframe url="https://vivekkaushal.substack.com/embed" width="350" height="80"></Iframe>
+                            Subscribe to stay in touch! ✨<br /><br />
+                        <Iframe url="https://vivekkaushal.substack.com/embed" width="350" height="70"></Iframe>
                         </p>
                     </Col>
                     <Col md={4} xs={0} style={imageStyle} >

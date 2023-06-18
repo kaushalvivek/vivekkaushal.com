@@ -13,7 +13,7 @@ class Header extends React.Component {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="https://vivekkaushal.substack.com" target="_blank"  rel="noreferrer"> Blog </Nav.Link>
+                            <Nav.Link href="https://vivekkaushal.substack.com" target="_blank"  rel="noreferrer"> Notes </Nav.Link>
                             <Nav.Link href="https://kaushalvivek.notion.site/Projects-861c71d3a36044758f09c45b3e66b43a" target="_blank"  rel="noreferrer"> Projects </Nav.Link>
                             {/* conditionally highlight page which is selected */}
                             <Nav.Link> <Link to='/research' style={noDecor}> Research</Link> </Nav.Link>
