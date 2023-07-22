@@ -3,7 +3,7 @@ import { Container, Col, Row, ListGroup } from 'react-bootstrap';
 
 class Research extends React.Component {
     render() {
-        const pad = { padding: 15, fontSize: 20 };
+        const pad = { padding: 15, fontSize: 18 };
         return (
             <Container>
                 <Row>

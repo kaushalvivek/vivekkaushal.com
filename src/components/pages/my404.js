@@ -9,8 +9,8 @@ class My404 extends React.Component {
                 <h1>Not quite what you were looking for ... 🤔</h1>
                 <Row style={pad}>
                     <p>
-                    It is likely that you were looking for my blog. I have shifted it to Medium. 
-                    <br/> You can find it at <a href="https://vivek-kaushal.medium.com">vivekkaushal.com/blog</a>
+                    It is likely that you were looking for my blog. It's now on Substack. 
+                    <br/> You can find it at <a href="https://notes.vivekkaushal.com">notes.vivekkaushal.com</a>
                     </p>
                 </Row>
                 <Row>

@@ -19,7 +19,7 @@ class BucketList extends React.Component {
 
     render() {
         const data = this.state.data;
-        const pad = { padding: 15, fontSize: 20 };
+        const pad = { padding: 15, fontSize: 18 };
         return (
             <Container>
                 {/* <h1>Bucket List</h1> */}

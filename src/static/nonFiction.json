@@ -43,20 +43,20 @@
     ],
     "col2": [
         {
-            "book": "Willpower",
-            "author": "J. Tierney and R. Baumeister"
+            "book": "Good Strategy/ Bad Strategy ",
+            "author": "Richard Rumelt"
         },
         {
-            "book": "The Power of Habit",
-            "author": "Charles Duhigg"
+            "book": "Inspired",
+            "author": "Marty Cagan"
         },
         {
             "book": "The Psychology of Money",
             "author": "Morgan Housel"
         },
         {
-            "book": "The Coding Career Handbook",
-            "author": "Shawn Swyx Wang"
+            "book": "Loonshots",
+            "author": "Safi Bahchall"
         },
         {
             "book": "How to Change Your Mind",
@@ -67,8 +67,8 @@
             "author": "Rob Fitzpatrick"
         },
         {
-            "book": "The Startup of You",
-            "author": "Reid Hoffman"
+            "book": "Tuesdays with Morrie",
+            "author": "Mitch Albom"
         },
         {
             "book": "No Rules Rules",
@@ -79,8 +79,8 @@
             "author": "Peter Thiel"
         },
         {
-            "book": "The Daily Stoic",
-            "author": "Ryan Holiday"
+            "book": "Subtract",
+            "author": "Liedy Klotz"
         }
     ]
 }

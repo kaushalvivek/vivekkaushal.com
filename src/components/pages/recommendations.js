@@ -4,7 +4,7 @@ import nonFiction from '../../static/nonFiction.json'
 
 class Recommendations extends React.Component {
     render() {
-        const pad = { padding: 15, fontSize:20};
+        const pad = { padding: 15, fontSize:18};
         return (
             <Container>
 
