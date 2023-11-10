@@ -9,11 +9,11 @@ class Footer extends React.Component {
         return (
             <Container style={position}>
                 <Row>
-                    <p>Feel free to reach out for a chat! ☕</p>
+                    <p>Find me on:</p>
                 </Row>
                 <Row>
                     <Col md={6} xs={12}>
-                        <FaEnvelope /> <a href="https://vivekkaushal.substack.com" target="_blank" rel="noreferrer">Vivek's Notes</a> <br/>
+                        <FaEnvelope /> <a href="https://vivekkaushal.substack.com" target="_blank" rel="noreferrer">Empathetic Hacking</a> <br/>
                         <FaGithub /> <a href="https://github.com/kaushalvivek" target="_blank" rel="noreferrer"> kaushalvivek</a> <br />
                     </Col>
                     <Col md={6} xs={12}>

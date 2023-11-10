@@ -15,17 +15,13 @@ class Home extends React.Component {
                     <Col md={8} xs={12} style={textStyle}>
                         <p>
                             Hello! 👋 <br /><br />
-                            I build software products. Currently, I'm helping product teams understand customer feedback at <a href="https://www.enterpret.com/" target="_blank" rel="noreferrer">Enterpret</a>.
+                            I am a <a href="https://en.wikipedia.org/wiki/Hacker" target="_black">hacker</a>. I am deeply curious about technology, and human behaviour. Which is probably why I graduated out of IIIT-H as a software engineer with a masters in cognitive neuroscience.
                             <br /><br />
-                            I am optimistic about technology's potential to exponentially boost human productivity, and I am fascinated by the biases of human behavior. 
+                            I've been a behavioral economics researcher at NTU, Taipei, a senior engineer at Samsung Research, engineered backend systems for a few early stage startups, and developed widely-used web-apps for the Delhi Government and Indian Railways.
                             <br /><br />
-                            I graduated from IIIT-H with a B.Tech and an MS in Computer Science and Engineering, with a specialization in Cognitive Neuroscience.
-                            
-                            In other gigs, I've been a behavioral economics researcher at NTU, Taipei, a senior engineer at Samsung Research, engineered backend systems for a few
-                            early-stage startups, and developed widely-used web-apps to help the community for the Delhi Government, Indian Railways, among others.
+                            I started my <i>career</i> as a backend engineer, but the latter of my curiosities drove me towards empathizing with users, and I work as a Product Manager today at <a href="https://enterpret.com" target="_black">Enterpret</a>, building a state-of-art AI tool that helps the best product teams on the planet learn from their customers' feedback.
                             <br /><br />
-                            I enjoy non-fiction, rock music and working out. I share my thoughts and ideas on <a href="https://twitter.com/vi_kaushal" target="_blank" rel="noreferrer">Twitter</a>,  
-                            and long form content on my newsletter <a href="https://vivekkaushal.substack.com" target="_blank" rel="noreferrer">The Indie Product</a>.
+                            I like brewing coffee, listening to indie rock music, reading good books and working out. I challenge myself to go on adventures from time to time. I share what I learn on <a href="https://twitter.com/vi_kaushal" target="_blank" rel="noreferrer">X</a>, and on my blog <a href="https://vivekkaushal.substack.com" target="_blank" rel="noreferrer">Empathetic Hacking</a>.
                             <br /><br />
                             Subscribe to stay in touch! ✨<br /><br />
                         <Iframe url="https://vivekkaushal.substack.com/embed" width="350" height="70"></Iframe>
