@@ -1,0 +1,28 @@
+.footer-container {
+    text-align: center;
+    color: #989898; /* Neutral grey for text */
+    padding: 20px 0;
+    background-color: #ffffff; /* Light background color */
+}
+
+.social-row {
+    margin-top: 10px;
+}
+
+.social-column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icon {
+    margin-right: 8px;
+}
+
+a {
+    color: #007bff; /* Consistent link color */
+}
+
+a:hover {
+    color: #0056b3; /* Darker blue on hover */
+}

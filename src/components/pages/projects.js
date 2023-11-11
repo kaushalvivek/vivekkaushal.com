@@ -1,31 +1,37 @@
 import React from 'react';
-import { Card, Row, Col, Container } from 'react-bootstrap';
+import { Card, Row, Col, Container, ButtonGroup, Button } from 'react-bootstrap';
+import projects from '../../static/projects.json'
 
 class Projects extends React.Component {
     render() {
         return (
-            <Container>
-                <h1>Projects</h1>
-                <Row>
-                    <Col>
-                        <Card
-                            bg='light'
-                            key='0'
-                            text='dark'
-                            style={{ width: '18rem' }}
-                            className="mb-2"
-                        >
-                            <Card.Header>Full-Stack Development</Card.Header>
+            <Container style={{ marginTop: '25px' }}>
+
+                {projects["projects"].map((project) => {
+                    return <Row>
+                        <Card style={{ border: 'none', boxShadow: 'none' }}>
                             <Card.Body>
-                                <Card.Title>Skillbee Backend Architecture </Card.Title>
-                                <Card.Text>
-                                    Some quick example text to build on the card title and make up the bulk
-                                    of the card's content.
+                                <Card.Title style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>{project.name}</Card.Title>
+                                <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: '0.9rem', marginBottom: '10px' }}>{project.date}</Card.Subtitle>
+                                <Card.Text style={{ fontSize: '1rem' }}>
+                                    {project.description}
                                 </Card.Text>
+                                <ButtonGroup size="sm" aria-label="Controls" style={{ marginTop: '10px' }}>
+                                    {project.appLink && (
+                                        <Button variant="light" style={{ margin: '0 5px' }} onClick={() => window.open(project.appLink, "_blank")}>App</Button>
+                                    )}
+                                    {project.codeLink && (
+                                        <Button variant="light" style={{ margin: '0 5px' }} onClick={() => window.open(project.codeLink, "_blank")}>Code</Button>
+                                    )}
+                                    {project.blogLink && (
+                                        <Button variant="light" style={{ margin: '0 5px' }} onClick={() => window.open(project.blogLink, "_blank")}>Read More</Button>
+                                    )}
+                                </ButtonGroup>
                             </Card.Body>
                         </Card>
-                    </Col>
-                </Row>
+                    </Row>
+                })}
+
             </Container>
         );
     }

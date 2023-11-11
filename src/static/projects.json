@@ -1,0 +1,15 @@
+{
+    "projects":[
+        {
+            "name":"[WIP] Hire Stack",
+            "date":"November, 2023",
+            "description":"An AI recruiter that sorts and stack ranks a list of resumes for any job, by evaluating them based on criteria that you control."
+        },
+        {
+            "name":"📜 Archived Projects",
+            "date":"2016-2021",
+            "description":"Old projects that I did years ago. Not maintained.",
+            "blogLink":"https://kaushalvivek.notion.site/Projects-861c71d3a36044758f09c45b3e66b43a"
+        }
+    ]
+}

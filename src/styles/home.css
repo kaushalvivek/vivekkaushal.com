@@ -1,7 +1,45 @@
-.mainText {
-    font-size: xx-large;
-    color: red;
-    margin-left:auto;
-    margin-right: auto;
-    margin-top: auto;
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh; /* Use the full viewport height */
+    padding: 40px 0; /* Add some padding at the top and bottom */
+}
+
+.home-row {
+    flex-grow: 1;
+}
+
+.text-section {
+    font-size: 1rem;
+    color: #333; /* Dark gray for text */
+}
+
+.text-section p {
+    line-height: 1.6;
+}
+
+.text-section a {
+    color: #007bff; /* Link color */
+}
+
+.text-section a:hover {
+    color: #0056b3; /* Link hover color */
+}
+
+.image-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Centering the image */
+}
+
+@media only screen and (max-width: 768px) {
+    .image-section {
+        display: none; /* Hide image on smaller screens */
+    }
+
+    .text-section {
+        text-align: center; /* Center text on smaller screens */
+    }
 }

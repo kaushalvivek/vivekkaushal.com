@@ -5,7 +5,7 @@ import BucketList from './pages/bucketlist';
 import Research from './pages/research';
 import Recommendations from './pages/recommendations';
 import My404 from './pages/my404'
-// import Projects from './pages/projects';
+import Projects from './pages/projects';
 // import Resources from './pages/resources';
 
 class Body extends React.Component {
@@ -15,7 +15,7 @@ class Body extends React.Component {
                 <Route exact path="/" component={Home} />
                 <Route path="/research" component={Research} />
                 <Route path="/recommendations" component={Recommendations} />
-                {/* <Route path="/projects" component={Projects} /> */}
+                <Route path="/projects" component={Projects} />
                 {/* <Route path="/bucketlist" component={BucketList} /> */}
                 {/* <Route path="/resources" component={Resources} /> */}
                 <Route path='/blog' component={() => {

@@ -33,15 +33,23 @@
             "author": "Matt Ridley"
         },
         {
-            "book": "India After Gandhi",
-            "author": "Ramchandra Guha"
+            "book":"Continuous Discovery Habits",
+            "author":"Teresa Torres"
         },
         {
-            "book": "Guns, Germs and Steel",
-            "author": "Jared Diamond"
+            "book":"The Hard Thing About Hard Things",
+            "author":"Ben Horowitz"
+        },
+        {
+            "book": "India After Gandhi",
+            "author": "Ramchandra Guha"
         }
     ],
     "col2": [
+        {
+            "book": "Guns, Germs and Steel",
+            "author": "Jared Diamond"
+        },
         {
             "book": "Good Strategy/ Bad Strategy ",
             "author": "Richard Rumelt"

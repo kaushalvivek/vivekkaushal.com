@@ -1,0 +1,29 @@
+.research-container {
+    padding: 20px;
+}
+
+.summary-section, .papers-section, .conferences-section, .links-section {
+    padding: 15px;
+    font-size: 1rem;
+}
+
+h3 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+p, ol, .list-group {
+    color: #555; /* Slightly lighter text for body */
+}
+
+a {
+    color: #007bff; /* Link color */
+}
+
+a:hover {
+    color: #0056b3; /* Link hover color */
+}
+
+.list-group-item {
+    border: none; /* Remove borders for a cleaner look */
+}

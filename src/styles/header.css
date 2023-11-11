@@ -1,0 +1,18 @@
+.minimalist-navbar {
+    background-color: white; /* Or another neutral color */
+    border-bottom: 1px solid #eaeaea; /* Light border for a subtle separation */
+}
+
+.navbar-brand-minimalist {
+    font-weight: bold;
+    color: black; /* Or a color of your choice */
+}
+
+.nav-link {
+    color: gray; /* Neutral, subdued color for links */
+    margin-right: 15px; /* Adjust as needed */
+}
+
+.nav-link:hover {
+    color: black; /* Slightly darker on hover for interaction feedback */
+}
