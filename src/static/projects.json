@@ -3,7 +3,8 @@
         {
             "name":"[WIP] Hire Stack",
             "date":"November, 2023",
-            "description":"An AI recruiter that sorts and stack ranks a list of resumes for any job, by evaluating them based on criteria that you control."
+            "description":"An AI recruiter that sorts and stack ranks a list of resumes for any job, by evaluating them based on criteria that you control.",
+            "codeLink":"https://github.com/kaushalvivek/hire-stack"
         },
         {
             "name":"📜 Archived Projects",
