@@ -4,13 +4,15 @@
             "name":"[WIP] Hire Stack",
             "date":"November, 2023",
             "description":"An AI recruiter that sorts and stack ranks a list of resumes for any job, by evaluating them based on criteria that you control.",
-            "codeLink":"https://github.com/kaushalvivek/hire-stack"
+            "codeLink":"https://github.com/kaushalvivek/hire-stack",
+            "imageLink":"https://files.oaiusercontent.com/file-3SZlkMcaA0y76IJaX0Erwc7d?se=2023-11-18T05%3A30%3A31Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Deb525d82-e4be-4c89-ace9-10ac0cb22d08.webp&sig=Nr4gaB%2BwIAj6/ZKRUlGQRxb3qGuORKzL5n/8b%2BatpKs%3D"
         },
         {
             "name":"📜 Archived Projects",
             "date":"2016-2021",
             "description":"Old projects that I did years ago. Not maintained.",
-            "blogLink":"https://kaushalvivek.notion.site/Projects-861c71d3a36044758f09c45b3e66b43a"
+            "blogLink":"https://kaushalvivek.notion.site/Projects-861c71d3a36044758f09c45b3e66b43a",
+            "imageLink":"https://files.oaiusercontent.com/file-hbwyVsd8APDBAvK3SNi8r5Lu?se=2023-11-18T05%3A35%3A23Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D37f61a6e-f32b-4beb-9899-02b99f216075.webp&sig=tgu2vMox7rKhEzr/rgycbt0BIzKqErWulhbGy9iPEqg%3D"
         }
     ]
 }
