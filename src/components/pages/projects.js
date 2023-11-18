@@ -8,10 +8,14 @@ class Projects extends React.Component {
             <Container style={{ marginTop: '25px' }}>
 
                 {projects["projects"].map((project) => {
+                    // Dynamically require the image from the local path
+                    const imgSrc = require(`../../static/projects/${project.image}`);
+                    
                     return (
                         <Row key={project.name} style={{ marginBottom: '20px' }}>
                             <Col md={4} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                <img src={project.imageLink} alt={project.name} style={{ width: '100%', maxWidth: '200px', height: 'auto', borderRadius: '10px' }} />
+                                {/* Use the dynamically required image source */}
+                                <img src={imgSrc} alt={project.name} style={{ width: '100%', maxWidth: '200px', height: 'auto', borderRadius: '10px' }} />
                             </Col>
                             <Col md={8}>
                                 <Card style={{ border: 'none', boxShadow: 'none' }}>
