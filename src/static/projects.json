@@ -1,18 +1,24 @@
 {
     "projects":[
         {
-            "name":"[WIP] Hire Stack",
+            "name":"Quality Bot",
+            "date":"November, 2023",
+            "description":"A Slack bot that pull Linear tickets triaged in the last week, reads description and comments and prepares a detailed report on product quality by leveraging GPT4, helping engineering teams identify patterns in quality issues.",
+            "image":"https://vivek-public-cdn.s3.us-west-2.amazonaws.com/quality-bot.png"
+        },
+        {
+            "name":"Hire Stack",
             "date":"November, 2023",
             "description":"An AI recruiter that sorts and stack ranks a list of resumes for any job, by evaluating them based on criteria that you control.",
             "codeLink":"https://github.com/kaushalvivek/hire-stack",
-            "image":"hire-stack.png"
+            "image":"https://vivek-public-cdn.s3.us-west-2.amazonaws.com/hire-stack.png"
         },
         {
             "name":"Archived Projects",
             "date":"2016-2021",
             "description":"Old projects that I did years ago. Not maintained.",
             "blogLink":"https://kaushalvivek.notion.site/Projects-861c71d3a36044758f09c45b3e66b43a",
-            "image":"archive.png"
+            "image":"https://vivek-public-cdn.s3.us-west-2.amazonaws.com/archive.png"
         }
     ]
 }
