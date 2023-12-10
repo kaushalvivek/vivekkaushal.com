@@ -11,7 +11,8 @@
             "date":"November, 2023",
             "description":"An AI recruiter that sorts and stack ranks a list of resumes for any job, by evaluating them based on criteria that you control.",
             "codeLink":"https://github.com/kaushalvivek/hire-stack",
-            "image":"https://vivek-public-cdn.s3.us-west-2.amazonaws.com/hire-stack.png"
+            "image":"https://vivek-public-cdn.s3.us-west-2.amazonaws.com/hire-stack.png",
+            "blogLink":"https://vivekkaushal.substack.com/p/i-created-a-virtual-hiring-assistant"
         },
         {
             "name":"Archived Projects",
