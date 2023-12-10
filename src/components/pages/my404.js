@@ -10,7 +10,7 @@ class My404 extends React.Component {
                 <Row style={pad}>
                     <p>
                     It is likely that you were looking for my blog. It's now on Substack. 
-                    <br/> You can find it at <a href="https://notes.vivekkaushal.com">notes.vivekkaushal.com</a>
+                    <br/> You can find it at <a href="https://vivekkaushal.substack.com">vivekkaushal.substack.com</a>
                     </p>
                 </Row>
                 <Row>
