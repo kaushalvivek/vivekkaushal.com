@@ -1,4 +1,5 @@
 import React from 'react';
+import ClarityTracker from './components/tracker'; 
 import Header from './components/header';
 import Body from './components/body';
 import Footer from './components/footer';
@@ -16,6 +17,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <ClarityTracker/>
         <Router>
           <Header page={this.state.page} />
           <Body />
