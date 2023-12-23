@@ -21,11 +21,13 @@ class Home extends React.Component {
                             <br /><br />
                             Subscribe to stay in touch! ✨<br /><br />
                         </p>
-                        <Iframe url="https://vivekkaushal.substack.com/embed" width="350" height="70"></Iframe>
                     </Col>
                     <Col md={4} className="image-section">
                         <Image src={avatar} alt="Vivek Kaushal Image" roundedCircle fluid />
                     </Col>
+                </Row>
+                <Row className="align-items-center home-row">
+                <Iframe url="https://vivekkaushal.substack.com/embed" width="550" height="350"></Iframe>
                 </Row>
             </Container>
         );
