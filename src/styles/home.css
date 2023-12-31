@@ -42,3 +42,7 @@
         text-align: center; /* Center text on smaller screens */
     }
 }
+
+.substack-iframe {
+    clip-path: inset(0 0 20% 0); /* Hides 10% from the bottom of the iframe */
+}

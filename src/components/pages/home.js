@@ -27,7 +27,7 @@ class Home extends React.Component {
                     </Col>
                 </Row>
                 <Row className="align-items-center home-row">
-                <Iframe url="https://vivekkaushal.substack.com/embed" width="550" height="350"></Iframe>
+                <Iframe url="https://vivekkaushal.substack.com/embed" width="350" height="350" className="substack-iframe"></Iframe>
                 </Row>
             </Container>
         );
