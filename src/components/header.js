@@ -19,7 +19,8 @@ class Header extends React.Component {
                             <Nav.Link><Link to="/projects" style={noDecor}>Projects</Link></Nav.Link>
                             <Nav.Link> <Link to='/research' style={noDecor}> Research</Link> </Nav.Link>
                             <Nav.Link> <Link to='/recommendations' style={noDecor}> Recommendations</Link> </Nav.Link>
-                            <Nav.Link href="https://kaushalvivek.notion.site/Bucket-List-e97b0dc43ba14cb29f3e2a48f849a38a" target="_blank"> Bucket-List</Nav.Link>
+                            <Nav.Link> <Link to='/bucketlist' style={noDecor}> Bucket-List</Link> </Nav.Link>
+                            {/* <Nav.Link href="https://kaushalvivek.notion.site/Bucket-List-e97b0dc43ba14cb29f3e2a48f849a38a" target="_blank"> Bucket-List</Nav.Link> */}
                             {/* <Nav.Link href="/resources"> Resources </Nav.Link> */}
                             <Nav.Link href="https://drive.google.com/file/d/1EaVMzJaFfYYfT9krtfWtHEJCM99NSS53/view?usp=sharing" target="_blank" rel="noreferrer"> Resume </Nav.Link>
                         </Nav>
