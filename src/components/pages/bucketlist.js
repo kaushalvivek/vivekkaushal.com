@@ -17,6 +17,14 @@ class BucketList extends React.Component {
     render() {
         const { data, done, total } = this.state;
         const pad = { padding: 15, fontSize: 18 };
+        const listItemStyle = {
+            fontSize: 16,
+            marginBottom: 5,
+            lineHeight: '1.6em',
+        };
+        const completedStyle = { ...listItemStyle, color: 'green' };
+        const inProgressStyle = { ...listItemStyle, color: 'orange' };
+
         return (
             <Container>
                 <Row md={8} xs={12} style={pad}>
@@ -32,8 +40,13 @@ class BucketList extends React.Component {
                     <Col>
                         <ol>
                             {data.map((item, index) => (
-                                <li key={index}>
-                                    {item.goal} {item.checked ? '✅' : ''}
+                                <li 
+                                    key={index} 
+                                    style={item.checked ? completedStyle : (item.state ? inProgressStyle : listItemStyle)}
+                                >
+                                    {item.goal} 
+                                    {item.checked && ' ✅'}
+                                    {item.state && ` (${item.state})`}
                                 </li>
                             ))}
                         </ol>
