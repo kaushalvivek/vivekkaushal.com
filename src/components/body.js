@@ -38,6 +38,10 @@ class Body extends React.Component {
                     window.location.href = 'https://calendly.com/kaushalvivek';
                     return null;
                 }} />
+                <Route path='/escort' component={() => {
+                    window.location.href = 'http://35.92.147.249:5000';
+                    return null;
+                }} />
                 <Route path='/404' component={My404} />
                 <Redirect from='*' to='/404' />
             </Switch>
