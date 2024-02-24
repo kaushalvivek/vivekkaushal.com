@@ -4,7 +4,8 @@
             "name":"Quality Bot",
             "date":"November, 2023",
             "description":"A Slack bot that pull Linear tickets triaged in the last week, reads description and comments and prepares a detailed report on product quality by leveraging GPT4, helping engineering teams identify patterns in quality issues.",
-            "image":"https://vivek-public-cdn.s3.us-west-2.amazonaws.com/quality-bot.png"
+            "image":"https://vivek-public-cdn.s3.us-west-2.amazonaws.com/quality-bot.png",
+            "blogLink": "https://vivekkaushal.substack.com/p/finding-patterns-in-bugs-using-ai"
         },
         {
             "name":"Hire Stack",
