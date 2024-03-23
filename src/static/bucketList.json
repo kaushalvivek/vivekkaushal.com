@@ -2,7 +2,7 @@
     "items": [
         {"goal": "Write a book", "checked": false},
         {"goal": "Read 1000 good books", "state": "216", "checked": false},
-        {"goal": "See the Manhattan skyline", "checked": false},
+        {"goal": "See the Manhattan skyline", "checked": true},
         {"goal": "Scuba-diving", "checked": false},
         {"goal": "Sky-diving", "checked": false},
         {"goal": "Stay at a buddhist monastery", "checked": false},
@@ -38,7 +38,7 @@
         {"goal": "Eat a pizza in Rome", "checked": false},
         {"goal": "See the Amazon rain-forest", "checked": false},
         {"goal": "Bungee Jumping", "checked": false},
-        {"goal": "Hitchhike from coast to coast in the US", "checked": false},
+        {"goal": "Drive from coast to coast in the US", "checked": false},
         {"goal": "Boat in lake Baikal", "checked": false},
         {"goal": "Write a song, release it", "checked": false},
         {"goal": "Own my domain", "checked": true},
