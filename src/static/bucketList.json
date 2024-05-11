@@ -60,6 +60,9 @@
         {"goal": "Set foot on all 7 continents", "checked": false, "state": "2"},
         {"goal": "Swim in all 6 oceans", "checked": false, "state":"2"},
         {"goal": "Visit Greenland", "checked": false},
-        {"goal": "Trek to the Everest basecamp", "checked": false}
+        {"goal": "Trek to the Everest basecamp", "checked": false},
+        {"goal": "Drive through the night", "checked": false},
+        {"goal": "Trek for a week deep in the Himalayas", "checked": false}
+        {"goal": "Trek the apostles", "checked": false}
     ]
 }
