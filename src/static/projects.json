@@ -4,7 +4,8 @@
             "name":"Project Manager",
             "date":"April, 2024",
             "description":"A multi-agent project manager, that can perform tasks like collecting updates, creating Linear tickets, and communicating with stakeholders.",
-            "image":"https://vivek-public-cdn.s3.us-west-2.amazonaws.com/project-manager.png"
+            "image":"https://vivek-public-cdn.s3.us-west-2.amazonaws.com/project-manager.png",
+            "codeLink":"https://github.com/kaushalvivek/project-manager"
         },
         {
             "name":"Quality Bot",
