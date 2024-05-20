@@ -1,11 +1,12 @@
 {
     "projects":[
         {
-            "name":"Project Manager",
-            "date":"April, 2024",
+            "name":"Taskie: An AI-powered project manager",
+            "date":"May, 2024",
             "description":"A multi-agent project manager, that can perform tasks like collecting updates, creating Linear tickets, and communicating with stakeholders.",
             "image":"https://vivek-public-cdn.s3.us-west-2.amazonaws.com/project-manager.png",
-            "codeLink":"https://github.com/kaushalvivek/project-manager"
+            "codeLink":"https://github.com/kaushalvivek/project-manager",
+            "blogLink": "https://vivekkaushal.substack.com/p/building-taskie-an-ai-powered-project"
         },
         {
             "name":"Quality Bot",
