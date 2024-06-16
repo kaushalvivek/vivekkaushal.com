@@ -42,6 +42,10 @@ class Body extends React.Component {
                     window.location.href = 'https://vivekkaushal.substack.com';
                     return null;
                 }} />
+                <Route path='/blog' component={() => {
+                    window.location.href = 'https://vivekkaushal.substack.com';
+                    return null;
+                }} />
                 <Route path='/404' component={My404} />
                 <Redirect from='*' to='/404' />
             </Switch>
