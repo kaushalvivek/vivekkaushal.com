@@ -9,20 +9,20 @@
             "author": "Walter Isaacson"
         },
         {
-            "book": "Sapiens",
-            "author": "Yuval Noah Harari"
-        },
-        {
-            "book": "Thinking Fast and Slow",
-            "author": "Daniel Kahneman"
-        },
-        {
             "book": "Shoe Dog",
             "author": "Phil Knight"
         },
         {
             "book": "Flow",
             "author": "Mihaly Csikszentmihalyi"
+        },
+        {
+            "book": "Thinking Fast and Slow",
+            "author": "Daniel Kahneman"
+        },
+        {
+            "book": "Sapiens",
+            "author": "Yuval Noah Harari"
         },
         {
             "book": "Man's Search for Meaning",
@@ -33,19 +33,23 @@
             "author": "Matt Ridley"
         },
         {
-            "book":"Continuous Discovery Habits",
-            "author":"Teresa Torres"
+            "book": "Build",
+            "author": "Tony Fadell"
         },
         {
-            "book":"The Hard Thing About Hard Things",
-            "author":"Ben Horowitz"
+            "book": "Continuous Discovery Habits",
+            "author": "Teresa Torres"
         },
         {
-            "book": "India After Gandhi",
-            "author": "Ramchandra Guha"
+            "book": "The Hard Thing About Hard Things",
+            "author": "Ben Horowitz"
         }
     ],
     "col2": [
+        {
+            "book": "India After Gandhi",
+            "author": "Ramchandra Guha"
+        },
         {
             "book": "Guns, Germs and Steel",
             "author": "Jared Diamond"

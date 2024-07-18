@@ -47,18 +47,18 @@ class Recommendations extends React.Component {
                         <h3>Food</h3>
                         <ListGroup.Item><a href="https://www.zomato.com/hyderabad/bawarchi-rtc-x-roads" target="_blank" rel="noreferrer">
                             Authentic Hyderabadi Biryani </a></ListGroup.Item>
-                        <ListGroup.Item><a href="https://motimahal.in/" target="_blank" rel="noreferrer">
-                            Butter Chicken and Garlic Naan</a></ListGroup.Item>
                         <ListGroup.Item><a href="https://www.zomato.com/goa/burger-factory-anjuna" target="_blank" rel="noreferrer">
                             Blue Cheese, Bacon and Avocado Burger</a></ListGroup.Item>
-                        <ListGroup.Item><a href="https://www.zomato.com/ncr/the-big-chill-cafe-connaught-place-new-delhi" target="_blank" rel="noreferrer">
+                        <ListGroup.Item><a href="https://maps.app.goo.gl/zoYQ2nWcsi4jLxD89" target="_blank" rel="noreferrer">
                             New York Cheesecake</a></ListGroup.Item>
                         <ListGroup.Item><a href="https://www.zomato.com/mangalore/maharaja-restaurant-balmatta-delhi" target="_blank" rel="noreferrer">
                             Mangalorean Ghee Roast Chicken and Neer Dosa</a></ListGroup.Item>
+                        <ListGroup.Item><a href="https://motimahal.in/" target="_blank" rel="noreferrer">
+                            Butter Chicken and Garlic Naan</a></ListGroup.Item>
                         <ListGroup.Item><a href="https://www.zomato.com/mangalore/giri-manjas-bhavathi" target="_blank" rel="noreferrer">
                             Anjal Tawa Fry</a></ListGroup.Item>
-                        <ListGroup.Item><a href="https://www.zomato.com/bangalore/a2b-adyar-ananda-bhavan-marathahalli-bangalore" target="_blank" rel="noreferrer">
-                            Ghee Roast Dosa</a></ListGroup.Item>
+                        <ListGroup.Item><a href="https://therameshwaramcafe.org/" target="_blank" rel="noreferrer">
+                            Ghee Podi Dosa/Idli</a></ListGroup.Item>
                     </Col>
                     <Col md={4} xs={12} className="movies-shows-section">
                         <h3>Movies and Shows</h3>
@@ -73,9 +73,10 @@ class Recommendations extends React.Component {
                     <Col md={4} xs={12} className="podcasts-section">
                         <h3>Podcasts</h3>
                         <ListGroup.Item><a href="https://open.spotify.com/show/2dR1MUZEHCOnz1LVfNac0j?si=7d7f1e207fa74063">Lenny's Podcast</a></ListGroup.Item>
+                        <ListGroup.Item><a href="https://podcasts.apple.com/us/podcast/training-data/id1750736528">Training Data</a></ListGroup.Item>
+                        <ListGroup.Item><a href="https://podcasts.apple.com/in/podcast/wtf-is-with-nikhil-kamath/id1677107935">WTF is with Nikhil Kamath</a></ListGroup.Item>
+                        <ListGroup.Item><a href="https://a16z.com/podcasts/a16z-podcast/">a16z Podcast</a></ListGroup.Item>
                         <ListGroup.Item><a href="https://lexfridman.com/podcast/">Lex Fridman Podcast</a></ListGroup.Item>
-                        <ListGroup.Item><a href="https://open.spotify.com/show/1VyK52NSZHaDKeMJzT4TSM?si=15912f00fb874019">The Knowledge Project</a></ListGroup.Item>
-                        <ListGroup.Item><a href="https://open.spotify.com/show/02fM1JHpt9HmHGp482K71b?si=d27fba75fbf14a09">Developer Tea</a></ListGroup.Item>
                     </Col>
                 </Row>
             </Container>
