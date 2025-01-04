@@ -25,7 +25,7 @@ const App = () => {
             <Route path="/recommendations" element={<Recommendations />} />
             <Route path="/bucketlist" element={<BucketList />} />
             <Route path="/blog" element={<Blog />} />
-            <Route path="/hack" element={<Navigate to="https://vivekkaushal.substack.com" replace />} />
+            <Route path="/hack" element={<Navigate to="/blog" replace />} />
             <Route path="*" element={<My404 />} />
           </Routes>
           <Footer />
