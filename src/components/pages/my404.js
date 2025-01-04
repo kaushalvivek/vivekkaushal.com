@@ -19,7 +19,7 @@ const My404 = () => {
     <Box py={{ base: 8, md: 16 }}>
       <Container maxW="container.sm">
         <VStack spacing={6} align="start">
-          <Heading as="h1" fontSize="2xl" color={textColor}>
+          <Heading as="h1" fontSize="xl" color={textColor}>
             Not quite what you were looking for... 🤔
           </Heading>
           

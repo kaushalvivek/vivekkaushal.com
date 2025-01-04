@@ -26,6 +26,26 @@ const theme = extendTheme({
         lineHeight: 'tall',
       },
     },
+    Heading: {
+      baseStyle: {
+        fontWeight: 'semibold',
+        lineHeight: 'tall',
+      },
+      sizes: {
+        '2xl': {
+          fontSize: ['xl', '2xl'],
+          lineHeight: 'tall',
+        },
+        xl: {
+          fontSize: ['lg', 'xl'],
+          lineHeight: 'tall',
+        },
+        lg: {
+          fontSize: ['md', 'lg'],
+          lineHeight: 'tall',
+        },
+      },
+    },
     Link: {
       baseStyle: {
         _hover: {

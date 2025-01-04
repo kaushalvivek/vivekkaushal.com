@@ -27,9 +27,10 @@ const Home = () => {
 
           <Text color={textColor} lineHeight="tall">
             I like brewing coffee, reading books, and listening to indie rock music. I write about technology, product, and psychology.
-            </Text>  
-            <Text color={textColor} lineHeight="tall">
-             You can follow my long form writing on <Link href="https://vivekkaushal.substack.com" color={linkColor} isExternal>Substack</Link>, and thoughts on <Link href="https://twitter.com/vi_kaushal" color={linkColor} isExternal>X</Link>.
+          </Text>  
+          
+          <Text color={textColor} lineHeight="tall">
+            You can follow my long form writing on <Link href="https://vivekkaushal.substack.com" color={linkColor} isExternal>Substack</Link>, and thoughts on <Link href="https://twitter.com/vi_kaushal" color={linkColor} isExternal>X</Link>.
           </Text>
         </VStack>
       </Container>
