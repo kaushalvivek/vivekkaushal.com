@@ -1,34 +1,42 @@
 import React from 'react';
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import {
+  Box,
+  Container,
+  HStack,
+  Link as ChakraLink,
+} from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-import '../styles/header.css'; 
 
-class Header extends React.Component {
-    render() {
-        const noDecor = { textDecoration: 'none', color: 'black' }; // Neutral color
-        return (
-            <Navbar bg="white" expand="lg" sticky="top" className="minimalist-navbar">
-                <Container>
-                    <Navbar.Brand href="/" className="navbar-brand-minimalist">Vivek Kaushal</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="me-auto">
-                        <Nav.Link href="https://vivekkaushal.substack.com" target="_blank"  rel="noreferrer"> Blog </Nav.Link>
-                            {/* <Nav.Link href="https://kaushalvivek.notion.site/Projects-861c71d3a36044758f09c45b3e66b43a" target="_blank"  rel="noreferrer"> Projects </Nav.Link> */}
-                            {/* conditionally highlight page which is selected */}
-                            <Nav.Link><Link to="/projects" style={noDecor}>Projects</Link></Nav.Link>
-                            <Nav.Link> <Link to='/research' style={noDecor}> Research</Link> </Nav.Link>
-                            <Nav.Link> <Link to='/recommendations' style={noDecor}> Recommendations</Link> </Nav.Link>
-                            <Nav.Link> <Link to='/bucketlist' style={noDecor}> Bucket-List</Link> </Nav.Link>
-                            {/* <Nav.Link href="https://kaushalvivek.notion.site/Bucket-List-e97b0dc43ba14cb29f3e2a48f849a38a" target="_blank"> Bucket-List</Nav.Link> */}
-                            {/* <Nav.Link href="/resources"> Resources </Nav.Link> */}
-                            <Nav.Link href="https://drive.google.com/file/d/1EaVMzJaFfYYfT9krtfWtHEJCM99NSS53/view?usp=sharing" target="_blank" rel="noreferrer"> Resume </Nav.Link>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
-        );
-    }
-}
+const Header = () => {
+  const NavLink = ({ to, isExternal, children }) => (
+    <ChakraLink
+      as={isExternal ? 'a' : Link}
+      to={!isExternal ? to : undefined}
+      href={isExternal ? to : undefined}
+      fontSize="sm"
+      color="gray.600"
+      _hover={{ color: 'gray.900' }}
+      target={isExternal ? '_blank' : undefined}
+      rel={isExternal ? 'noreferrer' : undefined}
+    >
+      {children}
+    </ChakraLink>
+  );
+
+  return (
+    <Box py={8}>
+      <Container>
+        <HStack spacing={6} justify="center">
+          <NavLink to="/">Home</NavLink>
+          <NavLink isExternal to="https://vivekkaushal.substack.com">Blog</NavLink>
+          <NavLink to="/projects">Projects</NavLink>
+          <NavLink to="/research">Research</NavLink>
+          <NavLink to="/recommendations">Recommendations</NavLink>
+          <NavLink to="/bucketlist">Bucket List</NavLink>
+        </HStack>
+      </Container>
+    </Box>
+  );
+};
 
 export default Header;

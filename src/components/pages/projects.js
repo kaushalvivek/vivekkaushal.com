@@ -1,48 +1,74 @@
 import React from 'react';
-import { Card, Row, Col, Container, ButtonGroup, Button } from 'react-bootstrap';
+import {
+  Box,
+  Container,
+  Text,
+  VStack,
+  HStack,
+  Button,
+} from '@chakra-ui/react';
 import projects from '../../static/projects.json';
 
-class Projects extends React.Component {
-    render() {
-        return (
-            <Container style={{ marginTop: '25px' }}>
-
-                {projects["projects"].map((project) => {
-                    return (
-                        <Row key={project.name} style={{ marginBottom: '20px' }}>
-                            <Col md={4} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                {/* Use the dynamically required image source */}
-                                <img src={project.image} alt={project.name} style={{ width: '100%', maxWidth: '200px', height: 'auto', borderRadius: '10px' }} />
-                            </Col>
-                            <Col md={8}>
-                                <Card style={{ border: 'none', boxShadow: 'none' }}>
-                                    <Card.Body>
-                                        <Card.Title style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>{project.name}</Card.Title>
-                                        <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: '0.9rem', marginBottom: '10px' }}>{project.date}</Card.Subtitle>
-                                        <Card.Text style={{ fontSize: '1rem' }}>
-                                            {project.description}
-                                        </Card.Text>
-                                        <ButtonGroup size="sm" aria-label="Controls" style={{ marginTop: '10px' }}>
-                                            {project.appLink && (
-                                                <Button variant="light" style={{ margin: '0 5px' }} onClick={() => window.open(project.appLink, "_blank")}>App</Button>
-                                            )}
-                                            {project.codeLink && (
-                                                <Button variant="light" style={{ margin: '0 5px' }} onClick={() => window.open(project.codeLink, "_blank")}>Code</Button>
-                                            )}
-                                            {project.blogLink && (
-                                                <Button variant="light" style={{ margin: '0 5px' }} onClick={() => window.open(project.blogLink, "_blank")}>Read More</Button>
-                                            )}
-                                        </ButtonGroup>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                        </Row>
-                    );
-                })}
-
-            </Container>
-        );
-    }
-}
+const Projects = () => {
+  return (
+    <Box py={4}>
+      <Container maxW="container.lg">
+        <VStack spacing={8} align="start">
+          {projects.projects.map((project, index) => (
+            <Box key={index} width="100%">
+              <Text fontSize="lg" color="gray.900" fontWeight="500" mb={0.5}>
+                {project.name}
+              </Text>
+              <Text fontSize="sm" color="gray.500" mb={2}>
+                {project.date}
+              </Text>
+              <Text color="gray.700" mb={2}>
+                {project.description}
+              </Text>
+              <HStack spacing={3}>
+                {project.appLink && (
+                  <Button 
+                    as="a" 
+                    href={project.appLink} 
+                    target="_blank"
+                    size="xs"
+                    variant="outline"
+                    colorScheme="gray"
+                  >
+                    View Project
+                  </Button>
+                )}
+                {project.codeLink && (
+                  <Button
+                    as="a"
+                    href={project.codeLink}
+                    target="_blank"
+                    size="xs"
+                    variant="outline"
+                    colorScheme="gray"
+                  >
+                    View Code
+                  </Button>
+                )}
+                {project.blogLink && (
+                  <Button
+                    as="a"
+                    href={project.blogLink}
+                    target="_blank"
+                    size="xs"
+                    variant="outline"
+                    colorScheme="gray"
+                  >
+                    Read More
+                  </Button>
+                )}
+              </HStack>
+            </Box>
+          ))}
+        </VStack>
+      </Container>
+    </Box>
+  );
+};
 
 export default Projects;

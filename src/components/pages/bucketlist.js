@@ -1,58 +1,55 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import {
+  Box,
+  Container,
+  Text,
+  VStack,
+  Heading,
+  Link,
+  OrderedList,
+  ListItem,
+} from '@chakra-ui/react';
 import bucketListData from '../../static/bucketList.json';
 
-class BucketList extends React.Component {
-    constructor(props) {
-        super(props);
-        const total = bucketListData.items.length;
-        const done = bucketListData.items.filter(item => item.checked).length;
-        this.state = {
-            data: bucketListData.items,
-            done: done,
-            total: total,
-        }
-    }
+const BucketList = () => {
+  const total = bucketListData.items.length;
+  const done = bucketListData.items.filter(item => item.checked).length;
 
-    render() {
-        const { data, done, total } = this.state;
-        const pad = { padding: 15, fontSize: 18 };
-        const listItemStyle = {
-            fontSize: 16,
-            marginBottom: 5,
-            lineHeight: '1.6em',
-        };
-        const completedStyle = { ...listItemStyle, color: 'green' };
-        const inProgressStyle = { ...listItemStyle, color: 'orange' };
+  return (
+    <Box py={4}>
+      <Container maxW="container.lg">
+        <VStack spacing={6} align="start">
+          <Box>
+            <Text color="gray.700" fontSize="sm" mb={2}>
+              I was inspired by Chip Hyuen's{' '}
+              <Link href="https://huyenchip.com/list-100/" isExternal color="blue.700">
+                List 100
+              </Link>
+              {' '}to create and maintain this list. This list is a collection of moments that I want to experience before I drop off the face of this planet.
+            </Text>
+            <Text color="gray.700" fontSize="sm">
+              Current status: {done} / {total}
+            </Text>
+          </Box>
 
-        return (
-            <Container>
-                <Row md={8} xs={12} style={pad}>
-                    <Col>
-                    I was inspired by Chip Hyuen's <a href="https://huyenchip.com/list-100/" target="_blank" rel="noreferrer"> List 100</a> to create and maintain this list.
-                        This list is a collections of moments that I want to experience before I drop off the face of this planet.<br/>
-                        Current status : {done} / {total}
-                    </Col>
-                </Row>
-                <Row style={pad}>
-                    <Col>
-                        <ol>
-                            {data.map((item, index) => (
-                                <li 
-                                    key={index} 
-                                    style={item.checked ? completedStyle : (item.state ? inProgressStyle : listItemStyle)}
-                                >
-                                    {item.goal} 
-                                    {item.checked && ' ✅'}
-                                    {item.state && ` (${item.state})`}
-                                </li>
-                            ))}
-                        </ol>
-                    </Col>
-                </Row>
-            </Container>
-        );
-    }
-}
+          <OrderedList spacing={0.5}>
+            {bucketListData.items.map((item, index) => (
+              <ListItem
+                key={index}
+                color={item.checked ? "green.600" : (item.state ? "orange.500" : "gray.700")}
+                fontSize="sm"
+                lineHeight={1.2}
+              >
+                {item.goal}
+                {item.checked && ' ✅'}
+                {item.state && ` (${item.state})`}
+              </ListItem>
+            ))}
+          </OrderedList>
+        </VStack>
+      </Container>
+    </Box>
+  );
+};
 
 export default BucketList;

@@ -1,31 +1,37 @@
 import React from 'react';
-import ClarityTracker from './components/tracker'; 
+import { ChakraProvider, Box } from '@chakra-ui/react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/header';
-import Body from './components/body';
 import Footer from './components/footer';
-import { BrowserRouter as Router } from 'react-router-dom';
+import Home from './components/pages/home';
+import Projects from './components/pages/projects';
+import Research from './components/pages/research';
+import Recommendations from './components/pages/recommendations';
+import BucketList from './components/pages/bucketlist';
+import My404 from './components/pages/my404';
+import theme from './theme';
 
-class App extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      page: 'home'
-    }
-  };
-
-  render() {
-    return (
-      <div className="App">
-        <ClarityTracker/>
-        <Router>
-          <Header page={this.state.page} />
-          <Body />
-        </Router>
-        <Footer/>
-      </div>
-    );
-  };
+const App = () => {
+  return (
+    <ChakraProvider theme={theme}>
+      <Router>
+        <Box minH="100vh">
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/research" element={<Research />} />
+            <Route path="/recommendations" element={<Recommendations />} />
+            <Route path="/bucketlist" element={<BucketList />} />
+            <Route path="/blog" element={<Navigate to="https://vivekkaushal.substack.com" replace />} />
+            <Route path="/hack" element={<Navigate to="https://vivekkaushal.substack.com" replace />} />
+            <Route path="*" element={<My404 />} />
+          </Routes>
+          <Footer />
+        </Box>
+      </Router>
+    </ChakraProvider>
+  );
 };
 
 export default App;
