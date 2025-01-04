@@ -28,7 +28,7 @@ const Header = () => {
       <Container>
         <HStack spacing={6} justify="center">
           <NavLink to="/">Home</NavLink>
-          <NavLink isExternal to="https://vivekkaushal.substack.com">Blog</NavLink>
+          <NavLink to="/blog">Blog</NavLink>
           <NavLink to="/projects">Projects</NavLink>
           <NavLink to="/research">Research</NavLink>
           <NavLink to="/recommendations">Recommendations</NavLink>

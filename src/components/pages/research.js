@@ -7,9 +7,15 @@ import {
   Link,
   Heading,
   SimpleGrid,
+  useColorModeValue,
 } from '@chakra-ui/react';
 
 const Research = () => {
+  const textColor = useColorModeValue('gray.700', 'gray.300');
+  const mutedColor = useColorModeValue('gray.600', 'gray.400');
+  const linkColor = useColorModeValue('blue.500', 'blue.200');
+  const headingColor = useColorModeValue('gray.900', 'white');
+
   const papers = [
     {
       title: "Clickbait's Impact on Visual Attention - An Eye Tracker Study",
@@ -71,48 +77,47 @@ const Research = () => {
   ];
 
   return (
-    <Box py={4}>
-      <Container maxW="container.xl" px={4}>
-        <VStack spacing={6} align="start" width="100%">
+    <Box py={{ base: 8, md: 16 }}>
+      <Container maxW="container.md">
+        <VStack spacing={8} align="stretch" width="100%">
           <Box width="100%">
-            <Text color="gray.700" fontSize="sm" lineHeight={1.4} mb={2}>
+            <Text color={textColor} lineHeight="tall" mb={4}>
               My research focused on making technology more inclusive and responsible by studying its societal impact.
             </Text>
-            <Text color="gray.700" fontSize="sm" lineHeight={1.4} mb={2}>
+            <Text color={textColor} lineHeight="tall" mb={4}>
               Under Dr Kavita Vemuri at the Cognitive Sciences Lab, IIIT Hyderabad, I worked at the intersection of human computer interaction, neuroscience and economics. My{' '}
-              <Link href="https://web2py.iiit.ac.in/research_centres/publications/view_publication/mastersthesis/1026" isExternal color="blue.600">
+              <Link href="https://web2py.iiit.ac.in/research_centres/publications/view_publication/mastersthesis/1026" isExternal color={linkColor}>
                 MS thesis
               </Link>{' '}
               explored the proliferation of{' '}
-              <Link href="https://en.wikipedia.org/wiki/Clickbait" isExternal color="blue.600">
+              <Link href="https://en.wikipedia.org/wiki/Clickbait" isExternal color={linkColor}>
                 clickbait
               </Link>{' '}
               in news media and evaluated its impact on news credibility and readers' visual attention.
             </Text>
-            <Text color="gray.700" fontSize="sm" lineHeight={1.4}>
+            <Text color={textColor} lineHeight="tall">
               I worked with Dr Hendrik Rommeswinkel at NTU Taiwan, studying demographic and macroeconomic factors affecting consumer choice. I also collaborated with Dr Prithviraj Mukherjee at IIM Bangalore on behavioral experiments using eye-trackers.
             </Text>
           </Box>
 
-          <SimpleGrid columns={{ base: 1, lg: 3 }} spacing={6} width="100%">
+          <SimpleGrid columns={{ base: 1, lg: 3 }} spacing={8} width="100%">
             <Box>
-              <Heading as="h2" fontSize="lg" mb={2} color="gray.900">
+              <Heading as="h2" fontSize="lg" fontWeight="medium" mb={4} color={headingColor}>
                 Papers
               </Heading>
-              <VStack spacing={2} align="start">
+              <VStack spacing={4} align="start">
                 {papers.map((paper, index) => (
                   <Box key={index}>
                     <Link 
                       href={paper.link} 
                       isExternal 
-                      color="blue.600"
-                      fontSize="sm"
-                      _hover={{ color: 'blue.800' }}
-                      lineHeight={1.2}
+                      color={linkColor}
+                      _hover={{ color: linkColor, textDecoration: 'none' }}
+                      lineHeight="tall"
                     >
                       {paper.title}
                     </Link>
-                    <Text fontSize="xs" color="gray.600" mt={0.5}>
+                    <Text fontSize="sm" color={mutedColor} mt={1}>
                       {paper.venue}, {paper.year}
                     </Text>
                   </Box>
@@ -121,12 +126,12 @@ const Research = () => {
             </Box>
 
             <Box>
-              <Heading as="h2" fontSize="lg" mb={2} color="gray.900">
+              <Heading as="h2" fontSize="lg" fontWeight="medium" mb={4} color={headingColor}>
                 Conferences
               </Heading>
-              <VStack spacing={1} align="start">
+              <VStack spacing={3} align="start">
                 {conferences.map((conference, index) => (
-                  <Text key={index} color="gray.700" fontSize="sm" lineHeight={1.2}>
+                  <Text key={index} color={textColor} lineHeight="tall">
                     {conference}
                   </Text>
                 ))}
@@ -134,18 +139,17 @@ const Research = () => {
             </Box>
 
             <Box>
-              <Heading as="h2" fontSize="lg" mb={2} color="gray.900">
+              <Heading as="h2" fontSize="lg" fontWeight="medium" mb={4} color={headingColor}>
                 Links
               </Heading>
-              <VStack spacing={1} align="start">
+              <VStack spacing={3} align="start">
                 {links.map((link, index) => (
                   <Link
                     key={index}
                     href={link.link}
                     isExternal
-                    color="blue.600"
-                    fontSize="sm"
-                    _hover={{ color: 'blue.800' }}
+                    color={linkColor}
+                    _hover={{ color: linkColor, textDecoration: 'none' }}
                   >
                     {link.title}
                   </Link>

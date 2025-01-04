@@ -8,6 +8,7 @@ import Projects from './components/pages/projects';
 import Research from './components/pages/research';
 import Recommendations from './components/pages/recommendations';
 import BucketList from './components/pages/bucketlist';
+import Blog from './components/pages/Blog';
 import My404 from './components/pages/my404';
 import theme from './theme';
 
@@ -23,7 +24,7 @@ const App = () => {
             <Route path="/research" element={<Research />} />
             <Route path="/recommendations" element={<Recommendations />} />
             <Route path="/bucketlist" element={<BucketList />} />
-            <Route path="/blog" element={<Navigate to="https://vivekkaushal.substack.com" replace />} />
+            <Route path="/blog" element={<Blog />} />
             <Route path="/hack" element={<Navigate to="https://vivekkaushal.substack.com" replace />} />
             <Route path="*" element={<My404 />} />
           </Routes>

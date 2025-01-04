@@ -16,12 +16,16 @@ const Home = () => {
     <Box py={{ base: 8, md: 16 }}>
       <Container maxW="container.sm">
         <VStack spacing={8} align="start">
-          <Text fontSize="xl" color={textColor} lineHeight="tall">
+          <Text
+            fontSize="xl"
+            color={textColor}
+            lineHeight="tall"
+          >
             Hello, I'm Vivek Kaushal. I build things and study human behavior.
           </Text>
 
           <Text color={textColor} lineHeight="tall">
-            I lead product at <Link href="https://enterpret.com" color={linkColor} isExternal>Enterpret</Link>, helping businesses understand their users. 
+            I am the founding PM at <Link href="https://enterpret.com" color={linkColor} isExternal>Enterpret</Link>, helping businesses understand their users. 
             Before this, I built software systems at Samsung Research and a few other start-ups, built apps for the Delhi and Indian governments, and studied CS at IIIT Hyderabad, and researched behavioral economics at NTU, Taiwan.
           </Text>
 
