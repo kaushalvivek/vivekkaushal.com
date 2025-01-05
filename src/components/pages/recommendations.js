@@ -86,16 +86,16 @@ const Recommendations = () => {
   const allBooks = [...nonFiction.col1, ...nonFiction.col2];
 
   return (
-    <Box py={4}>
+    <Box py={8}>
       <Container maxW="container.xl" px={4}>
-        <VStack spacing={8} align="start" width="100%">
+        <VStack spacing={12} align="start" width="100%">
           <Box width="100%">
-            <Heading as="h2" fontSize="lg" mb={3} color="gray.900">
+            <Heading as="h2" fontSize="lg" mb={4} color="gray.900">
               Books
             </Heading>
-            <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 4 }} spacing={3}>
+            <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 4 }} spacing={4}>
               {allBooks.map((book, index) => (
-                <Box key={index} lineHeight="1.2">
+                <Box key={index} lineHeight="1.4">
                   <Text fontSize="md" color="gray.900" fontWeight="500" display="inline">
                     {book.book}
                   </Text>
@@ -108,19 +108,19 @@ const Recommendations = () => {
           </Box>
 
           <Box width="100%">
-            <Heading as="h2" fontSize="lg" mb={3} color="gray.900">
+            <Heading as="h2" fontSize="lg" mb={4} color="gray.900">
               Music
             </Heading>
-            <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={2} width="100%">
+            <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={4} width="100%">
               {playlists.map((playlist, index) => (
-                <AspectRatio key={index} ratio={16/4}>
+                <AspectRatio key={index} ratio={16/5}>
                   <iframe
                     title={`Spotify Playlist ${index + 1}`}
                     src={playlist}
                     frameBorder="0"
                     allowFullScreen
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    style={{ maxHeight: '80px' }}
+                    loading="lazy"
                   />
                 </AspectRatio>
               ))}
@@ -129,7 +129,7 @@ const Recommendations = () => {
 
           <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={8} width="100%">
             <Box>
-              <Heading as="h2" fontSize="lg" mb={3} color="gray.900">
+              <Heading as="h2" fontSize="lg" mb={4} color="gray.900">
                 Podcasts
               </Heading>
               <VStack spacing={2} align="start">
@@ -148,12 +148,12 @@ const Recommendations = () => {
             </Box>
 
             <Box>
-              <Heading as="h2" fontSize="lg" mb={3} color="gray.900">
+              <Heading as="h2" fontSize="lg" mb={4} color="gray.900">
                 Movies & Shows
               </Heading>
-              <VStack spacing={0.5} align="start">
+              <VStack spacing={3} align="start">
                 {shows.map((show, index) => (
-                  <Text key={index} color="gray.700" fontSize="sm" lineHeight={1}>
+                  <Text key={index} color="gray.700" fontSize="md">
                     {show}
                   </Text>
                 ))}
@@ -161,7 +161,7 @@ const Recommendations = () => {
             </Box>
 
             <Box>
-              <Heading as="h2" fontSize="lg" mb={3} color="gray.900">
+              <Heading as="h2" fontSize="lg" mb={4} color="gray.900">
                 Food
               </Heading>
               <VStack spacing={2} align="start">
