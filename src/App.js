@@ -26,7 +26,8 @@ const App = () => {
             <Route path="/bucketlist" element={<BucketList />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/hack" element={<Navigate to="/blog" replace />} />
-            <Route path="*" element={<My404 />} />
+            <Route path="/meet" element={<Navigate to="https://calendly.com/vikaushal/30-min" replace />} />
+            <Route path="*" element={<Navigate to="/blog" replace />} />
           </Routes>
           <Footer />
         </Box>
