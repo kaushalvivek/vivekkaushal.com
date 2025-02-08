@@ -25,10 +25,10 @@ const App = () => {
             <Route path="/research" element={<Research />} />
             <Route path="/recommendations" element={<Recommendations />} />
             <Route path="/bucketlist" element={<BucketList />} />
-            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/*" element={<Blog />} />
             <Route path="/hack" element={<Navigate to="/blog" replace />} />
             <Route path="/meet" element={<ExternalRedirect to="https://calendly.com/vikaushal/30-min" />} />
-            <Route path="*" element={<Navigate to="/blog" replace />} />
+            <Route path="*" element={<My404 />} />
           </Routes>
           <Footer />
         </Box>
