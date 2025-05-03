@@ -62,6 +62,7 @@
         {"goal": "Trek to the Everest basecamp", "checked": false},
         {"goal": "Drive through the night", "checked": false},
         {"goal": "Trek for a week deep in the Himalayas", "checked": false},
-        {"goal": "Trek the apostles", "checked": false}
+        {"goal": "Trek the apostles", "checked": false},
+        {"goal": "Eat at a Michelin star restaurant", "checked": true}
     ]
 }
