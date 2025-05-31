@@ -24,7 +24,7 @@ const My404 = () => {
           </Heading>
           
           <Text color={textColor} lineHeight="tall">
-            It is likely that you were looking for my blog. It's now on{' '}
+            It is likely that you were looking for my writingsg. It's now on{' '}
             <Link href="https://vivekkaushal.substack.com" color={linkColor} isExternal>
               Substack
             </Link>

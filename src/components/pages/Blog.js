@@ -27,9 +27,9 @@ const BlogList = ({ posts }) => {
         <VStack spacing={8} align="stretch">
           <Link as={RouterLink} to="/blog" _hover={{ textDecoration: 'none' }}>
             <Text fontSize="xl" color={textColor} lineHeight="tall">
-              Empathetic Hacking
+              Applied Techno-optimism
               <Text as="span" fontSize="md" color={mutedColor} ml={2}>
-                : Building software products for human beings
+                : Anecdotes and recommendations for the future of work.
               </Text>
             </Text>
           </Link>

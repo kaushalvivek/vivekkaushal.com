@@ -58,20 +58,20 @@ const Home = () => {
             color={textColor}
             lineHeight="tall"
           >
-            Hello, I'm Vivek Kaushal. I build things and study human behavior.
+            Hello, I'm Vivek Kaushal. I build systems and experiences.
           </Text>
 
           <Text color={textColor} lineHeight="tall">
             I am the founding PM at <Link href="https://enterpret.com" color={linkColor} isExternal>Enterpret</Link>, helping businesses understand their users. 
-            Before this, I built software systems at Samsung Research and a few other start-ups, built apps for the Delhi and Indian governments, and studied CS at IIIT Hyderabad, and researched behavioral economics at NTU, Taiwan.
+            Before this, I engineered software systems at Samsung Research, a few other start-ups, and wrote apps for the Delhi and Indian governments. I studied CS at IIIT Hyderabad and researched behavioral economics at NTU, Taiwan.
           </Text>
 
           <Text color={textColor} lineHeight="tall">
-            I like brewing coffee, reading books, and listening to indie rock music. I write about technology, product, and psychology.
+            I enjoy brewing coffee, reading books, and listening to indie rock music. I write about technology, product development, and psychology.
           </Text>  
           
           <Text color={textColor} lineHeight="tall">
-            You can follow my long form writing on <Link href="https://vivekkaushal.substack.com" color={linkColor} isExternal>Substack</Link>, and thoughts on <Link href="https://twitter.com/vi_kaushal" color={linkColor} isExternal>X</Link>.
+            I share actionable insights on adopting technological advancements on <Link href="https://vivekkaushal.substack.com" color={linkColor} isExternal>Applied Techno-optimism</Link>, and share thoughts on <Link href="https://twitter.com/vi_kaushal" color={linkColor} isExternal>X</Link>.
           </Text>
 
           {latestPost && (

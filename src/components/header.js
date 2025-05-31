@@ -28,8 +28,8 @@ const Header = () => {
       <Container>
         <HStack spacing={6} justify="center">
           <NavLink to="/">Home</NavLink>
-          <NavLink to="/blog">Blog</NavLink>
-          <NavLink to="/projects">Projects</NavLink>
+          <NavLink to="/blog">Writing</NavLink>
+          {/* <NavLink to="/projects">Projects</NavLink> */}
           <NavLink to="/research">Research</NavLink>
           <NavLink to="/recommendations">Recommendations</NavLink>
           <NavLink to="/bucketlist">Bucket List</NavLink>

@@ -4,7 +4,7 @@ import { Box, Container, HStack, Link, Image, Tooltip } from '@chakra-ui/react';
 const Footer = () => {
   const socialLinks = [
     {
-      name: 'Blog',
+      name: 'Writing',
       url: 'https://vivekkaushal.substack.com',
       icon: '/icons/substack.svg'
     },
