@@ -17,19 +17,21 @@ const App = () => {
   return (
     <ChakraProvider theme={theme}>
       <Router>
-        <Box minH="100vh">
+        <Box minH="100vh" display="flex" flexDirection="column">
           <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/research" element={<Research />} />
-            <Route path="/recommendations" element={<Recommendations />} />
-            <Route path="/bucketlist" element={<BucketList />} />
-            <Route path="/blog/*" element={<Blog />} />
-            <Route path="/hack" element={<Navigate to="/blog" replace />} />
-            <Route path="/meet" element={<ExternalRedirect to="https://calendly.com/vikaushal/30-min" />} />
-            <Route path="*" element={<My404 />} />
-          </Routes>
+          <Box flex="1">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/research" element={<Research />} />
+              <Route path="/recommendations" element={<Recommendations />} />
+              <Route path="/bucketlist" element={<BucketList />} />
+              <Route path="/blog/*" element={<Blog />} />
+              <Route path="/hack" element={<Navigate to="/blog" replace />} />
+              <Route path="/meet" element={<ExternalRedirect to="https://calendly.com/vikaushal/30-min" />} />
+              <Route path="*" element={<My404 />} />
+            </Routes>
+          </Box>
           <Footer />
         </Box>
       </Router>

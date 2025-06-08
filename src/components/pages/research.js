@@ -7,14 +7,9 @@ import {
   Link,
   Heading,
   SimpleGrid,
-  useColorModeValue,
 } from '@chakra-ui/react';
 
 const Research = () => {
-  const textColor = useColorModeValue('gray.700', 'gray.300');
-  const mutedColor = useColorModeValue('gray.600', 'gray.400');
-  const linkColor = useColorModeValue('blue.500', 'blue.200');
-  const headingColor = useColorModeValue('gray.900', 'white');
 
   const papers = [
     {
@@ -77,47 +72,51 @@ const Research = () => {
   ];
 
   return (
-    <Box py={{ base: 8, md: 16 }}>
-      <Container maxW="container.md">
-        <VStack spacing={8} align="stretch" width="100%">
+    <Box py={{ base: 16, md: 24 }}>
+      <Container maxW="container.sm">
+        <VStack spacing={12} align="stretch" width="100%">
           <Box width="100%">
-            <Text color={textColor} lineHeight="tall" mb={4}>
-              My research focused on making technology more inclusive and responsible by studying its societal impact.
-            </Text>
-            <Text color={textColor} lineHeight="tall" mb={4}>
-              Under Dr Kavita Vemuri at the Cognitive Sciences Lab, IIIT Hyderabad, I worked at the intersection of human computer interaction, neuroscience and economics. My{' '}
-              <Link href="https://web2py.iiit.ac.in/research_centres/publications/view_publication/mastersthesis/1026" isExternal color={linkColor}>
-                MS thesis
-              </Link>{' '}
-              explored the proliferation of{' '}
-              <Link href="https://en.wikipedia.org/wiki/Clickbait" isExternal color={linkColor}>
-                clickbait
-              </Link>{' '}
-              in news media and evaluated its impact on news credibility and readers' visual attention.
-            </Text>
-            <Text color={textColor} lineHeight="tall">
-              I worked with Dr Hendrik Rommeswinkel at NTU Taiwan, studying demographic and macroeconomic factors affecting consumer choice. I also collaborated with Dr Prithviraj Mukherjee at IIM Bangalore on behavioral experiments using eye-trackers.
-            </Text>
+            <VStack spacing={6} align="start">
+              <Text lineHeight="tall">
+                My research focused on making technology more inclusive and responsible by studying its societal impact.
+              </Text>
+              <Text lineHeight="tall">
+                Under Dr Kavita Vemuri at the Cognitive Sciences Lab, IIIT Hyderabad, I worked at the intersection of human computer interaction, neuroscience and economics. My{' '}
+                <Link href="https://web2py.iiit.ac.in/research_centres/publications/view_publication/mastersthesis/1026" isExternal>
+                  MS thesis
+                </Link>{' '}
+                explored the proliferation of{' '}
+                <Link href="https://en.wikipedia.org/wiki/Clickbait" isExternal>
+                  clickbait
+                </Link>{' '}
+                in news media and evaluated its impact on news credibility and readers' visual attention.
+              </Text>
+              <Text lineHeight="tall">
+                I worked with Dr Hendrik Rommeswinkel at NTU Taiwan, studying demographic and macroeconomic factors affecting consumer choice. I also collaborated with Dr Prithviraj Mukherjee at IIM Bangalore on behavioral experiments using eye-trackers.
+              </Text>
+            </VStack>
           </Box>
 
-          <SimpleGrid columns={{ base: 1, lg: 3 }} spacing={8} width="100%">
+          <VStack spacing={10} align="stretch" width="100%">
             <Box>
-              <Heading as="h2" fontSize="lg" fontWeight="medium" mb={4} color={headingColor}>
+              <Heading as="h2" fontSize="lg" fontWeight="600" mb={6} color="gray.900">
                 Papers
               </Heading>
-              <VStack spacing={4} align="start">
+              <VStack spacing={6} align="start">
                 {papers.map((paper, index) => (
                   <Box key={index}>
                     <Link 
                       href={paper.link} 
                       isExternal 
-                      color={linkColor}
-                      _hover={{ color: linkColor, textDecoration: 'none' }}
                       lineHeight="tall"
+                      fontWeight="500"
+                      color="gray.900"
+                      _hover={{ color: 'brand.600' }}
+                      transition="color 0.15s ease"
                     >
                       {paper.title}
                     </Link>
-                    <Text fontSize="sm" color={mutedColor} mt={1}>
+                    <Text fontSize="sm" color="gray.500" mt={1} letterSpacing="wide">
                       {paper.venue}, {paper.year}
                     </Text>
                   </Box>
@@ -126,12 +125,12 @@ const Research = () => {
             </Box>
 
             <Box>
-              <Heading as="h2" fontSize="lg" fontWeight="medium" mb={4} color={headingColor}>
+              <Heading as="h2" fontSize="lg" fontWeight="600" mb={6} color="gray.900">
                 Conferences
               </Heading>
-              <VStack spacing={3} align="start">
+              <VStack spacing={4} align="start">
                 {conferences.map((conference, index) => (
-                  <Text key={index} color={textColor} lineHeight="tall">
+                  <Text key={index} color="gray.700" lineHeight="tall" fontSize="sm">
                     {conference}
                   </Text>
                 ))}
@@ -139,7 +138,7 @@ const Research = () => {
             </Box>
 
             <Box>
-              <Heading as="h2" fontSize="lg" fontWeight="medium" mb={4} color={headingColor}>
+              <Heading as="h2" fontSize="lg" fontWeight="600" mb={6} color="gray.900">
                 Links
               </Heading>
               <VStack spacing={3} align="start">
@@ -148,15 +147,15 @@ const Research = () => {
                     key={index}
                     href={link.link}
                     isExternal
-                    color={linkColor}
-                    _hover={{ color: linkColor, textDecoration: 'none' }}
+                    fontSize="sm"
+                    fontWeight="500"
                   >
                     {link.title}
                   </Link>
                 ))}
               </VStack>
             </Box>
-          </SimpleGrid>
+          </VStack>
         </VStack>
       </Container>
     </Box>

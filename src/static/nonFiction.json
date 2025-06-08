@@ -1,98 +1,172 @@
-{
-    "col1": [
-        {
-            "book": "Factfulness",
-            "author": "Hans Gosling"
-        },
-        {
-            "book": "Steve Jobs",
-            "author": "Walter Isaacson"
-        },
-        {
-            "book": "Shoe Dog",
-            "author": "Phil Knight"
-        },
-        {
-            "book": "Flow",
-            "author": "Mihaly Csikszentmihalyi"
-        },
-        {
-            "book": "Thinking Fast and Slow",
-            "author": "Daniel Kahneman"
-        },
-        {
-            "book": "Sapiens",
-            "author": "Yuval Noah Harari"
-        },
-        {
-            "book": "Man's Search for Meaning",
-            "author": "Victor E. Frankl"
-        },
-        {
-            "book": "The Rational Optimist",
-            "author": "Matt Ridley"
-        },
-        {
-            "book": "Build",
-            "author": "Tony Fadell"
-        },
-        {
-            "book": "Continuous Discovery Habits",
-            "author": "Teresa Torres"
-        },
-        {
-            "book": "The Hard Thing About Hard Things",
-            "author": "Ben Horowitz"
-        }
-    ],
-    "col2": [
-        {
-            "book": "India After Gandhi",
-            "author": "Ramchandra Guha"
-        },
-        {
-            "book": "Guns, Germs and Steel",
-            "author": "Jared Diamond"
-        },
-        {
-            "book": "Good Strategy/ Bad Strategy ",
-            "author": "Richard Rumelt"
-        },
-        {
-            "book": "Inspired",
-            "author": "Marty Cagan"
-        },
-        {
-            "book": "The Psychology of Money",
-            "author": "Morgan Housel"
-        },
-        {
-            "book": "Loonshots",
-            "author": "Safi Bahchall"
-        },
-        {
-            "book": "How to Change Your Mind",
-            "author": "Michael Pollan"
-        },
-        {
-            "book": "The Mom Test",
-            "author": "Rob Fitzpatrick"
-        },
-        {
-            "book": "Tuesdays with Morrie",
-            "author": "Mitch Albom"
-        },
-        {
-            "book": "No Rules Rules",
-            "author": "Reed Hastings and Erin Meyer"
-        },
-        {
-            "book": "Zero to One",
-            "author": "Peter Thiel"
-        },
-        {
-            "book": "Subtract",
-            "author": "Liedy Klotz"
-        }
-    ]
-}
+[
+    {
+        "book": "The Courage to be Disliked",
+        "author": "Ichiro Kishimi and Fumitake Koga",
+        "tags": ["psychology", "philosophy"]
+    },
+    {
+        "book": "The Messy Middle",
+        "author": "Scott Belsky",
+        "tags": ["business"]
+    },
+    {
+        "book": "Factfulness",
+        "author": "Hans Gosling",
+        "tags": ["critical thought"]
+    },
+    {
+        "book": "Steve Jobs",
+        "author": "Walter Isaacson",
+        "tags": ["biography"]
+    },
+    {
+        "book": "Shoe Dog",
+        "author": "Phil Knight",
+        "tags": ["biography"]
+    },
+    {
+        "book": "Flow",
+        "author": "Mihaly Csikszentmihalyi",
+        "tags": ["psychology"]
+    },
+    {
+        "book": "Thinking Fast and Slow",
+        "author": "Daniel Kahneman",
+        "tags": ["psychology"]
+    },
+    {
+        "book": "Sapiens",
+        "author": "Yuval Noah Harari",
+        "tags": ["critical thought","history"]
+    },
+    {
+        "book": "Man's Search for Meaning",
+        "author": "Victor E. Frankl",
+        "tags": ["philosophy"]
+    },
+    {
+        "book": "The Rational Optimist",
+        "author": "Matt Ridley",
+        "tags": ["critical thought"]
+    },
+    {
+        "book": "Thinking in Systems",
+        "author": "Donella Meadows",
+        "tags": ["critical thought"]
+    },
+    {
+        "book": "Build",
+        "author": "Tony Fadell",
+        "tags": ["product"]
+    },
+    {
+        "book": "Shape Up",
+        "author": "Ryan Singer",
+        "tags": ["product"]
+    },
+    {
+        "book": "Subtract",
+        "author": "Liedy Klotz",
+        "tags": ["critical thought"]
+    },
+    {
+        "book": "Continuous Discovery Habits",
+        "author": "Teresa Torres",
+        "tags": ["product"]
+    },
+    {
+        "book": "The Hard Thing About Hard Things",
+        "author": "Ben Horowitz",
+        "tags": ["business"]
+    },
+    {
+        "book": "India After Gandhi",
+        "author": "Ramchandra Guha",
+        "tags": ["history"]
+    },
+    {
+        "book": "Guns, Germs and Steel",
+        "author": "Jared Diamond",
+        "tags": ["critical thought","history"]
+    },
+    {
+        "book": "Good Strategy/ Bad Strategy ",
+        "author": "Richard Rumelt",
+        "tags": ["business"]
+    },
+    {
+        "book": "Inspired",
+        "author": "Marty Cagan",
+        "tags": ["product"]
+    },
+    {
+        "book": "The Psychology of Money",
+        "author": "Morgan Housel",
+        "tags": ["psychology"]
+    },
+    {
+        "book": "Loonshots",
+        "author": "Safi Bahchall",
+        "tags": ["business"]
+    },
+    {
+        "book": "How to Change Your Mind",
+        "author": "Michael Pollan",
+        "tags": ["science"]
+    },
+    {
+        "book": "Tuesdays with Morrie",
+        "author": "Mitch Albom",
+        "tags": ["philosophy"]
+    },
+    {
+        "book": "The Top Five Regrets of the Dying",
+        "author": "Bronnie Ware",
+        "tags": ["philosophy"]
+    },
+    {
+        "book": "When Breath Becomes Air",
+        "author": "Paul Kalanithi",
+        "tags": ["philosophy"]
+    },
+    {
+        "book": "The Bonobo and the Atheist",
+        "author": "Frans de Waal",
+        "tags": ["science"]
+    },
+    {
+        "book": "Wanting",
+        "author": "Luke Burgis",
+        "tags": ["psychology"]
+    },
+    {
+        "book": "No Rules Rules",
+        "author": "Reed Hastings and Erin Meyer",
+        "tags": ["business"]
+    },
+    {
+        "book": "Zero to One",
+        "author": "Peter Thiel",
+        "tags": ["business"]
+    },
+    {
+        "book": "Amp It Up",
+        "author": "Frank Slootman",
+        "tags": ["business"]
+    },
+    {
+        "book": "Hooked",
+        "author": "Nir Eyal",
+        "tags": ["product"]
+    },
+    {
+        "book": "Chaos Monkeys",
+        "author": "Antonio García Martínez",
+        "tags": ["biography"]
+    },
+    {
+        "book": "1984",
+        "author": "George Orwell",
+        "tags": ["critical thought"]
+    }
+]

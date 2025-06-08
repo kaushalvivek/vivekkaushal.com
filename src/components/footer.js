@@ -1,7 +1,17 @@
 import React from 'react';
-import { Box, Container, HStack, Link, Image, Tooltip } from '@chakra-ui/react';
+import { 
+  Box, 
+  Container, 
+  HStack, 
+  Link, 
+  Image, 
+  Tooltip,
+  useColorModeValue
+} from '@chakra-ui/react';
 
 const Footer = () => {
+  const borderColor = useColorModeValue('gray.200', 'gray.700');
+  
   const socialLinks = [
     {
       name: 'Writing',
@@ -26,9 +36,15 @@ const Footer = () => {
   ];
 
   return (
-    <Box py={4}>
-      <Container maxW="container.xl" px={4}>
-        <HStack spacing={8} justify="center">
+    <Box 
+      mt={20}
+      pt={8}
+      pb={12}
+      borderTop="1px solid" 
+      borderColor={borderColor}
+    >
+      <Container maxW="container.sm">
+        <HStack spacing={6} justify="center">
           {socialLinks.map((link) => (
             <Tooltip 
               key={link.name} 
@@ -37,14 +53,17 @@ const Footer = () => {
               hasArrow
               placement="top"
             >
-              <Link href={link.url} isExternal>
+              <Link 
+                href={link.url} 
+                isExternal
+                transition="opacity 0.15s ease"
+                _hover={{ opacity: 0.7 }}
+              >
                 <Image 
                   src={link.icon} 
                   alt={link.name} 
                   boxSize="18px" 
-                  opacity={0.5}
-                  _hover={{ opacity: 0.8 }}
-                  transition="opacity 0.2s"
+                  opacity={0.4}
                 />
               </Link>
             </Tooltip>

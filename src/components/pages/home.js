@@ -50,62 +50,77 @@ const Home = () => {
   }, []);
 
   return (
-    <Box py={{ base: 8, md: 16 }}>
+    <Box py={{ base: 16, md: 24 }}>
       <Container maxW="container.sm">
-        <VStack spacing={8} align="start">
-          <Text
-            fontSize="xl"
-            color={textColor}
-            lineHeight="tall"
-          >
-            Hello, I'm Vivek Kaushal. I build systems and experiences.
-          </Text>
+        <VStack spacing={12} align="start">
+          <Box maxW="prose">
+            <Text 
+              fontSize={{ base: "xl", md: "2xl" }}
+              lineHeight="tall"
+              color="gray.800"
+              mb={8}
+              fontWeight="400"
+            >
+              Hello, I'm Vivek Kaushal.
+            </Text>
 
-          <Text color={textColor} lineHeight="tall">
-            I am the founding PM at <Link href="https://enterpret.com" color={linkColor} isExternal>Enterpret</Link>, helping businesses understand their users. 
-            Before this, I engineered software systems at Samsung Research, a few other start-ups, and wrote apps for the Delhi and Indian governments. I studied CS at IIIT Hyderabad and researched behavioral economics at NTU, Taiwan.
-          </Text>
+            <VStack spacing={6} align="start">
+              <Text lineHeight="tall">
+                I'm the founding Product Manager at <Link href="https://enterpret.com" isExternal>Enterpret</Link>, where I help companies transform unstructured user feedback into actionable insights to build better products and experiences.
+              </Text>
 
-          <Text color={textColor} lineHeight="tall">
-            I enjoy brewing coffee, reading books, and listening to indie rock music. I write about technology, product development, and psychology.
-          </Text>  
-          
-          <Text color={textColor} lineHeight="tall">
-            I share actionable insights on adopting technological advancements on <Link href="https://vivekkaushal.substack.com" color={linkColor} isExternal>Applied Techno-optimism</Link>, and share thoughts on <Link href="https://twitter.com/vi_kaushal" color={linkColor} isExternal>X</Link>.
-          </Text>
+              <Text lineHeight="tall">
+                In past, I've engineered software systems at Samsung Research and built applications for the Delhi and Indian governments. I studied computer science at IIIT Hyderabad and researched behavioral economics at NTU Taiwan, exploring decision-making.
+              </Text>
+
+              <Text lineHeight="tall">
+                I'm fascinated by the intersection of human psychology and technology. I find joy in building systems and experiences.
+              </Text>
+
+              <Text lineHeight="tall">
+                In my downtime you'll find me being snooty about coffee, reading books, and enjoying fringe rock music. I write technology, optimism, and human behavior on <Link href="https://vivekkaushal.substack.com" isExternal>Applied Techno-optimism</Link> and <Link href="https://twitter.com/vi_kaushal" isExternal>X</Link>.
+              </Text>
+            </VStack>
+          </Box>
 
           {latestPost && (
             <>
-              <Divider opacity={0.3} />
-              <Box width="100%" pt={2}>
+              <Divider my={4} borderColor="gray.200" />
+              <Box width="100%">
                 <Link
                   as={RouterLink}
                   to={`/blog/${latestPost.slug}`}
                   _hover={{ textDecoration: 'none' }}
                 >
                   <Box
+                    transition="all 0.15s ease"
                     _hover={{
-                      '& h2': { color: linkColor },
+                      '& h2': { color: 'brand.600' },
                     }}
-                    transition="all 0.2s"
                   >
-                    <Text fontSize="xs" textTransform="uppercase" letterSpacing="wide" color={mutedColor} mb={1}>
-                      Latest Essay
+                    <Text 
+                      fontSize="sm" 
+                      color="gray.500" 
+                      mb={2}
+                      letterSpacing="wide"
+                    >
+                      Latest writing
                     </Text>
                     <Heading
                       as="h2"
-                      fontSize="md"
-                      fontWeight="500"
-                      color={headingColor}
-                      mb={1}
+                      fontSize="lg"
+                      fontWeight="600"
+                      color="gray.900"
+                      mb={2}
                       lineHeight="short"
                     >
                       {latestPost.title}
                     </Heading>
                     <Text
-                      fontSize="sm"
-                      color={mutedColor}
-                      noOfLines={1}
+                      fontSize="md"
+                      color="gray.600"
+                      lineHeight="base"
+                      noOfLines={2}
                       dangerouslySetInnerHTML={{ __html: latestPost.description }}
                     />
                   </Box>

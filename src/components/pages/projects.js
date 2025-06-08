@@ -5,74 +5,82 @@ import {
   Text,
   VStack,
   HStack,
-  Button,
-  useColorModeValue,
+  Link,
+  Heading,
 } from '@chakra-ui/react';
 import projects from '../../static/projects.json';
 
 const Projects = () => {
-  const cardColor = useColorModeValue('gray.900', 'white');
-  const dateColor = useColorModeValue('gray.500', 'gray.500');
-  const descriptionColor = useColorModeValue('gray.700', 'gray.300');
-
   return (
-    <Box py={{ base: 8, md: 16 }}>
-      <Container maxW="container.md">
-        <VStack spacing={8} align="stretch">
+    <Box py={{ base: 16, md: 24 }}>
+      <Container maxW="container.sm">
+        <VStack spacing={12} align="stretch">
           {projects.projects.map((project, index) => (
-            <Box 
-              key={index} 
-              py={4}
-              _hover={{
-                transform: 'translateY(-1px)',
-              }}
-              transition="all 0.2s"
-            >
-              <Text fontSize="xl" color={cardColor} fontWeight="500" mb={0.5}>
+            <Box key={index}>
+              <Heading 
+                as="h2" 
+                fontSize="lg" 
+                fontWeight="600" 
+                color="gray.900" 
+                mb={2}
+                lineHeight="short"
+              >
                 {project.name}
-              </Text>
-              <Text fontSize="sm" color={dateColor} mb={2}>
+              </Heading>
+              
+              <Text 
+                fontSize="sm" 
+                color="gray.500" 
+                mb={4}
+                letterSpacing="wide"
+              >
                 {project.date}
               </Text>
-              <Text color={descriptionColor} mb={4} lineHeight="tall">
+              
+              <Text 
+                color="gray.700" 
+                mb={6} 
+                lineHeight="tall"
+              >
                 {project.description}
               </Text>
-              <HStack spacing={3}>
+              
+              <HStack spacing={4} flexWrap="wrap">
                 {project.appLink && (
-                  <Button 
-                    as="a" 
+                  <Link 
                     href={project.appLink} 
-                    target="_blank"
-                    size="xs"
-                    variant="outline"
-                    colorScheme="gray"
+                    isExternal
+                    fontSize="sm"
+                    fontWeight="500"
+                    color="brand.600"
+                    _hover={{ color: 'brand.700' }}
                   >
-                    View Project
-                  </Button>
+                    View project
+                  </Link>
                 )}
                 {project.codeLink && (
-                  <Button
-                    as="a"
+                  <Link
                     href={project.codeLink}
-                    target="_blank"
-                    size="xs"
-                    variant="outline"
-                    colorScheme="gray"
+                    isExternal
+                    fontSize="sm"
+                    fontWeight="500"
+                    color="brand.600"
+                    _hover={{ color: 'brand.700' }}
                   >
-                    View Code
-                  </Button>
+                    View code
+                  </Link>
                 )}
                 {project.blogLink && (
-                  <Button
-                    as="a"
+                  <Link
                     href={project.blogLink}
-                    target="_blank"
-                    size="xs"
-                    variant="outline"
-                    colorScheme="gray"
+                    isExternal
+                    fontSize="sm"
+                    fontWeight="500"
+                    color="brand.600"
+                    _hover={{ color: 'brand.700' }}
                   >
-                    Read More
-                  </Button>
+                    Read more
+                  </Link>
                 )}
               </HStack>
             </Box>
