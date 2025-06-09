@@ -11,7 +11,6 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import { Link as RouterLink, Routes, Route } from 'react-router-dom';
-import blogFeed from '../../static/blog-feed.xml';
 import BlogPost from './BlogPost';
 
 const BlogList = ({ posts }) => {
@@ -107,57 +106,25 @@ const Blog = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(blogFeed)
-      .then(response => response.text())
-      .then(str => {
-        console.log('Raw XML:', str.substring(0, 500)); // Log first 500 chars of XML
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(str, 'text/xml');
-        const items = Array.from(doc.querySelectorAll('item'));
-        console.log('Found items:', items.length);
+    fetch('/api/blog')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(posts => {
+        // Convert date strings back to Date objects
+        const processedPosts = posts.map(post => ({
+          ...post,
+          date: new Date(post.date)
+        }));
         
-        const posts = items.map(item => {
-          const title = item.querySelector('title').textContent;
-          
-          // Try multiple possible content fields in order of preference
-          const content = 
-            item.querySelector('content\\:encoded')?.textContent ||
-            item.getElementsByTagNameNS('*', 'encoded')[0]?.textContent ||
-            item.querySelector('description')?.textContent ||
-            '';
-          
-          console.log('Content for:', title, 'Length:', content.length);
-            
-          // Clean up any CDATA sections
-          const cleanContent = content
-            .replace(/<!\[CDATA\[/g, '')
-            .replace(/\]\]>/g, '');
-            
-          const link = item.querySelector('link').textContent;
-          const date = new Date(item.querySelector('pubDate').textContent);
-          const description = item.querySelector('description')?.textContent || '';
-          
-          // Create a URL-friendly slug from the title
-          const slug = title
-            .toLowerCase()
-            .replace(/[^a-z0-9]+/g, '-')
-            .replace(/(^-|-$)/g, '');
-
-          return {
-            title,
-            content: cleanContent,
-            link,
-            date,
-            slug,
-            description: description.replace(/<!\[CDATA\[/g, '').replace(/\]\]>/g, '')
-          };
-        });
-        
-        setPosts(posts);
+        setPosts(processedPosts);
         setLoading(false);
       })
       .catch(err => {
-        console.error('Error parsing blog feed:', err);
+        console.error('Error loading blog posts:', err);
         setError('Failed to load blog posts');
         setLoading(false);
       });
@@ -182,7 +149,7 @@ const Blog = () => {
   return (
     <Routes>
       <Route path="/" element={<BlogList posts={posts} />} />
-      <Route path=":slug" element={<BlogPost posts={posts} />} />
+      <Route path=":slug" element={<BlogPost />} />
     </Routes>
   );
 };

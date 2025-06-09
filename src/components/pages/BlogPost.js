@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Box,
   Container,
@@ -8,20 +8,17 @@ import {
   Link,
   HStack,
   Icon,
+  Spinner,
+  Center,
 } from '@chakra-ui/react';
 import { ArrowBackIcon } from '@chakra-ui/icons';
 import { useParams, Link as RouterLink } from 'react-router-dom';
 
-const BlogPost = ({ posts }) => {
+const BlogPost = () => {
   const { slug } = useParams();
-  const post = posts.find(p => p.slug === slug);
-  
-  console.log('Current slug:', slug);
-  console.log('Found post:', post ? {
-    title: post.title,
-    contentLength: post.content.length,
-    contentPreview: post.content.substring(0, 200)
-  } : null);
+  const [post, setPost] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const textColor = useColorModeValue('gray.700', 'gray.300');
   const headingColor = useColorModeValue('gray.900', 'white');
@@ -31,10 +28,39 @@ const BlogPost = ({ posts }) => {
   const linkColor = useColorModeValue('blue.600', 'blue.300');
   const borderColor = useColorModeValue('gray.200', 'gray.700');
 
-  if (!post) {
+  useEffect(() => {
+    if (!slug) return;
+    
+    fetch(`/api/blog?slug=${encodeURIComponent(slug)}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(postData => {
+        setPost(postData);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error('Error loading blog post:', err);
+        setError('Failed to load blog post');
+        setLoading(false);
+      });
+  }, [slug]);
+
+  if (loading) {
+    return (
+      <Center h="50vh">
+        <Spinner size="xl" />
+      </Center>
+    );
+  }
+
+  if (error || !post) {
     return (
       <Container maxW="container.md" py={8}>
-        <Text>Post not found</Text>
+        <Text color="red.500">{error || 'Post not found'}</Text>
         <Link as={RouterLink} to="/blog">Back to Blog</Link>
       </Container>
     );

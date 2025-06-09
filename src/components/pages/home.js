@@ -10,7 +10,6 @@ import {
   Divider,
 } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
-import blogFeed from '../../static/blog-feed.xml';
 
 const Home = () => {
   const [latestPost, setLatestPost] = useState(null);
@@ -20,29 +19,16 @@ const Home = () => {
   const headingColor = useColorModeValue('gray.900', 'white');
 
   useEffect(() => {
-    fetch(blogFeed)
-      .then(response => response.text())
-      .then(str => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(str, 'text/xml');
-        const firstItem = doc.querySelector('item');
-        
-        if (firstItem) {
-          const title = firstItem.querySelector('title').textContent;
-          const description = firstItem.querySelector('description')?.textContent || '';
-          const date = new Date(firstItem.querySelector('pubDate').textContent);
-          
-          // Create URL-friendly slug
-          const slug = title
-            .toLowerCase()
-            .replace(/[^a-z0-9]+/g, '-')
-            .replace(/(^-|-$)/g, '');
-
+    fetch('/api/blog')
+      .then(response => response.json())
+      .then(posts => {
+        if (posts && posts.length > 0) {
+          const latest = posts[0];
           setLatestPost({
-            title,
-            description: description.replace(/<!\[CDATA\[/g, '').replace(/\]\]>/g, ''),
-            date,
-            slug,
+            title: latest.title,
+            description: latest.description,
+            date: new Date(latest.date),
+            slug: latest.slug,
           });
         }
       })
