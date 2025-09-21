@@ -1,6 +1,12 @@
 {
     "projects":[
         {
+            "name":"Deep Researched",
+            "date":"September, 2025",
+            "description":"A substack with deep dives on topics in AI, Engineering, and Product.",
+            "appLink":"https://deepreseearched.substack.com"
+        },
+        {
             "name":"AI Progress Today",
             "date":"June, 2025",
             "description":"A self-updating timeline of AI milestones from 1712 to 2025, uniquely curated and maintained by AI itself. The ultimate meta experience: AI watching AI progress through history.",
