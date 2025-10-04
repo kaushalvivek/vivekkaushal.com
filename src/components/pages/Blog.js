@@ -25,14 +25,11 @@ const BlogList = ({ posts }) => {
     <Box py={{ base: 8, md: 16 }}>
       <Container maxW="container.md">
         <VStack spacing={8} align="stretch">
-          <Link as={RouterLink} to="/blog" _hover={{ textDecoration: 'none' }}>
-            <Text fontSize="xl" color={textColor} lineHeight="tall">
-              Applied Techno-optimism
-              <Text as="span" fontSize="md" color={mutedColor} ml={2}>
-                : Anecdotes and recommendations for the future of work.
-              </Text>
+          <Box>
+            <Text fontSize="md" color={mutedColor} lineHeight="tall">
+              An occasional post on technology, product, hacks, and AI.
             </Text>
-          </Link>
+          </Box>
           
           <Box>
             <Link

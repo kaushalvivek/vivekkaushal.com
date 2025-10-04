@@ -56,7 +56,7 @@
         {"goal": "See Halley's Comet", "checked": false},
         {"goal": "Travel on the Trans Siberian Express", "checked": false},
         {"goal": "Learn to play a wind instrument", "checked": false},
-        {"goal": "Set foot on all 7 continents", "checked": false, "state": "2"},
+        {"goal": "Set foot on all 7 continents", "checked": false, "state": "3"},
         {"goal": "Swim in all 6 oceans", "checked": false, "state":"2"},
         {"goal": "Visit Greenland", "checked": false},
         {"goal": "Trek to the Everest basecamp", "checked": false},

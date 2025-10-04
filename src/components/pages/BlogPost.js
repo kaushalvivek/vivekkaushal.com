@@ -58,6 +58,10 @@ const BlogPost = ({ posts }) => {
           </HStack>
         </Link>
 
+        <Text fontSize="md" color={mutedColor} mb={4}>
+          An occasional post on technology, product, hacks, and AI.
+        </Text>
+
         <Heading
           as="h1"
           fontSize={{ base: '2xl', md: '3xl' }}

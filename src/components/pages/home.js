@@ -78,7 +78,7 @@ const Home = () => {
               </Text>
 
               <Text lineHeight="tall">
-                In my downtime you'll find me being snooty about coffee, reading books, and enjoying fringe rock music. I write technology, optimism, and human behavior on <Link href="https://vivekkaushal.substack.com" isExternal>Applied Techno-optimism</Link> and <Link href="https://twitter.com/vi_kaushal" isExternal>X</Link>.
+                In my downtime you'll find me being snooty about coffee, reading books, and enjoying fringe rock music. I share longer-form ideas in my <Link href="https://vivekkaushal.substack.com" isExternal>newsletter</Link> and on <Link href="https://twitter.com/vi_kaushal" isExternal>X</Link>.
               </Text>
             </VStack>
           </Box>
@@ -105,6 +105,9 @@ const Home = () => {
                       letterSpacing="wide"
                     >
                       Latest writing
+                    </Text>
+                    <Text fontSize="sm" color="gray.500" mb={2}>
+                      An occasional post on technology, product, hacks, and AI.
                     </Text>
                     <Heading
                       as="h2"
