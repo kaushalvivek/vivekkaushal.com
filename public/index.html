@@ -41,11 +41,17 @@
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
-  <form name="talk" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <form name="talk" method="post" netlify netlify-honeypot="bot-field" hidden>
     <input type="hidden" name="form-name" value="talk" />
-    <input type="text" name="contact" />
-    <textarea name="message"></textarea>
-    <input type="text" name="bot-field" />
+    <p>
+      <label>Contact <input type="text" name="contact" /></label>
+    </p>
+    <p>
+      <label>Message <textarea name="message"></textarea></label>
+    </p>
+    <p hidden>
+      <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+    </p>
   </form>
   <!--
       This HTML file is a template.
