@@ -2,6 +2,12 @@
   command = "npm run build"
   publish = "build"
 
+[build.processing]
+  skip_processing = false
+
+[build.processing.forms]
+  enabled = true
+
 [[notifications]]
   type = "email"
   to = "vivek.kaushal@outlook.com"
