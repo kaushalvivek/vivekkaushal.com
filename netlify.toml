@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build"
+  publish = "build"
+
+[[notifications]]
+  type = "email"
+  to = "vivek.kaushal@outlook.com"
+  form = "talk"

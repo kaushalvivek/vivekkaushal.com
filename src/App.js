@@ -9,6 +9,7 @@ import Research from './components/pages/research';
 import Recommendations from './components/pages/recommendations';
 import BucketList from './components/pages/bucketlist';
 import Blog from './components/pages/Blog';
+import Talk from './components/pages/talk';
 import My404 from './components/pages/my404';
 import ExternalRedirect from './components/ExternalRedirect';
 import theme from './theme';
@@ -29,6 +30,7 @@ const App = () => {
               <Route path="/blog/*" element={<Blog />} />
               <Route path="/hack" element={<Navigate to="/blog" replace />} />
               <Route path="/meet" element={<ExternalRedirect to="https://calendly.com/vikaushal/30-min" />} />
+              <Route path="/talk" element={<Talk />} />
               <Route path="*" element={<My404 />} />
             </Routes>
           </Box>

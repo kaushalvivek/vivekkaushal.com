@@ -75,6 +75,7 @@ const Header = () => {
             <NavLink to="/research">Research</NavLink>
             <NavLink to="/recommendations">Reads</NavLink>
             <NavLink to="/bucketlist">Bucket List</NavLink>
+            <NavLink to="/talk">Talk</NavLink>
           </HStack>
         </Flex>
       </Container>
