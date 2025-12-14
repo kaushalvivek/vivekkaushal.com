@@ -168,5 +168,10 @@
         "book": "1984",
         "author": "George Orwell",
         "tags": ["critical thought"]
+    },
+    {
+        "book": "Tiny Experiments",
+        "author": "Anne-Laure Le Cunff",
+        "tags": ["psychology", "philosophy"]
     }
 ]
