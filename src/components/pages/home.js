@@ -54,31 +54,31 @@ const Home = () => {
       <Container maxW="container.sm">
         <VStack spacing={12} align="start">
           <Box maxW="prose">
-            <Text 
+            <Text
               fontSize={{ base: "xl", md: "2xl" }}
               lineHeight="tall"
               color="gray.800"
               mb={8}
               fontWeight="400"
             >
-              Hello, I'm Vivek Kaushal.
+              I'm Vivek Kaushal.
             </Text>
 
             <VStack spacing={6} align="start">
               <Text lineHeight="tall">
-                I'm the founding Product Manager at <Link href="https://enterpret.com" isExternal>Enterpret</Link>, where I help companies transform unstructured user feedback into actionable insights to build better products and experiences.
+                I've spent most of my work trying to understand why people choose what they choose — and then building things that account for it.
               </Text>
 
               <Text lineHeight="tall">
-                In past, I've engineered software systems at Samsung Research and built applications for the Delhi and Indian governments. I studied computer science at IIIT Hyderabad and researched behavioral economics at NTU Taiwan, exploring decision-making.
+                Computer science at IIIT Hyderabad. Decision-making research at NTU Taiwan. Software at Samsung Research. Applications for the Delhi and Indian governments. Four years as founding PM at <Link href="https://enterpret.com" isExternal>Enterpret</Link>, figuring out what to build next.
               </Text>
 
               <Text lineHeight="tall">
-                I'm fascinated by the intersection of human psychology and technology. I find joy in building systems and experiences.
+                Snooty about coffee. Loyal to fringe rock.
               </Text>
 
               <Text lineHeight="tall">
-                In my downtime you'll find me being snooty about coffee, reading books, and enjoying fringe rock music. I share longer-form ideas in my <Link href="https://vivekkaushal.substack.com" isExternal>newsletter</Link> and on <Link href="https://twitter.com/vi_kaushal" isExternal>X</Link>.
+                Longer thoughts in my <Link href="https://vivekkaushal.substack.com" isExternal>newsletter</Link>. Shorter ones on <Link href="https://twitter.com/vi_kaushal" isExternal>X</Link>.
               </Text>
             </VStack>
           </Box>
@@ -105,9 +105,6 @@ const Home = () => {
                       letterSpacing="wide"
                     >
                       Latest writing
-                    </Text>
-                    <Text fontSize="sm" color="gray.500" mb={2}>
-                      An occasional post on technology, product, hacks, and AI.
                     </Text>
                     <Heading
                       as="h2"

@@ -27,7 +27,7 @@ const BlogList = ({ posts }) => {
         <VStack spacing={8} align="stretch">
           <Box>
             <Text fontSize="md" color={mutedColor} lineHeight="tall">
-              An occasional post on technology, product, hacks, and AI.
+              An occasional post about ideas and stories worth sharing.
             </Text>
           </Box>
           

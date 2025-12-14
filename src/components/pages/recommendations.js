@@ -34,7 +34,7 @@ const Recommendations = () => {
           <Box width="100%">
             <VStack spacing={6} align="start" mb={8}>
               <Text lineHeight="tall">
-                Our wisdom is built on top of ideas trickled down through time. Perhaps there is no better use of time than to absorb the best of what humanity has to offer. The following is a list of books I'll recommend.
+                Books I'd actually recommend. Not a reading log—just the ones worth your time.
               </Text>
             </VStack>
           </Box>

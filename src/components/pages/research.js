@@ -78,10 +78,10 @@ const Research = () => {
           <Box width="100%">
             <VStack spacing={6} align="start">
               <Text lineHeight="tall">
-                My research focused on making technology more inclusive and responsible by studying its societal impact.
+                I researched clickbait—how it spreads, whether people trust it, and what it does to attention.
               </Text>
               <Text lineHeight="tall">
-                Under Dr Kavita Vemuri at the Cognitive Sciences Lab, IIIT Hyderabad, I worked at the intersection of human computer interaction, neuroscience and economics. My{' '}
+                At the Cognitive Sciences Lab, IIIT Hyderabad, I worked with Dr Kavita Vemuri on eye-tracking studies and news credibility experiments. My{' '}
                 <Link href="https://web2py.iiit.ac.in/research_centres/publications/view_publication/mastersthesis/1026" isExternal>
                   MS thesis
                 </Link>{' '}

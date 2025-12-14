@@ -85,7 +85,7 @@ const Talk = () => {
               Say hi
             </Heading>
             <Text color="gray.600">
-              Reach out for projects, coffee chats, or if you picked up something with my name on it.
+              Reach out for projects, coffee chats, or if you found something I lost.
             </Text>
           </VStack>
 

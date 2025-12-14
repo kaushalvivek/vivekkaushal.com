@@ -9,7 +9,7 @@
         {
             "name":"AI Progress Today",
             "date":"June, 2025",
-            "description":"A self-updating timeline of AI milestones from 1712 to 2025, uniquely curated and maintained by AI itself. The ultimate meta experience: AI watching AI progress through history.",
+            "description":"A self-updating timeline of AI milestones from 1712 to 2025, curated and maintained by AI itself.",
             "appLink":"https://aiprogress.today",
             "codeLink":"https://github.com/kaushalvivek/ai-progress-today"
         },

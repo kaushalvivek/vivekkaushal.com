@@ -24,7 +24,7 @@ const BucketList = () => {
               <Link href="https://huyenchip.com/list-100/" isExternal>
                 List 100
               </Link>
-              {' '}to create and maintain this list. This list is a collection of moments that I want to experience before I drop off the face of this planet.
+              {' '}to create and maintain this list—moments I want to experience in this lifetime.
             </Text>
             <Text color="gray.600" fontSize="sm" letterSpacing="wide">
               Current status: {done} / {total}

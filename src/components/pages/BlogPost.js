@@ -59,7 +59,7 @@ const BlogPost = ({ posts }) => {
         </Link>
 
         <Text fontSize="md" color={mutedColor} mb={4}>
-          An occasional post on technology, product, hacks, and AI.
+          An occasional post about ideas and stories worth sharing.
         </Text>
 
         <Heading
