@@ -187,12 +187,45 @@ Analytics tracking is configured in `src/components/tracker.js`. Update tracking
 
 ## Deployment
 
-The site is automatically deployed via Netlify:
+The site can be deployed to Netlify in two ways:
+
+### Option 1: Manual Deployment (Recommended Workflow)
+
+Complete deployment sequence using Netlify CLI:
+
+```bash
+# 1. Stage your changes
+git add <files>
+
+# 2. Commit changes
+git commit -m "Your commit message"
+
+# 3. Push to remote
+git push origin master
+
+# 4. Build with Netlify
+netlify build
+
+# 5. Deploy to production
+netlify deploy --prod
+```
+
+**Expected behavior:**
+- Build time: ~4-5 seconds
+- ESLint warnings (unused variables) are normal and non-blocking
+- Build output: ~176 KB gzipped
+- Deploy uploads only changed files to CDN
+
+### Option 2: Automatic Deployment
+
+Netlify can be configured for automatic deployments:
 
 1. **Automatic Deployments:** Push to `master` branch triggers production build
 2. **Preview Deployments:** Pull requests generate preview URLs
 3. **Build Command:** `npm run build`
 4. **Publish Directory:** `build/`
+
+Note: Manual deployment gives you more control and visibility into the build/deploy process.
 
 ### Netlify Configuration
 
@@ -201,13 +234,6 @@ See `netlify.toml` for:
 - Redirect rules
 - Function configurations
 - Environment variables
-
-### Manual Deployment
-
-If needed, deploy manually via Netlify CLI:
-```bash
-netlify deploy --prod
-```
 
 ---
 
@@ -226,8 +252,9 @@ netlify deploy --prod
 1. Publish post on Substack
 2. Run `npm run update-blog` locally
 3. Verify changes: `npm start` and check `/blog`
-4. Commit the updated `blog-feed.xml`
-5. Push to deploy
+4. Stage and commit: `git add src/static/blog-feed.xml && git commit -m "Update blog feed"`
+5. Push to remote: `git push origin master`
+6. Build and deploy: `netlify build && netlify deploy --prod`
 
 ### Making Style Changes
 
@@ -253,6 +280,18 @@ netlify deploy --prod
 2. Check for syntax errors in components
 3. Verify all imports are correct
 4. Check Netlify build logs for specific errors
+
+### Build Warnings (ESLint)
+
+The build currently produces ESLint warnings for unused variables:
+- `src/components/pages/home.js` - unused color variables
+- `src/components/pages/recommendations.js` - unused Button import
+- `src/components/pages/research.js` - unused SimpleGrid import
+
+**These warnings are non-blocking** and don't prevent deployment. They can be:
+- Fixed by removing unused code
+- Ignored with `// eslint-disable-next-line` comments
+- Left as-is (they don't affect functionality)
 
 ### Routing Issues
 
@@ -340,8 +379,12 @@ git status
 git add src/static/blog-feed.xml
 git commit -m "Update blog feed with new post"
 
-# Push to deploy
+# Push to remote
 git push origin master
+
+# Build and deploy to production
+netlify build
+netlify deploy --prod
 ```
 
 ---
@@ -358,14 +401,21 @@ npm start
 npm run update-blog
 ```
 
-**Build Production:**
+**Deploy to Production (Manual):**
 ```bash
-npm run build
+# Complete deployment sequence
+git add <files>
+git commit -m "commit message"
+git push origin master
+netlify build
+netlify deploy --prod
 ```
 
-**Deploy:**
+**Build Only:**
 ```bash
-git push origin master
+npm run build
+# or
+netlify build
 ```
 
 ---
