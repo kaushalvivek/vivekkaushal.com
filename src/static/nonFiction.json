@@ -2,82 +2,82 @@
     {
         "book": "The Courage to be Disliked",
         "author": "Ichiro Kishimi and Fumitake Koga",
-        "tags": ["psychology", "philosophy"]
+        "tags": ["philosophy", "self-improvement"]
     },
     {
         "book": "The Messy Middle",
         "author": "Scott Belsky",
-        "tags": ["business"]
+        "tags": ["entrepreneurship", "leadership"]
     },
     {
         "book": "Factfulness",
         "author": "Hans Gosling",
-        "tags": ["critical thought"]
+        "tags": ["decision-making", "science"]
     },
     {
         "book": "Steve Jobs",
         "author": "Walter Isaacson",
-        "tags": ["biography"]
+        "tags": ["biography", "entrepreneurship", "technology"]
     },
     {
         "book": "Shoe Dog",
         "author": "Phil Knight",
-        "tags": ["biography"]
+        "tags": ["biography", "entrepreneurship", "memoir"]
     },
     {
         "book": "Flow",
         "author": "Mihaly Csikszentmihalyi",
-        "tags": ["psychology"]
+        "tags": ["psychology", "self-improvement"]
     },
     {
         "book": "Thinking Fast and Slow",
         "author": "Daniel Kahneman",
-        "tags": ["psychology"]
+        "tags": ["psychology", "decision-making", "research"]
     },
     {
         "book": "Sapiens",
         "author": "Yuval Noah Harari",
-        "tags": ["critical thought","history"]
+        "tags": ["history", "philosophy", "science"]
     },
     {
         "book": "Man's Search for Meaning",
         "author": "Victor E. Frankl",
-        "tags": ["philosophy"]
+        "tags": ["philosophy", "memoir", "self-improvement"]
     },
     {
         "book": "The Rational Optimist",
         "author": "Matt Ridley",
-        "tags": ["critical thought"]
+        "tags": ["economics", "science", "systems-thinking"]
     },
     {
         "book": "Thinking in Systems",
         "author": "Donella Meadows",
-        "tags": ["critical thought"]
+        "tags": ["systems-thinking", "science"]
     },
     {
         "book": "Build",
         "author": "Tony Fadell",
-        "tags": ["product"]
+        "tags": ["product", "entrepreneurship", "memoir"]
     },
     {
         "book": "Shape Up",
         "author": "Ryan Singer",
-        "tags": ["product"]
+        "tags": ["product", "strategy"]
     },
     {
         "book": "Subtract",
         "author": "Liedy Klotz",
-        "tags": ["critical thought"]
+        "tags": ["decision-making", "self-improvement"]
     },
     {
         "book": "Continuous Discovery Habits",
         "author": "Teresa Torres",
-        "tags": ["product"]
+        "tags": ["product", "research"]
     },
     {
         "book": "The Hard Thing About Hard Things",
         "author": "Ben Horowitz",
-        "tags": ["business"]
+        "tags": ["leadership", "entrepreneurship", "memoir"]
     },
     {
         "book": "India After Gandhi",
@@ -87,91 +87,101 @@
     {
         "book": "Guns, Germs and Steel",
         "author": "Jared Diamond",
-        "tags": ["critical thought","history"]
+        "tags": ["history", "science", "systems-thinking"]
     },
     {
         "book": "Good Strategy/ Bad Strategy ",
         "author": "Richard Rumelt",
-        "tags": ["business"]
+        "tags": ["strategy", "leadership"]
     },
     {
         "book": "Inspired",
         "author": "Marty Cagan",
-        "tags": ["product"]
+        "tags": ["product", "strategy"]
     },
     {
         "book": "The Psychology of Money",
         "author": "Morgan Housel",
-        "tags": ["psychology"]
+        "tags": ["psychology", "decision-making", "economics"]
     },
     {
         "book": "Loonshots",
         "author": "Safi Bahchall",
-        "tags": ["business"]
+        "tags": ["entrepreneurship", "strategy", "science"]
     },
     {
         "book": "How to Change Your Mind",
         "author": "Michael Pollan",
-        "tags": ["science"]
+        "tags": ["science", "psychology", "memoir"]
     },
     {
         "book": "Tuesdays with Morrie",
         "author": "Mitch Albom",
-        "tags": ["philosophy"]
+        "tags": ["philosophy", "memoir"]
     },
     {
         "book": "The Top Five Regrets of the Dying",
         "author": "Bronnie Ware",
-        "tags": ["philosophy"]
+        "tags": ["philosophy", "self-improvement"]
     },
     {
         "book": "When Breath Becomes Air",
         "author": "Paul Kalanithi",
-        "tags": ["philosophy"]
+        "tags": ["philosophy", "memoir"]
     },
     {
         "book": "The Bonobo and the Atheist",
         "author": "Frans de Waal",
-        "tags": ["science"]
+        "tags": ["science", "philosophy"]
     },
     {
         "book": "Wanting",
         "author": "Luke Burgis",
-        "tags": ["psychology"]
+        "tags": ["psychology", "self-improvement"]
     },
     {
         "book": "No Rules Rules",
         "author": "Reed Hastings and Erin Meyer",
-        "tags": ["business"]
+        "tags": ["leadership", "strategy", "memoir"]
     },
     {
         "book": "Zero to One",
         "author": "Peter Thiel",
-        "tags": ["business"]
+        "tags": ["entrepreneurship", "strategy", "technology"]
     },
     {
         "book": "Amp It Up",
         "author": "Frank Slootman",
-        "tags": ["business"]
+        "tags": ["leadership", "strategy"]
     },
     {
         "book": "Hooked",
         "author": "Nir Eyal",
-        "tags": ["product"]
+        "tags": ["product", "psychology"]
     },
     {
         "book": "Chaos Monkeys",
         "author": "Antonio García Martínez",
-        "tags": ["biography"]
+        "tags": ["biography", "technology", "memoir"]
     },
     {
         "book": "1984",
         "author": "George Orwell",
-        "tags": ["critical thought"]
+        "tags": ["philosophy"]
     },
     {
         "book": "Tiny Experiments",
         "author": "Anne-Laure Le Cunff",
-        "tags": ["psychology", "philosophy"]
+        "tags": ["self-improvement", "psychology"]
+    },
+    {
+        "book": "The Art of Spending Money",
+        "author": "Morgan Housel",
+        "tags": ["economics", "decision-making", "psychology"]
+    },
+    {
+        "book": "High Output Management",
+        "author": "Andrew Grove",
+        "tags": ["leadership", "management", "strategy"]
     }
 ]

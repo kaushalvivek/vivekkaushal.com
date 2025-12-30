@@ -145,17 +145,58 @@ Edit `src/static/projects.json`:
 ```
 
 #### Recommendations
+
 Edit `src/static/nonFiction.json`:
 ```json
 [
   {
-    "title": "Book Title",
+    "book": "Book Title",
     "author": "Author Name",
-    "link": "https://amazon.com/...",
-    "description": "Why you should read this"
+    "tags": ["tag1", "tag2", "tag3"]
   }
 ]
 ```
+
+**Book Tagging System:**
+
+The book recommendations use a multi-dimensional tagging system designed for discoverability and user-centric search. Tags are organized into three loose dimensions:
+
+**1. Application/Purpose** (What's it useful for?)
+- `leadership` - Managing teams, organizational challenges
+- `product` - Building/managing products
+- `strategy` - Strategic thinking, competitive advantage
+- `entrepreneurship` - Starting/building companies
+- `self-improvement` - Personal growth, productivity
+- `decision-making` - Better choices, cognitive biases
+- `systems-thinking` - Understanding complexity
+- `management` - Day-to-day management practices
+
+**2. Discipline/Field** (What domain?)
+- `psychology` - Human behavior, mind
+- `philosophy` - Meaning, ethics, existence
+- `history` - Past events, civilizations
+- `science` - Research, natural world
+- `economics` - Markets, incentives, money
+- `technology` - Tech industry, innovation
+
+**3. Format/Style** (How's it presented?)
+- `biography` - Life stories (third person)
+- `memoir` - Personal narrative (first person)
+- `research` - Data-driven, academic
+
+**Tagging Guidelines:**
+- Use 1-4 tags per book maximum
+- Focus on what visitors would search for, not library categorization
+- Combine dimensions for better discoverability (e.g., `["leadership", "memoir", "technology"]`)
+- Avoid vague tags - be specific about the book's value
+- Tags should describe both content and application
+
+**Examples:**
+- "Steve Jobs" → `["biography", "entrepreneurship", "technology"]`
+- "Thinking Fast and Slow" → `["psychology", "decision-making", "research"]`
+- "The Hard Thing About Hard Things" → `["leadership", "entrepreneurship", "memoir"]`
+
+**Reference:** Tagging system based on research from [LibraryThing](https://www.librarything.com/concepts), [personal knowledge management best practices](https://stangarfield.medium.com/personal-knowledge-management-how-to-do-it-with-25-resources-and-10-books-on-pkm-2adce0e1d05c), and [content taxonomy guidelines](https://www.bynder.com/en/blog/building-digital-asset-library-taxonomy/).
 
 #### Bucket List
 Edit `src/static/bucketList.json`:
