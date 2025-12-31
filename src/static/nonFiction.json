@@ -183,5 +183,10 @@
         "book": "High Output Management",
         "author": "Andrew Grove",
         "tags": ["leadership", "management", "strategy"]
+    },
+    {
+        "book": "The Molecule of More",
+        "author": "Daniel Z. Lieberman and Michael E. Long",
+        "tags": ["psychology", "decision-making", "science"]
     }
 ]
