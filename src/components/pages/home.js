@@ -21,9 +21,9 @@ const Home = () => {
   const mutedColor = useColorModeValue('gray.500', 'gray.500');
   const avatarBorder = useColorModeValue('gray.200', 'gray.700');
   const exploringItems = [
-    'Building AI Agents',
-    'Indian Philosophy',
-    'Future of Work',
+    'AI Agents',
+    'Dopamine',
+    'Rejection',
   ];
 
   useEffect(() => {
@@ -63,7 +63,7 @@ const Home = () => {
                   I'm Vivek Kaushal.
                 </Text>
                 <Text lineHeight="tall" mb={3}>
-                  I study why people choose what they choose — then build things that account for it.
+                  I study choice and build for it.
                   CS at IIIT Hyderabad. Decision-making research at NTU Taiwan. Four years as founding PM at{' '}
                   <Link href="https://enterpret.com" isExternal>Enterpret</Link>.
                 </Text>
