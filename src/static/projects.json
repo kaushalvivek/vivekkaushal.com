@@ -1,6 +1,12 @@
 {
     "projects":[
         {
+            "name":"quiet-nvim",
+            "date":"January, 2026",
+            "description":"A minimal, distraction-free Neovim config built on LazyVim. No AI completion, no auto-popups — just muted colors that follow your OS dark/light mode.",
+            "codeLink":"https://github.com/kaushalvivek/quiet-nvim"
+        },
+        {
             "name":"Deep Researched",
             "date":"September, 2025",
             "description":"A substack with deep dives on topics in AI, Engineering, and Product.",
