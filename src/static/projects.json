@@ -1,6 +1,12 @@
 {
     "projects":[
         {
+            "name":"pom",
+            "date":"April, 2026",
+            "description":"An elegant terminal pomodoro timer. Seven-segment display, color-coded phases, zero dependencies. Installable via Homebrew.",
+            "codeLink":"https://github.com/kaushalvivek/pom"
+        },
+        {
             "name":"quiet-nvim",
             "date":"January, 2026",
             "description":"A minimal, distraction-free Neovim config built on LazyVim. No AI completion, no auto-popups — just muted colors that follow your OS dark/light mode.",
