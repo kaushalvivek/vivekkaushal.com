@@ -151,7 +151,7 @@ const Header = () => {
             <NavLink to="/blog">Writing</NavLink>
             <NavLink to="/projects">Projects</NavLink>
             <NavLink to="/research">Research</NavLink>
-            <NavLink to="/recommendations">Reads</NavLink>
+            <NavLink to="/books">Books</NavLink>
             <NavLink to="/bucketlist">Bucket List</NavLink>
             <NavLink to="/talk">Talk</NavLink>
           </HStack>
@@ -186,7 +186,7 @@ const Header = () => {
               <MobileNavLink to="/blog">Writing</MobileNavLink>
               <MobileNavLink to="/projects">Projects</MobileNavLink>
               <MobileNavLink to="/research">Research</MobileNavLink>
-              <MobileNavLink to="/recommendations">Reads</MobileNavLink>
+              <MobileNavLink to="/books">Books</MobileNavLink>
               <MobileNavLink to="/bucketlist">Bucket List</MobileNavLink>
               <MobileNavLink to="/talk">Talk</MobileNavLink>
             </VStack>

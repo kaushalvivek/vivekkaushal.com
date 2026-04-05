@@ -6,7 +6,6 @@ import {
   VStack,
   Link,
   Heading,
-  SimpleGrid,
 } from '@chakra-ui/react';
 
 const Research = () => {

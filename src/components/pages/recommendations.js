@@ -5,7 +5,6 @@ import {
   Text,
   VStack,
   HStack,
-  Button,
 } from '@chakra-ui/react';
 import nonFiction from '../../static/nonFiction.json';
 

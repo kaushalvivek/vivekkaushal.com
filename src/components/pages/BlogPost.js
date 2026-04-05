@@ -15,13 +15,6 @@ import { useParams, Link as RouterLink } from 'react-router-dom';
 const BlogPost = ({ posts }) => {
   const { slug } = useParams();
   const post = posts.find(p => p.slug === slug);
-  
-  console.log('Current slug:', slug);
-  console.log('Found post:', post ? {
-    title: post.title,
-    contentLength: post.content.length,
-    contentPreview: post.content.substring(0, 200)
-  } : null);
 
   const textColor = useColorModeValue('gray.700', 'gray.300');
   const headingColor = useColorModeValue('gray.900', 'white');

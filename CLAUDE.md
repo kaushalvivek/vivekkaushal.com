@@ -31,7 +31,7 @@ vivekkaushal.com/
 │   │   │   ├── BlogPost.js     # Individual blog post viewer
 │   │   │   ├── projects.js     # Projects showcase
 │   │   │   ├── research.js     # Research publications
-│   │   │   ├── recommendations.js  # Book/media recommendations
+│   │   │   ├── recommendations.js  # Book recommendations
 │   │   │   ├── bucketlist.js   # Travel bucket list
 │   │   │   ├── talk.js         # Contact/talk request form
 │   │   │   └── my404.js        # 404 error page
@@ -72,7 +72,7 @@ The blog content is fetched from Substack (https://vivekkaushal.substack.com) an
 - `/blog/:slug` - Individual blog post
 - `/projects` - Projects showcase
 - `/research` - Research publications
-- `/recommendations` - Book and media recommendations
+- `/books` - Book recommendations
 - `/bucketlist` - Travel bucket list
 - `/talk` - Contact form
 - `/meet` - Redirects to Calendly (external)

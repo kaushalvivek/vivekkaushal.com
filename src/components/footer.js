@@ -59,11 +59,11 @@ const Footer = () => {
                 transition="opacity 0.15s ease"
                 _hover={{ opacity: 0.7 }}
               >
-                <Image 
-                  src={link.icon} 
-                  alt={link.name} 
-                  boxSize="18px" 
-                  opacity={0.4}
+                <Image
+                  src={link.icon}
+                  alt={link.name}
+                  boxSize="18px"
+                  opacity={0.6}
                 />
               </Link>
             </Tooltip>

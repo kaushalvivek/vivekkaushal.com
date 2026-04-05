@@ -84,8 +84,13 @@ const Talk = () => {
             <Heading as="h1" fontSize={{ base: '2xl', md: '3xl' }} fontWeight="700">
               Say hi
             </Heading>
-            <Text color="gray.600">
-              Reach out for projects, coffee chats, or if you found something I lost.
+            <Text color="gray.600" lineHeight="tall">
+              I enjoy conversations with curious people — whether you're building something interesting,
+              thinking through a problem, or just want to talk about AI, product, or why attention
+              works the way it does.
+            </Text>
+            <Text color="gray.600" lineHeight="tall">
+              Coffee chats, collaborations, or ideas worth sharing — I'm open.
             </Text>
           </VStack>
 

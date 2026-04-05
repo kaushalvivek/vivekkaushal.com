@@ -21,9 +21,8 @@ const Home = () => {
   const mutedColor = useColorModeValue('gray.500', 'gray.500');
   const avatarBorder = useColorModeValue('gray.200', 'gray.700');
   const exploringItems = [
-    'AI Agents',
-    'Dopamine',
-    'Rejection',
+    'Context Management',
+    'Agent Interfaces',
   ];
 
   useEffect(() => {
@@ -63,14 +62,16 @@ const Home = () => {
                   I'm Vivek Kaushal.
                 </Text>
                 <Text lineHeight="tall" mb={3}>
-                  I study choice and build for it.
-                  CS at IIIT Hyderabad. Decision-making research at NTU Taiwan. Four years as founding PM at{' '}
-                  <Link href="https://enterpret.com" isExternal>Enterpret</Link>.
+                  I discover user problems and build AI systems to solve them. Currently, I am building
+                  agentic systems at <Link href="https://enterpret.com" isExternal>Enterpret</Link> to
+                  make customer feedback heard, at scale. I studied computer science and engineering at
+                  IIIT Hyderabad, and researched cognitive neuroscience and decision-making at IIIT-H and
+                  NTU, Taiwan.
                 </Text>
                 <Text lineHeight="tall" color="gray.600">
-                  Snooty about coffee. Loyal to fringe rock.{' '}
-                  <Link href="https://vivekkaushal.substack.com" isExternal>Newsletter</Link> ·{' '}
-                  <Link href="https://twitter.com/vi_kaushal" isExternal>X</Link>
+                  Subscribe to stay posted on what I learn at:{' '}
+                  <Link href="https://twitter.com/vi_kaushal" isExternal>X</Link> ·{' '}
+                  <Link href="https://vivekkaushal.substack.com" isExternal>Newsletter</Link>
                 </Text>
               </Box>
               <Box flexShrink={0} alignSelf={{ base: 'center', md: 'flex-start' }}>

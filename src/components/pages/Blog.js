@@ -107,33 +107,30 @@ const Blog = () => {
     fetch(blogFeed)
       .then(response => response.text())
       .then(str => {
-        console.log('Raw XML:', str.substring(0, 500)); // Log first 500 chars of XML
         const parser = new DOMParser();
         const doc = parser.parseFromString(str, 'text/xml');
         const items = Array.from(doc.querySelectorAll('item'));
-        console.log('Found items:', items.length);
-        
+
         const posts = items.map(item => {
-          const title = item.querySelector('title').textContent;
-          
+          const title = item.querySelector('title')?.textContent || 'Untitled';
+
           // Try multiple possible content fields in order of preference
-          const content = 
+          const content =
             item.querySelector('content\\:encoded')?.textContent ||
             item.getElementsByTagNameNS('*', 'encoded')[0]?.textContent ||
             item.querySelector('description')?.textContent ||
             '';
-          
-          console.log('Content for:', title, 'Length:', content.length);
-            
+
           // Clean up any CDATA sections
           const cleanContent = content
             .replace(/<!\[CDATA\[/g, '')
             .replace(/\]\]>/g, '');
-            
-          const link = item.querySelector('link').textContent;
-          const date = new Date(item.querySelector('pubDate').textContent);
+
+          const link = item.querySelector('link')?.textContent || '';
+          const pubDate = item.querySelector('pubDate')?.textContent;
+          const date = pubDate ? new Date(pubDate) : new Date();
           const description = item.querySelector('description')?.textContent || '';
-          
+
           // Create a URL-friendly slug from the title
           const slug = title
             .toLowerCase()
@@ -149,12 +146,11 @@ const Blog = () => {
             description: description.replace(/<!\[CDATA\[/g, '').replace(/\]\]>/g, '')
           };
         });
-        
+
         setPosts(posts);
         setLoading(false);
       })
-      .catch(err => {
-        console.error('Error parsing blog feed:', err);
+      .catch(() => {
         setError('Failed to load blog posts');
         setLoading(false);
       });
