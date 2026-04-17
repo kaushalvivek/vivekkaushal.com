@@ -1,6 +1,12 @@
 {
     "projects":[
         {
+            "name":"A Listening Life",
+            "date":"April, 2026",
+            "description":"A magazine-style visual portrait of six years of listening, built from the Spotify Web API. 3,846 songs, 2,089 artists, eight decades of recorded sound — laid out as a printed archive.",
+            "appLink":"/listening"
+        },
+        {
             "name":"pom",
             "date":"April, 2026",
             "description":"An elegant terminal pomodoro timer. Seven-segment display, color-coded phases, zero dependencies. Installable via Homebrew.",

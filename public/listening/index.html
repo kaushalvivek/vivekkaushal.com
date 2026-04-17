@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>A Listening Life · Kaushal · 2020-03-22 – 2026-04-18</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #F4EFE2;
+  --paper-shadow: #E8E0CD;
+  --ink: #1D2A3D;
+  --ink-soft: #3E4C5F;
+  --rust: #C56049;
+  --ochre: #D4A245;
+  --sage: #6B8E5A;
+  --hair: rgba(29,42,61,0.14);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(rgba(29,42,61,0.035) 1px, transparent 1px),
+    radial-gradient(rgba(29,42,61,0.025) 1px, transparent 1px);
+  background-size: 3px 3px, 7px 7px;
+  background-position: 0 0, 1.5px 1.5px;
+  mix-blend-mode: multiply;
+  z-index: 999;
+}
+body::after {
+  content: "";
+  position: fixed; inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 20% 10%, rgba(197,96,73,0.08), transparent 50%),
+              radial-gradient(circle at 80% 90%, rgba(29,42,61,0.10), transparent 55%);
+  z-index: 998;
+}
+
+.wrap {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 72px 48px 120px;
+  position: relative;
+}
+
+/* Masthead */
+.masthead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 14px;
+  margin-bottom: 70px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.masthead .center { font-family: "Fraunces", serif; letter-spacing: 0.3em; font-weight: 500; font-size: 11px; color: var(--ink); }
+
+/* Cover */
+.cover {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  padding-bottom: 80px;
+  border-bottom: 1px solid var(--hair);
+  margin-bottom: 80px;
+  position: relative;
+}
+.cover-eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 28px;
+}
+.cover-title {
+  font-family: "Fraunces", serif;
+  font-weight: 300;
+  font-size: clamp(72px, 13vw, 180px);
+  line-height: 0.92;
+  letter-spacing: -0.025em;
+  margin: 0 0 36px;
+  color: var(--ink);
+  font-variation-settings: "opsz" 144;
+}
+.cover-title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--rust);
+}
+.cover-deck {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  font-size: clamp(20px, 2.6vw, 28px);
+  line-height: 1.35;
+  max-width: 720px;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+.cover-byline {
+  margin-top: 48px;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.cover-byline span strong { color: var(--ink); font-weight: 500; }
+
+/* Stat row */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  margin: 0 0 96px;
+  padding: 0;
+}
+.stat {
+  padding: 28px 20px 22px;
+  border-right: 1px solid var(--hair);
+  text-align: left;
+}
+.stat:last-child { border-right: none; }
+.stat-big {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  font-variation-settings: "opsz" 144;
+}
+.stat-label {
+  margin-top: 10px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* Sections */
+.section { margin-bottom: 112px; }
+.section > .label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 14px;
+}
+.section h2 {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  font-size: clamp(34px, 4.4vw, 54px);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  margin: 0 0 24px;
+  max-width: 840px;
+  font-variation-settings: "opsz" 144;
+}
+.section h2 em { font-style: italic; color: var(--rust); }
+.section .lead {
+  font-family: "EB Garamond", serif;
+  font-size: 19px;
+  line-height: 1.6;
+  max-width: 680px;
+  color: var(--ink-soft);
+  margin: 0 0 36px;
+}
+.section .lead strong { color: var(--ink); font-weight: 500; }
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+@media (max-width: 800px) { .columns { grid-template-columns: 1fr; } }
+
+p.body { font-size: 17.5px; line-height: 1.65; max-width: 620px; color: var(--ink-soft); }
+p.body strong { color: var(--ink); font-weight: 500; }
+p.body::first-letter { font-family: "Fraunces", serif; font-weight: 400; font-size: 3.6em; float: left; line-height: 0.85; padding: 6px 10px 0 0; color: var(--rust); font-variation-settings: "opsz" 144; }
+
+.pull {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(22px, 2.6vw, 30px);
+  line-height: 1.3;
+  color: var(--ink);
+  padding: 18px 0 18px 24px;
+  border-left: 2px solid var(--rust);
+  margin: 40px 0;
+  max-width: 640px;
+}
+
+/* Timeline */
+.timeline-svg { width: 100%; height: auto; display: block; }
+.axis-tick { font-family: "JetBrains Mono", monospace; font-size: 9px; fill: var(--ink-soft); letter-spacing: 0.1em; text-anchor: middle; }
+.ann-text { font-family: "Fraunces", serif; font-style: italic; font-size: 12px; fill: var(--ink); }
+
+/* Genre cloud */
+.genre-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px 24px;
+  max-width: 920px;
+  line-height: 1.25;
+}
+.genre-chip {
+  font-family: "Fraunces", serif;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+  font-variation-settings: "opsz" 144;
+}
+.genre-chip:nth-child(3n+1) { color: var(--ink); }
+.genre-chip:nth-child(3n+2) { color: var(--rust); }
+.genre-chip:nth-child(3n+3) { color: var(--ink-soft); font-style: italic; }
+
+/* Decades */
+.decades-svg { max-width: 560px; }
+.decade-label, .decade-count, .decade-head { font-family: "JetBrains Mono", monospace; font-size: 11px; fill: var(--ink); }
+.decade-head { text-transform: uppercase; letter-spacing: 0.18em; fill: var(--ink-soft); font-size: 9px; }
+.decade-count { fill: var(--ink-soft); }
+
+/* Tenure */
+.tenure-svg { width: 100%; height: auto; }
+.tenure-name { font-family: "Fraunces", serif; font-size: 14px; fill: var(--ink); font-style: italic; }
+.tenure-count { font-family: "JetBrains Mono", monospace; font-size: 10px; fill: var(--ink-soft); }
+
+/* Artist cards */
+.artist-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px 24px; }
+@media (max-width: 800px) { .artist-grid { grid-template-columns: repeat(2, 1fr); } }
+.artist-card { display: flex; flex-direction: column; gap: 12px; }
+.artist-img { aspect-ratio: 1 / 1; background: var(--paper-shadow); overflow: hidden; position: relative; border-radius: 1000px; }
+.artist-img img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.15) contrast(1.02) saturate(0.88); }
+.artist-img::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 70% 30%, transparent 60%, rgba(29,42,61,0.15) 100%); border-radius: inherit; }
+.artist-meta .rank { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.2em; color: var(--rust); }
+.artist-meta .artist-name { font-family: "Fraunces", serif; font-size: 20px; font-weight: 500; margin-top: 2px; line-height: 1.15; font-variation-settings: "opsz" 144; }
+.artist-meta .artist-genres { font-family: "EB Garamond", serif; font-style: italic; font-size: 13px; color: var(--ink-soft); margin-top: 4px; }
+.artist-meta .artist-pop { font-family: "JetBrains Mono", monospace; font-size: 9.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); margin-top: 4px; opacity: 0.7; }
+
+/* Track cards */
+.track-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 40px; }
+@media (max-width: 800px) { .track-grid { grid-template-columns: 1fr; } }
+.track-card { display: grid; grid-template-columns: 80px 1fr; gap: 18px; align-items: center; }
+.track-img { aspect-ratio: 1 / 1; background: var(--paper-shadow); overflow: hidden; }
+.track-img img { width: 100%; height: 100%; object-fit: cover; }
+.track-meta .rank { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.2em; color: var(--rust); }
+.track-name { font-family: "Fraunces", serif; font-size: 18px; font-weight: 500; line-height: 1.15; font-variation-settings: "opsz" 144; }
+.track-artist { font-family: "EB Garamond", serif; font-size: 14px; color: var(--ink-soft); font-style: italic; margin-top: 2px; }
+.track-artist .year { font-family: "JetBrains Mono", monospace; font-style: normal; font-size: 11px; color: var(--rust); }
+.track-album { font-family: "JetBrains Mono", monospace; font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); margin-top: 4px; opacity: 0.7; }
+
+/* Recent list */
+.recent-list { list-style: none; padding: 0; margin: 0; columns: 2; column-gap: 48px; }
+@media (max-width: 700px) { .recent-list { columns: 1; } }
+.recent-list li { break-inside: avoid; padding: 10px 0; border-top: 1px dashed var(--hair); font-size: 15px; line-height: 1.4; }
+.recent-time { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--rust); letter-spacing: 0.1em; display: inline-block; width: 80px; }
+.recent-name { font-family: "Fraunces", serif; font-weight: 500; }
+.recent-artist { font-style: italic; color: var(--ink-soft); }
+
+/* Artist ranking table */
+table.rank-table { width: 100%; border-collapse: collapse; font-size: 15px; max-width: 560px; }
+table.rank-table td { padding: 9px 12px; border-top: 1px solid var(--hair); }
+table.rank-table tr:first-child td { border-top: 1px solid var(--ink); }
+table.rank-table tr:last-child td { border-bottom: 1px solid var(--ink); }
+table.rank-table td.rank-cell { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--rust); width: 44px; }
+table.rank-table td.num { font-family: "JetBrains Mono", monospace; font-size: 12px; text-align: right; color: var(--ink-soft); width: 60px; }
+table.rank-table tr td:nth-child(2) { font-family: "Fraunces", serif; font-size: 18px; font-weight: 400; }
+
+/* Colophon */
+.colophon { margin-top: 120px; padding-top: 28px; border-top: 1px solid var(--ink); font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+
+/* Section divider */
+.divider { display: flex; align-items: center; gap: 18px; margin: 80px 0; }
+.divider hr { flex: 1; border: none; border-top: 1px solid var(--ink); }
+.divider .mark { font-family: "Fraunces", serif; font-style: italic; font-size: 18px; color: var(--rust); }
+
+/* Two-up layout for specific sections */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+@media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; gap: 48px; } }
+
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="masthead">
+    <span>Vol. I · No. 1</span>
+    <span class="center">A Listening Life</span>
+    <span>18 APR 2026</span>
+  </div>
+
+  <!-- COVER -->
+  <section class="cover">
+    <div class="cover-eyebrow">A private inventory · 2020-03-22 — 2026-04-18</div>
+    <h1 class="cover-title">A Listening<br/>Life<em>.</em></h1>
+    <div class="cover-deck">Three thousand, eight hundred and forty-six songs, pressed into memory across six years, two thousand artists, and eight decades of recorded sound.</div>
+    <div class="cover-byline">
+      <span>Subject · <strong>Kaushal</strong></span>
+      <span>Source · <strong>Spotify Web API</strong></span>
+      <span>Span · <strong>6.07 years</strong></span>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stat-row">
+    <div class="stat"><div class="stat-big">3,846</div><div class="stat-label">Songs saved</div></div>
+    <div class="stat"><div class="stat-big">2,089</div><div class="stat-label">Distinct artists</div></div>
+    <div class="stat"><div class="stat-big">6.07</div><div class="stat-label">Years indexed</div></div>
+    <div class="stat"><div class="stat-big">25</div><div class="stat-label">Playlists curated</div></div>
+    <div class="stat"><div class="stat-big">47</div><div class="stat-label">Albums saved whole</div></div>
+  </div>
+
+  <!-- OPENING ESSAY -->
+  <section class="section">
+    <div class="label">Opening</div>
+    <h2>The library opens on a Sunday<br/>in <em>lockdown</em>.</h2>
+    <div class="columns">
+      <p class="body">
+        On March 22nd, 2020, one thousand and forty-four songs arrive in a single day — a migration, not
+        a beginning. The archive that existed before this date is unknowable, locked
+        in older accounts and other formats. What follows is everything the software
+        remembers: six years and change of saving, skipping, returning.
+      </p>
+      <p class="body">
+        From that opening week, the pace slows to something sustainable — an average of
+        <strong>38</strong> songs a month, steadily, for the next six years.
+        No month is ever empty. The collection grows the way a garden does: new
+        things added, old things quietly tended, rarely uprooted. Average popularity
+        of a track in this library is <strong>41 of 100</strong> — not mainstream, not
+        willfully obscure. Curious.
+      </p>
+    </div>
+    <div style="margin-top:40px">
+      
+<svg viewBox="0 0 920 200" class="timeline-svg" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="tl-fill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C56049" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#C56049" stop-opacity="0.02"/>
+    </linearGradient>
+  </defs>
+  <path d="M40.0,162.0 L40.0,20.0 L51.8,130.6 L63.6,155.6 L75.3,154.1 L87.1,154.8 L98.9,158.7 L110.7,153.3 L122.5,159.3 L134.2,157.1 L146.0,154.7 L157.8,154.8 L169.6,155.7 L181.4,154.5 L193.2,161.2 L204.9,152.5 L216.7,160.6 L228.5,159.8 L240.3,151.7 L252.1,149.6 L263.8,154.4 L275.6,151.3 L287.4,153.4 L299.2,154.1 L311.0,153.3 L322.7,157.8 L334.5,159.6 L346.3,156.8 L358.1,157.0 L369.9,158.7 L381.6,160.1 L393.4,153.6 L405.2,153.4 L417.0,154.9 L428.8,158.6 L440.5,160.0 L452.3,159.1 L464.1,156.7 L475.9,159.0 L487.7,159.1 L499.5,160.1 L511.2,155.6 L523.0,158.9 L534.8,159.7 L546.6,158.5 L558.4,160.0 L570.1,159.7 L581.9,157.6 L593.7,157.5 L605.5,158.5 L617.3,159.4 L629.0,158.6 L640.8,158.7 L652.6,152.5 L664.4,159.0 L676.2,159.8 L687.9,157.8 L699.7,158.9 L711.5,158.5 L723.3,158.9 L735.1,160.8 L746.8,158.9 L758.6,158.9 L770.4,161.9 L782.2,154.0 L794.0,156.7 L805.8,152.3 L817.5,157.9 L829.3,161.2 L841.1,161.3 L852.9,155.5 L864.7,155.3 L876.4,157.8 L888.2,160.8 L900.0,154.1 L900.0,162.0 Z" fill="url(#tl-fill)"/>
+  <path d="M40.0,20.0 L51.8,130.6 L63.6,155.6 L75.3,154.1 L87.1,154.8 L98.9,158.7 L110.7,153.3 L122.5,159.3 L134.2,157.1 L146.0,154.7 L157.8,154.8 L169.6,155.7 L181.4,154.5 L193.2,161.2 L204.9,152.5 L216.7,160.6 L228.5,159.8 L240.3,151.7 L252.1,149.6 L263.8,154.4 L275.6,151.3 L287.4,153.4 L299.2,154.1 L311.0,153.3 L322.7,157.8 L334.5,159.6 L346.3,156.8 L358.1,157.0 L369.9,158.7 L381.6,160.1 L393.4,153.6 L405.2,153.4 L417.0,154.9 L428.8,158.6 L440.5,160.0 L452.3,159.1 L464.1,156.7 L475.9,159.0 L487.7,159.1 L499.5,160.1 L511.2,155.6 L523.0,158.9 L534.8,159.7 L546.6,158.5 L558.4,160.0 L570.1,159.7 L581.9,157.6 L593.7,157.5 L605.5,158.5 L617.3,159.4 L629.0,158.6 L640.8,158.7 L652.6,152.5 L664.4,159.0 L676.2,159.8 L687.9,157.8 L699.7,158.9 L711.5,158.5 L723.3,158.9 L735.1,160.8 L746.8,158.9 L758.6,158.9 L770.4,161.9 L782.2,154.0 L794.0,156.7 L805.8,152.3 L817.5,157.9 L829.3,161.2 L841.1,161.3 L852.9,155.5 L864.7,155.3 L876.4,157.8 L888.2,160.8 L900.0,154.1" fill="none" stroke="#1D2A3D" stroke-width="1.4" stroke-linejoin="round"/>
+  <line x1="40" y1="162" x2="900" y2="162" stroke="#1D2A3D" stroke-width="0.8"/>
+  <line x1="40.0" y1="162" x2="40.0" y2="166" stroke="#1D2A3D" stroke-width="0.8"/><text x="40.0" y="180" class="axis-tick">2020</text><line x1="157.8" y1="162" x2="157.8" y2="166" stroke="#1D2A3D" stroke-width="0.8"/><text x="157.8" y="180" class="axis-tick">2021</text><line x1="299.2" y1="162" x2="299.2" y2="166" stroke="#1D2A3D" stroke-width="0.8"/><text x="299.2" y="180" class="axis-tick">2022</text><line x1="440.5" y1="162" x2="440.5" y2="166" stroke="#1D2A3D" stroke-width="0.8"/><text x="440.5" y="180" class="axis-tick">2023</text><line x1="581.9" y1="162" x2="581.9" y2="166" stroke="#1D2A3D" stroke-width="0.8"/><text x="581.9" y="180" class="axis-tick">2024</text><line x1="723.3" y1="162" x2="723.3" y2="166" stroke="#1D2A3D" stroke-width="0.8"/><text x="723.3" y="180" class="axis-tick">2025</text><line x1="864.7" y1="162" x2="864.7" y2="166" stroke="#1D2A3D" stroke-width="0.8"/><text x="864.7" y="180" class="axis-tick">2026</text>
+  <circle cx="40.0" cy="20.0" r="3.5" fill="#C56049" stroke="#F4EFE2" stroke-width="1.5"/><line x1="40.0" y1="20.0" x2="100.0" y2="10.0" stroke="#1D2A3D" stroke-width="0.7" stroke-dasharray="2 2"/><text x="104.0" y="8.0" class="ann-text">The Lockdown Import · 1,044 songs</text>
+</svg>
+    </div>
+  </section>
+
+  <div class="divider"><hr/><span class="mark">§</span><hr/></div>
+
+  <!-- GENRES -->
+  <section class="section">
+    <div class="label">Chapter I · The Weather</div>
+    <h2>A taste that refuses<br/>a single <em>aesthetic</em>.</h2>
+    <p class="lead">
+      The top-line answer is <strong>rock</strong> — in every strain Spotify knows how to name:
+      art, psychedelic, alternative, classic, progressive, garage, blues. But rock is
+      only part of the story. Beneath it runs a persistent second current of
+      <strong>Bollywood, Sufi, and Hindi pop</strong> — and a third of <strong>nu-metal, indie folk,
+      and electronic</strong>. This is a library that doesn't pretend to one aesthetic.
+    </p>
+    <div class="genre-cloud"><span class="genre-chip" style="font-size:2.60em;font-weight:800">rock</span><span class="genre-chip" style="font-size:2.38em;font-weight:750">bollywood</span><span class="genre-chip" style="font-size:2.16em;font-weight:700">hindi pop</span><span class="genre-chip" style="font-size:1.66em;font-weight:585">desi</span><span class="genre-chip" style="font-size:1.62em;font-weight:575">art rock</span><span class="genre-chip" style="font-size:1.59em;font-weight:570">psychedelic rock</span><span class="genre-chip" style="font-size:1.57em;font-weight:565">alternative rock</span><span class="genre-chip" style="font-size:1.38em;font-weight:520">nu metal</span><span class="genre-chip" style="font-size:1.38em;font-weight:520">rap metal</span><span class="genre-chip" style="font-size:1.38em;font-weight:520">alternative metal</span><span class="genre-chip" style="font-size:1.38em;font-weight:520">classic rock</span><span class="genre-chip" style="font-size:1.33em;font-weight:510">indie folk</span><span class="genre-chip" style="font-size:1.27em;font-weight:495">indie rock</span><span class="genre-chip" style="font-size:1.24em;font-weight:490">progressive rock</span><span class="genre-chip" style="font-size:1.24em;font-weight:490">indie</span><span class="genre-chip" style="font-size:1.24em;font-weight:490">space rock</span><span class="genre-chip" style="font-size:1.24em;font-weight:490">sufi</span><span class="genre-chip" style="font-size:1.22em;font-weight:485">blues rock</span><span class="genre-chip" style="font-size:1.22em;font-weight:485">garage rock</span><span class="genre-chip" style="font-size:1.20em;font-weight:480">punk</span><span class="genre-chip" style="font-size:1.20em;font-weight:480">pop punk</span><span class="genre-chip" style="font-size:1.16em;font-weight:470">soundtrack</span><span class="genre-chip" style="font-size:1.16em;font-weight:470">score</span><span class="genre-chip" style="font-size:1.13em;font-weight:465">rap</span><span class="genre-chip" style="font-size:1.13em;font-weight:465">hip hop</span><span class="genre-chip" style="font-size:1.11em;font-weight:460">grunge</span><span class="genre-chip" style="font-size:1.11em;font-weight:460">desi pop</span><span class="genre-chip" style="font-size:1.11em;font-weight:460">post-rock</span><span class="genre-chip" style="font-size:1.09em;font-weight:455">tamil pop</span><span class="genre-chip" style="font-size:1.09em;font-weight:455">kollywood</span></div>
+  </section>
+
+  <div class="divider"><hr/><span class="mark">§</span><hr/></div>
+
+  <!-- DECADES -->
+  <section class="section">
+    <div class="label">Chapter II · The Eras</div>
+    <h2>Eight decades live in this library.</h2>
+    <p class="lead">
+      The 2010s dominate — that's when the saving started, and Spotify's catalog
+      is richest there. But <strong>513</strong> tracks come from before the year 2000,
+      including <strong>150</strong> from the 1970s alone. The past isn't decoration here. It's lived in.
+    </p>
+    <div class="grid-2">
+      <div>
+<svg viewBox="0 0 520 320" class="decades-svg">
+  <text x="78" y="28" text-anchor="end" class="decade-head">decade</text>
+  <text x="90" y="28" class="decade-head">liked tracks</text>
+  <text x="78" y="54" text-anchor="end" class="decade-label">1950s</text><rect x="90" y="38" width="0.1" height="20" fill="#1D2A3D"/><text x="98.14983083615273" y="54" class="decade-count">1</text><text x="78" y="88" text-anchor="end" class="decade-label">1960s</text><rect x="90" y="72" width="5.2" height="20" fill="#1D2A3D"/><text x="103.24407926534558" y="88" class="decade-count">35</text><text x="78" y="122" text-anchor="end" class="decade-label">1970s</text><rect x="90" y="106" width="22.5" height="20" fill="#1D2A3D"/><text x="120.47462542290961" y="122" class="decade-count">150</text><text x="78" y="156" text-anchor="end" class="decade-label">1980s</text><rect x="90" y="140" width="11.7" height="20" fill="#1D2A3D"/><text x="109.686805219913" y="156" class="decade-count">78</text><text x="78" y="190" text-anchor="end" class="decade-label">1990s</text><rect x="90" y="174" width="37.3" height="20" fill="#1D2A3D"/><text x="135.30787820202997" y="190" class="decade-count">249</text><text x="78" y="224" text-anchor="end" class="decade-label">2000s</text><rect x="90" y="208" width="89.4" height="20" fill="#1D2A3D"/><text x="187.4490091831803" y="224" class="decade-count">597</text><text x="78" y="258" text-anchor="end" class="decade-label">2010s</text><rect x="90" y="242" width="310.0" height="20" fill="#1D2A3D"/><text x="408.0" y="258" class="decade-count">2,069</text><text x="78" y="292" text-anchor="end" class="decade-label">2020s</text><rect x="90" y="276" width="97.4" height="20" fill="#1D2A3D"/><text x="195.390043499275" y="292" class="decade-count">650</text>
+</svg></div>
+      <div>
+        <p class="body" style="margin-top:0">
+          The <strong>1970s</strong> show up through Pink Floyd (60 tracks saved) and
+          Porcupine Tree's later homage work. The <strong>1990s</strong> come in through grunge and
+          post-grunge — Nirvana, Oasis, alt-rock. The <strong>2020s</strong> are where the present
+          arrives — 650 tracks and counting, arriving at a rate of roughly a song
+          every two days.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><hr/><span class="mark">§</span><hr/></div>
+
+  <!-- TOP ARTISTS LONG-TERM -->
+  <section class="section">
+    <div class="label">Chapter III · The Pantheon</div>
+    <h2>The voices Spotify believes<br/>are <em>yours</em>.</h2>
+    <p class="lead">
+      Ranked by total listening time across the full history Spotify tracks.
+      Nothing But Thieves sits at the top — an English alt-rock five-piece with
+      1.4 million followers and, apparently, a standing appointment with your ears.
+    </p>
+    <div class="artist-grid">
+<div class="artist-card">
+  <div class="artist-img"><img src="https://i.scdn.co/image/ab6761610000e5eb065faf07b0343e97bf3fba57" alt="Nothing But Thieves" loading="lazy"/></div>
+  <div class="artist-meta">
+    <span class="rank">№ 01</span>
+    <div class="artist-name">Nothing But Thieves</div>
+    <div class="artist-genres"></div>
+    <div class="artist-pop">popularity 66</div>
+  </div>
+</div>
+<div class="artist-card">
+  <div class="artist-img"><img src="https://i.scdn.co/image/ab6761610000e5eb1ba8fc5f5c73e7e9313cc6eb" alt="Coldplay" loading="lazy"/></div>
+  <div class="artist-meta">
+    <span class="rank">№ 02</span>
+    <div class="artist-name">Coldplay</div>
+    <div class="artist-genres"></div>
+    <div class="artist-pop">popularity 89</div>
+  </div>
+</div>
+<div class="artist-card">
+  <div class="artist-img"><img src="https://i.scdn.co/image/ab6761610000e5eb42a5e6019fd636ef4ee89f35" alt="Racing Glaciers" loading="lazy"/></div>
+  <div class="artist-meta">
+    <span class="rank">№ 03</span>
+    <div class="artist-name">Racing Glaciers</div>
+    <div class="artist-genres"></div>
+    <div class="artist-pop">popularity 40</div>
+  </div>
+</div>
+<div class="artist-card">
+  <div class="artist-img"><img src="https://i.scdn.co/image/ab6761610000e5eb7193b2963d650126691adde2" alt="Young the Giant" loading="lazy"/></div>
+  <div class="artist-meta">
+    <span class="rank">№ 04</span>
+    <div class="artist-name">Young the Giant</div>
+    <div class="artist-genres"></div>
+    <div class="artist-pop">popularity 67</div>
+  </div>
+</div>
+<div class="artist-card">
+  <div class="artist-img"><img src="https://i.scdn.co/image/ab6761610000e5eb527d95dabbe8b8b527e8136f" alt="Linkin Park" loading="lazy"/></div>
+  <div class="artist-meta">
+    <span class="rank">№ 05</span>
+    <div class="artist-name">Linkin Park</div>
+    <div class="artist-genres">nu metal, rap metal</div>
+    <div class="artist-pop">popularity 90</div>
+  </div>
+</div>
+<div class="artist-card">
+  <div class="artist-img"><img src="https://i.scdn.co/image/ab6761610000e5eba0df2b1fa01758b4567a2aca" alt="The Blue Stones" loading="lazy"/></div>
+  <div class="artist-meta">
+    <span class="rank">№ 06</span>
+    <div class="artist-name">The Blue Stones</div>
+    <div class="artist-genres">blues rock</div>
+    <div class="artist-pop">popularity 57</div>
+  </div>
+</div>
+<div class="artist-card">
+  <div class="artist-img"><img src="https://i.scdn.co/image/ab6761610000e5ebef7482f6aa3ce7f15ea9640d" alt="Walden" loading="lazy"/></div>
+  <div class="artist-meta">
+    <span class="rank">№ 07</span>
+    <div class="artist-name">Walden</div>
+    <div class="artist-genres"></div>
+    <div class="artist-pop">popularity 26</div>
+  </div>
+</div>
+<div class="artist-card">
+  <div class="artist-img"><img src="https://i.scdn.co/image/ab6761610000e5ebcb6926f44f620555ba444fca" alt="Pritam" loading="lazy"/></div>
+  <div class="artist-meta">
+    <span class="rank">№ 08</span>
+    <div class="artist-name">Pritam</div>
+    <div class="artist-genres">bollywood, hindi pop</div>
+    <div class="artist-pop">popularity 89</div>
+  </div>
+</div></div>
+  </section>
+
+  <div class="divider"><hr/><span class="mark">§</span><hr/></div>
+
+  <!-- SHORT-TERM / RECENT OBSESSIONS -->
+  <section class="section">
+    <div class="label">Chapter IV · This Season</div>
+    <h2>What the last four weeks <em>sound like</em>.</h2>
+    <p class="lead">
+      Where the all-time list is stable, the four-week list is volatile — a better read
+      on who has your attention right now. Young the Giant leads, a through-line from
+      years ago back into heavy rotation.
+    </p>
+    <div class="artist-grid">
+<div class="artist-card">
+  <div class="artist-img"><img src="https://i.scdn.co/image/ab6761610000e5eb7193b2963d650126691adde2" alt="Young the Giant" loading="lazy"/></div>
+  <div class="artist-meta">
+    <span class="rank">№ 01</span>
+    <div class="artist-name">Young the Giant</div>
+    <div class="artist-genres"></div>
+    <div class="artist-pop">popularity 67</div>
+  </div>
+</div>
+<div class="artist-card">
+  <div class="artist-img"><img src="https://i.scdn.co/image/ab6761610000e5ebbc1b1e1978b27d8991ec4f9e" alt="Andrew Belle" loading="lazy"/></div>
+  <div class="artist-meta">
+    <span class="rank">№ 02</span>
+    <div class="artist-name">Andrew Belle</div>
+    <div class="artist-genres"></div>
+    <div class="artist-pop">popularity 55</div>
+  </div>
+</div>
+<div class="artist-card">
+  <div class="artist-img"><img src="https://i.scdn.co/image/ab6761610000e5eb9a637adfe50790fb409c31c4" alt="Future Islands" loading="lazy"/></div>
+  <div class="artist-meta">
+    <span class="rank">№ 03</span>
+    <div class="artist-name">Future Islands</div>
+    <div class="artist-genres"></div>
+    <div class="artist-pop">popularity 61</div>
+  </div>
+</div>
+<div class="artist-card">
+  <div class="artist-img"><img src="https://i.scdn.co/image/ab6761610000e5eb194473761435806dc0702270" alt="Holy Holy" loading="lazy"/></div>
+  <div class="artist-meta">
+    <span class="rank">№ 04</span>
+    <div class="artist-name">Holy Holy</div>
+    <div class="artist-genres"></div>
+    <div class="artist-pop">popularity 41</div>
+  </div>
+</div>
+<div class="artist-card">
+  <div class="artist-img"><img src="https://i.scdn.co/image/ab6761610000e5eb2b640bd7bc73e5a00d985f3d" alt="Rashmeet Kaur" loading="lazy"/></div>
+  <div class="artist-meta">
+    <span class="rank">№ 05</span>
+    <div class="artist-name">Rashmeet Kaur</div>
+    <div class="artist-genres">punjabi pop, haryanvi pop</div>
+    <div class="artist-pop">popularity 63</div>
+  </div>
+</div>
+<div class="artist-card">
+  <div class="artist-img"><img src="https://i.scdn.co/image/ab6772690000c46c8fbbea647f7193b96e476612" alt="My Sleeping Karma" loading="lazy"/></div>
+  <div class="artist-meta">
+    <span class="rank">№ 06</span>
+    <div class="artist-name">My Sleeping Karma</div>
+    <div class="artist-genres">stoner rock, space rock</div>
+    <div class="artist-pop">popularity 34</div>
+  </div>
+</div></div>
+  </section>
+
+  <div class="divider"><hr/><span class="mark">§</span><hr/></div>
+
+  <!-- TENURE -->
+  <section class="section">
+    <div class="label">Chapter V · Cornerstones</div>
+    <h2>The artists who came early<br/>and <em>stayed</em>.</h2>
+    <p class="lead">
+      Every bar below stretches from the day you first saved a song by this artist
+      to the day you last did. Long bars mean a sustained relationship. The dot on the
+      right tells you when they last earned a save.
+    </p>
+    
+<svg viewBox="0 0 640 332" class="tenure-svg">
+  <line x1="207.8" y1="40" x2="207.8" y2="312" stroke="#1D2A3D" stroke-width="0.3" stroke-dasharray="1 3"/><text x="207.8" y="32" class="axis-tick">2021</text><line x1="281.9" y1="40" x2="281.9" y2="312" stroke="#1D2A3D" stroke-width="0.3" stroke-dasharray="1 3"/><text x="281.9" y="32" class="axis-tick">2022</text><line x1="355.9" y1="40" x2="355.9" y2="312" stroke="#1D2A3D" stroke-width="0.3" stroke-dasharray="1 3"/><text x="355.9" y="32" class="axis-tick">2023</text><line x1="430.0" y1="40" x2="430.0" y2="312" stroke="#1D2A3D" stroke-width="0.3" stroke-dasharray="1 3"/><text x="430.0" y="32" class="axis-tick">2024</text><line x1="504.2" y1="40" x2="504.2" y2="312" stroke="#1D2A3D" stroke-width="0.3" stroke-dasharray="1 3"/><text x="504.2" y="32" class="axis-tick">2025</text><line x1="578.3" y1="40" x2="578.3" y2="312" stroke="#1D2A3D" stroke-width="0.3" stroke-dasharray="1 3"/><text x="578.3" y="32" class="axis-tick">2026</text>
+  <text x="140" y="66" text-anchor="end" class="tenure-name">Mild Orange</text><line x1="150.0" y1="60" x2="599.8" y2="60" stroke="#1D2A3D" stroke-width="1.5" stroke-linecap="round"/><circle cx="150.0" cy="60" r="3.5" fill="#C56049"/><circle cx="599.8" cy="60" r="3" fill="#1D2A3D"/><text x="609.8" y="64" class="tenure-count">· 12 tracks</text><text x="140" y="100" text-anchor="end" class="tenure-name">Seafret</text><line x1="150.8" y1="94" x2="593.9" y2="94" stroke="#1D2A3D" stroke-width="1.5" stroke-linecap="round"/><circle cx="150.8" cy="94" r="3.5" fill="#C56049"/><circle cx="593.9" cy="94" r="3" fill="#1D2A3D"/><text x="603.9" y="98" class="tenure-count">· 5 tracks</text><text x="140" y="134" text-anchor="end" class="tenure-name">Coldplay</text><line x1="150.0" y1="128" x2="590.1" y2="128" stroke="#1D2A3D" stroke-width="1.5" stroke-linecap="round"/><circle cx="150.0" cy="128" r="3.5" fill="#C56049"/><circle cx="590.1" cy="128" r="3" fill="#1D2A3D"/><text x="600.1" y="132" class="tenure-count">· 69 tracks</text><text x="140" y="168" text-anchor="end" class="tenure-name">Oasis</text><line x1="150.0" y1="162" x2="588.6" y2="162" stroke="#1D2A3D" stroke-width="1.5" stroke-linecap="round"/><circle cx="150.0" cy="162" r="3.5" fill="#C56049"/><circle cx="588.6" cy="162" r="3" fill="#1D2A3D"/><text x="598.6" y="166" class="tenure-count">· 13 tracks</text><text x="140" y="202" text-anchor="end" class="tenure-name">Pritam</text><line x1="150.0" y1="196" x2="584.4" y2="196" stroke="#1D2A3D" stroke-width="1.5" stroke-linecap="round"/><circle cx="150.0" cy="196" r="3.5" fill="#C56049"/><circle cx="584.4" cy="196" r="3" fill="#1D2A3D"/><text x="594.4" y="200" class="tenure-count">· 19 tracks</text><text x="140" y="236" text-anchor="end" class="tenure-name">Arijit Singh</text><line x1="150.4" y1="230" x2="584.4" y2="230" stroke="#1D2A3D" stroke-width="1.5" stroke-linecap="round"/><circle cx="150.4" cy="230" r="3.5" fill="#C56049"/><circle cx="584.4" cy="230" r="3" fill="#1D2A3D"/><text x="594.4" y="234" class="tenure-count">· 13 tracks</text><text x="140" y="270" text-anchor="end" class="tenure-name">Amitabh Bhattacharya</text><line x1="150.4" y1="264" x2="584.4" y2="264" stroke="#1D2A3D" stroke-width="1.5" stroke-linecap="round"/><circle cx="150.4" cy="264" r="3.5" fill="#C56049"/><circle cx="584.4" cy="264" r="3" fill="#1D2A3D"/><text x="594.4" y="268" class="tenure-count">· 11 tracks</text><text x="140" y="304" text-anchor="end" class="tenure-name">Shilpa Rao</text><line x1="150.0" y1="298" x2="584.4" y2="298" stroke="#1D2A3D" stroke-width="1.5" stroke-linecap="round"/><circle cx="150.0" cy="298" r="3.5" fill="#C56049"/><circle cx="584.4" cy="298" r="3" fill="#1D2A3D"/><text x="594.4" y="302" class="tenure-count">· 7 tracks</text>
+</svg>
+  </section>
+
+  <div class="divider"><hr/><span class="mark">§</span><hr/></div>
+
+  <!-- RANKING TABLE -->
+  <section class="section">
+    <div class="label">Chapter VI · By the Count</div>
+    <h2>Ranked by how often<br/>you pressed <em>save</em>.</h2>
+    <div class="grid-2">
+      <div>
+        <p class="body" style="margin-top:0">
+          Not the same as listening minutes — Spotify hides those — but a close
+          cousin: the artists you've consciously bookmarked. Coldplay edges out the
+          field, but the field is wide. 2,089 distinct names, and the long tail
+          runs for pages.
+        </p>
+        <div class="pull">
+          "Thirty artists account for a quarter of the library. The other fifteen
+          hundred are footnotes you loved once."
+        </div>
+      </div>
+      <table class="rank-table">
+        <tr><td class="rank-cell">01</td><td>Coldplay</td><td class="num">69</td></tr><tr><td class="rank-cell">02</td><td>Nothing But Thieves</td><td class="num">64</td></tr><tr><td class="rank-cell">03</td><td>Pink Floyd</td><td class="num">60</td></tr><tr><td class="rank-cell">04</td><td>alt-J</td><td class="num">48</td></tr><tr><td class="rank-cell">05</td><td>Radiohead</td><td class="num">47</td></tr><tr><td class="rank-cell">06</td><td>Linkin Park</td><td class="num">37</td></tr><tr><td class="rank-cell">07</td><td>Green Day</td><td class="num">36</td></tr><tr><td class="rank-cell">08</td><td>Hans Zimmer</td><td class="num">29</td></tr><tr><td class="rank-cell">09</td><td>A.R. Rahman</td><td class="num">29</td></tr><tr><td class="rank-cell">10</td><td>Porcupine Tree</td><td class="num">26</td></tr><tr><td class="rank-cell">11</td><td>The Backseat Lovers</td><td class="num">26</td></tr><tr><td class="rank-cell">12</td><td>The Blue Stones</td><td class="num">24</td></tr><tr><td class="rank-cell">13</td><td>Eminem</td><td class="num">24</td></tr><tr><td class="rank-cell">14</td><td>Red Hot Chili Peppers</td><td class="num">22</td></tr><tr><td class="rank-cell">15</td><td>Amit Trivedi</td><td class="num">21</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <div class="divider"><hr/><span class="mark">§</span><hr/></div>
+
+  <!-- TOP TRACKS -->
+  <section class="section">
+    <div class="label">Chapter VII · Signatures</div>
+    <h2>Ten songs that know you best.</h2>
+    <p class="lead">
+      Spotify's own ranking of the tracks that have defined your listening across
+      years. Half alt-rock, half anthemic — and one surprise (<em>If God is Dead</em>,
+      Walden, folk, 40-popularity, deeply off-radar).
+    </p>
+    <div class="track-grid">
+<div class="track-card">
+  <div class="track-img"><img src="https://i.scdn.co/image/ab67616d0000b273e1b41f261acaa01849b42991" alt="Amerika" loading="lazy"/></div>
+  <div class="track-meta">
+    <span class="rank">№ 01</span>
+    <div class="track-name">Amerika</div>
+    <div class="track-artist">Young the Giant · <span class="year">2016</span></div>
+    <div class="track-album">Home of the Strange</div>
+  </div>
+</div>
+<div class="track-card">
+  <div class="track-img"><img src="https://i.scdn.co/image/ab67616d0000b273836b7078476669a2e0879029" alt="If God is Dead" loading="lazy"/></div>
+  <div class="track-meta">
+    <span class="rank">№ 02</span>
+    <div class="track-name">If God is Dead</div>
+    <div class="track-artist">Walden · <span class="year">2022</span></div>
+    <div class="track-album">If God is Dead</div>
+  </div>
+</div>
+<div class="track-card">
+  <div class="track-img"><img src="https://i.scdn.co/image/ab67616d0000b27351729fae66d02122c4951153" alt="Cough Syrup" loading="lazy"/></div>
+  <div class="track-meta">
+    <span class="rank">№ 03</span>
+    <div class="track-name">Cough Syrup</div>
+    <div class="track-artist">Young the Giant · <span class="year">2011</span></div>
+    <div class="track-album">Young The Giant (Special Edition)</div>
+  </div>
+</div>
+<div class="track-card">
+  <div class="track-img"><img src="https://i.scdn.co/image/ab67616d0000b273d387edace199b4e1a49f2344" alt="Many of Horror" loading="lazy"/></div>
+  <div class="track-meta">
+    <span class="rank">№ 04</span>
+    <div class="track-name">Many of Horror</div>
+    <div class="track-artist">Biffy Clyro · <span class="year">2009</span></div>
+    <div class="track-album">Only Revolutions</div>
+  </div>
+</div>
+<div class="track-card">
+  <div class="track-img"><img src="https://i.scdn.co/image/ab67616d0000b2737ef6af34a865349b25058357" alt="Coloratura" loading="lazy"/></div>
+  <div class="track-meta">
+    <span class="rank">№ 05</span>
+    <div class="track-name">Coloratura</div>
+    <div class="track-artist">Coldplay · <span class="year">2021</span></div>
+    <div class="track-album">Coloratura</div>
+  </div>
+</div>
+<div class="track-card">
+  <div class="track-img"><img src="https://i.scdn.co/image/ab67616d0000b2732df23ca7cd9a08738bdd8a38" alt="You Are What You Own" loading="lazy"/></div>
+  <div class="track-meta">
+    <span class="rank">№ 06</span>
+    <div class="track-name">You Are What You Own</div>
+    <div class="track-artist">Guest In The Car · <span class="year">2025</span></div>
+    <div class="track-album">You Are What You Own</div>
+  </div>
+</div>
+<div class="track-card">
+  <div class="track-img"><img src="https://i.scdn.co/image/ab67616d0000b273171248c83d3263945f1a411d" alt="Now I Know You" loading="lazy"/></div>
+  <div class="track-meta">
+    <span class="rank">№ 07</span>
+    <div class="track-name">Now I Know You</div>
+    <div class="track-artist">Bennett Coast · <span class="year">2023</span></div>
+    <div class="track-album">Where Are You Going?</div>
+  </div>
+</div>
+<div class="track-card">
+  <div class="track-img"><img src="https://i.scdn.co/image/ab67616d0000b2739dc690446280c938b150df0c" alt="Headlights" loading="lazy"/></div>
+  <div class="track-meta">
+    <span class="rank">№ 08</span>
+    <div class="track-name">Headlights</div>
+    <div class="track-artist">In Color · <span class="year">2025</span></div>
+    <div class="track-album">Headlights</div>
+  </div>
+</div>
+<div class="track-card">
+  <div class="track-img"><img src="https://i.scdn.co/image/ab67616d0000b27373d50b9ec2d2a127a06d21d3" alt="Enter the Mirror" loading="lazy"/></div>
+  <div class="track-meta">
+    <span class="rank">№ 09</span>
+    <div class="track-name">Enter the Mirror</div>
+    <div class="track-artist">Everything Everything · <span class="year">2024</span></div>
+    <div class="track-album">Mountainhead</div>
+  </div>
+</div>
+<div class="track-card">
+  <div class="track-img"><img src="https://i.scdn.co/image/ab67616d0000b273b25f445c40bb5cd1e22ec272" alt="Heavy Is the Crown" loading="lazy"/></div>
+  <div class="track-meta">
+    <span class="rank">№ 10</span>
+    <div class="track-name">Heavy Is the Crown</div>
+    <div class="track-artist">Linkin Park · <span class="year">2024</span></div>
+    <div class="track-album">Heavy Is the Crown</div>
+  </div>
+</div></div>
+  </section>
+
+  
+<section class="section outlier">
+  <div class="label">Against The Algorithm</div>
+  <h2>The one that doesn't belong on the charts.</h2>
+  <p class="lead">
+    <strong>Walden</strong> has 5,444 followers on Spotify.
+    That's roughly the size of a small town. And yet they're on your top 20 list
+    for the last six months — a signal that this taste isn't a copy of anyone else's.
+  </p>
+</section>
+
+  <div class="divider"><hr/><span class="mark">§</span><hr/></div>
+
+  <!-- RECENT -->
+  <section class="section">
+    <div class="label">Coda · The Last Twenty</div>
+    <h2>Most recently played.</h2>
+    <p class="lead">As of April 18, 2026. What has been in your ears lately.</p>
+    <ul class="recent-list"><li><span class="recent-time">2026-04-17</span> <span class="recent-name">Kids</span> <span class="recent-artist">— MGMT</span></li><li><span class="recent-time">2026-04-17</span> <span class="recent-name">Time to Pretend</span> <span class="recent-artist">— MGMT</span></li><li><span class="recent-time">2026-04-17</span> <span class="recent-name">You Cannot Call for Love Like a Dog</span> <span class="recent-artist">— Holy Holy</span></li><li><span class="recent-time">2026-04-17</span> <span class="recent-name">silhouettes of you</span> <span class="recent-artist">— isaac gracie</span></li><li><span class="recent-time">2026-04-17</span> <span class="recent-name">You Cannot Call for Love Like a Dog</span> <span class="recent-artist">— Holy Holy</span></li><li><span class="recent-time">2026-04-17</span> <span class="recent-name">Superposition</span> <span class="recent-artist">— Young the Giant</span></li><li><span class="recent-time">2026-04-17</span> <span class="recent-name">Sign of the Times</span> <span class="recent-artist">— Harry Styles</span></li><li><span class="recent-time">2026-04-17</span> <span class="recent-name">Before You Gotta Go</span> <span class="recent-artist">— Courtney Barnett</span></li><li><span class="recent-time">2026-04-17</span> <span class="recent-name">Nora</span> <span class="recent-artist">— Famous Friend</span></li><li><span class="recent-time">2026-04-17</span> <span class="recent-name">Baby Blue</span> <span class="recent-artist">— King Krule</span></li><li><span class="recent-time">2026-04-17</span> <span class="recent-name">Paradise</span> <span class="recent-artist">— The Neighbourhood</span></li><li><span class="recent-time">2026-04-17</span> <span class="recent-name">In My Ear</span> <span class="recent-artist">— Worry Club</span></li><li><span class="recent-time">2026-04-17</span> <span class="recent-name">Bad Love</span> <span class="recent-artist">— Dehd</span></li><li><span class="recent-time">2026-04-17</span> <span class="recent-name">Left Me Like Summer</span> <span class="recent-artist">— Daily J</span></li><li><span class="recent-time">2026-04-17</span> <span class="recent-name">Strangers</span> <span class="recent-artist">— Ruby Haunt</span></li><li><span class="recent-time">2026-04-17</span> <span class="recent-name">Misty Woman</span> <span class="recent-artist">— Aunt Cynthia&#x27;s Cabin</span></li><li><span class="recent-time">2026-04-17</span> <span class="recent-name">Say No More</span> <span class="recent-artist">— NO CIGAR</span></li><li><span class="recent-time">2026-04-17</span> <span class="recent-name">This Time</span> <span class="recent-artist">— Neal Francis</span></li><li><span class="recent-time">2026-04-17</span> <span class="recent-name">Shalala</span> <span class="recent-artist">— Moses Gunn Collective</span></li><li><span class="recent-time">2026-04-17</span> <span class="recent-name">moved along</span> <span class="recent-artist">— wilt</span></li></ul>
+  </section>
+
+  <!-- COLOPHON -->
+  <div class="colophon">
+    <span>Compiled from Spotify Web API · 18 APRIL 2026</span>
+    <span>Typeset in Fraunces &amp; EB Garamond</span>
+    <span>Vol. I · No. 1</span>
+  </div>
+</div>
+</body>
+</html>
