@@ -5,35 +5,36 @@
   <meta charset="utf-8" />
   <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="description" content="Vivek Kaushal's personal portfolio with projects, resume, resources and links." />
-  <meta name=”robots” content="index, follow" />
+  <meta name="theme-color" content="#0E0D10" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#F7F3EB" media="(prefers-color-scheme: light)" />
+  <meta name="description" content="Vivek Kaushal — builds agentic systems at Enterpret. Writes on AI, product, and attention. Formerly: cognitive science labs at IIIT Hyderabad and NTU Taiwan." />
+  <meta name="robots" content="index, follow" />
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-  <link rel="canonical" href="https://kaushalvivek.github.io" />
-  <link rel="canonical" href="https://researchweb.iiit.ac.in/~vivek.kaushal" />
+  <link rel="canonical" href="https://vivekkaushal.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-  <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
   <title>Vivek Kaushal</title>
   <style>
+    :root { color-scheme: light dark; }
+    html, body { margin: 0; background: #F7F3EB; color: #141414; }
+    @media (prefers-color-scheme: dark) {
+      html:not([data-theme='light']), html:not([data-theme='light']) body {
+        background: #0E0D10; color: #EDE7DB;
+      }
+    }
+    html[data-theme='dark'], html[data-theme='dark'] body {
+      background: #0E0D10; color: #EDE7DB;
+    }
+    html[data-theme='light'], html[data-theme='light'] body {
+      background: #F7F3EB; color: #141414;
+    }
     body {
-      margin: 0;
+      font-family: 'Source Serif 4', Georgia, serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
     }
   </style>
 </head>
@@ -50,19 +51,9 @@
       <label>Message <textarea name="message"></textarea></label>
     </p>
     <p hidden>
-      <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+      <label>Don't fill this out if you're human: <input name="bot-field" /></label>
     </p>
   </form>
-  <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
 </body>
 
 </html>

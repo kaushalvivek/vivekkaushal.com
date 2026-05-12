@@ -1,100 +1,90 @@
-import React, { useState, useEffect } from 'react';
-import {
-  Box,
-  Container,
-  Heading,
-  VStack,
-  Text,
-  Link,
-  Spinner,
-  Center,
-  useColorModeValue,
-} from '@chakra-ui/react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link as RouterLink, Routes, Route } from 'react-router-dom';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import blogFeed from '../../static/blog-feed.xml';
 import BlogPost from './BlogPost';
 
+gsap.registerPlugin(ScrollTrigger);
+
+const stripHtml = (s) => s.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+
 const BlogList = ({ posts }) => {
-  const textColor = useColorModeValue('gray.700', 'gray.300');
-  const headingColor = useColorModeValue('gray.900', 'white');
-  const mutedColor = useColorModeValue('gray.600', 'gray.400');
-  const dateColor = useColorModeValue('gray.500', 'gray.500');
-  const hoverColor = useColorModeValue('blue.500', 'blue.200');
+  const rootRef = useRef(null);
+
+  useEffect(() => {
+    if (!rootRef.current) return;
+    const ctx = gsap.context(() => {
+      const head = rootRef.current.querySelectorAll('.page-head > *');
+      gsap.from(head, {
+        opacity: 0,
+        y: 16,
+        duration: 0.8,
+        ease: 'power3.out',
+        stagger: 0.08,
+      });
+
+      const rows = rootRef.current.querySelectorAll('.essay-row');
+      gsap.set(rows, { opacity: 0, y: 18 });
+      ScrollTrigger.batch(rows, {
+        start: 'top 90%',
+        onEnter: (batch) =>
+          gsap.to(batch, {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: 'power3.out',
+            stagger: 0.06,
+          }),
+      });
+    }, rootRef);
+    return () => ctx.revert();
+  }, [posts.length]);
 
   return (
-    <Box py={{ base: 8, md: 16 }}>
-      <Container maxW="container.md">
-        <VStack spacing={8} align="stretch">
-          <Box>
-            <Text fontSize="md" color={mutedColor} lineHeight="tall">
-              An occasional post about ideas and stories worth sharing.
-            </Text>
-          </Box>
-          
-          <Box>
-            <Link
-              href="https://vivekkaushal.substack.com"
-              isExternal
-              fontSize="md"
-              color={mutedColor}
-              _hover={{
-                color: hoverColor,
-                textDecoration: 'none',
-              }}
-              display="inline-flex"
-              alignItems="center"
-              gap={1}
-            >
-              Subscribe to new essays
-              <Box as="span" fontSize="lg">→</Box>
-            </Link>
-          </Box>
+    <div ref={rootRef}>
+      <div className="col">
+        <div className="page-head">
+          <div className="page-meta">
+            <span className="smallcaps mark">Section · Essays</span>
+            <span className="bar" />
+            <span className="smallcaps">{posts.length} pieces</span>
+          </div>
+          <h1 className="page-title">
+            An archive of <em>essays.</em>
+          </h1>
+          <p className="page-intro">
+            On building, paying attention, and life as I find it. Posted
+            when a thought has earned it — no schedule.{' '}
+            <a href="https://vivekkaushal.substack.com" target="_blank" rel="noreferrer">Subscribe on Substack →</a>
+          </p>
+        </div>
 
+        <div className="essay-list">
           {posts.map((post) => (
-            <Link
+            <RouterLink
               key={post.slug}
-              as={RouterLink}
               to={`/blog/${post.slug}`}
-              _hover={{ textDecoration: 'none' }}
+              className="essay-row"
             >
-              <Box
-                py={4}
-                _hover={{
-                  transform: 'translateY(-1px)',
-                  '& h2': { color: hoverColor },
-                }}
-                transition="all 0.2s"
-              >
-                <Heading 
-                  as="h2" 
-                  fontSize="xl"
-                  fontWeight="500"
-                  color={headingColor}
-                  mb={2}
-                  lineHeight="short"
-                >
-                  {post.title}
-                </Heading>
-                <Text 
-                  fontSize="md" 
-                  color={textColor}
-                  lineHeight="tall"
-                  noOfLines={2}
-                  dangerouslySetInnerHTML={{ __html: post.description }}
-                />
-                <Text fontSize="sm" color={dateColor} mt={2}>
-                  {post.date.toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })}
-                </Text>
-              </Box>
-            </Link>
+              <div className="essay-date">
+                {post.date.toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'short',
+                  day: '2-digit',
+                })}
+              </div>
+              <div>
+                <div className="essay-title">{post.title}</div>
+                <div className="essay-excerpt">{stripHtml(post.description).slice(0, 240)}</div>
+              </div>
+            </RouterLink>
           ))}
-        </VStack>
-      </Container>
-    </Box>
+        </div>
+
+        <div style={{ height: 80 }} />
+      </div>
+    </div>
   );
 };
 
@@ -105,70 +95,68 @@ const Blog = () => {
 
   useEffect(() => {
     fetch(blogFeed)
-      .then(response => response.text())
-      .then(str => {
+      .then((r) => r.text())
+      .then((str) => {
         const parser = new DOMParser();
         const doc = parser.parseFromString(str, 'text/xml');
         const items = Array.from(doc.querySelectorAll('item'));
 
-        const posts = items.map(item => {
+        const mapped = items.map((item) => {
           const title = item.querySelector('title')?.textContent || 'Untitled';
-
-          // Try multiple possible content fields in order of preference
           const content =
             item.querySelector('content\\:encoded')?.textContent ||
             item.getElementsByTagNameNS('*', 'encoded')[0]?.textContent ||
             item.querySelector('description')?.textContent ||
             '';
-
-          // Clean up any CDATA sections
-          const cleanContent = content
-            .replace(/<!\[CDATA\[/g, '')
-            .replace(/\]\]>/g, '');
-
+          const cleanContent = content.replace(/<!\[CDATA\[/g, '').replace(/\]\]>/g, '');
           const link = item.querySelector('link')?.textContent || '';
           const pubDate = item.querySelector('pubDate')?.textContent;
           const date = pubDate ? new Date(pubDate) : new Date();
           const description = item.querySelector('description')?.textContent || '';
-
-          // Create a URL-friendly slug from the title
           const slug = title
             .toLowerCase()
             .replace(/[^a-z0-9]+/g, '-')
             .replace(/(^-|-$)/g, '');
-
           return {
             title,
             content: cleanContent,
             link,
             date,
             slug,
-            description: description.replace(/<!\[CDATA\[/g, '').replace(/\]\]>/g, '')
+            description: description.replace(/<!\[CDATA\[/g, '').replace(/\]\]>/g, ''),
           };
         });
 
-        setPosts(posts);
+        setPosts(mapped);
         setLoading(false);
       })
       .catch(() => {
-        setError('Failed to load blog posts');
+        setError('Failed to load posts.');
         setLoading(false);
       });
   }, []);
 
   if (loading) {
     return (
-      <Center h="50vh">
-        <Spinner size="xl" />
-      </Center>
+      <div className="col">
+        <div className="page-head">
+          <div className="page-meta">
+            <span className="smallcaps mark">Section · Essays</span>
+            <span className="bar" />
+          </div>
+          <p className="page-intro">Loading essays…</p>
+        </div>
+      </div>
     );
   }
 
   if (error) {
     return (
-      <Center h="50vh">
-        <Text color="red.500">{error}</Text>
-      </Center>
+      <div className="col">
+        <div className="page-head">
+          <p className="page-intro">{error}</p>
+        </div>
+      </div>
     );
   }
 
@@ -180,4 +168,4 @@ const Blog = () => {
   );
 };
 
-export default Blog; 
+export default Blog;

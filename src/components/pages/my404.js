@@ -1,48 +1,52 @@
-import React from 'react';
-import {
-  Box,
-  Container,
-  Text,
-  VStack,
-  Link,
-  Button,
-  Heading,
-  useColorModeValue
-} from '@chakra-ui/react';
-import { Link as RouterLink } from 'react-router-dom';
+import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import gsap from 'gsap';
 
 const My404 = () => {
-  const textColor = useColorModeValue('gray.700', 'gray.300');
-  const linkColor = useColorModeValue('blue.500', 'blue.200');
+  const rootRef = useRef(null);
+
+  useEffect(() => {
+    if (!rootRef.current) return;
+    const ctx = gsap.context(() => {
+      const num = rootRef.current.querySelector('.nf-number');
+      const msg = rootRef.current.querySelector('.nf-msg');
+      const rest = rootRef.current.querySelectorAll('.nf-rest > *');
+
+      if (num) gsap.from(num, { opacity: 0, scale: 0.94, duration: 0.9, ease: 'power3.out' });
+      if (msg) gsap.from(msg, { opacity: 0, y: 16, duration: 0.8, ease: 'power3.out', delay: 0.2 });
+      if (rest.length) {
+        gsap.from(rest, {
+          opacity: 0,
+          y: 12,
+          duration: 0.6,
+          ease: 'power3.out',
+          stagger: 0.08,
+          delay: 0.4,
+        });
+      }
+    }, rootRef);
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <Box py={{ base: 8, md: 16 }}>
-      <Container maxW="container.sm">
-        <VStack spacing={6} align="start">
-          <Heading as="h1" fontSize="xl" color={textColor}>
-            Not quite what you were looking for... 🤔
-          </Heading>
-          
-          <Text color={textColor} lineHeight="tall">
-            It looks like you were looking for my writing. You'll find it on{' '}
-            <Link href="https://vivekkaushal.substack.com" color={linkColor} isExternal>
-              Substack
-            </Link>
-            .
-          </Text>
-
-          <Button
-            as={RouterLink}
-            to="/"
-            variant="outline"
-            size="md"
-            colorScheme="gray"
-          >
-            Go back home
-          </Button>
-        </VStack>
-      </Container>
-    </Box>
+    <div ref={rootRef}>
+      <div className="col nf">
+        <div className="nf-number">404</div>
+        <h1 className="nf-msg">
+          That page slipped the <em>press.</em>
+        </h1>
+        <div className="nf-rest" style={{ marginTop: 32 }}>
+          <p className="prose" style={{ color: 'var(--ink-muted)', maxWidth: '44ch' }}>
+            If you came looking for the writing, it lives on{' '}
+            <a href="https://vivekkaushal.substack.com" target="_blank" rel="noreferrer" className="link-accent">Substack</a>
+            {' '}or at <Link to="/blog" className="link-accent">/essays</Link>.
+          </p>
+          <div style={{ marginTop: 32 }}>
+            <Link to="/" className="btn">Back to the front</Link>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

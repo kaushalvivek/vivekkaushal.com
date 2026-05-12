@@ -1,199 +1,104 @@
-import React, { useEffect } from 'react';
-import {
-  Box,
-  Container,
-  HStack,
-  VStack,
-  Link as ChakraLink,
-  Text,
-  Flex,
-  useColorModeValue,
-  IconButton,
-  Drawer,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerBody,
-  useDisclosure,
-} from '@chakra-ui/react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useTheme } from '../lib/theme';
 
-// Minimal hamburger icon - three lines
-const MenuIcon = () => (
-  <Box w="18px" h="14px" display="flex" flexDirection="column" justifyContent="space-between">
-    <Box h="2px" w="100%" bg="gray.700" borderRadius="full" />
-    <Box h="2px" w="100%" bg="gray.700" borderRadius="full" />
-    <Box h="2px" w="100%" bg="gray.700" borderRadius="full" />
-  </Box>
-);
+const NAV = [
+  { to: '/blog', label: 'Essays' },
+  { to: '/projects', label: 'Work' },
+  { to: '/books', label: 'Reading' },
+  { to: '/bucketlist', label: 'Life List' },
+  { to: '/research', label: 'Research' },
+  { to: '/talk', label: 'Contact' },
+];
 
-// Minimal close icon - X
-const CloseIcon = () => (
-  <Box w="18px" h="18px" position="relative">
-    <Box
-      h="2px"
-      w="100%"
-      bg="gray.700"
-      borderRadius="full"
-      position="absolute"
-      top="50%"
-      transform="rotate(45deg)"
-    />
-    <Box
-      h="2px"
-      w="100%"
-      bg="gray.700"
-      borderRadius="full"
-      position="absolute"
-      top="50%"
-      transform="rotate(-45deg)"
-    />
-  </Box>
-);
+const ThemeToggle = () => {
+  const { theme, toggle } = useTheme();
+  return (
+    <button
+      type="button"
+      className="theme-btn"
+      onClick={toggle}
+      aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+      title={theme === 'dark' ? 'Light mode' : 'Dark mode'}
+    >
+      {theme === 'dark' ? (
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+        </svg>
+      ) : (
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+        </svg>
+      )}
+    </button>
+  );
+};
 
 const Header = () => {
   const location = useLocation();
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const borderColor = useColorModeValue('gray.200', 'gray.700');
+  const [open, setOpen] = useState(false);
 
-  // Close mobile menu on route change
   useEffect(() => {
-    onClose();
-  }, [location.pathname, onClose]);
+    setOpen(false);
+  }, [location.pathname]);
 
-  const NavLink = ({ to, isExternal, children, onClick }) => {
-    const isActive = location.pathname === to || (to === '/blog' && location.pathname.startsWith('/blog'));
-    
-    return (
-      <ChakraLink
-        as={isExternal ? 'a' : Link}
-        to={!isExternal ? to : undefined}
-        href={isExternal ? to : undefined}
-        fontSize="sm"
-        fontWeight="500"
-        color={isActive ? 'brand.600' : 'gray.600'}
-        borderBottom="2px solid"
-        borderColor={isActive ? 'brand.600' : 'transparent'}
-        pb={1}
-        transition="all 0.2s ease"
-        _hover={{ 
-          color: 'brand.600',
-          borderColor: 'brand.300'
-        }}
-        target={isExternal ? '_blank' : undefined}
-        rel={isExternal ? 'noreferrer' : undefined}
-        onClick={onClick}
-      >
-        {children}
-      </ChakraLink>
-    );
-  };
-
-  // Mobile nav link with larger touch target
-  const MobileNavLink = ({ to, children }) => {
-    const isActive = location.pathname === to || (to === '/blog' && location.pathname.startsWith('/blog'));
-
-    return (
-      <ChakraLink
-        as={Link}
-        to={to}
-        fontSize="lg"
-        fontWeight="500"
-        color={isActive ? 'brand.600' : 'gray.700'}
-        py={3}
-        w="100%"
-        display="block"
-        borderBottom="1px solid"
-        borderColor="gray.100"
-        _hover={{
-          color: 'brand.600',
-          bg: 'gray.50'
-        }}
-        _last={{
-          borderBottom: 'none'
-        }}
-        onClick={onClose}
-      >
-        {children}
-      </ChakraLink>
-    );
-  };
+  const isActive = (to) =>
+    location.pathname === to || location.pathname.startsWith(to + '/');
 
   return (
-    <Box 
-      borderBottom="1px solid" 
-      borderColor={borderColor}
-      bg="rgba(255, 255, 255, 0.8)"
-      backdropFilter="blur(10px)"
-      position="sticky"
-      top={0}
-      zIndex={10}
-    >
-      <Container maxW="container.lg">
-        <Flex 
-          justify="space-between" 
-          align="center" 
-          py={4}
-        >
-          <Link to="/">
-            <Text 
-              fontSize="lg" 
-              fontWeight="700" 
-              color="gray.900"
-              _hover={{ color: 'brand.600' }}
-              transition="color 0.2s ease"
-            >
-              Vivek Kaushal
-            </Text>
+    <>
+      <header className="nav">
+        <div className="col nav-inner">
+          <Link to="/" className="brand" aria-label="Vivek Kaushal — home">
+            Vivek <em>Kaushal</em>
           </Link>
-          
-          {/* Desktop Navigation */}
-          <HStack spacing={8} display={{ base: 'none', md: 'flex' }}>
-            <NavLink to="/blog">Writing</NavLink>
-            <NavLink to="/projects">Projects</NavLink>
-            <NavLink to="/research">Research</NavLink>
-            <NavLink to="/books">Books</NavLink>
-            <NavLink to="/bucketlist">Bucket List</NavLink>
-            <NavLink to="/talk">Talk</NavLink>
-          </HStack>
-
-          {/* Mobile Menu Button */}
-          <IconButton
-            display={{ base: 'flex', md: 'none' }}
-            aria-label={isOpen ? 'Close menu' : 'Open menu'}
-            variant="ghost"
-            size="sm"
-            icon={isOpen ? <CloseIcon /> : <MenuIcon />}
-            onClick={isOpen ? onClose : onOpen}
-            _hover={{ bg: 'gray.100' }}
-          />
-        </Flex>
-      </Container>
-
-      {/* Mobile Navigation Drawer */}
-      <Drawer
-        isOpen={isOpen}
-        placement="top"
-        onClose={onClose}
-      >
-        <DrawerOverlay bg="blackAlpha.300" backdropFilter="blur(4px)" />
-        <DrawerContent
-          mt="57px"
-          boxShadow="lg"
-          borderBottomRadius="md"
-        >
-          <DrawerBody py={2} px={4}>
-            <VStack align="stretch" spacing={0}>
-              <MobileNavLink to="/blog">Writing</MobileNavLink>
-              <MobileNavLink to="/projects">Projects</MobileNavLink>
-              <MobileNavLink to="/research">Research</MobileNavLink>
-              <MobileNavLink to="/books">Books</MobileNavLink>
-              <MobileNavLink to="/bucketlist">Bucket List</MobileNavLink>
-              <MobileNavLink to="/talk">Talk</MobileNavLink>
-            </VStack>
-          </DrawerBody>
-        </DrawerContent>
-      </Drawer>
-    </Box>
+          <nav className="nav-links">
+            {NAV.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                className={`nav-link ${isActive(item.to) ? 'active' : ''}`}
+              >
+                {item.label}
+              </Link>
+            ))}
+            <ThemeToggle />
+          </nav>
+          <button
+            type="button"
+            className="menu-btn"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? (
+              <svg width="22" height="22" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" fill="none">
+                <path d="M6 6l12 12M6 18L18 6" />
+              </svg>
+            ) : (
+              <svg width="22" height="22" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" fill="none">
+                <path d="M4 8h16M4 16h16" />
+              </svg>
+            )}
+          </button>
+        </div>
+      </header>
+      <div className={`mobile-menu ${open ? 'open' : ''}`}>
+        {NAV.map((item) => (
+          <Link
+            key={item.to}
+            to={item.to}
+            className={isActive(item.to) ? 'active' : ''}
+            onClick={() => setOpen(false)}
+          >
+            {item.label}
+          </Link>
+        ))}
+        <div style={{ marginTop: 24 }}>
+          <ThemeToggle />
+        </div>
+      </div>
+    </>
   );
 };
 

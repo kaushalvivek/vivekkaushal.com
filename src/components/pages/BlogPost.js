@@ -1,181 +1,77 @@
-import React from 'react';
-import {
-  Box,
-  Container,
-  Heading,
-  Text,
-  useColorModeValue,
-  Link,
-  HStack,
-  Icon,
-} from '@chakra-ui/react';
-import { ArrowBackIcon } from '@chakra-ui/icons';
+import React, { useEffect, useRef } from 'react';
 import { useParams, Link as RouterLink } from 'react-router-dom';
+import gsap from 'gsap';
 
 const BlogPost = ({ posts }) => {
   const { slug } = useParams();
-  const post = posts.find(p => p.slug === slug);
+  const post = posts.find((p) => p.slug === slug);
+  const rootRef = useRef(null);
 
-  const textColor = useColorModeValue('gray.700', 'gray.300');
-  const headingColor = useColorModeValue('gray.900', 'white');
-  const dateColor = useColorModeValue('gray.500', 'gray.500');
-  const mutedColor = useColorModeValue('gray.500', 'gray.500');
-  const codeBg = useColorModeValue('gray.50', 'gray.800');
-  const linkColor = useColorModeValue('blue.600', 'blue.300');
-  const borderColor = useColorModeValue('gray.200', 'gray.700');
+  useEffect(() => {
+    if (!rootRef.current || !post) return;
+    const ctx = gsap.context(() => {
+      const meta = rootRef.current.querySelector('.post-meta');
+      const title = rootRef.current.querySelector('.post-title');
+      const body = rootRef.current.querySelector('.doc-body');
+
+      if (meta) gsap.from(meta, { opacity: 0, y: 10, duration: 0.5, ease: 'power3.out' });
+      if (title) gsap.from(title, { opacity: 0, y: 18, duration: 0.9, ease: 'power3.out', delay: 0.08 });
+      if (body) gsap.from(body, { opacity: 0, y: 14, duration: 0.8, ease: 'power3.out', delay: 0.3 });
+    }, rootRef);
+    return () => ctx.revert();
+  }, [post]);
 
   if (!post) {
     return (
-      <Container maxW="container.md" py={8}>
-        <Text>Post not found</Text>
-        <Link as={RouterLink} to="/blog">Back to Blog</Link>
-      </Container>
+      <div className="col-read">
+        <div className="page-head">
+          <p className="page-intro">Post not found.</p>
+          <RouterLink to="/blog" className="link-accent">← Back to essays</RouterLink>
+        </div>
+      </div>
     );
   }
 
   return (
-    <Box py={{ base: 8, md: 16 }}>
-      <Container maxW="container.md">
-        <Link
-          as={RouterLink}
-          to="/blog"
-          display="inline-flex"
-          alignItems="center"
-          mb={8}
-          color={textColor}
-          _hover={{ textDecoration: 'none', color: 'blue.500' }}
-        >
-          <HStack spacing={2}>
-            <Icon as={ArrowBackIcon} />
-            <Text>Back to Blog</Text>
-          </HStack>
-        </Link>
+    <div ref={rootRef}>
+      <div className="col-read">
+        <div className="page-head">
+          <div className="page-meta post-meta">
+            <RouterLink to="/blog" className="smallcaps mark" style={{ color: 'var(--accent)' }}>
+              ← Essays
+            </RouterLink>
+            <span className="bar" />
+            <span className="smallcaps">
+              {post.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </span>
+          </div>
+          <h1 className="post-title" style={{
+            fontFamily: 'var(--f-display)',
+            fontSize: 'clamp(36px, 5vw, 64px)',
+            lineHeight: 1.05,
+            letterSpacing: '-0.02em',
+            color: 'var(--ink)',
+            marginBottom: 16,
+          }}>
+            {post.title}
+          </h1>
+        </div>
 
-        <Text fontSize="md" color={mutedColor} mb={4}>
-          An occasional post about ideas and stories worth sharing.
-        </Text>
-
-        <Heading
-          as="h1"
-          fontSize={{ base: '2xl', md: '3xl' }}
-          fontWeight="700"
-          color={headingColor}
-          mb={4}
-        >
-          {post.title}
-        </Heading>
-
-        <Text fontSize="sm" color={dateColor} mb={8}>
-          {new Date(post.date).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          })}
-        </Text>
-
-        <Box
-          className="blog-content"
-          color={textColor}
-          fontSize="lg"
-          lineHeight="tall"
+        <article
+          className="doc-body"
           dangerouslySetInnerHTML={{ __html: post.content }}
-          sx={{
-            'p': {
-              mb: 4,
-            },
-            'h2': {
-              fontSize: '2xl',
-              fontWeight: '600',
-              color: headingColor,
-              mt: 8,
-              mb: 4,
-            },
-            'h3': {
-              fontSize: 'xl',
-              fontWeight: '600',
-              color: headingColor,
-              mt: 6,
-              mb: 3,
-            },
-            'ul, ol': {
-              pl: 6,
-              mb: 4,
-            },
-            'li': {
-              mb: 2,
-            },
-            'blockquote': {
-              borderLeftWidth: '4px',
-              borderLeftColor: borderColor,
-              pl: 4,
-              py: 1,
-              my: 4,
-              fontStyle: 'italic',
-            },
-            'img': {
-              maxWidth: '100%',
-              height: 'auto',
-              borderRadius: 'md',
-              my: 4,
-            },
-            'pre': {
-              bg: codeBg,
-              p: 4,
-              borderRadius: 'md',
-              overflowX: 'auto',
-              mb: 4,
-            },
-            'code': {
-              fontFamily: 'monospace',
-              bg: codeBg,
-              px: 2,
-              py: 1,
-              borderRadius: 'sm',
-            },
-            'a': {
-              color: linkColor,
-              textDecoration: 'none',
-              _hover: {
-                textDecoration: 'underline',
-              },
-            },
-            'hr': {
-              my: 8,
-              borderColor: borderColor,
-            },
-            'figure': {
-              my: 4,
-            },
-            'figcaption': {
-              fontSize: 'sm',
-              color: mutedColor,
-              textAlign: 'center',
-              mt: 2,
-            },
-          }}
         />
 
-        <Box mt={12} pt={8} borderTopWidth="1px" borderTopColor={borderColor}>
-          <Link
-            href="https://vivekkaushal.substack.com"
-            isExternal
-            fontSize="md"
-            color={mutedColor}
-            _hover={{
-              color: linkColor,
-              textDecoration: 'none',
-            }}
-            display="inline-flex"
-            alignItems="center"
-            gap={1}
-          >
+        <div style={{ marginTop: 80, paddingTop: 32, borderTop: '1px solid var(--hair)', display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+          <a href="https://vivekkaushal.substack.com" target="_blank" rel="noreferrer" className="btn">
             Subscribe to new essays
-            <Box as="span" fontSize="lg">→</Box>
-          </Link>
-        </Box>
-      </Container>
-    </Box>
+          </a>
+          <RouterLink to="/blog" className="btn-ghost">All essays</RouterLink>
+        </div>
+        <div style={{ height: 80 }} />
+      </div>
+    </div>
   );
 };
 
-export default BlogPost; 
+export default BlogPost;

@@ -1,93 +1,89 @@
-import React from 'react';
-import {
-  Box,
-  Container,
-  Text,
-  VStack,
-  HStack,
-  Link,
-  Heading,
-} from '@chakra-ui/react';
-import projects from '../../static/projects.json';
+import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+import projectsData from '../../static/projects.json';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Projects = () => {
+  const rootRef = useRef(null);
+
+  useEffect(() => {
+    if (!rootRef.current) return;
+    const ctx = gsap.context(() => {
+      const head = rootRef.current.querySelectorAll('.page-head > *');
+      gsap.from(head, {
+        opacity: 0,
+        y: 16,
+        duration: 0.8,
+        ease: 'power3.out',
+        stagger: 0.08,
+      });
+
+      const pieces = rootRef.current.querySelectorAll('.piece');
+      gsap.set(pieces, { opacity: 0, y: 18 });
+      ScrollTrigger.batch(pieces, {
+        start: 'top 88%',
+        onEnter: (batch) =>
+          gsap.to(batch, {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: 'power3.out',
+            stagger: 0.06,
+          }),
+      });
+    }, rootRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <Box py={{ base: 16, md: 24 }}>
-      <Container maxW="container.sm">
-        <VStack spacing={12} align="stretch">
-          {projects.projects.map((project, index) => (
-            <Box key={index}>
-              <Heading 
-                as="h2" 
-                fontSize="lg" 
-                fontWeight="600" 
-                color="gray.900" 
-                mb={2}
-                lineHeight="short"
-              >
-                {project.name}
-              </Heading>
-              
-              <Text 
-                fontSize="sm" 
-                color="gray.500" 
-                mb={4}
-                letterSpacing="wide"
-              >
-                {project.date}
-              </Text>
-              
-              <Text 
-                color="gray.700" 
-                mb={6} 
-                lineHeight="tall"
-              >
-                {project.description}
-              </Text>
-              
-              <HStack spacing={4} flexWrap="wrap">
-                {project.appLink && (
-                  <Link 
-                    href={project.appLink} 
-                    isExternal
-                    fontSize="sm"
-                    fontWeight="500"
-                    color="brand.600"
-                    _hover={{ color: 'brand.700' }}
-                  >
-                    View project
-                  </Link>
-                )}
-                {project.codeLink && (
-                  <Link
-                    href={project.codeLink}
-                    isExternal
-                    fontSize="sm"
-                    fontWeight="500"
-                    color="brand.600"
-                    _hover={{ color: 'brand.700' }}
-                  >
-                    View code
-                  </Link>
-                )}
-                {project.blogLink && (
-                  <Link
-                    href={project.blogLink}
-                    isExternal
-                    fontSize="sm"
-                    fontWeight="500"
-                    color="brand.600"
-                    _hover={{ color: 'brand.700' }}
-                  >
-                    Read more
-                  </Link>
-                )}
-              </HStack>
-            </Box>
-          ))}
-        </VStack>
-      </Container>
-    </Box>
+    <div ref={rootRef}>
+      <div className="col">
+        <div className="page-head">
+          <div className="page-meta">
+            <span className="smallcaps mark">Section · Work</span>
+            <span className="bar" />
+            <span className="smallcaps">{projectsData.projects.length} pieces</span>
+          </div>
+          <h1 className="page-title">
+            Small <em>experiments.</em>
+          </h1>
+          <p className="page-intro">
+            Side projects, most of them open source. Each one started as a
+            question I couldn't answer by reading, so I built something to find out.
+          </p>
+        </div>
+
+        <div className="piece-list">
+          {projectsData.projects.map((p, i) => {
+            const href = p.appLink || p.codeLink || p.blogLink;
+            const external = href && href.startsWith('http');
+            const Tag = href ? (external ? 'a' : Link) : 'div';
+            const linkProps = href ? (external ? { href, target: '_blank', rel: 'noreferrer' } : { to: href }) : {};
+            return (
+              <Tag key={p.name} className="piece" {...linkProps}>
+                <span className="piece-num">No. {String(i + 1).padStart(2, '0')}</span>
+                <span className="piece-name">{p.name}</span>
+                <span className="piece-desc">{p.description}</span>
+                <span className="piece-date">{p.date}</span>
+              </Tag>
+            );
+          })}
+        </div>
+
+        <div style={{ marginTop: 56, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+          <a href="https://github.com/kaushalvivek" target="_blank" rel="noreferrer" className="btn-ghost">
+            GitHub →
+          </a>
+          <Link to="/blog" className="btn-ghost">Writing →</Link>
+        </div>
+
+        <div style={{ height: 80 }} />
+      </div>
+    </div>
   );
 };
 

@@ -1,97 +1,133 @@
-import React, { useState, useMemo } from 'react';
-import {
-  Box,
-  Container,
-  Text,
-  VStack,
-  HStack,
-} from '@chakra-ui/react';
+import React, { useEffect, useLayoutEffect, useRef, useState, useMemo } from 'react';
+import gsap from 'gsap';
+import Flip from 'gsap/Flip';
 import nonFiction from '../../static/nonFiction.json';
 
+gsap.registerPlugin(Flip);
+
 const Recommendations = () => {
+  const rootRef = useRef(null);
+  const gridRef = useRef(null);
+  const flipStateRef = useRef(null);
   const [selectedTag, setSelectedTag] = useState('all');
 
-  // Extract all unique tags
   const allTags = useMemo(() => {
-    const tags = new Set();
-    nonFiction.forEach(book => {
-      book.tags.forEach(tag => tags.add(tag));
-    });
-    return Array.from(tags).sort();
+    const t = new Set();
+    nonFiction.forEach((b) => b.tags.forEach((x) => t.add(x)));
+    return Array.from(t).sort();
   }, []);
 
-  // Filter books based on selected tag
-  const filteredBooks = useMemo(() => {
+  const filtered = useMemo(() => {
     if (selectedTag === 'all') return nonFiction;
-    return nonFiction.filter(book => book.tags.includes(selectedTag));
+    return nonFiction.filter((b) => b.tags.includes(selectedTag));
+  }, [selectedTag]);
+
+  const handleTagChange = (tag) => {
+    if (tag === selectedTag) return;
+    if (gridRef.current) {
+      flipStateRef.current = Flip.getState(gridRef.current.querySelectorAll('.book-tile'));
+    }
+    setSelectedTag(tag);
+  };
+
+  useEffect(() => {
+    if (!rootRef.current) return;
+    const ctx = gsap.context(() => {
+      const head = rootRef.current.querySelectorAll('.page-head > *');
+      gsap.from(head, {
+        opacity: 0,
+        y: 16,
+        duration: 0.8,
+        ease: 'power3.out',
+        stagger: 0.08,
+      });
+
+      const tiles = rootRef.current.querySelectorAll('.book-tile');
+      gsap.from(tiles, {
+        opacity: 0,
+        y: 14,
+        duration: 0.5,
+        ease: 'power2.out',
+        stagger: { each: 0.015, from: 'start' },
+        delay: 0.25,
+      });
+    }, rootRef);
+    return () => ctx.revert();
+  }, []);
+
+  useLayoutEffect(() => {
+    if (!flipStateRef.current) return;
+    Flip.from(flipStateRef.current, {
+      duration: 0.55,
+      ease: 'power2.out',
+      stagger: 0.015,
+      absolute: true,
+      onEnter: (els) =>
+        gsap.fromTo(els, { opacity: 0, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.4, ease: 'power2.out' }),
+      onLeave: (els) =>
+        gsap.to(els, { opacity: 0, scale: 0.94, duration: 0.25, ease: 'power2.in' }),
+    });
+    flipStateRef.current = null;
   }, [selectedTag]);
 
   return (
-    <Box py={{ base: 16, md: 24 }}>
-      <Container maxW="container.sm">
-        <VStack spacing={12} align="start" width="100%">
-          <Box width="100%">
-            <VStack spacing={6} align="start" mb={8}>
-              <Text lineHeight="tall">
-                Books I'd actually recommend. Not a reading log—just the ones worth your time.
-              </Text>
-            </VStack>
-          </Box>
+    <div ref={rootRef}>
+      <div className="col">
+        <div className="page-head">
+          <div className="page-meta">
+            <span className="smallcaps mark">Section · Reading</span>
+            <span className="bar" />
+            <span className="smallcaps">{nonFiction.length} on the shelf</span>
+          </div>
+          <h1 className="page-title">
+            Favourite non-fiction.
+          </h1>
+          <p className="page-intro">
+            The books I'll recommend.
+          </p>
+        </div>
 
-          <Box width="100%">
-            <Text fontSize="xs" color="gray.500" mb={3} letterSpacing="wide">
-              Filter by topic
-            </Text>
-            <HStack spacing={3} wrap="wrap" mb={8}>
-              <Text
-                fontSize="sm"
-                color={selectedTag === 'all' ? 'brand.600' : 'gray.500'}
-                cursor="pointer"
-                onClick={() => setSelectedTag('all')}
-                borderBottom="1px solid"
-                borderColor={selectedTag === 'all' ? 'brand.600' : 'transparent'}
-                pb={1}
-                transition="all 0.15s ease"
-                _hover={{ color: 'brand.600' }}
-                fontWeight={selectedTag === 'all' ? '500' : '400'}
-              >
-                all
-              </Text>
-              {allTags.map(tag => (
-                <Text
-                  key={tag}
-                  fontSize="sm"
-                  color={selectedTag === tag ? 'brand.600' : 'gray.500'}
-                  cursor="pointer"
-                  onClick={() => setSelectedTag(tag)}
-                  borderBottom="1px solid"
-                  borderColor={selectedTag === tag ? 'brand.600' : 'transparent'}
-                  pb={1}
-                  transition="all 0.15s ease"
-                  _hover={{ color: 'brand.600' }}
-                  fontWeight={selectedTag === tag ? '500' : '400'}
-                >
-                  {tag}
-                </Text>
-              ))}
-            </HStack>
+        <div className="tag-bar">
+          <button
+            type="button"
+            className={`tag-chip ${selectedTag === 'all' ? 'active' : ''}`}
+            onClick={() => handleTagChange('all')}
+          >
+            All
+          </button>
+          {allTags.map((t) => (
+            <button
+              type="button"
+              key={t}
+              className={`tag-chip ${selectedTag === t ? 'active' : ''}`}
+              onClick={() => handleTagChange(t)}
+            >
+              {t}
+            </button>
+          ))}
+        </div>
 
-            <VStack spacing={3} align="start">
-              {filteredBooks.map((book, index) => (
-                <Box key={index} lineHeight="base">
-                  <Text fontSize="sm" color="gray.900" fontWeight="500">
-                    {book.book}
-                  </Text>
-                  <Text fontSize="xs" color="gray.500" letterSpacing="wide">
-                    {book.author}
-                  </Text>
-                </Box>
-              ))}
-            </VStack>
-          </Box>
-        </VStack>
-      </Container>
-    </Box>
+        <div className="books-grid" ref={gridRef}>
+          {filtered.map((b) => (
+            <div key={b.book} className="book-tile" data-flip-id={b.book}>
+              <div>
+                <div className="t">{b.book}</div>
+                <div className="a">{b.author}</div>
+              </div>
+              <div className="tag">{b.tags[0]}</div>
+            </div>
+          ))}
+        </div>
+
+        {filtered.length === 0 && (
+          <p className="prose-m" style={{ marginTop: 24, color: 'var(--ink-muted)' }}>
+            Nothing on the shelf under this tag. Try another.
+          </p>
+        )}
+
+        <div style={{ height: 80 }} />
+      </div>
+    </div>
   );
 };
 

@@ -188,5 +188,15 @@
         "book": "The Molecule of More",
         "author": "Daniel Z. Lieberman and Michael E. Long",
         "tags": ["psychology", "decision-making", "science"]
+    },
+    {
+        "book": "Finite and Infinite Games",
+        "author": "James P. Carse",
+        "tags": ["philosophy", "strategy", "systems-thinking"]
+    },
+    {
+        "book": "Turn the Ship Around!",
+        "author": "L. David Marquet",
+        "tags": ["leadership", "management", "memoir"]
     }
 ]

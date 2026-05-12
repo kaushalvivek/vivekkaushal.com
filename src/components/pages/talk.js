@@ -1,151 +1,128 @@
-import React, { useState } from 'react';
-import {
-  Alert,
-  AlertDescription,
-  AlertIcon,
-  AlertTitle,
-  Box,
-  Button,
-  Container,
-  FormControl,
-  FormLabel,
-  Heading,
-  Input,
-  Text,
-  Textarea,
-  VStack,
-} from '@chakra-ui/react';
+import React, { useEffect, useRef, useState } from 'react';
+import gsap from 'gsap';
 
 const Talk = () => {
+  const rootRef = useRef(null);
   const [status, setStatus] = useState('idle');
 
-  const encodeFormData = (formData) => {
-    const params = new URLSearchParams();
-    formData.forEach((value, key) => {
-      params.append(key, value);
-    });
-    return params.toString();
-  };
+  useEffect(() => {
+    if (!rootRef.current) return;
+    const ctx = gsap.context(() => {
+      const head = rootRef.current.querySelectorAll('.page-head > *');
+      const fields = rootRef.current.querySelectorAll('.talk-field, .talk-form button');
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+      gsap.from(head, {
+        opacity: 0,
+        y: 16,
+        duration: 0.8,
+        ease: 'power3.out',
+        stagger: 0.08,
+      });
+      gsap.from(fields, {
+        opacity: 0,
+        y: 18,
+        duration: 0.6,
+        ease: 'power3.out',
+        stagger: 0.1,
+        delay: 0.4,
+      });
+    }, rootRef);
+    return () => ctx.revert();
+  }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
     setStatus('submitting');
-
-    const form = event.target;
+    const form = e.target;
     const formData = new FormData(form);
-
+    const body = new URLSearchParams();
+    formData.forEach((v, k) => body.append(k, v));
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encodeFormData(formData),
+      body: body.toString(),
     })
       .then(() => {
         setStatus('success');
         form.reset();
       })
-      .catch(() => {
-        setStatus('error');
-      });
-  };
-
-  const renderStatusAlert = () => {
-    if (status === 'success') {
-      return (
-        <Alert status="success" variant="left-accent" borderRadius="md">
-          <AlertIcon />
-          <Box>
-            <AlertTitle fontWeight="600">Thanks for the note!</AlertTitle>
-            <AlertDescription>I&apos;ll follow up soon.</AlertDescription>
-          </Box>
-        </Alert>
-      );
-    }
-
-    if (status === 'error') {
-      return (
-        <Alert status="error" variant="left-accent" borderRadius="md">
-          <AlertIcon />
-          <Box>
-            <AlertTitle fontWeight="600">Something went wrong</AlertTitle>
-            <AlertDescription>Please try again or email me directly.</AlertDescription>
-          </Box>
-        </Alert>
-      );
-    }
-
-    return null;
+      .catch(() => setStatus('error'));
   };
 
   return (
-    <Box py={{ base: 16, md: 20 }}>
-      <Container maxW="container.sm">
-        <VStack spacing={8} align="stretch">
-          <VStack align="start" spacing={3}>
-            <Heading as="h1" fontSize={{ base: '2xl', md: '3xl' }} fontWeight="700">
-              Say hi
-            </Heading>
-            <Text color="gray.600" lineHeight="tall">
-              I enjoy conversations with curious people — whether you're building something interesting,
-              thinking through a problem, or just want to talk about AI, product, or why attention
-              works the way it does.
-            </Text>
-            <Text color="gray.600" lineHeight="tall">
-              Coffee chats, collaborations, or ideas worth sharing — I'm open.
-            </Text>
-          </VStack>
+    <div ref={rootRef}>
+      <div className="col-read">
+        <div className="page-head">
+          <div className="page-meta">
+            <span className="smallcaps mark">Section · Contact</span>
+            <span className="bar" />
+          </div>
+          <h1 className="page-title">
+            Write to <em>me.</em>
+          </h1>
+          <p className="page-intro">
+            If you're working on AI agents, evaluation, or something adjacent — or
+            just want to compare notes — send a line. I read everything that
+            lands here, and reply to most of it.
+          </p>
+        </div>
 
-          {renderStatusAlert()}
+        {status === 'success' && (
+          <div className="alert">
+            Thanks for the note — I'll write back soon.
+          </div>
+        )}
+        {status === 'error' && (
+          <div className="alert error">
+            Something broke in transit. Try again, or email me directly.
+          </div>
+        )}
 
-          <Box
-            as="form"
-            name="talk"
-            method="POST"
-            data-netlify="true"
-            netlify-honeypot="bot-field"
-            onSubmit={handleSubmit}
-            bg="white"
-            border="1px solid"
-            borderColor="gray.200"
-            borderRadius="lg"
-            px={{ base: 5, md: 6 }}
-            py={{ base: 6, md: 7 }}
-          >
-            <input type="hidden" name="form-name" value="talk" />
-            <input type="hidden" name="bot-field" />
+        <form
+          className="talk-form"
+          name="talk"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          onSubmit={handleSubmit}
+        >
+          <input type="hidden" name="form-name" value="talk" />
+          <input type="hidden" name="bot-field" />
 
-            <VStack spacing={5} align="stretch">
-              <FormControl isRequired>
-                <FormLabel fontSize="sm" color="gray.700">
-                  How do I reach you?
-                </FormLabel>
-                <Input name="contact" placeholder="you@example.com or +91 98765 43210" size="md" />
-              </FormControl>
+          <div className="talk-field">
+            <label htmlFor="contact">How do I reach you?</label>
+            <input
+              className="field"
+              id="contact"
+              name="contact"
+              placeholder="Email, phone, or any handle you prefer"
+              required
+              autoComplete="off"
+            />
+          </div>
 
-              <FormControl isRequired>
-                <FormLabel fontSize="sm" color="gray.700">
-                  Message
-                </FormLabel>
-                <Textarea
-                  name="message"
-                  placeholder="Share context, links, or anything I should know."
-                  rows={6}
-                />
-              </FormControl>
+          <div className="talk-field">
+            <label htmlFor="message">Your note</label>
+            <textarea
+              className="field"
+              id="message"
+              name="message"
+              placeholder="Share context, links, or anything I should know."
+              required
+              rows={6}
+            />
+          </div>
 
-              <Button
-                type="submit"
-                colorScheme="brand"
-                isLoading={status === 'submitting'}
-                loadingText="Sending"
-                alignSelf="flex-start"
-              >
-                Send
-              </Button>
-            </VStack>
-          </Box>
-        </VStack>
-      </Container>
-    </Box>
+          <div>
+            <button type="submit" className="btn" disabled={status === 'submitting'}>
+              {status === 'submitting' ? 'Sending…' : 'Send'}
+            </button>
+          </div>
+        </form>
+
+        <div style={{ height: 80 }} />
+      </div>
+    </div>
   );
 };
 
