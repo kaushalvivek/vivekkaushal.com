@@ -163,7 +163,7 @@ const Home = () => {
             <div className="hero-text">
               <h1 className="hero-bio">
                 <span className="hero-sentence" data-hero-line>
-                  I am the product lead for Agents at{' '}
+                  I lead the Agents product at{' '}
                   <a href="https://enterpret.com" target="_blank" rel="noreferrer">Enterpret</a>.
                 </span>
               </h1>
@@ -176,7 +176,7 @@ const Home = () => {
 
               <p className="hero-sub">
                 <span className="hero-sentence" data-hero-line>
-                  I build every day. I find joy in taking a product from 0 to 1.
+                  I build every day. I find joy in the zero-to-one product journey.
                 </span>
               </p>
             </div>
