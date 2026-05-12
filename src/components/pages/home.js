@@ -170,7 +170,7 @@ const Home = () => {
 
               <p className="hero-sub">
                 <span className="hero-sentence" data-hero-line>
-                  I studied computer science, engineering, and cognitive neuroscience at IIITH, NTU-Taiwan. After engineering backend systems for some time, I gravitated towards identifying and shaping products.
+                  I studied computer science, engineering, and cognitive neuroscience. After engineering backend systems for some time, I gravitated towards identifying and shaping products.
                 </span>
               </p>
 
@@ -190,7 +190,7 @@ const Home = () => {
             <span className="hairline-rule" data-hero-rule />
             <div className="hero-sig-left" data-hero-sig-left>
               <span className="byline">Vivek Kaushal</span>
-              <span className="dateline">Bengaluru · {monthYear(now)}</span>
+              <span className="dateline">{monthYear(now)}</span>
             </div>
             <a
               data-hero-sig-right

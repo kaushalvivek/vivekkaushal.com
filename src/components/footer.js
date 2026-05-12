@@ -55,7 +55,6 @@ const Footer = () => {
         </div>
         <div className="footer-bottom">
           <span>© {year} Vivek Kaushal</span>
-          <span>Bengaluru · Hyderabad · Taipei</span>
         </div>
       </div>
     </footer>
