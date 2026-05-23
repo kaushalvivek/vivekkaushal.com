@@ -1,6 +1,12 @@
 {
     "projects":[
         {
+            "name":"htmlz",
+            "date":"May, 2026",
+            "description":"A self-hosted home for the HTML your AI agents make. URL is the credential — random 10-char slugs, no auth, no database, no build pipeline. Comments and in-place edits get injected onto every published page.",
+            "codeLink":"https://github.com/kaushalvivek/htmlz"
+        },
+        {
             "name":"A Listening Life",
             "date":"April, 2026",
             "description":"A magazine-style visual portrait of six years of listening, built from the Spotify Web API. 3,846 songs, 2,089 artists, eight decades of recorded sound — laid out as a printed archive.",
