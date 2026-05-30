@@ -65,6 +65,7 @@
         {"goal": "Eat at a Michelin star restaurant", "checked": true},
         {"goal": "Start a 1-person agent-native business", "checked": false},
         {"goal": "Back a founder", "checked": false},
-        {"goal": "Build a home", "checked": false}
+        {"goal": "Build a home", "checked": false},
+        {"goal": "See a total solar eclipse", "checked": true}
     ]
 }
