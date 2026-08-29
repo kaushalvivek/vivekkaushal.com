@@ -1,7 +1,5 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
 import Header from './components/header';
 import Footer from './components/footer';
 import Home from './components/pages/home';
@@ -15,57 +13,33 @@ import My404 from './components/pages/my404';
 import ExternalRedirect from './components/ExternalRedirect';
 import GATracker from './components/gaTracker';
 
-gsap.registerPlugin(ScrollTrigger);
-
-const RouteFrame = ({ children }) => {
-  const location = useLocation();
-  const wrapRef = useRef(null);
-  const firstRef = useRef(true);
-
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
   useEffect(() => {
-    if (firstRef.current) {
-      firstRef.current = false;
-      return;
-    }
-    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-    requestAnimationFrame(() => ScrollTrigger.refresh());
-
-    if (wrapRef.current) {
-      gsap.fromTo(
-        wrapRef.current,
-        { opacity: 0, y: 10 },
-        { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' }
-      );
-    }
-  }, [location.pathname]);
-
-  return (
-    <div ref={wrapRef} key={location.pathname} className="route-frame">
-      {children}
-    </div>
-  );
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
 };
 
 const App = () => (
   <Router>
     <GATracker />
+    <ScrollToTop />
     <div className="app-shell">
       <Header />
       <main className="app-main">
-        <RouteFrame>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/research" element={<Research />} />
-            <Route path="/books" element={<Recommendations />} />
-            <Route path="/bucketlist" element={<BucketList />} />
-            <Route path="/blog/*" element={<Blog />} />
-            <Route path="/hack" element={<Navigate to="/blog" replace />} />
-            <Route path="/meet" element={<ExternalRedirect to="https://calendly.com/vikaushal/30-min" />} />
-            <Route path="/talk" element={<Talk />} />
-            <Route path="*" element={<My404 />} />
-          </Routes>
-        </RouteFrame>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/research" element={<Research />} />
+          <Route path="/books" element={<Recommendations />} />
+          <Route path="/bucketlist" element={<BucketList />} />
+          <Route path="/blog/*" element={<Blog />} />
+          <Route path="/hack" element={<Navigate to="/blog" replace />} />
+          <Route path="/meet" element={<ExternalRedirect to="https://calendly.com/vikaushal/30-min" />} />
+          <Route path="/talk" element={<Talk />} />
+          <Route path="*" element={<My404 />} />
+        </Routes>
       </main>
       <Footer />
     </div>

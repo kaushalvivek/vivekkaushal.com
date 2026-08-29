@@ -1,92 +1,47 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link as RouterLink, Routes, Route } from 'react-router-dom';
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
 import blogFeed from '../../static/blog-feed.xml';
 import BlogPost from './BlogPost';
 
-gsap.registerPlugin(ScrollTrigger);
-
-const stripHtml = (s) => s.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-
-const BlogList = ({ posts }) => {
-  const rootRef = useRef(null);
-
-  useEffect(() => {
-    if (!rootRef.current) return;
-    const ctx = gsap.context(() => {
-      const head = rootRef.current.querySelectorAll('.page-head > *');
-      gsap.from(head, {
-        opacity: 0,
-        y: 16,
-        duration: 0.8,
-        ease: 'power3.out',
-        stagger: 0.08,
-      });
-
-      const rows = rootRef.current.querySelectorAll('.essay-row');
-      gsap.set(rows, { opacity: 0, y: 18 });
-      ScrollTrigger.batch(rows, {
-        start: 'top 90%',
-        onEnter: (batch) =>
-          gsap.to(batch, {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            ease: 'power3.out',
-            stagger: 0.06,
-          }),
-      });
-    }, rootRef);
-    return () => ctx.revert();
-  }, [posts.length]);
-
-  return (
-    <div ref={rootRef}>
-      <div className="col">
-        <div className="page-head">
-          <div className="page-meta">
-            <span className="smallcaps mark">Section · Essays</span>
-            <span className="bar" />
-            <span className="smallcaps">{posts.length} pieces</span>
-          </div>
-          <h1 className="page-title">
-            An archive of <em>essays.</em>
-          </h1>
-          <p className="page-intro">
-            On building, paying attention, and life as I find it. Posted
-            when a thought has earned it — no schedule.{' '}
-            <a href="https://vivekkaushal.substack.com" target="_blank" rel="noreferrer">Subscribe on Substack →</a>
-          </p>
-        </div>
-
-        <div className="essay-list">
-          {posts.map((post) => (
-            <RouterLink
-              key={post.slug}
-              to={`/blog/${post.slug}`}
-              className="essay-row"
-            >
-              <div className="essay-date">
-                {post.date.toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'short',
-                  day: '2-digit',
-                })}
-              </div>
-              <div>
-                <div className="essay-title">{post.title}</div>
-                <div className="essay-excerpt">{stripHtml(post.description).slice(0, 240)}</div>
-              </div>
-            </RouterLink>
-          ))}
-        </div>
-
-        <div style={{ height: 80 }} />
-      </div>
-    </div>
-  );
+const stripHtml = (s) => {
+  const t = document.createElement('textarea');
+  t.innerHTML = s.replace(/<[^>]+>/g, '');
+  return t.value.replace(/\s+/g, ' ').trim();
 };
+
+const BlogList = ({ posts }) => (
+  <div className="col">
+    <div className="page-head">
+      <h1 className="page-title">Essays</h1>
+      <p className="page-intro">
+        On building, paying attention, and life as I find it.{' '}
+        <a href="https://vivekkaushal.substack.com" target="_blank" rel="noreferrer">Subscribe on Substack</a>
+      </p>
+    </div>
+
+    <div className="essay-list">
+      {posts.map((post) => (
+        <RouterLink
+          key={post.slug}
+          to={`/blog/${post.slug}`}
+          className="essay-row"
+        >
+          <div className="essay-date">
+            {post.date.toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'short',
+              day: '2-digit',
+            })}
+          </div>
+          <div>
+            <div className="essay-title">{post.title}</div>
+            <div className="essay-excerpt">{stripHtml(post.description).slice(0, 240)}</div>
+          </div>
+        </RouterLink>
+      ))}
+    </div>
+  </div>
+);
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
@@ -95,10 +50,16 @@ const Blog = () => {
 
   useEffect(() => {
     fetch(blogFeed)
-      .then((r) => r.text())
+      .then((r) => {
+        if (!r.ok) throw new Error(`Feed request failed (${r.status})`);
+        return r.text();
+      })
       .then((str) => {
         const parser = new DOMParser();
         const doc = parser.parseFromString(str, 'text/xml');
+        if (doc.querySelector('parsererror')) {
+          throw new Error('Feed XML is invalid');
+        }
         const items = Array.from(doc.querySelectorAll('item'));
 
         const mapped = items.map((item) => {
@@ -130,8 +91,8 @@ const Blog = () => {
         setPosts(mapped);
         setLoading(false);
       })
-      .catch(() => {
-        setError('Failed to load posts.');
+      .catch((err) => {
+        setError(err.message || 'Failed to load posts.');
         setLoading(false);
       });
   }, []);
@@ -140,10 +101,6 @@ const Blog = () => {
     return (
       <div className="col">
         <div className="page-head">
-          <div className="page-meta">
-            <span className="smallcaps mark">Section · Essays</span>
-            <span className="bar" />
-          </div>
           <p className="page-intro">Loading essays…</p>
         </div>
       </div>
