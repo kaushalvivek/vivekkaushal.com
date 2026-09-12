@@ -32,7 +32,6 @@ vivekkaushal.com/
 │   │   │   ├── projects.js     # Projects showcase
 │   │   │   ├── research.js     # Research publications
 │   │   │   ├── recommendations.js  # Book recommendations
-│   │   │   ├── bucketlist.js   # Travel bucket list
 │   │   │   ├── talk.js         # Contact/talk request form
 │   │   │   └── my404.js        # 404 error page
 │   │   ├── header.js           # Site header/navigation
@@ -43,7 +42,6 @@ vivekkaushal.com/
 │   │   ├── blog-feed.xml       # Cached Substack RSS feed
 │   │   ├── projects.json       # Project data
 │   │   ├── nonFiction.json     # Book recommendations
-│   │   ├── bucketList.json     # Bucket list items
 │   │   └── avatar.jpg          # Profile image
 │   ├── App.js                  # Main app component with routing
 │   ├── index.js                # React entry point
@@ -73,7 +71,6 @@ The blog content is fetched from Substack (https://vivekkaushal.substack.com) an
 - `/projects` - Projects showcase
 - `/research` - Research publications
 - `/books` - Book recommendations
-- `/bucketlist` - Travel bucket list
 - `/talk` - Contact form
 - `/meet` - Redirects to Calendly (external)
 - `/hack` - Legacy redirect to `/blog`
@@ -197,20 +194,6 @@ The book recommendations use a multi-dimensional tagging system designed for dis
 - "The Hard Thing About Hard Things" → `["leadership", "entrepreneurship", "memoir"]`
 
 **Reference:** Tagging system based on research from [LibraryThing](https://www.librarything.com/concepts), [personal knowledge management best practices](https://stangarfield.medium.com/personal-knowledge-management-how-to-do-it-with-25-resources-and-10-books-on-pkm-2adce0e1d05c), and [content taxonomy guidelines](https://www.bynder.com/en/blog/building-digital-asset-library-taxonomy/).
-
-#### Bucket List
-Edit `src/static/bucketList.json`:
-```json
-[
-  {
-    "place": "Location Name",
-    "country": "Country",
-    "visited": false,
-    "visitDate": null,
-    "description": "Why I want to visit"
-  }
-]
-```
 
 ### 5. Styling and Theme
 

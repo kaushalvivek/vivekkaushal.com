@@ -6,7 +6,6 @@ import Home from './components/pages/home';
 import Projects from './components/pages/projects';
 import Research from './components/pages/research';
 import Recommendations from './components/pages/recommendations';
-import BucketList from './components/pages/bucketlist';
 import Blog from './components/pages/Blog';
 import Talk from './components/pages/talk';
 import My404 from './components/pages/my404';
@@ -33,7 +32,7 @@ const App = () => (
           <Route path="/projects" element={<Projects />} />
           <Route path="/research" element={<Research />} />
           <Route path="/books" element={<Recommendations />} />
-          <Route path="/bucketlist" element={<BucketList />} />
+          <Route path="/bucketlist" element={<Navigate to="/" replace />} />
           <Route path="/blog/*" element={<Blog />} />
           <Route path="/hack" element={<Navigate to="/blog" replace />} />
           <Route path="/meet" element={<ExternalRedirect to="https://calendly.com/vikaushal/30-min" />} />

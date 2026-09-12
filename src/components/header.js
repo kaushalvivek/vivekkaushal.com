@@ -5,7 +5,6 @@ const NAV = [
   { to: '/blog', label: 'Essays' },
   { to: '/projects', label: 'Work' },
   { to: '/books', label: 'Reading' },
-  { to: '/bucketlist', label: 'Life List' },
   { to: '/research', label: 'Research' },
   { to: '/talk', label: 'Contact' },
 ];

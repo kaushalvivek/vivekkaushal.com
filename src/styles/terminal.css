@@ -350,65 +350,6 @@ h2.section-title {
   .books-grid { grid-template-columns: 1fr; }
 }
 
-/* life list */
-
-.progress {
-  margin-top: 16px;
-  max-width: 280px;
-}
-
-.progress-label {
-  display: flex;
-  justify-content: space-between;
-  font-size: 13px;
-  color: var(--muted);
-  margin-bottom: 6px;
-}
-
-.progress-track {
-  height: 2px;
-  background: var(--line);
-}
-
-.progress-fill {
-  height: 100%;
-  background: var(--ink);
-}
-
-.goals-grid {
-  display: grid;
-  gap: 0;
-}
-
-.goal {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.goal .mark {
-  color: var(--faint);
-  font-size: 13px;
-  flex-shrink: 0;
-  width: 1.2em;
-}
-
-.goal.done .mark { color: var(--ink); }
-
-.goal-text {
-  flex: 1;
-  color: var(--muted);
-}
-
-.goal.done .goal-text { color: var(--ink); }
-
-.goal-state {
-  font-size: 12px;
-  color: var(--faint);
-}
-
 /* research extras */
 
 .link-list {
