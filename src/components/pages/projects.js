@@ -6,10 +6,7 @@ const Projects = () => (
   <div className="col">
     <div className="page-head">
       <h1 className="page-title">Work</h1>
-      <p className="page-intro">
-        Side projects, most of them open source. Each one started as a
-        question I couldn't answer by reading, so I built something to find out.
-      </p>
+      <p className="page-intro">Side projects, mostly open source.</p>
     </div>
 
     <div className="piece-list">
