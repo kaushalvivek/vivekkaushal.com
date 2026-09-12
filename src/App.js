@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'r
 import Header from './components/header';
 import Footer from './components/footer';
 import Home from './components/pages/home';
-import Projects from './components/pages/projects';
 import Research from './components/pages/research';
 import Recommendations from './components/pages/recommendations';
 import Blog from './components/pages/Blog';
@@ -29,7 +28,7 @@ const App = () => (
       <main className="app-main">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects />} />
+          <Route path="/projects" element={<Navigate to="/" replace />} />
           <Route path="/research" element={<Research />} />
           <Route path="/books" element={<Recommendations />} />
           <Route path="/bucketlist" element={<Navigate to="/" replace />} />

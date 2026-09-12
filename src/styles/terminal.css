@@ -35,7 +35,6 @@ a { color: var(--ink); text-decoration: none; }
 }
 
 .essay-row:hover .essay-title,
-.piece:hover .piece-name,
 .citation:hover .c-title,
 .link-list a:hover {
   color: var(--muted);
@@ -227,13 +226,11 @@ h2.section-title {
 
 /* lists */
 
-.essay-list,
-.piece-list {
+.essay-list {
   display: grid;
 }
 
 .essay-row,
-.piece,
 .citation {
   display: grid;
   gap: 4px 20px;
@@ -247,16 +244,11 @@ h2.section-title {
   grid-template-columns: 92px 1fr;
 }
 
-.piece {
-  grid-template-columns: 1fr auto;
-}
-
 .citation {
   grid-template-columns: 48px 1fr;
 }
 
 .essay-date,
-.piece-date,
 .c-year {
   font-size: 13px;
   color: var(--faint);
@@ -264,21 +256,15 @@ h2.section-title {
 }
 
 .essay-title,
-.piece-name,
 .c-title {
   font-size: 16px;
   font-weight: 500;
 }
 
 .essay-excerpt,
-.piece-desc,
 .c-venue {
   font-size: 14px;
   color: var(--muted);
-}
-
-.piece-desc {
-  grid-column: 1 / -1;
 }
 
 .c-venue {
@@ -287,7 +273,6 @@ h2.section-title {
 
 @media (max-width: 540px) {
   .essay-row,
-  .piece,
   .citation {
     grid-template-columns: 1fr;
     gap: 2px;

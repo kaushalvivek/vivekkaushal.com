@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 
 const NAV = [
   { to: '/blog', label: 'Essays' },
-  { to: '/projects', label: 'Work' },
   { to: '/books', label: 'Reading' },
   { to: '/research', label: 'Research' },
   { to: '/talk', label: 'Contact' },

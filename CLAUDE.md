@@ -29,7 +29,6 @@ vivekkaushal.com/
 │   │   │   ├── home.js         # Landing page
 │   │   │   ├── Blog.js         # Blog list and routing
 │   │   │   ├── BlogPost.js     # Individual blog post viewer
-│   │   │   ├── projects.js     # Projects showcase
 │   │   │   ├── research.js     # Research publications
 │   │   │   ├── recommendations.js  # Book recommendations
 │   │   │   ├── talk.js         # Contact/talk request form
@@ -40,7 +39,6 @@ vivekkaushal.com/
 │   │   └── ExternalRedirect.js # External link handler
 │   ├── static/
 │   │   ├── blog-feed.xml       # Cached Substack RSS feed
-│   │   ├── projects.json       # Project data
 │   │   ├── nonFiction.json     # Book recommendations
 │   │   └── avatar.jpg          # Profile image
 │   ├── App.js                  # Main app component with routing
@@ -68,7 +66,6 @@ The blog content is fetched from Substack (https://vivekkaushal.substack.com) an
 - `/` - Home page
 - `/blog` - Blog post list
 - `/blog/:slug` - Individual blog post
-- `/projects` - Projects showcase
 - `/research` - Research publications
 - `/books` - Book recommendations
 - `/talk` - Contact form
@@ -127,19 +124,6 @@ The build output will be in the `build/` directory and includes:
 - `_redirects` file for Netlify routing (SPA support)
 
 ### 4. Updating Content
-
-#### Projects
-Edit `src/static/projects.json`:
-```json
-[
-  {
-    "title": "Project Name",
-    "description": "Project description",
-    "link": "https://project-url.com",
-    "tags": ["tag1", "tag2"]
-  }
-]
-```
 
 #### Recommendations
 
