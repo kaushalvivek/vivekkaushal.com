@@ -2,7 +2,7 @@ import React from 'react';
 
 const ELSEWHERE = [
   { name: 'Substack', url: 'https://vivekkaushal.substack.com' },
-  { name: 'X', url: 'https://x.com/vi_kaushal' },
+  { name: 'X', url: 'https://x.com/kaushalvivek' },
   { name: 'LinkedIn', url: 'https://linkedin.com/in/kaushalvivek/' },
   { name: 'GitHub', url: 'https://github.com/kaushalvivek' },
 ];
