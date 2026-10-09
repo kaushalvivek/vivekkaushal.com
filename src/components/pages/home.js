@@ -49,10 +49,10 @@ const Home = () => {
               <a href="https://enterpret.com" target="_blank" rel="noreferrer">Enterpret</a>.
             </p>
             <p className="hero-sub">
-              I studied computer science, engineering, and cognitive neuroscience. I spent a few years on backend systems, then moved into product.
+              I studied computer science, engineering, and cognitive neuroscience. I built engineering systems for start ups before moving my focus to product.
             </p>
             <p className="hero-sub">
-              I brew my own coffee, and enjoy progressive rock music.
+              I brew my own coffee and write. If you listen to alternative rock, we can probably be friends.
             </p>
           </div>
           <figure className="hero-portrait">
