@@ -54,6 +54,14 @@ const Home = () => {
             <p className="hero-sub">
               I brew my own coffee and write. If you listen to alternative rock, we can probably be friends.
             </p>
+            <a
+              className="btn hero-cta"
+              href="https://x.com/kaushalvivek"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Follow @kaushalvivek
+            </a>
           </div>
           <figure className="hero-portrait">
             <img src={avatar} alt="Vivek Kaushal" />
