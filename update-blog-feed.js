@@ -3,8 +3,6 @@ const fs = require('fs');
 const path = require('path');
 
 const FEED_URL = 'https://vivekkaushal.substack.com/feed';
-// Posts to keep off the site (matched against the item <link>).
-const EXCLUDED_SLUGS = ['the-indian-middle-class-through-the'];
 const OUTPUT_PATH = path.join(__dirname, 'src/static/blog-feed.xml');
 
 console.log('Fetching latest blog feed from Substack...');
@@ -24,9 +22,7 @@ https.get(FEED_URL, {
   response.on('data', chunk => data.push(chunk));
 
   response.on('end', () => {
-    const feedContent = Buffer.concat(data).toString().replace(/<item>[\s\S]*?<\/item>/g, (item) =>
-      EXCLUDED_SLUGS.some((slug) => item.includes(`/p/${slug}`)) ? '' : item
-    );
+    const feedContent = Buffer.concat(data).toString();
 
     // Verify that we got valid XML
     if (!feedContent.includes('<?xml')) {
