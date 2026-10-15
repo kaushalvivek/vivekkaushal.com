@@ -12,3 +12,6 @@
   type = "email"
   to = "vivek.kaushal@outlook.com"
   form = "talk"
+
+[build.environment]
+  NODE_VERSION = "20"
