@@ -85,6 +85,22 @@ const Home = () => {
         ))}
       </div>
       <Link to="/blog" className="more">All essays</Link>
+
+      <h2 className="section-title">Talks</h2>
+      <div className="essay-list">
+        <a
+          href="https://www.youtube.com/watch?v=Jj2T-YX6zIM"
+          target="_blank"
+          rel="noreferrer"
+          className="essay-row"
+        >
+          <div className="essay-date">Oct 13, 2026</div>
+          <div>
+            <div className="essay-title">What Great Looks Like at Every Stage of the New Product Development Cycle</div>
+            <div className="essay-excerpt">Panel at ProductCon SF '26, hosted by Product School.</div>
+          </div>
+        </a>
+      </div>
     </div>
   );
 };
