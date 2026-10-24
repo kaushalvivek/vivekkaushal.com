@@ -49,7 +49,7 @@ const Home = () => {
               <a href="https://enterpret.com" target="_blank" rel="noreferrer">Enterpret</a>.
             </p>
             <p className="hero-sub">
-              I studied computer science, engineering, and cognitive neuroscience. I built engineering systems for start ups before moving my focus to product.
+              I studied computer science, engineering, and cognitive neuroscience. I built engineering systems for start ups before moving my focus to product. I still build, most recently <a href="https://feedbackbench.com" target="_blank" rel="noreferrer">Feedback Bench</a>, a public ranking of AI agents based on what their users say about them.
             </p>
             <p className="hero-sub">
               I brew my own coffee and write. If you listen to alternative rock, we can probably be friends.
