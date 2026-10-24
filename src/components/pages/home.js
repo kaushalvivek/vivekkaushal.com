@@ -113,6 +113,57 @@ const Home = () => {
           </div>
         </a>
       </div>
+      <h2 className="section-title">Tinkering</h2>
+      <div className="essay-list">
+        <a
+          href="https://feedbackbench.com"
+          target="_blank"
+          rel="noreferrer"
+          className="essay-row"
+        >
+          <div className="essay-date">2026</div>
+          <div>
+            <div className="essay-title">Feedback Bench</div>
+            <div className="essay-excerpt">A public ranking of AI agents based on what their users say about them.</div>
+          </div>
+        </a>
+        <a
+          href="https://github.com/kaushalvivek/htmlz"
+          target="_blank"
+          rel="noreferrer"
+          className="essay-row"
+        >
+          <div className="essay-date">2026</div>
+          <div>
+            <div className="essay-title">htmlz</div>
+            <div className="essay-excerpt">A self-hosted home for the HTML your AI agents make. No database, no build step.</div>
+          </div>
+        </a>
+        <a
+          href="https://github.com/kaushalvivek/ai-progress-today"
+          target="_blank"
+          rel="noreferrer"
+          className="essay-row"
+        >
+          <div className="essay-date">2025</div>
+          <div>
+            <div className="essay-title">AI Progress Today</div>
+            <div className="essay-excerpt">A tracker for AI progress.</div>
+          </div>
+        </a>
+        <a
+          href="https://github.com/kaushalvivek/pom"
+          target="_blank"
+          rel="noreferrer"
+          className="essay-row"
+        >
+          <div className="essay-date">2026</div>
+          <div>
+            <div className="essay-title">pom</div>
+            <div className="essay-excerpt">A pomodoro timer for the terminal.</div>
+          </div>
+        </a>
+      </div>
     </div>
   );
 };
