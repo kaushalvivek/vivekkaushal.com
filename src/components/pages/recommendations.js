@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import nonFiction from '../../static/nonFiction.json';
+import CurrentlyReading from '../currentlyReading';
 
 const Recommendations = () => {
   const [selectedTag, setSelectedTag] = useState('all');
@@ -22,6 +23,10 @@ const Recommendations = () => {
         <p className="page-intro">Non-fiction I keep coming back to.</p>
       </div>
 
+      <h2 className="section-title">Currently reading</h2>
+      <CurrentlyReading />
+
+      <h2 className="section-title">Recommended</h2>
       <div className="tag-bar">
         <button
           type="button"

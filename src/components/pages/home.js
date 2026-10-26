@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import blogFeed from '../../static/blog-feed.xml';
 import avatar from '../../static/avatar.jpg';
+import CurrentlyReading from '../currentlyReading';
 
 const stripHtml = (s) => {
   const t = document.createElement('textarea');
@@ -113,6 +114,10 @@ const Home = () => {
           </div>
         </a>
       </div>
+      <h2 className="section-title">Currently reading</h2>
+      <CurrentlyReading />
+      <Link to="/books" className="more">All books</Link>
+
       <h2 className="section-title">Tinkering</h2>
       <div className="essay-list">
         <a
