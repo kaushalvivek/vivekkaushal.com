@@ -295,20 +295,26 @@ h2.section-title.section-title-first { margin-top: 0; }
 /* books */
 
 .essay-row.book-row {
-  align-items: center;
+  align-items: start;
+  min-height: 60px;
 }
 
 .book-cover {
   display: block;
-  width: 48px;
-  height: 72px;
+  width: 40px;
+  height: 60px;
   object-fit: cover;
   border: 1px solid var(--line);
+  border-radius: 2px;
+}
+
+.book-cover-empty {
+  background: var(--line);
 }
 
 @media (max-width: 540px) {
   .essay-row.book-row {
-    grid-template-columns: 48px 1fr;
+    grid-template-columns: 40px 1fr;
     gap: 4px 16px;
   }
 }
