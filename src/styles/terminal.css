@@ -294,6 +294,25 @@ h2.section-title.section-title-first { margin-top: 0; }
 
 /* books */
 
+.essay-row.book-row {
+  align-items: center;
+}
+
+.book-cover {
+  display: block;
+  width: 48px;
+  height: 72px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+}
+
+@media (max-width: 540px) {
+  .essay-row.book-row {
+    grid-template-columns: 48px 1fr;
+    gap: 4px 16px;
+  }
+}
+
 .tag-bar {
   display: flex;
   flex-wrap: wrap;

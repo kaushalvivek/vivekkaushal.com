@@ -7,8 +7,8 @@ const CurrentlyReading = ({ variant = 'tiles' }) => {
     return (
       <div className="essay-list">
         {currentlyReading.map((b) => (
-          <Link key={b.book} to="/books" className="essay-row">
-            <div className="essay-date" />
+          <Link key={b.book} to="/books" className="essay-row book-row">
+            <img className="book-cover" src={b.cover} alt={`Cover of ${b.book}`} loading="lazy" />
             <div>
               <div className="essay-title">{b.book}</div>
               <div className="essay-excerpt">{b.author}</div>
