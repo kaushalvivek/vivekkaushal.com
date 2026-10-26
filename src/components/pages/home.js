@@ -115,7 +115,7 @@ const Home = () => {
         </a>
       </div>
       <h2 className="section-title">Currently reading</h2>
-      <CurrentlyReading />
+      <CurrentlyReading variant="rows" />
       <Link to="/books" className="more">All books</Link>
 
       <h2 className="section-title">Tinkering</h2>

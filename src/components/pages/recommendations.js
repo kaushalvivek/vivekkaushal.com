@@ -23,7 +23,7 @@ const Recommendations = () => {
         <p className="page-intro">Non-fiction I keep coming back to.</p>
       </div>
 
-      <h2 className="section-title">Currently reading</h2>
+      <h2 className="section-title section-title-first">Currently reading</h2>
       <CurrentlyReading />
 
       <h2 className="section-title">Recommended</h2>

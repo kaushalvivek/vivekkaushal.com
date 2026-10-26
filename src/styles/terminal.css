@@ -229,6 +229,8 @@ h2.section-title {
   font-weight: 600;
 }
 
+h2.section-title.section-title-first { margin-top: 0; }
+
 /* lists */
 
 .essay-list {
