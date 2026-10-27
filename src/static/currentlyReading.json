@@ -1,7 +1,27 @@
 [
-    { "book": "The Enigma of Reason", "author": "Hugo Mercier and Dan Sperber" },
-    { "book": "The Courage to Be Happy", "author": "Ichiro Kishimi and Fumitake Koga" },
-    { "book": "Product-Led Growth", "author": "Wes Bush" },
-    { "book": "Superintelligence", "author": "Nick Bostrom" },
-    { "book": "The Power of Pull", "author": "John Hagel III, John Seely Brown and Lang Davison" }
+    {
+        "book": "The Enigma of Reason",
+        "author": "Hugo Mercier and Dan Sperber",
+        "cover": "/covers/enigma-of-reason.jpg"
+    },
+    {
+        "book": "The Courage to Be Happy",
+        "author": "Ichiro Kishimi and Fumitake Koga",
+        "cover": "/covers/courage-to-be-happy.jpg"
+    },
+    {
+        "book": "Product-Led Growth",
+        "author": "Wes Bush",
+        "cover": "/covers/product-led-growth.jpg"
+    },
+    {
+        "book": "Superintelligence",
+        "author": "Nick Bostrom",
+        "cover": "/covers/superintelligence.jpg"
+    },
+    {
+        "book": "The Power of Pull",
+        "author": "John Hagel III, John Seely Brown and Lang Davison",
+        "cover": "/covers/power-of-pull.jpg"
+    }
 ]
