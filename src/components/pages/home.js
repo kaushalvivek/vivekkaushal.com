@@ -97,7 +97,7 @@ const Home = () => {
       <Link to="/blog" className="more">All essays</Link>
 
       <h2 className="section-title">Talks</h2>
-      <div className="essay-list">
+      <div className="essay-list" data-placement="home_talks">
         <a
           href="https://www.youtube.com/watch?v=Jj2T-YX6zIM"
           target="_blank"
@@ -128,7 +128,7 @@ const Home = () => {
       <Link to="/books" className="more">All books</Link>
 
       <h2 className="section-title">Tinkering</h2>
-      <div className="essay-list">
+      <div className="essay-list" data-placement="home_tinkering">
         <a
           href="https://github.com/kaushalvivek/hn-cli"
           target="_blank"

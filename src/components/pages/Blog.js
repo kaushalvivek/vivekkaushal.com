@@ -14,7 +14,7 @@ const BlogList = ({ posts }) => (
   <div className="col">
     <div className="page-head">
       <h1 className="page-title">Essays</h1>
-      <p className="page-intro">
+      <p className="page-intro" data-placement="blog_intro">
         On building, paying attention, and life as I find it.{' '}
         <a href="https://vivekkaushal.substack.com" target="_blank" rel="noreferrer">Subscribe on Substack</a>
       </p>

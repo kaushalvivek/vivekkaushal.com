@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { trackContactSubmit } from '../../analytics/ga';
 
 const Talk = () => {
   const [status, setStatus] = useState('idle');
@@ -19,6 +20,8 @@ const Talk = () => {
         if (!r.ok) throw new Error(`Submit failed (${r.status})`);
         setStatus('success');
         form.reset();
+        // Fired only after a successful submit. The event has no name, email, or message.
+        trackContactSubmit(window.location.pathname);
       })
       .catch(() => setStatus('error'));
   };
