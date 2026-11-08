@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link as RouterLink, Routes, Route } from 'react-router-dom';
 import blogFeed from '../../static/blog-feed.xml';
 import BlogPost from './BlogPost';
+import localPosts from '../../static/localPosts';
 
 const stripHtml = (s) => {
   const t = document.createElement('textarea');
@@ -88,7 +89,15 @@ const Blog = () => {
           };
         });
 
-        setPosts(mapped);
+        const toSlug = (t) =>
+          t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+        const local = localPosts.map((p) => ({
+          ...p,
+          date: new Date(p.date),
+          link: '',
+          slug: toSlug(p.title),
+        }));
+        setPosts([...local, ...mapped].sort((a, b) => b.date - a.date));
         setLoading(false);
       })
       .catch((err) => {
