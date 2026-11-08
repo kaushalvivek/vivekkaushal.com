@@ -137,7 +137,7 @@ const Home = () => {
         >
           <div className="essay-date">2026</div>
           <div>
-            <div className="essay-title">hn</div>
+            <div className="essay-title">hn-cli</div>
             <div className="essay-excerpt">Hacker News, beautifully in your terminal. An interactive browser and a scriptable CLI for macOS.</div>
           </div>
         </a>
