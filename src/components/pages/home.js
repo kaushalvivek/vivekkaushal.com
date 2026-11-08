@@ -130,6 +130,18 @@ const Home = () => {
       <h2 className="section-title">Tinkering</h2>
       <div className="essay-list">
         <a
+          href="https://github.com/kaushalvivek/hn-cli"
+          target="_blank"
+          rel="noreferrer"
+          className="essay-row"
+        >
+          <div className="essay-date">2026</div>
+          <div>
+            <div className="essay-title">hn</div>
+            <div className="essay-excerpt">Hacker News, beautifully in your terminal. An interactive browser and a scriptable CLI for macOS.</div>
+          </div>
+        </a>
+        <a
           href="https://feedbackbench.com"
           target="_blank"
           rel="noreferrer"
