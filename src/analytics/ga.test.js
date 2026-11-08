@@ -200,13 +200,13 @@ describe('outbound_click payload', () => {
   test('strips the query string and describes the link', () => {
     const event = buildOutboundEvent({
       href: 'https://github.com/kaushalvivek/hn-cli?utm_source=home&tab=readme',
-      linkName: 'hn',
+      linkName: 'hn-cli',
       placement: 'home_tinkering',
       pagePath: '/',
     });
     expect(event).toEqual({
       link_type: 'project',
-      link_name: 'hn',
+      link_name: 'hn-cli',
       placement: 'home_tinkering',
       destination_host: 'github.com',
       destination_path: '/kaushalvivek/hn-cli',
