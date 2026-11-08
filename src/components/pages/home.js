@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import blogFeed from '../../static/blog-feed.xml';
 import avatar from '../../static/avatar.jpg';
 import CurrentlyReading from '../currentlyReading';
+import localPosts from '../../static/localPosts';
 
 const stripHtml = (s) => {
   const t = document.createElement('textarea');
@@ -27,7 +28,7 @@ const Home = () => {
           throw new Error('Feed XML is invalid');
         }
         const items = Array.from(doc.querySelectorAll('item'));
-        const mapped = items.slice(0, 5).map((item) => {
+        const fromFeed = items.map((item) => {
           const title = item.querySelector('title')?.textContent || '';
           const pubDate = item.querySelector('pubDate')?.textContent;
           const description = item.querySelector('description')?.textContent || '';
@@ -35,7 +36,15 @@ const Home = () => {
           const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
           return { title, slug, date, excerpt: stripHtml(description).slice(0, 160) };
         });
-        setPosts(mapped);
+        const toSlug = (t) =>
+          t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+        const local = localPosts.map((p) => ({
+          title: p.title,
+          slug: toSlug(p.title),
+          date: new Date(p.date),
+          excerpt: p.description.slice(0, 160),
+        }));
+        setPosts([...local, ...fromFeed].sort((a, b) => b.date - a.date).slice(0, 5));
       })
       .catch((err) => setError(err.message || 'Failed to load essays.'));
   }, []);
