@@ -5,7 +5,9 @@ export const OPT_OUT_STORAGE_KEY = 'ga_optout';
 export const DEBUG_STORAGE_KEY = 'ga_debug';
 export const PAGE_VIEW_DEDUPE_MS = 500;
 export const ESSAY_MILESTONES = [25, 50, 75, 90];
-// 90% scroll only counts after this much time on the page with the tab visible.
+// Active time means the tab is visible and the reader interacted within this window.
+export const ESSAY_IDLE_MS = 30000;
+// 90% scroll only counts after this much active time (visible, and not idle).
 export const ESSAY_90_MIN_ACTIVE_MS = 30000;
 
 const PRODUCTION_HOSTS = new Set(['vivekkaushal.com', 'www.vivekkaushal.com']);
@@ -193,27 +195,68 @@ export function commitPageView(doc, send, params) {
   send('page_view', params);
 }
 
-export function createActiveClock(now, visible) {
-  return { accumulatedMs: 0, runningSince: visible ? now : null };
+export function createActiveClock(visible) {
+  return {
+    accumulatedMs: 0,
+    runningSince: null,
+    visible: Boolean(visible),
+    lastInteractionAt: null,
+  };
+}
+
+function engaged(clock, now) {
+  return Boolean(
+    clock.visible
+    && clock.lastInteractionAt != null
+    && now <= clock.lastInteractionAt + ESSAY_IDLE_MS,
+  );
+}
+
+/** Freeze accrued time at `now`. Idle time past the last interaction is left out. */
+export function settleActiveClock(clock, now) {
+  if (clock.runningSince == null) return clock;
+  const end = Math.min(now, clock.lastInteractionAt + ESSAY_IDLE_MS);
+  const accumulatedMs = clock.accumulatedMs + Math.max(0, end - clock.runningSince);
+  return {
+    ...clock,
+    accumulatedMs,
+    runningSince: engaged(clock, now) ? now : null,
+  };
 }
 
 export function activeElapsedMs(clock, now) {
-  const extra = clock.runningSince == null ? 0 : Math.max(0, now - clock.runningSince);
-  return clock.accumulatedMs + extra;
+  return settleActiveClock(clock, now).accumulatedMs;
+}
+
+export function noteInteraction(clock, now) {
+  const settled = settleActiveClock(clock, now);
+  return {
+    ...settled,
+    lastInteractionAt: now,
+    runningSince: settled.visible ? now : null,
+  };
 }
 
 export function setClockVisibility(clock, now, visible) {
-  const accumulatedMs = activeElapsedMs(clock, now);
-  if (!visible) return { accumulatedMs, runningSince: null };
-  if (clock.runningSince != null) return clock;
-  return { accumulatedMs, runningSince: now };
+  const settled = settleActiveClock(clock, now);
+  if (!visible) return { ...settled, visible: false, runningSince: null };
+  const stillRecent = settled.lastInteractionAt != null
+    && now <= settled.lastInteractionAt + ESSAY_IDLE_MS;
+  return {
+    ...settled,
+    visible: true,
+    runningSince: stillRecent ? now : null,
+  };
 }
 
 /**
  * essay_progress is an engagement proxy (how far the essay has been on screen,
  * plus active time), not proof that anyone read it.
+ * Active time is time the tab is visible and the reader has interacted within
+ * the last ESSAY_IDLE_MS. Hidden time does not count, and neither does idle
+ * time once that window passes; the next interaction starts it again.
  * Each milestone is returned at most once. 90 also requires ESSAY_90_MIN_ACTIVE_MS
- * of active, visible time — time while the tab is hidden does not count.
+ * of that active time.
  */
 export function newlyReachedMilestones({ maxScrollPercent, activeMs, alreadySent }) {
   const sent = alreadySent instanceof Set ? alreadySent : new Set(alreadySent || []);

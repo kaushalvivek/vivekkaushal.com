@@ -2,6 +2,7 @@ import {
   ESSAY_90_MIN_ACTIVE_MS,
   OPT_OUT_STORAGE_KEY,
   DEBUG_STORAGE_KEY,
+  ESSAY_IDLE_MS,
   activeElapsedMs,
   applyGate,
   buildOutboundEvent,
@@ -10,6 +11,7 @@ import {
   commitPageView,
   createActiveClock,
   newlyReachedMilestones,
+  noteInteraction,
   setClockVisibility,
   titleForPath,
 } from './ga';
@@ -131,20 +133,50 @@ describe('essay_progress milestones', () => {
     })).toEqual([]);
   });
 
-  test('does not count time while the tab is hidden', () => {
-    let clock = createActiveClock(0, true);
-    expect(activeElapsedMs(clock, 10000)).toBe(10000);
+  test('ignores time with no interaction, idle gaps, and a hidden tab', () => {
+    let clock = createActiveClock(true);
+    expect(activeElapsedMs(clock, 10000)).toBe(0);
 
-    clock = setClockVisibility(clock, 10000, false);
-    expect(activeElapsedMs(clock, 50000)).toBe(10000);
+    clock = noteInteraction(clock, 10000);
+    expect(activeElapsedMs(clock, 20000)).toBe(10000);
 
-    clock = setClockVisibility(clock, 50000, true);
-    const activeMs = activeElapsedMs(clock, 70000);
-    expect(activeMs).toBe(30000);
+    clock = setClockVisibility(clock, 20000, false);
+    expect(activeElapsedMs(clock, 80000)).toBe(10000);
 
+    clock = setClockVisibility(clock, 80000, true);
+    expect(activeElapsedMs(clock, 90000)).toBe(10000);
+
+    clock = noteInteraction(clock, 90000);
+    expect(activeElapsedMs(clock, 100000)).toBe(20000);
+  });
+
+  test('stops 30s after the last interaction and resumes on the next one', () => {
+    let clock = createActiveClock(true);
+    clock = noteInteraction(clock, 0);
+    expect(activeElapsedMs(clock, ESSAY_IDLE_MS)).toBe(ESSAY_IDLE_MS);
+    expect(activeElapsedMs(clock, ESSAY_IDLE_MS + 25000)).toBe(ESSAY_IDLE_MS);
+
+    clock = noteInteraction(clock, 20000);
+    expect(activeElapsedMs(clock, 45000)).toBe(45000);
+    expect(activeElapsedMs(clock, 60000)).toBe(50000);
+
+    let brief = createActiveClock(true);
+    brief = noteInteraction(brief, 0);
+    brief = setClockVisibility(brief, 10000, false);
     const sent = new Set([25, 50, 75]);
+    expect(activeElapsedMs(brief, 120000)).toBe(10000);
     expect(newlyReachedMilestones({
-      maxScrollPercent: 95,
+      maxScrollPercent: 100,
+      activeMs: activeElapsedMs(brief, 120000),
+      alreadySent: sent,
+    })).toEqual([]);
+
+    brief = setClockVisibility(brief, 120000, true);
+    brief = noteInteraction(brief, 120000);
+    const activeMs = activeElapsedMs(brief, 140000);
+    expect(activeMs).toBe(30000);
+    expect(newlyReachedMilestones({
+      maxScrollPercent: 100,
       activeMs,
       alreadySent: sent,
     })).toEqual([90]);

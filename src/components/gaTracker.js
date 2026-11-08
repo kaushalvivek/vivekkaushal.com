@@ -4,12 +4,12 @@ import {
   PAGE_VIEW_DEDUPE_MS,
   applyGate,
   articleProgressPercent,
-  activeElapsedMs,
   buildOutboundEvent,
   buildPageView,
   claimPageView,
   commitPageView,
   createActiveClock,
+  noteInteraction,
   ensureGtag,
   essaySlugFromPath,
   isTrackingEnabled,
@@ -18,6 +18,7 @@ import {
   placementFromContext,
   sendEvent,
   setClockVisibility,
+  settleActiveClock,
   setTrackingEnabled,
   titleForPath,
 } from '../analytics/ga';
@@ -150,7 +151,7 @@ function watchEssay(visitKey, slug) {
     progressVisit = {
       key: visitKey,
       sent: new Set(),
-      clock: createActiveClock(now, visible),
+      clock: createActiveClock(visible),
       stoppedAt: 0,
       armed: false,
     };
@@ -182,7 +183,10 @@ function watchEssay(visitKey, slug) {
       height: rect.height,
       viewportHeight: window.innerHeight || 1,
     });
-    const activeMs = activeElapsedMs(visit.clock, performance.now());
+    const now = performance.now();
+    // Active time is visible and not idle: an interaction within the last 30s.
+    visit.clock = settleActiveClock(visit.clock, now);
+    const activeMs = visit.clock.accumulatedMs;
     // Engagement proxy only — reaching a line on screen is not proof the essay was read.
     newlyReachedMilestones({
       maxScrollPercent: percent,
@@ -198,10 +202,12 @@ function watchEssay(visitKey, slug) {
     });
   };
 
-  const onScroll = () => {
+  const onActivity = () => {
+    visit.clock = noteInteraction(visit.clock, performance.now());
     tryArm();
     tick();
   };
+  const onResize = () => tick();
   const onVisibility = () => {
     visit.clock = setClockVisibility(
       visit.clock,
@@ -211,8 +217,12 @@ function watchEssay(visitKey, slug) {
     tick();
   };
 
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
+  // Active time pauses 30s after the last of these, and resumes on the next one.
+  const activityEvents = ['scroll', 'mousemove', 'keydown', 'touchstart', 'pointerdown', 'wheel'];
+  activityEvents.forEach((type) => {
+    window.addEventListener(type, onActivity, { passive: true });
+  });
+  window.addEventListener('resize', onResize);
   document.addEventListener('visibilitychange', onVisibility);
   progressTick = tick;
   const interval = window.setInterval(tick, 1000);
@@ -228,8 +238,8 @@ function watchEssay(visitKey, slug) {
     if (progressTick === tick) progressTick = null;
     visit.clock = setClockVisibility(visit.clock, performance.now(), false);
     visit.stoppedAt = performance.now();
-    window.removeEventListener('scroll', onScroll);
-    window.removeEventListener('resize', onScroll);
+    activityEvents.forEach((type) => window.removeEventListener(type, onActivity));
+    window.removeEventListener('resize', onResize);
     document.removeEventListener('visibilitychange', onVisibility);
     window.clearInterval(interval);
     window.clearInterval(poll);
