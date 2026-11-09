@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Control Panel — everything on your Linear plate, on one screen</title>
+  <meta name="description" content="Control Panel turns every open Linear issue assigned to you into one mosaic. Tile size is effort in hours. Your agents keep Linear tidy; Control Panel only reads.">
+  <meta name="author" content="Vivek Kaushal">
+  <meta name="theme-color" content="#0b0d0c">
+  <meta name="color-scheme" content="dark light">
+  <link rel="canonical" href="https://vivekkaushal.com/control-panel/">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Control Panel — everything on your Linear plate, on one screen">
+  <meta property="og:description" content="Every open Linear issue assigned to you, as one mosaic sized by effort. Read-only, agent-first, built on Linear.">
+  <meta property="og:url" content="https://vivekkaushal.com/control-panel/">
+  <meta property="og:image" content="https://vivekkaushal.com/control-panel/assets/mosaic.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Control Panel",
+      "applicationCategory": "ProductivityApplication",
+      "operatingSystem": "Web",
+      "description": "Every open Linear issue assigned to a person, as one mosaic sized by effort. Read-only and agent-first.",
+      "url": "https://vivekkaushal.com/control-panel/",
+      "author": { "@type": "Person", "name": "Vivek Kaushal" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <a class="brand" href="./" aria-label="Control Panel — home">
+      <img src="assets/logo.svg" width="26" height="26" alt="">
+      <span>control panel</span>
+    </a>
+    <nav aria-label="Primary">
+      <a href="#how">How it works</a>
+      <a href="#links">Filters</a>
+      <a href="#agents">For agents</a>
+      <a class="external" href="https://control-panel-ivory.vercel.app/">Open app <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="eyebrow">Linear · one screen · read-only</p>
+      <h1 id="hero-title">Everything on your plate.<br>On one screen.</h1>
+      <p class="lede">
+        Control Panel turns every open Linear issue assigned to you into one mosaic.
+        Tile size is effort in hours. Nothing hides and nothing scrolls.
+        Your agents keep Linear tidy. Control Panel only reads.
+      </p>
+      <div class="actions">
+        <a class="button primary" href="https://control-panel-ivory.vercel.app/">Open Control Panel</a>
+        <a class="button ghost" href="https://control-panel-ivory.vercel.app/demo">
+          Try the demo <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="preview" aria-label="Control Panel interface preview">
+      <img src="assets/mosaic.png" alt="Control Panel showing 36 sample Linear issues as a mosaic, grouped into this week, overdue, no date, later and today, with tiles colored by priority" width="1440" height="880" loading="lazy">
+      <p class="caption">sample data · grouped by bucket · colored by priority</p>
+    </section>
+
+    <section id="how" class="how" aria-labelledby="how-title">
+      <div class="section-head">
+        <span class="index">01</span>
+        <h2 id="how-title">Three parts, one job each</h2>
+      </div>
+
+      <div class="flow">
+        <article class="node">
+          <p class="role">writes</p>
+          <h3>Your agents</h3>
+          <p>File, schedule, chase and close work in Linear, following one shared convention.</p>
+        </article>
+        <div class="arrow" aria-hidden="true">→</div>
+        <article class="node is-source">
+          <p class="role">holds everything</p>
+          <h3>Linear</h3>
+          <p>Issues, labels, estimates and due dates. The only place work is tracked.</p>
+        </article>
+        <div class="arrow" aria-hidden="true">→</div>
+        <article class="node">
+          <p class="role">reads</p>
+          <h3>Control Panel</h3>
+          <p>Signs in with Linear's read scope and draws one person's whole plate. It never writes.</p>
+        </article>
+      </div>
+
+      <div class="cli-notes">
+        <p>No database and no sync. If it is not in Linear, it is not on your plate.</p>
+      </div>
+    </section>
+
+    <section class="features" aria-labelledby="features-title">
+      <div class="section-head">
+        <span class="index">02</span>
+        <h2 id="features-title">One screen, on purpose</h2>
+      </div>
+      <div class="feature-grid">
+        <article>
+          <h3>Every issue stays visible</h3>
+          <p>Each open issue is a tile. Search and filters dim tiles instead of hiding them, so the whole plate stays in view.</p>
+        </article>
+        <article>
+          <h3>Sized by effort</h3>
+          <p>Tile area is the estimate in hours. A check-in counts as a 15-minute chase. The load bar shows hours due this week against a 40-hour week.</p>
+        </article>
+        <article>
+          <h3>Grouped the way you plan</h3>
+          <p>Overdue, today, tomorrow, this week and later. Or group by kind, by the person you are chasing, by project or by status.</p>
+        </article>
+        <article>
+          <h3>Honest about gaps</h3>
+          <p>Issues that break the convention light up under needs-fields with the exact fix. Slips and waiting time come from Linear's own history.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="links" class="cli" aria-labelledby="links-title">
+      <div class="section-head">
+        <span class="index">03</span>
+        <h2 id="links-title">Filters your agent can link to</h2>
+      </div>
+
+      <div class="terminal" aria-label="Example filter links and linter output">
+        <div class="terminal-bar" aria-hidden="true">
+          <span></span><span></span><span></span>
+          <em>control-panel</em>
+        </div>
+        <pre><code><span class="prompt">$</span> open "https://control-panel-ivory.vercel.app/#needs-fields"
+<span class="dim">10/36 lit · esc clears</span>
+
+<span class="prompt">$</span> node lint.mjs PLAN-125.json
+<span class="accent">PLAN-125  CHASE_MALFORMED  Write "Chase: &lt;who&gt; — &lt;what you need from them&gt;"</span>
+
+<span class="prompt">$</span> node lint.mjs PLAN-125.json
+<span class="accent">PLAN-125  ok</span>
+<span class="cursor" aria-hidden="true">▌</span></code></pre>
+      </div>
+
+      <div class="cli-notes">
+        <p>Every filter is a link: <code>#needs-fields</code> <code>#parallel-safe</code> <code>#slipped</code> <code>#waiting</code> <code>#overdue</code> <code>#no-kind</code></p>
+      </div>
+    </section>
+
+    <section id="agents" class="agents" aria-labelledby="agents-title">
+      <div class="section-head">
+        <span class="index">04</span>
+        <h2 id="agents-title">A convention for agents</h2>
+      </div>
+
+      <p class="section-lede">
+        Control Panel reads a small, versioned convention. Hand it to any agent that touches Linear.
+        It names the labels to set, the unit for estimates, and four description lines.
+        A bundled linter checks an issue before it is saved.
+      </p>
+
+      <div class="table-wrap">
+        <table class="spec">
+          <thead>
+            <tr><th scope="col">Kind</th><th scope="col">Labels</th><th scope="col">Fields</th><th scope="col">Description lines</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>to-do</code></td>
+              <td>Kind <code>to-do</code>, Mode <code>focus</code> or <code>parallel</code></td>
+              <td>estimate in hours (1, 2, 3, 5, 8, 13), due date once scheduled</td>
+              <td><code>Source:</code> <code>Next step:</code> <code>Done when:</code></td>
+            </tr>
+            <tr>
+              <td><code>check-in</code></td>
+              <td>Kind <code>check-in</code></td>
+              <td>due date: the day to chase next</td>
+              <td><code>Source:</code> <code>Chase: who — what</code> <code>Done when:</code></td>
+            </tr>
+            <tr>
+              <td>your own</td>
+              <td>any other label in the Kind group</td>
+              <td>none</td>
+              <td>none</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="agent-grid">
+        <div class="install-card">
+          <div class="tabs" role="tablist" aria-label="Example issue">
+            <button class="tab is-active" id="tab-todo" role="tab" aria-selected="true" aria-controls="panel-todo" data-target="todo">to-do</button>
+            <button class="tab" id="tab-checkin" role="tab" aria-selected="false" aria-controls="panel-checkin" data-target="checkin" tabindex="-1">check-in</button>
+          </div>
+          <div class="panel is-active" id="panel-todo" role="tabpanel" aria-labelledby="tab-todo">
+            <pre class="snippet"><code>Source: Pricing sync with Maya, Nov 3
+Next step: Draft the tier table in the pricing doc
+Done when: Maya signs off on the tiers in the doc</code></pre>
+            <p class="hint">Labels <code>to-do</code> + <code>focus</code> · estimate <code>3</code> hours · due Thu</p>
+          </div>
+          <div class="panel" id="panel-checkin" role="tabpanel" aria-labelledby="tab-checkin" hidden>
+            <pre class="snippet"><code>Source: #eng-api thread, Nov 5
+Chase: Priya and Sam — cutoff values and V1 dates
+Done when: Dates are posted in the project update</code></pre>
+            <p class="hint">Label <code>check-in</code> · no estimate · due on the next chase day</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="command">
+            <code>curl -fsSLO https://vivekkaushal.com/control-panel/skill/SKILL.md</code>
+            <button class="copy" type="button" data-copy="curl -fsSLO https://vivekkaushal.com/control-panel/skill/SKILL.md">Copy</button>
+          </div>
+          <div class="text-links">
+            <a href="skill/SKILL.md">SKILL.md <span aria-hidden="true">↗</span></a>
+            <a href="skill/scripts/lint.mjs">lint.mjs <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="privacy" aria-labelledby="privacy-title">
+      <div class="section-head">
+        <span class="index">05</span>
+        <h2 id="privacy-title">Sign in, and nothing else</h2>
+      </div>
+
+      <div class="install-grid">
+        <div class="install-card">
+          <ol class="steps">
+            <li><span>Sign in with Linear.</span> Control Panel asks for the read scope only.</li>
+            <li><span>Pick whose plate to see.</span> Anyone active in your workspace.</li>
+            <li><span>Change work where it lives.</span> Edit the issue in Linear, or ask your agent. The view refreshes when you come back.</li>
+          </ol>
+        </div>
+
+        <aside class="install-notes" aria-label="Privacy notes">
+          <p><span class="dot" aria-hidden="true"></span> No database. Nothing is stored.</p>
+          <p>Tokens live in an encrypted, httpOnly cookie and refresh on their own.</p>
+          <p>If your workspace restricts outside apps, an admin approves Control Panel once.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <p class="eyebrow">Free · read-only · built on Linear</p>
+      <h2 id="closing-title">See everything you said yes to.</h2>
+      <div class="actions">
+        <a class="button primary" href="https://control-panel-ivory.vercel.app/">Open Control Panel</a>
+        <a class="button ghost" href="#agents">Read the convention</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand small" href="./" aria-label="Control Panel — home">
+      <img src="assets/logo.svg" width="22" height="22" alt="">
+      <span>control panel</span>
+    </a>
+    <p>© 2026 Vivek Kaushal</p>
+    <nav aria-label="Footer">
+      <a href="https://control-panel-ivory.vercel.app/">App</a>
+      <a href="https://control-panel-ivory.vercel.app/demo">Demo</a>
+      <a href="skill/SKILL.md">Convention</a>
+      <a href="https://vivekkaushal.com/talk">Contact</a>
+    </nav>
+  </footer>
+
+  <script src="landing.js" defer></script>
+</body>
+</html>
