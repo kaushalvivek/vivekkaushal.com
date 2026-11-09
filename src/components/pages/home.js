@@ -129,7 +129,12 @@ const Home = () => {
 
       <h2 className="section-title">Tinkering</h2>
       <div className="essay-list" data-placement="home_tinkering">
-        <a href="/control-panel/" className="essay-row">
+        <a
+          href="https://control-panel-ivory.vercel.app"
+          target="_blank"
+          rel="noreferrer"
+          className="essay-row"
+        >
           <div className="essay-date">2026</div>
           <div>
             <div className="essay-title">Control Panel</div>
