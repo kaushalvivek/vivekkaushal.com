@@ -2,7 +2,7 @@
 import { readFileSync } from "node:fs";
 
 // src/normalize.ts
-var STATE_TYPES = ["triage", "backlog", "unstarted", "started", "completed", "canceled"];
+var STATE_TYPES = ["triage", "backlog", "unstarted", "started", "completed", "canceled", "duplicate"];
 function normalizeIssue(raw) {
   const identifier = raw.identifier ?? raw.id;
   if (!identifier) throw new Error("Issue has no identifier or id.");
