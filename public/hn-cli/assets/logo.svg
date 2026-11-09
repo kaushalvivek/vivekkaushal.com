@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="hn logo">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#11161d"/>
+      <stop offset="1" stop-color="#0b0e14"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="14" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="256" height="256" rx="52" fill="url(#bg)"/>
+  <rect x="42" y="42" width="172" height="172" rx="28" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <text x="128" y="158" text-anchor="middle" font-family="SFMono-Regular, Menlo, Monaco, monospace" font-size="94" font-weight="700" fill="#ff6600" filter="url(#glow)">hn</text>
+  <rect x="152" y="172" width="38" height="7" rx="3.5" fill="#ff6600" opacity="0.92"/>
+  <path d="M76 182h44" stroke="#30363d" stroke-width="2" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>hn — Hacker News in your terminal</title>
+  <meta name="description" content="An interactive terminal browser, scriptable CLI, and structured JSON for agents. One Rust binary for macOS and Linux.">
+  <meta name="author" content="Vivek Kaushal">
+  <meta name="theme-color" content="#0b0e14">
+  <meta name="color-scheme" content="dark light">
+  <link rel="canonical" href="https://vivekkaushal.com/hn-cli/">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="hn — Hacker News in your terminal">
+  <meta property="og:description" content="An interactive terminal browser, scriptable CLI, and structured JSON for agents. One Rust binary for macOS and Linux.">
+  <meta property="og:url" content="https://vivekkaushal.com/hn-cli/">
+  <meta property="og:image" content="https://vivekkaushal.com/hn-cli/assets/tui.svg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "hn",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "macOS, Linux",
+      "description": "An interactive terminal browser, scriptable CLI, and structured JSON for agents.",
+      "url": "https://vivekkaushal.com/hn-cli/",
+      "author": { "@type": "Person", "name": "Vivek Kaushal" },
+      "downloadUrl": "https://github.com/kaushalvivek/hn-cli/releases/latest",
+      "license": "https://github.com/kaushalvivek/hn-cli/blob/main/LICENSE",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <a class="brand" href="./" aria-label="hn — home">
+      <img src="assets/logo.svg" width="26" height="26" alt="">
+      <span>hn</span>
+    </a>
+    <nav aria-label="Primary">
+      <a href="#install">Install</a>
+      <a href="#cli">CLI</a>
+      <a href="#agents">Agents</a>
+      <a class="external" href="https://github.com/kaushalvivek/hn-cli">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="eyebrow">Hacker News · in your terminal</p>
+      <h1 id="hero-title">Read Hacker News<br>without leaving the terminal.</h1>
+      <p class="lede">
+        An interactive terminal browser, a scriptable CLI, and structured JSON for agents.
+        One Rust binary for macOS and Linux.
+      </p>
+      <div class="actions">
+        <a class="button primary" href="#install">Install hn</a>
+        <a class="button ghost" href="https://github.com/kaushalvivek/hn-cli/releases/latest">
+          Latest release <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="install" class="install" aria-labelledby="install-title">
+      <div class="section-head">
+        <span class="index">01</span>
+        <h2 id="install-title">Install</h2>
+      </div>
+
+      <div class="install-grid">
+        <div class="install-card">
+          <div class="tabs" role="tablist" aria-label="Install method">
+            <button class="tab is-active" id="tab-macos" role="tab" aria-selected="true" aria-controls="panel-macos" data-target="macos">macOS</button>
+            <button class="tab" id="tab-linux" role="tab" aria-selected="false" aria-controls="panel-linux" data-target="linux" tabindex="-1">Linux</button>
+          </div>
+
+          <div class="panel is-active" id="panel-macos" role="tabpanel" aria-labelledby="tab-macos">
+            <div class="command">
+              <code>brew install kaushalvivek/tap/hn</code>
+              <button class="copy" type="button" data-copy="brew install kaushalvivek/tap/hn">Copy</button>
+            </div>
+            <p class="hint">Homebrew · Apple Silicon and Intel</p>
+          </div>
+
+          <div class="panel" id="panel-linux" role="tabpanel" aria-labelledby="tab-linux" hidden>
+            <div class="command">
+              <code>curl -fsSL https://raw.githubusercontent.com/kaushalvivek/hn-cli/main/install.sh | sh</code>
+              <button class="copy" type="button" data-copy="curl -fsSL https://raw.githubusercontent.com/kaushalvivek/hn-cli/main/install.sh | sh">Copy</button>
+            </div>
+            <p class="hint">Static binary · installs to <code>~/.local/bin</code></p>
+          </div>
+
+          <p class="hint packages">
+            Native packages: <a href="https://github.com/kaushalvivek/hn-cli/releases/latest">.deb · .rpm · .pkg.tar.zst · .apk</a>
+          </p>
+        </div>
+
+        <aside class="install-notes" aria-label="Install notes">
+          <p><span class="dot" aria-hidden="true"></span> No runtime. No Xcode.</p>
+          <p>macOS universal · Linux x86_64 and aarch64</p>
+          <p><a href="https://github.com/kaushalvivek/hn-cli#install">All install methods <span aria-hidden="true">→</span></a></p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="preview" aria-label="hn interface preview">
+      <img src="assets/tui.svg" alt="The hn terminal interface showing a feed sidebar, story list, and threaded comments" width="1200" height="760" loading="lazy">
+      <p class="caption">feeds · threads · search · composer · drafts</p>
+    </section>
+
+    <section class="features" aria-labelledby="features-title">
+      <div class="section-head">
+        <span class="index">02</span>
+        <h2 id="features-title">Built for the terminal</h2>
+      </div>
+      <div class="feature-grid">
+        <article>
+          <h3>Read</h3>
+          <p>Front page, Ask, Show, jobs, search, users, comments, and full threads.</p>
+        </article>
+        <article>
+          <h3>Write</h3>
+          <p>Vote, submit, comment, edit, favorite, hide, and flag without leaving the TUI.</p>
+        </article>
+        <article>
+          <h3>Script</h3>
+          <p>Every command speaks JSON. Pipe it into jq, a dashboard, or another agent.</p>
+        </article>
+        <article>
+          <h3>Belong</h3>
+          <p>Static Linux binaries, native packages, Homebrew on macOS, and a tiny man page.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="cli" class="cli" aria-labelledby="cli-title">
+      <div class="section-head">
+        <span class="index">03</span>
+        <h2 id="cli-title">One binary, three surfaces</h2>
+      </div>
+
+      <div class="terminal" aria-label="Example commands">
+        <div class="terminal-bar" aria-hidden="true">
+          <span></span><span></span><span></span>
+          <em>hn</em>
+        </div>
+        <pre><code><span class="prompt">$</span> hn
+<span class="dim">front · new · best · ask · show · jobs · active · comments</span>
+
+<span class="prompt">$</span> hn thread 8863
+<span class="dim">32 comments · loaded in full</span>
+
+<span class="prompt">$</span> hn search "rust async" --sort date
+<span class="dim">SearchResults · page 1 of 62</span>
+
+<span class="prompt">$</span> hn front --limit 5 --json | jq -r '.entries[] | .title'
+<span class="accent">Llama-modchip: 284B DeepSeek on 64GB RAM, no GPU</span>
+<span class="accent">The Reconstruction of Torn Documents</span>
+<span class="accent">Writing as a thinking tool</span>
+<span class="cursor" aria-hidden="true">▌</span></code></pre>
+      </div>
+
+      <div class="cli-notes">
+        <p><code>hn</code> opens the browser. <code>hn front</code> is line-oriented. <code>--json</code> is everywhere.</p>
+        <p><a href="https://github.com/kaushalvivek/hn-cli#scriptable-cli">Command reference <span aria-hidden="true">→</span></a></p>
+      </div>
+    </section>
+
+    <section id="agents" class="agents" aria-labelledby="agents-title">
+      <div class="section-head">
+        <span class="index">04</span>
+        <h2 id="agents-title">Agent-readable</h2>
+      </div>
+      <div class="agent-grid">
+        <div>
+          <p>
+            Run <code>hn capabilities</code> for the machine-readable contract:
+            commands, arguments, auth requirements, output types, and error codes.
+          </p>
+          <div class="text-links">
+            <a href="https://github.com/kaushalvivek/hn-cli/blob/main/AGENTS.md">AGENTS.md <span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/kaushalvivek/hn-cli/blob/main/llms.txt">llms.txt <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <div class="command">
+          <code>hn capabilities | jq</code>
+          <button class="copy" type="button" data-copy="hn capabilities | jq">Copy</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <p class="eyebrow">Open source · MIT</p>
+      <h2 id="closing-title">Hacker News, closer to your cursor.</h2>
+      <div class="actions">
+        <a class="button primary" href="#install">Install hn</a>
+        <a class="button ghost" href="https://github.com/kaushalvivek/hn-cli">Star on GitHub <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand small" href="./" aria-label="hn — home">
+      <img src="assets/logo.svg" width="22" height="22" alt="">
+      <span>hn</span>
+    </a>
+    <p>MIT © 2026 Vivek Kaushal</p>
+    <nav aria-label="Footer">
+      <a href="https://github.com/kaushalvivek/hn-cli">GitHub</a>
+      <a href="https://github.com/kaushalvivek/hn-cli/releases">Releases</a>
+      <a href="https://vivekkaushal.com/talk">Contact</a>
+    </nav>
+  </footer>
+
+  <script src="landing.js" defer></script>
+</body>
+</html>

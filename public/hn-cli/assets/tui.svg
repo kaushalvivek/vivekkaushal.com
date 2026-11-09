@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-label="hn interactive terminal browser">
+  <defs>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#0a0d12"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#000000" flood-opacity="0.55"/>
+    </filter>
+    <filter id="wordmark" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="760" rx="18" fill="url(#screen)" stroke="#30363d" stroke-width="1.5" filter="url(#shadow)"/>
+
+  <!-- window chrome -->
+  <rect x="1" y="1" width="1198" height="38" rx="17" fill="#11161d"/>
+  <rect x="1" y="20" width="1198" height="19" fill="#11161d"/>
+  <circle cx="26" cy="20" r="5.5" fill="#ff5f57"/>
+  <circle cx="46" cy="20" r="5.5" fill="#febc2e"/>
+  <circle cx="66" cy="20" r="5.5" fill="#28c840"/>
+  <text x="92" y="25" font-family="SFMono-Regular, Menlo, Monaco, monospace" font-size="12" fill="#7d8590">hn — front</text>
+  <text x="1120" y="25" font-family="SFMono-Regular, Menlo, Monaco, monospace" font-size="12" fill="#7d8590">v0.2.0</text>
+
+  <g font-family="SFMono-Regular, Menlo, Monaco, monospace" font-size="14" fill="#c9d1d9">
+    <!-- top bar -->
+    <text x="28" y="82" font-size="17" font-weight="700" fill="#ff6600" filter="url(#wordmark)">hn</text>
+    <text x="58" y="82" fill="#7d8590">/</text>
+    <text x="78" y="82" font-weight="700">front</text>
+    <circle cx="1082" cy="77" r="4" fill="#3fb950"/>
+    <text x="1094" y="82" fill="#c9d1d9">alice</text>
+    <path d="M28 96H1172" stroke="#30363d" stroke-width="1"/>
+
+    <!-- sidebar -->
+    <text x="28" y="126" fill="#7d8590" font-size="12" letter-spacing="1">FEEDS</text>
+    <text x="28" y="150" fill="#ff6600" font-weight="700">▸ front</text>
+    <text x="40" y="175" fill="#c9d1d9">new</text>
+    <text x="40" y="200" fill="#c9d1d9">best</text>
+    <text x="40" y="225" fill="#c9d1d9">ask</text>
+    <text x="40" y="250" fill="#c9d1d9">show</text>
+    <text x="40" y="275" fill="#c9d1d9">jobs</text>
+    <text x="28" y="310" fill="#7d8590" font-size="12" letter-spacing="1">MORE</text>
+    <text x="40" y="334" fill="#c9d1d9">active</text>
+    <text x="40" y="359" fill="#c9d1d9">comments</text>
+    <text x="40" y="384" fill="#c9d1d9">past</text>
+    <text x="28" y="419" fill="#7d8590" font-size="12" letter-spacing="1">YOURS</text>
+    <text x="40" y="443" fill="#c9d1d9">upvoted</text>
+    <text x="40" y="468" fill="#c9d1d9">hidden</text>
+
+    <path d="M208 110V695" stroke="#30363d" stroke-width="1"/>
+
+    <!-- list header -->
+    <text x="228" y="126" fill="#ff6600" font-weight="700" font-size="12" letter-spacing="1">FRONT</text>
+    <text x="286" y="126" fill="#7d8590" font-size="12">30</text>
+    <path d="M228 140H632" stroke="#30363d" stroke-width="1"/>
+
+    <!-- selected story -->
+    <rect x="228" y="154" width="404" height="34" rx="3" fill="#121820"/>
+    <rect x="228" y="154" width="3" height="34" rx="1.5" fill="#ff6600"/>
+    <text x="240" y="171" font-weight="700">1. Person of Interest</text>
+    <text x="240" y="188" fill="#7d8590" font-size="12">krthr.co · 121 points · 71 comments · krthr · 2h</text>
+
+    <!-- story rows -->
+    <text x="240" y="213">2. Petered (what happens after the Peter Principle)</text>
+    <text x="240" y="230" fill="#7d8590" font-size="12">aworkinglibrary.com · 67 points · 35 comments · adrianhoward · 2h</text>
+
+    <text x="240" y="255">3. Llama-modchip: 284B DeepSeek on 64GB RAM</text>
+    <text x="240" y="272" fill="#7d8590" font-size="12">github.com · 52 points · 19 comments · joshcsimmons · 3h</text>
+
+    <text x="240" y="297">4. JIT bitmap text rendering for microcontrollers</text>
+    <text x="240" y="314" fill="#7d8590" font-size="12">linebender.org · 30 points · 6 comments · waywardmonkeys · 4h</text>
+
+    <text x="240" y="339">5. Goodbye Claude, Hello Pi</text>
+    <text x="240" y="356" fill="#7d8590" font-size="12">caleb.software · 427 points · 269 comments · karagenit · 8h</text>
+
+    <text x="240" y="381">6. What I run on my $10 OpenStick homelab</text>
+    <text x="240" y="398" fill="#7d8590" font-size="12">blog.bosscher.ch · 648 points · 119 comments · LaurersBER · 16h</text>
+
+    <text x="240" y="423">7. Claude Code's "Don't Ask Again" exposes passwords</text>
+    <text x="240" y="440" fill="#7d8590" font-size="12">apiiro.com · 455 points · 318 comments · shmulc · 14h</text>
+
+    <text x="240" y="465">8. Clj.rs – a Clojure dialect implemented in Rust</text>
+    <text x="240" y="482" fill="#7d8590" font-size="12">clj.rs · 88 points · 28 comments · simonpure · 4h</text>
+
+    <path d="M644 110V695" stroke="#30363d" stroke-width="1"/>
+
+    <!-- detail pane -->
+    <text x="666" y="132" font-size="21" font-weight="700">Person of Interest</text>
+    <text x="666" y="158" fill="#58a6ff">https://krthr.co/person-of-interest/</text>
+    <text x="666" y="180" fill="#7d8590" font-size="12">krthr.co · 121 points · 71 comments · krthr · 2h · id 50412318</text>
+    <path d="M666 196H1168" stroke="#30363d" stroke-width="1"/>
+
+    <!-- selected comment -->
+    <text x="666" y="222" fill="#ff6600">▌</text>
+    <text x="678" y="222" fill="#58a6ff">joshcsimmons</text>
+    <text x="780" y="222" fill="#7d8590" font-size="12">· 3h · 50411961</text>
+    <text x="666" y="240" fill="#ff6600">▌</text>
+    <text x="678" y="240">The speed of these tiny models keeps surprising me.</text>
+    <text x="666" y="258" fill="#ff6600">▌</text>
+    <text x="678" y="258">Running a 284B model locally without a GPU feels</text>
+    <text x="666" y="276" fill="#ff6600">▌</text>
+    <text x="678" y="276">like a glimpse of where local inference is heading.</text>
+    <text x="666" y="294" fill="#ff6600">▌</text>
+    <text x="678" y="294">The memory bandwidth tradeoffs are fascinating.</text>
+
+    <!-- collapsed reply -->
+    <text x="678" y="326" fill="#c9d1d9">jrmgx</text>
+    <text x="734" y="326" fill="#7d8590" font-size="12">· 2h · 50412007</text>
+    <text x="678" y="344">Has anyone benchmarked this on an M3 Max?</text>
+    <text x="678" y="368" fill="#7d8590" font-size="12">▸ 12 replies · enter to expand</text>
+
+    <!-- another comment -->
+    <text x="678" y="398" fill="#58a6ff">model-t</text>
+    <text x="734" y="398" fill="#7d8590" font-size="12">· 1h · 50412188</text>
+    <text x="678" y="416">The quantisation work here is doing a lot of heavy lifting.</text>
+    <text x="678" y="434">I would love to see the perplexity numbers across sizes.</text>
+
+    <!-- footer -->
+    <path d="M28 708H1172" stroke="#30363d" stroke-width="1"/>
+    <text x="28" y="733" fill="#ff6600" font-weight="700" font-size="12" letter-spacing="1">BROWSE</text>
+    <text x="96" y="733" fill="#7d8590" font-size="12">j/k move · enter open · tab pane · / search · : commands · ? help · q quit</text>
+    <circle cx="1082" cy="728" r="4" fill="#3fb950"/>
+    <text x="1094" y="733" fill="#7d8590" font-size="12">alice</text>
+  </g>
+</svg>
