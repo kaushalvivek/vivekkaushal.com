@@ -1,3 +1,5 @@
 /hn-cli /hn-cli/ 301
-/control-panel /control-panel/ 301
+/control-panel https://control-panel-ivory.vercel.app/ 301
+/control-panel/skill/* https://control-panel-ivory.vercel.app/skill/:splat 301
+/control-panel/* https://control-panel-ivory.vercel.app/ 301
 /* /index.html 200
