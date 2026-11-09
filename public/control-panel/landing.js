@@ -1,33 +1,35 @@
 (() => {
-  const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+  document.querySelectorAll('[role="tablist"]').forEach((list) => {
+    const tabs = Array.from(list.querySelectorAll('[role="tab"]'));
 
-  const selectTab = (tab, focus = false) => {
-    tabs.forEach((candidate) => {
-      const selected = candidate === tab;
-      candidate.classList.toggle('is-active', selected);
-      candidate.setAttribute('aria-selected', String(selected));
-      candidate.tabIndex = selected ? 0 : -1;
-      const panel = document.getElementById(candidate.getAttribute('aria-controls'));
-      if (panel) {
-        panel.classList.toggle('is-active', selected);
-        panel.hidden = !selected;
-      }
-    });
-    if (focus) tab.focus();
-  };
+    const selectTab = (tab, focus = false) => {
+      tabs.forEach((candidate) => {
+        const selected = candidate === tab;
+        candidate.classList.toggle('is-active', selected);
+        candidate.setAttribute('aria-selected', String(selected));
+        candidate.tabIndex = selected ? 0 : -1;
+        const panel = document.getElementById(candidate.getAttribute('aria-controls'));
+        if (panel) {
+          panel.classList.toggle('is-active', selected);
+          panel.hidden = !selected;
+        }
+      });
+      if (focus) tab.focus();
+    };
 
-  tabs.forEach((tab, index) => {
-    tab.addEventListener('click', () => selectTab(tab));
-    tab.addEventListener('keydown', (event) => {
-      let next = null;
-      if (event.key === 'ArrowRight') next = tabs[(index + 1) % tabs.length];
-      if (event.key === 'ArrowLeft') next = tabs[(index - 1 + tabs.length) % tabs.length];
-      if (event.key === 'Home') next = tabs[0];
-      if (event.key === 'End') next = tabs[tabs.length - 1];
-      if (next) {
-        event.preventDefault();
-        selectTab(next, true);
-      }
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => selectTab(tab));
+      tab.addEventListener('keydown', (event) => {
+        let next = null;
+        if (event.key === 'ArrowRight') next = tabs[(index + 1) % tabs.length];
+        if (event.key === 'ArrowLeft') next = tabs[(index - 1 + tabs.length) % tabs.length];
+        if (event.key === 'Home') next = tabs[0];
+        if (event.key === 'End') next = tabs[tabs.length - 1];
+        if (next) {
+          event.preventDefault();
+          selectTab(next, true);
+        }
+      });
     });
   });
 
@@ -48,11 +50,18 @@
     if (!copied) throw new Error('copy failed');
   };
 
+  const textFor = (button) => {
+    if (!button.dataset.copyTarget) return button.dataset.copy || '';
+    const target = document.getElementById(button.dataset.copyTarget);
+    if (!target) throw new Error(`missing copy target ${button.dataset.copyTarget}`);
+    return target.textContent;
+  };
+
   document.querySelectorAll('.copy').forEach((button) => {
     button.addEventListener('click', async () => {
       const original = button.textContent;
       try {
-        await copyText(button.dataset.copy || '');
+        await copyText(textFor(button));
         button.textContent = 'Copied';
         button.classList.add('is-copied');
       } catch {

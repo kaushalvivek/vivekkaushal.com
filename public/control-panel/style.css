@@ -266,9 +266,84 @@ h3 {
 .features,
 .cli,
 .agents,
+.setup,
 .privacy {
   padding: 72px 0;
   border-top: 1px solid var(--line);
+}
+
+.setup-steps {
+  display: grid;
+  gap: 36px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.setup-steps > li {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  column-gap: 14px;
+  counter-increment: step;
+}
+
+.setup-steps > li::before {
+  content: counter(step, decimal-leading-zero);
+  grid-row: 1 / span 4;
+  padding-top: 3px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent-text);
+}
+
+.setup-steps > li > * {
+  grid-column: 2;
+}
+
+.setup-steps h3 {
+  margin-bottom: 14px;
+}
+
+.step-text {
+  max-width: 640px;
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.65;
+}
+
+.step-text code {
+  color: var(--text);
+  font-size: 12.5px;
+}
+
+.prompt-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.prompt-bar .copy {
+  min-height: 30px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.prompt-card .snippet {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
 
 .section-lede {
@@ -778,8 +853,22 @@ footer a:hover {
   .features,
   .cli,
   .agents,
+  .setup,
   .privacy {
     padding: 56px 0;
+  }
+
+  .setup-steps > li {
+    grid-template-columns: 1fr;
+  }
+
+  .setup-steps > li::before {
+    grid-row: auto;
+    margin-bottom: 6px;
+  }
+
+  .setup-steps > li > * {
+    grid-column: 1;
   }
 
   .flow {

@@ -43,8 +43,8 @@
     </a>
     <nav aria-label="Primary">
       <a href="#how">How it works</a>
-      <a href="#links">Filters</a>
       <a href="#agents">For agents</a>
+      <a href="#setup">Setup</a>
       <a class="external" href="https://control-panel-ivory.vercel.app/">Open app <span aria-hidden="true">↗</span></a>
     </nav>
   </header>
@@ -227,9 +227,75 @@ Done when: Dates are posted in the project update</code></pre>
       </div>
     </section>
 
-    <section class="privacy" aria-labelledby="privacy-title">
+    <section id="setup" class="setup" aria-labelledby="setup-title">
       <div class="section-head">
         <span class="index">05</span>
+        <h2 id="setup-title">Set up your agents</h2>
+      </div>
+
+      <p class="section-lede">
+        Control Panel is only as good as the issues your agents write. Three steps get any agent with Linear access
+        writing them the right way. Your agent needs to reach Linear, for example through Linear's MCP server.
+      </p>
+
+      <ol class="setup-steps">
+        <li>
+          <h3>Give your agent the skill</h3>
+          <div class="install-card">
+            <div class="tabs" role="tablist" aria-label="Agent">
+              <button class="tab is-active" id="tab-claude" role="tab" aria-selected="true" aria-controls="panel-claude">Claude Code</button>
+              <button class="tab" id="tab-other" role="tab" aria-selected="false" aria-controls="panel-other" tabindex="-1">Any other agent</button>
+            </div>
+            <div class="panel is-active" id="panel-claude" role="tabpanel" aria-labelledby="tab-claude">
+              <div class="command">
+                <code>curl -fsSL https://vivekkaushal.com/control-panel/skill/install.sh | sh</code>
+                <button class="copy" type="button" data-copy="curl -fsSL https://vivekkaushal.com/control-panel/skill/install.sh | sh">Copy</button>
+              </div>
+              <p class="hint">Installs to <code>~/.claude/skills/control-panel</code>. The linter needs Node 20 or later.</p>
+            </div>
+            <div class="panel" id="panel-other" role="tabpanel" aria-labelledby="tab-other" hidden>
+              <div class="command">
+                <code id="rule-line">Before you create, schedule or edit Linear issues, read and follow https://vivekkaushal.com/control-panel/skill/SKILL.md</code>
+                <button class="copy" type="button" data-copy-target="rule-line">Copy</button>
+              </div>
+              <p class="hint">Add this line to <code>AGENTS.md</code>, your rules file, or the agent's instructions.</p>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <h3>Ask it to set up Linear and fix your issues</h3>
+          <div class="install-card prompt-card">
+            <div class="prompt-bar">
+              <span>paste into your agent</span>
+              <button class="copy" type="button" data-copy-target="setup-prompt">Copy</button>
+            </div>
+            <pre class="snippet" id="setup-prompt">Read https://vivekkaushal.com/control-panel/skill/SKILL.md and follow it whenever you create, schedule or edit Linear issues for me.
+
+Then set me up:
+1. In my Linear team, check for single-select label groups named Kind (to-do, check-in) and Mode (focus, parallel). If they are missing, show me your plan and create them only after I approve.
+2. List the open issues assigned to me. For each one, add the right Kind label, add a Mode label to every to-do, and fix the Source, Next step, Done when and Chase lines. Never invent a value. Tell me what you could not fill.
+3. Lint every issue you changed with https://vivekkaushal.com/control-panel/skill/scripts/lint.mjs and report what still fails.</pre>
+          </div>
+          <p class="hint">Your agent asks before it changes labels, and it never makes up a missing date, estimate or source.</p>
+        </li>
+
+        <li>
+          <h3>Open Control Panel and check</h3>
+          <p class="step-text">
+            Sign in and turn on <code>needs-fields</code>. Every lit tile is an issue your agent still has to fix,
+            with the exact reason. From then on, your agent keeps new issues in shape on its own.
+          </p>
+          <div class="actions">
+            <a class="button ghost" href="https://control-panel-ivory.vercel.app/#needs-fields">Open needs-fields <span aria-hidden="true">↗</span></a>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="privacy" aria-labelledby="privacy-title">
+      <div class="section-head">
+        <span class="index">06</span>
         <h2 id="privacy-title">Sign in, and nothing else</h2>
       </div>
 
@@ -255,7 +321,7 @@ Done when: Dates are posted in the project update</code></pre>
       <h2 id="closing-title">See everything you said yes to.</h2>
       <div class="actions">
         <a class="button primary" href="https://control-panel-ivory.vercel.app/">Open Control Panel</a>
-        <a class="button ghost" href="#agents">Read the convention</a>
+        <a class="button ghost" href="#setup">Set up your agents</a>
       </div>
     </section>
   </main>
