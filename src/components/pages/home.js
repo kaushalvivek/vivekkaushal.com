@@ -129,6 +129,13 @@ const Home = () => {
 
       <h2 className="section-title">Tinkering</h2>
       <div className="essay-list" data-placement="home_tinkering">
+        <a href="/control-panel/" className="essay-row">
+          <div className="essay-date">2026</div>
+          <div>
+            <div className="essay-title">Control Panel</div>
+            <div className="essay-excerpt">Everything on your Linear plate, on one screen. A read-only mosaic sized by effort, and a convention your agents follow.</div>
+          </div>
+        </a>
         <a href="/hn-cli/" className="essay-row">
           <div className="essay-date">2026</div>
           <div>
