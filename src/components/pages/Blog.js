@@ -27,16 +27,10 @@ const BlogList = ({ posts }) => (
           to={`/blog/${post.slug}`}
           className="essay-row"
         >
+          <div className="essay-title">{post.title}</div>
+          <div className="essay-excerpt">{stripHtml(post.description).slice(0, 240)}</div>
           <div className="essay-date">
-            {post.date.toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'short',
-              day: '2-digit',
-            })}
-          </div>
-          <div>
-            <div className="essay-title">{post.title}</div>
-            <div className="essay-excerpt">{stripHtml(post.description).slice(0, 240)}</div>
+            {post.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}
           </div>
         </RouterLink>
       ))}

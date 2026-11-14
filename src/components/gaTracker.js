@@ -92,7 +92,7 @@ function linkNameFromAnchor(anchor) {
 function placementForAnchor(anchor) {
   return placementFromContext({
     inFooter: Boolean(anchor.closest('footer')),
-    inHeader: Boolean(anchor.closest('header, .mobile-menu')),
+    inHeader: Boolean(anchor.closest('header')),
     inPostEnd: Boolean(anchor.closest('.post-end')),
     inHero: Boolean(anchor.closest('.hero')),
     marked: anchor.closest('[data-placement]')?.getAttribute('data-placement') || '',
