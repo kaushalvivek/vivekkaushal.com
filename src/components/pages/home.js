@@ -1,15 +1,52 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import blogFeed from '../../static/blog-feed.xml';
-import avatar from '../../static/avatar.jpg';
-import CurrentlyReading from '../currentlyReading';
 import localPosts from '../../static/localPosts';
 
-const stripHtml = (s) => {
-  const t = document.createElement('textarea');
-  t.innerHTML = s.replace(/<[^>]+>/g, '');
-  return t.value.replace(/\s+/g, ' ').trim();
-};
+const toSlug = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
+const CONTACT = [
+  { name: 'X', url: 'https://x.com/kaushalvivek' },
+  { name: 'LinkedIn', url: 'https://linkedin.com/in/kaushalvivek/' },
+  { name: 'GitHub', url: 'https://github.com/kaushalvivek' },
+  { name: 'Substack', url: 'https://vivekkaushal.substack.com' },
+];
+
+const TOOLS = [
+  { name: 'Feedback Bench', url: 'https://feedbackbench.com', note: 'A public ranking of AI agents by what their users say.' },
+  { name: 'Control Panel', url: 'https://control-panel-ivory.vercel.app', note: 'Everything on your Linear plate, on one screen.' },
+  { name: 'hn-cli', url: '/hn-cli/', note: 'Hacker News in your terminal.' },
+  { name: 'htmlz', url: 'https://github.com/kaushalvivek/htmlz', note: 'A self-hosted home for the HTML your AI agents make.' },
+  { name: 'AI Progress Today', url: 'https://github.com/kaushalvivek/ai-progress-today', note: 'A tracker for AI progress.' },
+  { name: 'pom', url: 'https://github.com/kaushalvivek/pom', note: 'A pomodoro timer for the terminal.' },
+];
+
+const TALKS = [
+  {
+    name: 'What Great Looks Like at Every Stage of the New Product Development Cycle',
+    url: 'https://www.youtube.com/watch?v=Jj2T-YX6zIM',
+    note: 'ProductCon SF, October 2026',
+  },
+  {
+    name: 'How Canva, Notion and Wispr Flow Are Automating the Feedback-to-Fix Loop',
+    url: 'https://world.productledalliance.com/location/popssanfrancisco/speaker/vivekkaushal',
+    note: 'Product Operations Summit, September 2026',
+  },
+];
+
+const MORE = [
+  { name: 'Research', to: '/research', note: 'Papers on clickbait, trust, and visual attention.' },
+  { name: 'Reading', to: '/books', note: 'Books I recommend.' },
+];
+
+const external = (url) => (url.startsWith('http') ? { target: '_blank', rel: 'noreferrer' } : {});
+
+const Entry = ({ name, note }) => (
+  <>
+    <span className="essay-title">{name}</span>
+    <span className="home-note">{note}</span>
+  </>
+);
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -22,180 +59,91 @@ const Home = () => {
         return r.text();
       })
       .then((str) => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(str, 'text/xml');
+        const doc = new DOMParser().parseFromString(str, 'text/xml');
         if (doc.querySelector('parsererror')) {
           throw new Error('Feed XML is invalid');
         }
-        const items = Array.from(doc.querySelectorAll('item'));
-        const fromFeed = items.map((item) => {
+        const fromFeed = Array.from(doc.querySelectorAll('item')).map((item) => {
           const title = item.querySelector('title')?.textContent || '';
           const pubDate = item.querySelector('pubDate')?.textContent;
-          const description = item.querySelector('description')?.textContent || '';
-          const date = pubDate ? new Date(pubDate) : new Date();
-          const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-          return { title, slug, date, excerpt: stripHtml(description).slice(0, 160) };
+          return { title, date: pubDate ? new Date(pubDate) : new Date() };
         });
-        const toSlug = (t) =>
-          t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-        const local = localPosts.map((p) => ({
-          title: p.title,
-          slug: toSlug(p.title),
-          date: new Date(p.date),
-          excerpt: p.description.slice(0, 160),
-        }));
-        setPosts([...local, ...fromFeed].sort((a, b) => b.date - a.date).slice(0, 5));
+        const local = localPosts.map((p) => ({ title: p.title, date: new Date(p.date) }));
+        setPosts([...local, ...fromFeed].sort((a, b) => b.date - a.date).slice(0, 6));
       })
       .catch((err) => setError(err.message || 'Failed to load essays.'));
   }, []);
 
   return (
-    <div className="col">
+    <div className="home">
       <div className="hero">
-        <div className="hero-top">
-          <div className="hero-text">
-            <p className="hero-bio">
-              I lead product at{' '}
-              <a href="https://enterpret.com" target="_blank" rel="noreferrer">Enterpret</a>.
-            </p>
-            <p className="hero-sub">
-              I studied computer science, engineering, and cognitive neuroscience. I built engineering systems for start ups before moving my focus to product. I still build, most recently <a href="https://feedbackbench.com" target="_blank" rel="noreferrer">Feedback Bench</a>, a public ranking of AI agents based on what their users say about them.
-            </p>
-            <p className="hero-sub">
-              I brew my own coffee and write. If you listen to alternative rock, we can probably be friends.
-            </p>
-            <a
-              className="btn hero-cta"
-              href="https://x.com/kaushalvivek"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Follow @kaushalvivek
-            </a>
-          </div>
-          <figure className="hero-portrait">
-            <img src={avatar} alt="Vivek Kaushal" />
-          </figure>
+        <h1>Vivek Kaushal</h1>
+        <p>
+          I lead product at{' '}
+          <a href="https://enterpret.com" target="_blank" rel="noreferrer">Enterpret</a>.
+          I studied computer science, engineering, and cognitive neuroscience. I built
+          engineering systems for start-ups before I moved my focus to product. I still build.
+        </p>
+        <p>
+          I brew my own coffee and write. If you listen to alternative rock, we can probably be
+          friends.
+        </p>
+        <p className="home-contact">
+          <Link to="/talk">Contact</Link>
+          {CONTACT.map((l) => (
+            <a key={l.name} href={l.url} target="_blank" rel="noreferrer">{l.name}</a>
+          ))}
+        </p>
+      </div>
+
+      <div>
+        <h2>Essays</h2>
+        {error && <p className="muted">{error}</p>}
+        <ul>
+          {posts.map((p) => (
+            <li key={p.title}>
+              <Link to={`/blog/${toSlug(p.title)}`}>
+                <Entry
+                  name={p.title}
+                  note={p.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}
+                />
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <Link to="/blog" className="home-all">All essays</Link>
+      </div>
+
+      <div data-placement="home_tinkering">
+        <h2>Things I built</h2>
+        <ul>
+          {TOOLS.map((t) => (
+            <li key={t.name}>
+              <a href={t.url} {...external(t.url)}><Entry {...t} /></a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="home-last">
+        <div className="home-talks" data-placement="home_talks">
+          <h2>Talks</h2>
+          <ul>
+            {TALKS.map((t) => (
+              <li key={t.name}>
+                <a href={t.url} {...external(t.url)}><Entry {...t} /></a>
+              </li>
+            ))}
+          </ul>
         </div>
-      </div>
-
-      <h2 className="section-title">Essays</h2>
-      {error && <p className="muted">{error}</p>}
-      <div className="essay-list">
-        {posts.map((p) => (
-          <Link key={p.slug} to={`/blog/${p.slug}`} className="essay-row">
-            <div className="essay-date">
-              {p.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: '2-digit' })}
-            </div>
-            <div>
-              <div className="essay-title">{p.title}</div>
-              <div className="essay-excerpt">{p.excerpt}</div>
-            </div>
-          </Link>
-        ))}
-      </div>
-      <Link to="/blog" className="more">All essays</Link>
-
-      <h2 className="section-title">Talks</h2>
-      <div className="essay-list" data-placement="home_talks">
-        <a
-          href="https://www.youtube.com/watch?v=Jj2T-YX6zIM"
-          target="_blank"
-          rel="noreferrer"
-          className="essay-row"
-        >
-          <div className="essay-date">Oct 07, 2026</div>
-          <div>
-            <div className="essay-title">What Great Looks Like at Every Stage of the New Product Development Cycle</div>
-            <div className="essay-excerpt">Panel at ProductCon SF '26, hosted by Product School.</div>
-          </div>
-        </a>
-        <a
-          href="https://world.productledalliance.com/location/popssanfrancisco/speaker/vivekkaushal"
-          target="_blank"
-          rel="noreferrer"
-          className="essay-row"
-        >
-          <div className="essay-date">Sep 23, 2026</div>
-          <div>
-            <div className="essay-title">How Canva, Notion and Wispr Flow Are Automating the Feedback-to-Fix Loop</div>
-            <div className="essay-excerpt">Talk at Product-Led Alliance's Product Operations Summit, San Francisco.</div>
-          </div>
-        </a>
-      </div>
-      <h2 className="section-title">Currently reading</h2>
-      <CurrentlyReading variant="rows" />
-      <Link to="/books" className="more">All books</Link>
-
-      <h2 className="section-title">Tinkering</h2>
-      <div className="essay-list" data-placement="home_tinkering">
-        <a
-          href="https://control-panel-ivory.vercel.app"
-          target="_blank"
-          rel="noreferrer"
-          className="essay-row"
-        >
-          <div className="essay-date">2026</div>
-          <div>
-            <div className="essay-title">Control Panel</div>
-            <div className="essay-excerpt">Everything on your Linear plate, on one screen. A read-only mosaic sized by effort, and a convention your agents follow.</div>
-          </div>
-        </a>
-        <a href="/hn-cli/" className="essay-row">
-          <div className="essay-date">2026</div>
-          <div>
-            <div className="essay-title">hn-cli</div>
-            <div className="essay-excerpt">Hacker News, beautifully in your terminal. An interactive TUI, a scriptable CLI, and JSON for agents on macOS and Linux.</div>
-          </div>
-        </a>
-        <a
-          href="https://feedbackbench.com"
-          target="_blank"
-          rel="noreferrer"
-          className="essay-row"
-        >
-          <div className="essay-date">2026</div>
-          <div>
-            <div className="essay-title">Feedback Bench</div>
-            <div className="essay-excerpt">A public ranking of AI agents based on what their users say about them.</div>
-          </div>
-        </a>
-        <a
-          href="https://github.com/kaushalvivek/htmlz"
-          target="_blank"
-          rel="noreferrer"
-          className="essay-row"
-        >
-          <div className="essay-date">2026</div>
-          <div>
-            <div className="essay-title">htmlz</div>
-            <div className="essay-excerpt">A self-hosted home for the HTML your AI agents make. No database, no build step.</div>
-          </div>
-        </a>
-        <a
-          href="https://github.com/kaushalvivek/ai-progress-today"
-          target="_blank"
-          rel="noreferrer"
-          className="essay-row"
-        >
-          <div className="essay-date">2025</div>
-          <div>
-            <div className="essay-title">AI Progress Today</div>
-            <div className="essay-excerpt">A tracker for AI progress.</div>
-          </div>
-        </a>
-        <a
-          href="https://github.com/kaushalvivek/pom"
-          target="_blank"
-          rel="noreferrer"
-          className="essay-row"
-        >
-          <div className="essay-date">2026</div>
-          <div>
-            <div className="essay-title">pom</div>
-            <div className="essay-excerpt">A pomodoro timer for the terminal.</div>
-          </div>
-        </a>
+        <h2>More</h2>
+        <ul>
+          {MORE.map((m) => (
+            <li key={m.name}>
+              <Link to={m.to}><Entry {...m} /></Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

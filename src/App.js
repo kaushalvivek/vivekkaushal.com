@@ -19,12 +19,11 @@ const ScrollToTop = () => {
   return null;
 };
 
-const App = () => (
-  <Router>
-    <GATracker />
-    <ScrollToTop />
+const Shell = () => {
+  const isHome = useLocation().pathname === '/';
+  return (
     <div className="app-shell">
-      <Header />
+      {!isHome && <Header />}
       <main className="app-main">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -39,8 +38,16 @@ const App = () => (
           <Route path="*" element={<My404 />} />
         </Routes>
       </main>
-      <Footer />
+      {!isHome && <Footer />}
     </div>
+  );
+};
+
+const App = () => (
+  <Router>
+    <GATracker />
+    <ScrollToTop />
+    <Shell />
   </Router>
 );
 
