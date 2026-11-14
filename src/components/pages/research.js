@@ -5,7 +5,7 @@ const papers = [
     title: "Clickbait's Impact on Visual Attention — An Eye Tracker Study",
     link: 'https://escholarship.org/uc/item/8w80h7jp',
     year: '2022',
-    venue: 'CogSci 2022',
+    venue: 'CogSci',
   },
   {
     title: 'Clickbait — Credibility, Visual Attention, Propensity and Proliferation',
@@ -23,13 +23,13 @@ const papers = [
     title: 'Clickbait in Hindi News Media',
     link: 'https://aclanthology.org/2020.icon-main.11.pdf',
     year: '2020',
-    venue: 'ICON 2020',
+    venue: 'ICON',
   },
   {
     title: 'Investigating Academic Performance and Financial Risk-Taking',
     link: 'https://www.researchgate.net/profile/Vivek-Kaushal-3/publication/345156547_Investigating_Academic_Performance_and_Financial_Risk-Taking/links/5f9fa924a6fdccfd7b948b85/Investigating-Academic-Performance-and-Financial-Risk-Taking.pdf',
     year: '2019',
-    venue: 'ACCS 2019',
+    venue: 'ACCS',
   },
 ];
 
@@ -72,9 +72,8 @@ const Research = () => (
         rel="noreferrer"
         className="citation"
       >
-        <span className="c-year">{p.year}</span>
         <span className="c-title">{p.title}</span>
-        <span className="c-venue">{p.venue}</span>
+        <span className="c-venue">{p.venue}, {p.year}</span>
       </a>
     ))}
 
