@@ -1,0 +1,71 @@
+<p>Most start-ups function at a pace that is unnatural to build software products. When you’re moving fast, running experiments, and iterating rapidly — things break. The differentiator is learning from these errors and engineering systems that are reliable, maintainable and scalable.</p><p>Learning from errors requires sustained awareness of the broad spectrum of reported issues. When you have the complete picture, you see helpful clues to identify systemic issues and make the highest impact investments in improving systems.</p><p>The problem here is that sustained awareness of issues is challenging. Finding patterns in issues reported over weeks is even more challenging. But this problem fits a standard pattern of information that requires summarisation and aggregation — a niche where large language models can help.</p><figure><img src="/posts/finding-patterns-in-bugs-using-ai/1.webp" alt="A cleaner and more aesthetically pleasing close-up of a whiteboard filled with organized lines of code. There are neat, clear circles drawn in red marker, emphasizing specific areas where a pattern in bugs has been identified across two distinct flows in different codebases. The focus is on the clarity of the red circled sections, indicating a methodical approach to problem-solving and debugging by a programmer. The overall image should convey a sense of order and precision, making it visually appealing while still highlighting critical analysis." width="1024" height="1024" loading="lazy"><figcaption>DALLE generated image for finding patterns of errors in a bugs.</figcaption></figure><p>I created a simple LLM-powered app that goes through reported bugs, summarises the problem, and the engineering team’s root-cause-analysis (RCA), and delivers a nice report every week to Slack for the visibility of our engineering and product teams.</p><p>Let’s walk through how this works.</p><h2>Context</h2><p>We use <a href="https://linear.app/" target="_blank" rel="noreferrer">Linear</a>. Customer success and product teams create <a href="https://linear.app/docs/triage" target="_blank" rel="noreferrer">triage tickets</a> when users run into bugs. Every day, engineering teams go through the triage queue, pick up tickets, and set the due date and priority.</p><p>Over the course of the ticket’s life, the engineer who picks up the ticket adds discoveries and root-cause analyses to the ticket as comments. The ticket is closed when the fix is deployed.</p><p>The result is a ticket that’s a treasure-trove of information. It holds the issue faced by users, identifies the responsible systems, and the deployed fix.</p><h2>Solution</h2><p>I decided to push a weekly report to Slack, summarising all the issues reported in the last week, while finding common ground between them and deriving useful patterns. This report comprised of three mini-reports for the three code-bases we have — frontend, backend and ML infra.</p><h3>Fetching tickets from Linear</h3><p>Our data lies on Linear. So the first step was to fetch data from Linear’s APIs. Linear exposes its <a href="https://developers.linear.app/docs/sdk/getting-started" target="_blank" rel="noreferrer">APIs</a>, and a <a href="https://www.npmjs.com/package/@linear/sdk" target="_blank" rel="noreferrer">Node SDK</a> that integrates with its GraphQL schema.</p><figure><img src="/posts/finding-patterns-in-bugs-using-ai/2.webp" alt="" width="1456" height="1015" loading="lazy"></figure><p>All you need is an API key — and you can generate one from your Linear app’s settings.</p><p>I built on top of Linear’s Typescript library to fetch all tickets triaged in the last 7 days. For each ticket, I fetched the following details:</p><ol><li><p>ticket title</p></li><li><p>ticket description</p></li><li><p>all the comments on the ticket</p></li><li><p>if there was a Slack thread linked to the message, I pulled all messages from the Slack thread too. Because of Linear’s deep integration with Slack, this was thankfully a breeze, since the messages are available directly on the ticket schema.</p></li></ol><p>I put these tickets in three separate buckets — one each for the frontend, backend and ML infra codebases. This distinction was easy since every triaged ticket has a tag that identifies the codebase that the ticket is for.</p><h3>Data processing, and GPT-4 magic</h3><h4>Data processing</h4><p>After pulling this data in, it was time for magic. But the tricky part here, is that there can be a lot of tickets, with a lot of details in comments. Even while using GPT-4 turbo, the model’s context window still has a 128k token limit. We had to pre-process our ticket to capture only what’s useful. </p><p><strong>Clean up the ticket:</strong> A simple regex function removed cURL dumps from comment threads—a common way of reporting the request API that’s causing errors. These eat up a lot of tokens, without adding a lot of context to the ticket. A cheap, fast way to increase the information density of tickets</p><p><strong>Summarise: </strong>I didn’t use this — since the 128k token context window was sufficient to summarise the volume of tickets we get. But, if that’s not the case for you, you can pre-summarise tickets before pumping them into another context for analysis.</p><h4>GPT4 analysis</h4><p>Now comes the meaty part. The prompt to summarise the tickets. This took some iterations to get right. But the crux is, that I dumped all tickets into a prompt with carefully worded instructions on what the output should look like.</p><p>You can find the full instructions here:</p><pre><code># Mission
+You are an expert software bug analyst at ${org.name}. Your job is to create an actionable summary of ${bucketName} issues that have recently been ${activity.toString()}. The summary is used to find broad, actionable patterns in issues so that the engineering team at {$org.name} can plan improvements for sub-systems and prioritize work.
+
+
+# Context
+
+
+## {org.name}
+${org.description}
+
+
+## Scenario
+- Users, customer success managers have product teams at {$org.name} have reported bugs by creating tickets in Linear, {$org.name}'s ticket management system.
+- The ticket's title and description are added by the person reporting them, so often might not capture all relevant engineering system details.
+- Engineers have triaged these tickets and have occasionally added comments, discoveries and root-cause analyses to the ticket's comments.
+- The details on the tickets are useful to find commonalities between them, and identify sub-systems that are causing failures, and need to be improved.
+- Occasionally customer success and product stakeholders might also comment on the tickets to add more context or follow-up on them.
+
+
+ 
+# Instructions
+ You would be provided with a list of issues. Each issue will contain the following:
+ - Issue Title
+ - Issue Description
+ - Comments made on the issue by engineering and customer success stakeholders.
+ - Respond with a JSON structure that identifies patterns in tickets.
+
+
+## Input
+### Format
+"---
+Title: &lt;issue title&gt;
+Description: &lt;issue description&gt;
+Comments:
+&lt;issue's comments&gt;
+---"
+(for each ticket)
+
+
+## Output
+### Format
+ A JSON structure of the following:
+ {
+    patterns: [
+        {
+            heading: "&lt;string&gt;",
+            points: [&lt;a list of strings&gt;]
+        }
+    ]
+ }
+### Instructions
+- Include multiple such "headings", but limit to 3 to 5.
+- Sort the headings in a manner that the highest impact heading, with the most prominent and actionable pattern in reported issues is at the top.
+
+
+#### "heading"
+ - a specific identified pattern in reported issues. Avoid classifying something as a pattern, unless you're very sure.
+ - avoid repeating headings, each heading should talk about a distinct pattern in reported issues.
+ - ensure that the heading is very directly relevant to ${bucketName} engineering. Don't include a pattern that's not directly relevant.
+ - Add a relevant emoji as the first character.
+
+
+ 
+#### "points"
+ - a single sentence that gives VERY specific information about the pattern, briefly.
+ - avoid repeating points, each point should talk about something distinct.
+ - mention which tenant/org faced the issue if possible
+ - do not suggest what to do, focus on summarisation.
+ - don't identify users by name
+ - do not include more than one point.
+ - ensure that the point is very directly relevant to ${bucketName} engineering.</code></pre><p>This prompt made up the system instruction, and the user input comprise of a structured dump of ticket details for a bucket (a bucket is the codebase that’s in focus — e.g. frontend/backend etc.).</p><p>In response, we got a nice, organised structure of common patterns in issues.</p><h3>Reporting</h3><p>Now that I had the content I wanted to report on, the next step was to create a report so that this information reaches the right audience — our engineering team and leadership.</p><p>The obvious medium was Slack. Slack is developer friendly, which is great. I quickly created a Slack app and gave it a friendly name. With the right set of permissions, this app now had permissions to share messages to my workspace’s Slack channels. </p><p>I used the <a href="https://www.npmjs.com/package/@slack/web-api" target="_blank" rel="noreferrer">Slack node web client</a> and the new Slack app’s secret token to quickly set-up a pipeline for this data to flow through to my workspace, whenever I triggered a report from my local system.</p><figure><img src="/posts/finding-patterns-in-bugs-using-ai/3.webp" alt="" width="1456" height="970" loading="lazy"></figure><p><a href="https://api.slack.com/block-kit" target="_blank" rel="noreferrer">Slack block-kit builder</a> is a nice tool. I used it to quickly create a basic template in which this content could fit.</p><h3>… one more thing</h3><p>For reasons not entirely clear to me, I considered this project incomplete until the report could start with a funny joke about this week's bugs. This was a lot harder than I expected, since GPT4 sense of humour is flat.</p><p>After a couple of hours of struggle with yet another prompt that took the report’s content and spit out a belter of joke to kick-off the report, we were truly ready to go. I am not going to share the prompt for this joke — which finally got some decent chuckles from GPT4. That’s a full-post in its own right for some other day.</p><hr><p>That’s it! We now receive weekly reports on Slack summarizing our key areas for improvement across different codebases</p><p>I can’t share the full codebase here, since I wrote it quick and dirty, and it has some company specific context. But I’d be happy to help you get started with this process. </p><p>I’d also love to hear if you’ve done something similar or tangential?</p><p>Feel free to drop me a text on @vi_kaushal on X. Until next time!</p><p></p>

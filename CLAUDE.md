@@ -2,14 +2,13 @@
 
 ## Project Overview
 
-This is a personal portfolio website built with React and deployed on Netlify. The site showcases projects, research, blog posts, recommendations, and a bucket list. The blog content is sourced from Substack via RSS feed.
+This is a personal portfolio website built with React and deployed on Netlify. The site showcases projects, research, blog posts, recommendations, and a bucket list. The essays are stored in this repository.
 
 **Tech Stack:**
 - React 19.0.0
 - Chakra UI for styling and components
 - React Router for navigation
 - Netlify for hosting and serverless functions
-- Substack for blog content (external)
 
 **Live Site:** https://vivekkaushal.com
 
@@ -19,10 +18,10 @@ This is a personal portfolio website built with React and deployed on Netlify. T
 
 ```
 vivekkaushal.com/
-├── api/                        # Netlify serverless functions
-│   └── blog.js                 # RSS feed proxy endpoint
 ├── build/                      # Production build output (generated)
 ├── public/                     # Static public assets
+│   ├── essays/                 # One HTML file per essay, named by slug
+│   └── posts/                  # Essay images, one folder per essay slug
 ├── src/
 │   ├── components/
 │   │   ├── pages/
@@ -38,14 +37,13 @@ vivekkaushal.com/
 │   │   ├── tracker.js          # Analytics tracking
 │   │   └── ExternalRedirect.js # External link handler
 │   ├── static/
-│   │   ├── blog-feed.xml       # Cached Substack RSS feed
+│   │   ├── essays.json         # Essay index: slug, title, date, description
 │   │   ├── nonFiction.json     # Book recommendations
 │   │   └── avatar.jpg          # Profile image
 │   ├── App.js                  # Main app component with routing
 │   ├── index.js                # React entry point
 │   ├── theme.js                # Chakra UI theme configuration
 │   └── config.js               # Site configuration
-├── update-blog-feed.js         # Script to fetch latest blog posts
 ├── package.json                # Dependencies and scripts
 ├── netlify.toml                # Netlify configuration
 └── CLAUDE.md                   # This file
@@ -55,12 +53,12 @@ vivekkaushal.com/
 
 ## Key Features
 
-### Blog System
-The blog content is fetched from Substack (https://vivekkaushal.substack.com) and cached locally:
+### Essays
+The essays live in this repository. Nothing is fetched from another service.
 
-- **Static Feed:** `src/static/blog-feed.xml` - Cached RSS feed for fast loading
-- **API Proxy:** `api/blog.js` - Serverless function to fetch fresh feed on demand
-- **Blog Component:** Parses XML feed and displays posts with routing for individual posts
+- **Index:** `src/static/essays.json` lists each essay's slug, title, date and description, newest first. The home page and the essays list read it.
+- **Content:** `public/essays/<slug>.html` holds the body of one essay as plain HTML. The essay page fetches it on demand.
+- **Images:** `public/posts/<slug>/` holds the images of one essay.
 
 ### Routing
 - `/` - Home page
@@ -76,32 +74,13 @@ The blog content is fetched from Substack (https://vivekkaushal.substack.com) an
 
 ## Common Tasks
 
-### 1. Refreshing the Blog Feed
+### 1. Adding an Essay
 
-When you publish a new post on Substack, update the cached feed file:
+1. Write the body as plain HTML in `public/essays/<slug>.html`. Use `<p>`, `<h2>`, `<figure>` with `<img>` and `<figcaption>`, `<pre><code>`, and links.
+2. Put its images in `public/posts/<slug>/` and reference them as `/posts/<slug>/<file>`.
+3. Add an entry at the top of `src/static/essays.json` with `slug`, `title`, `date` (ISO) and `description`.
 
-```bash
-npm run update-blog
-```
-
-This script:
-1. Fetches the latest RSS feed from `https://vivekkaushal.substack.com/feed`
-2. Updates `src/static/blog-feed.xml`
-3. Validates the XML format
-4. Shows feed size and confirmation
-
-**Manual Alternative:**
-```bash
-node update-blog-feed.js
-```
-
-**Note:** After updating the feed, you need to rebuild and deploy the site for changes to appear in production:
-```bash
-npm run build
-git add src/static/blog-feed.xml
-git commit -m "Update blog feed"
-git push
-```
+The slug is the essay's URL: `/blog/<slug>`.
 
 ### 2. Development Server
 
@@ -255,14 +234,12 @@ See `netlify.toml` for:
 4. Test locally with `npm start`
 5. Commit and push to deploy
 
-### Updating Blog Content
+### Publishing an Essay
 
-1. Publish post on Substack
-2. Run `npm run update-blog` locally
-3. Verify changes: `npm start` and check `/blog`
-4. Stage and commit: `git add src/static/blog-feed.xml && git commit -m "Update blog feed"`
-5. Push to remote: `git push origin master`
-6. Build and deploy: `netlify build && netlify deploy --prod`
+1. Add the essay as described in "Adding an Essay"
+2. Verify locally: `npm start` and check `/blog`
+3. Commit and push
+4. Build and deploy: `netlify build && netlify deploy --prod`
 
 ### Making Style Changes
 
@@ -275,12 +252,10 @@ See `netlify.toml` for:
 
 ## Troubleshooting
 
-### Blog Posts Not Showing
+### An Essay Does Not Show
 
-1. Check if feed file exists: `ls -lh src/static/blog-feed.xml`
-2. Validate XML: `head -50 src/static/blog-feed.xml`
-3. Check console for parsing errors
-4. Verify Substack feed is accessible: `curl https://vivekkaushal.substack.com/feed`
+1. Check that the slug in `src/static/essays.json` matches the file name in `public/essays/`
+2. Check the browser console for a failed request to `/essays/<slug>.html`
 
 ### Build Failures
 
@@ -327,26 +302,6 @@ This tells Netlify to serve `index.html` for all routes, allowing React Router t
 
 ---
 
-## API Endpoints
-
-### `/api/blog`
-Serverless function that fetches fresh RSS feed from Substack.
-
-- **Method:** GET
-- **Response:** XML (application/xml)
-- **Cache:** 10 minutes (s-maxage=600)
-- **Timeout:** 5 seconds
-- **Error Handling:** Returns 500 with error details on failure
-
-**Usage in code:**
-```javascript
-fetch('/api/blog')
-  .then(res => res.text())
-  .then(xml => parseXML(xml))
-```
-
----
-
 ## Environment & Configuration
 
 ### Local Development
@@ -377,20 +332,10 @@ Follow conventional format:
 
 ### Example Workflow
 ```bash
-# Update blog feed
-npm run update-blog
-
-# Check changes
 git status
-
-# Stage and commit
-git add src/static/blog-feed.xml
-git commit -m "Update blog feed with new post"
-
-# Push to remote
+git add public/essays public/posts src/static/essays.json
+git commit -m "Add essay"
 git push origin master
-
-# Build and deploy to production
 netlify build
 netlify deploy --prod
 ```
@@ -402,11 +347,6 @@ netlify deploy --prod
 **Start Development:**
 ```bash
 npm start
-```
-
-**Update Blog Feed:**
-```bash
-npm run update-blog
 ```
 
 **Deploy to Production (Manual):**

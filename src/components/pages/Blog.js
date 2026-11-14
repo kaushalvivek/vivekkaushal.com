@@ -1,36 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link as RouterLink, Routes, Route } from 'react-router-dom';
-import blogFeed from '../../static/blog-feed.xml';
 import BlogPost from './BlogPost';
-import localPosts from '../../static/localPosts';
+import essays from '../../static/essays.json';
 
-const stripHtml = (s) => {
-  const t = document.createElement('textarea');
-  t.innerHTML = s.replace(/<[^>]+>/g, '');
-  return t.value.replace(/\s+/g, ' ').trim();
-};
-
-const BlogList = ({ posts }) => (
+const BlogList = () => (
   <div className="col">
     <div className="page-head">
       <h1 className="page-title">Essays</h1>
-      <p className="page-intro" data-placement="blog_intro">
-        On building, paying attention, and life as I find it.{' '}
-        <a href="https://vivekkaushal.substack.com" target="_blank" rel="noreferrer">Subscribe on Substack</a>
-      </p>
+      <p className="page-intro">On building, paying attention, and life as I find it.</p>
     </div>
 
     <div className="essay-list">
-      {posts.map((post) => (
-        <RouterLink
-          key={post.slug}
-          to={`/blog/${post.slug}`}
-          className="essay-row"
-        >
-          <div className="essay-title">{post.title}</div>
-          <div className="essay-excerpt">{stripHtml(post.description).slice(0, 240)}</div>
+      {essays.map((essay) => (
+        <RouterLink key={essay.slug} to={`/blog/${essay.slug}`} className="essay-row">
+          <div className="essay-title">{essay.title}</div>
+          <div className="essay-excerpt">{essay.description}</div>
           <div className="essay-date">
-            {post.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}
+            {new Date(essay.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}
           </div>
         </RouterLink>
       ))}
@@ -38,94 +24,11 @@ const BlogList = ({ posts }) => (
   </div>
 );
 
-const Blog = () => {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    fetch(blogFeed)
-      .then((r) => {
-        if (!r.ok) throw new Error(`Feed request failed (${r.status})`);
-        return r.text();
-      })
-      .then((str) => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(str, 'text/xml');
-        if (doc.querySelector('parsererror')) {
-          throw new Error('Feed XML is invalid');
-        }
-        const items = Array.from(doc.querySelectorAll('item'));
-
-        const mapped = items.map((item) => {
-          const title = item.querySelector('title')?.textContent || 'Untitled';
-          const content =
-            item.querySelector('content\\:encoded')?.textContent ||
-            item.getElementsByTagNameNS('*', 'encoded')[0]?.textContent ||
-            item.querySelector('description')?.textContent ||
-            '';
-          const cleanContent = content.replace(/<!\[CDATA\[/g, '').replace(/\]\]>/g, '');
-          const link = item.querySelector('link')?.textContent || '';
-          const pubDate = item.querySelector('pubDate')?.textContent;
-          const date = pubDate ? new Date(pubDate) : new Date();
-          const description = item.querySelector('description')?.textContent || '';
-          const slug = title
-            .toLowerCase()
-            .replace(/[^a-z0-9]+/g, '-')
-            .replace(/(^-|-$)/g, '');
-          return {
-            title,
-            content: cleanContent,
-            link,
-            date,
-            slug,
-            description: description.replace(/<!\[CDATA\[/g, '').replace(/\]\]>/g, ''),
-          };
-        });
-
-        const toSlug = (t) =>
-          t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-        const local = localPosts.map((p) => ({
-          ...p,
-          date: new Date(p.date),
-          link: '',
-          slug: toSlug(p.title),
-        }));
-        setPosts([...local, ...mapped].sort((a, b) => b.date - a.date));
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message || 'Failed to load posts.');
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="col">
-        <div className="page-head">
-          <p className="page-intro">Loading essays…</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="col">
-        <div className="page-head">
-          <p className="page-intro">{error}</p>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <Routes>
-      <Route path="/" element={<BlogList posts={posts} />} />
-      <Route path=":slug" element={<BlogPost posts={posts} />} />
-    </Routes>
-  );
-};
+const Blog = () => (
+  <Routes>
+    <Route path="/" element={<BlogList />} />
+    <Route path=":slug" element={<BlogPost />} />
+  </Routes>
+);
 
 export default Blog;
