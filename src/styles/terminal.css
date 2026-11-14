@@ -410,6 +410,16 @@ textarea.field {
 
 .doc-body img { margin: 1.6em 0; }
 
+.doc-body figure { margin: 1.6em 0; }
+
+.doc-body figure img { margin: 0; }
+
+.doc-body figcaption {
+  margin-top: 0.5em;
+  color: var(--muted);
+  font-size: 0.9em;
+}
+
 .doc-body hr {
   border: 0;
   border-top: 1px solid var(--line);

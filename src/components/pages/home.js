@@ -1,15 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import blogFeed from '../../static/blog-feed.xml';
-import localPosts from '../../static/localPosts';
-
-const toSlug = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+import essays from '../../static/essays.json';
 
 const CONTACT = [
   { name: 'X', url: 'https://x.com/kaushalvivek' },
   { name: 'LinkedIn', url: 'https://linkedin.com/in/kaushalvivek/' },
   { name: 'GitHub', url: 'https://github.com/kaushalvivek' },
-  { name: 'Substack', url: 'https://vivekkaushal.substack.com' },
 ];
 
 const TOOLS = [
@@ -48,105 +44,77 @@ const Entry = ({ name, note }) => (
   </>
 );
 
-const Home = () => {
-  const [posts, setPosts] = useState([]);
-  const [error, setError] = useState(null);
+const Home = () => (
+  <div className="home">
+    <div className="hero">
+      <h1>Vivek Kaushal</h1>
+      <p>
+        I lead product at{' '}
+        <a href="https://enterpret.com" target="_blank" rel="noreferrer">Enterpret</a>.
+        I studied computer science, engineering, and cognitive neuroscience. I built
+        engineering systems for start-ups before I moved my focus to product. I still build.
+      </p>
+      <p>
+        I brew my own coffee and write. If you listen to alternative rock, we can probably be
+        friends.
+      </p>
+      <p className="home-contact">
+        <Link to="/talk">Contact</Link>
+        {CONTACT.map((l) => (
+          <a key={l.name} href={l.url} target="_blank" rel="noreferrer">{l.name}</a>
+        ))}
+      </p>
+    </div>
 
-  useEffect(() => {
-    fetch(blogFeed)
-      .then((r) => {
-        if (!r.ok) throw new Error(`Feed request failed (${r.status})`);
-        return r.text();
-      })
-      .then((str) => {
-        const doc = new DOMParser().parseFromString(str, 'text/xml');
-        if (doc.querySelector('parsererror')) {
-          throw new Error('Feed XML is invalid');
-        }
-        const fromFeed = Array.from(doc.querySelectorAll('item')).map((item) => {
-          const title = item.querySelector('title')?.textContent || '';
-          const pubDate = item.querySelector('pubDate')?.textContent;
-          return { title, date: pubDate ? new Date(pubDate) : new Date() };
-        });
-        const local = localPosts.map((p) => ({ title: p.title, date: new Date(p.date) }));
-        setPosts([...local, ...fromFeed].sort((a, b) => b.date - a.date).slice(0, 6));
-      })
-      .catch((err) => setError(err.message || 'Failed to load essays.'));
-  }, []);
+    <div>
+      <h2>Essays</h2>
+      <ul>
+        {essays.slice(0, 6).map((e) => (
+          <li key={e.slug}>
+            <Link to={`/blog/${e.slug}`}>
+              <Entry
+                name={e.title}
+                note={new Date(e.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}
+              />
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <Link to="/blog" className="home-all">All essays</Link>
+    </div>
 
-  return (
-    <div className="home">
-      <div className="hero">
-        <h1>Vivek Kaushal</h1>
-        <p>
-          I lead product at{' '}
-          <a href="https://enterpret.com" target="_blank" rel="noreferrer">Enterpret</a>.
-          I studied computer science, engineering, and cognitive neuroscience. I built
-          engineering systems for start-ups before I moved my focus to product. I still build.
-        </p>
-        <p>
-          I brew my own coffee and write. If you listen to alternative rock, we can probably be
-          friends.
-        </p>
-        <p className="home-contact">
-          <Link to="/talk">Contact</Link>
-          {CONTACT.map((l) => (
-            <a key={l.name} href={l.url} target="_blank" rel="noreferrer">{l.name}</a>
-          ))}
-        </p>
-      </div>
+    <div data-placement="home_tinkering">
+      <h2>Things I built</h2>
+      <ul>
+        {TOOLS.map((t) => (
+          <li key={t.name}>
+            <a href={t.url} {...external(t.url)}><Entry {...t} /></a>
+          </li>
+        ))}
+      </ul>
+    </div>
 
-      <div>
-        <h2>Essays</h2>
-        {error && <p className="muted">{error}</p>}
+    <div className="home-last">
+      <div className="home-talks" data-placement="home_talks">
+        <h2>Talks</h2>
         <ul>
-          {posts.map((p) => (
-            <li key={p.title}>
-              <Link to={`/blog/${toSlug(p.title)}`}>
-                <Entry
-                  name={p.title}
-                  note={p.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}
-                />
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <Link to="/blog" className="home-all">All essays</Link>
-      </div>
-
-      <div data-placement="home_tinkering">
-        <h2>Things I built</h2>
-        <ul>
-          {TOOLS.map((t) => (
+          {TALKS.map((t) => (
             <li key={t.name}>
               <a href={t.url} {...external(t.url)}><Entry {...t} /></a>
             </li>
           ))}
         </ul>
       </div>
-
-      <div className="home-last">
-        <div className="home-talks" data-placement="home_talks">
-          <h2>Talks</h2>
-          <ul>
-            {TALKS.map((t) => (
-              <li key={t.name}>
-                <a href={t.url} {...external(t.url)}><Entry {...t} /></a>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <h2>More</h2>
-        <ul>
-          {MORE.map((m) => (
-            <li key={m.name}>
-              <Link to={m.to}><Entry {...m} /></Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <h2>More</h2>
+      <ul>
+        {MORE.map((m) => (
+          <li key={m.name}>
+            <Link to={m.to}><Entry {...m} /></Link>
+          </li>
+        ))}
+      </ul>
     </div>
-  );
-};
+  </div>
+);
 
 export default Home;

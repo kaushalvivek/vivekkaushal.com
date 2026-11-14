@@ -1,0 +1,122 @@
+[
+  {
+    "slug": "customer-feedback-is-the-verification-layer-for-product-development",
+    "title": "Customer feedback is the verification layer for product development",
+    "date": "2026-11-06T15:51:38.000Z",
+    "description": "Work is only as automatable as it is verifiable. For product work, the only reliable check is customers."
+  },
+  {
+    "slug": "stop-prompting-start-talking",
+    "title": "Stop Prompting. Start Talking.",
+    "date": "2026-04-05T10:58:32.000Z",
+    "description": "The most underused AI capability is the one Socrates would recognize."
+  },
+  {
+    "slug": "putting-intelligence-to-work",
+    "title": "Putting Intelligence to Work",
+    "date": "2026-04-01T02:52:27.000Z",
+    "description": "Frontier models can handle most knowledge work. We're using a fraction of what they offer. The bottleneck isn't intelligence &#8212; it's the systems we put around it."
+  },
+  {
+    "slug": "the-6-tools-and-a-workflow-to-build-using-ai",
+    "title": "The 6 tools, and a workflow to build using AI",
+    "date": "2025-07-15T07:01:28.000Z",
+    "description": "My current workflow of leveraging AI to build software, and AI."
+  },
+  {
+    "slug": "the-last-interface",
+    "title": "The last interface",
+    "date": "2025-04-01T23:03:14.000Z",
+    "description": "Bidirectional neural thought interfaces and AI are on a collision course"
+  },
+  {
+    "slug": "collaboration-needs-a-cartographer",
+    "title": "Collaboration needs a cartographer",
+    "date": "2025-01-13T05:09:00.000Z",
+    "description": "Every project needs some one to think it through to the end -- identifying use-cases, charting journeys, and carefully evaluating the solution. This is not a responsibility that can be distributed."
+  },
+  {
+    "slug": "why-your-north-star-metric-needs-dimensions",
+    "title": "Why Your North Star Metric Needs Dimensions",
+    "date": "2024-10-06T11:27:25.000Z",
+    "description": "Dimensions of your North Star metric make it actionable. Without dimensions, you have a great measure of your business, that you can't really do anything with."
+  },
+  {
+    "slug": "building-taskie-an-ai-powered-project-manager",
+    "title": "Building Taskie, an AI-powered project manager",
+    "date": "2024-05-20T02:41:12.000Z",
+    "description": "An essay on automating knowledge work by plugging intelligence in deterministic paths, and using AI-agents. Also, say hello to a Taskie."
+  },
+  {
+    "slug": "finding-patterns-in-bugs-using-ai",
+    "title": "Finding patterns in bugs using AI",
+    "date": "2024-02-24T11:55:21.000Z",
+    "description": "How I built an AI to system to find patterns in our bug reports and help prioritise improvements to the right sub-systems."
+  },
+  {
+    "slug": "i-created-a-virtual-hiring-assistant-using-ai",
+    "title": "I created a virtual hiring assistant using AI",
+    "date": "2023-12-10T05:26:15.000Z",
+    "description": "Recruiting an APM from more than a thousand applicants, here's how I leveraged AI and simple automation to create a virtual hiring assistant and saved time."
+  },
+  {
+    "slug": "gpt4-explains-key-product-growth-terms-through-an-example",
+    "title": "GPT4 explains key product growth terms through an example",
+    "date": "2023-11-05T12:10:36.000Z",
+    "description": "Acquisition, Activation, Engagement, Stickiness, Retention, Resurrection, and more -- explained through a dead-simple example by GPT4."
+  },
+  {
+    "slug": "the-future-is-multi-modal-and-needs-your-attention-right-now",
+    "title": "The future is multi-modal, and needs your attention right now",
+    "date": "2023-10-15T10:19:05.000Z",
+    "description": "The combination of computer vision with analytical and creative AI is revolutionary. Multi-modal LLMs are going to change everything. Here are some very real reasons why you should be paying attention"
+  },
+  {
+    "slug": "on-the-ability-to-see-and-build-the-future",
+    "title": "On the Ability to See and Build the Future",
+    "date": "2023-06-18T07:39:23.000Z",
+    "description": "Ironically, this might be the most important skill to build, yet it's rarely ever taught. Those who do it best, end up building the world."
+  },
+  {
+    "slug": "how-to-prepare-for-a-user-interview",
+    "title": "How to Prepare for a User Interview",
+    "date": "2023-05-16T07:08:43.000Z",
+    "description": "The Why, The Who, The Script and discovering actual user problems"
+  },
+  {
+    "slug": "can-you-measure-product-market-fit",
+    "title": "Can you measure Product Market Fit?",
+    "date": "2023-04-29T04:35:26.000Z",
+    "description": "Quantifying and measuring product-market-fit for better iterations"
+  },
+  {
+    "slug": "move-towards-ambiguity",
+    "title": "Move Towards Ambiguity",
+    "date": "2023-04-02T10:31:49.000Z",
+    "description": "How to live long and prosper in a world with AGI"
+  },
+  {
+    "slug": "blocked-on-code-reviews-let-s-fix-the-process",
+    "title": "Blocked on code reviews? Let’s fix the process.",
+    "date": "2023-02-18T14:15:09.000Z",
+    "description": "How to reduce code-review time in a lean team of exceptional engineers"
+  },
+  {
+    "slug": "what-really-is-golang-s-context",
+    "title": "What really is Golang’s context?",
+    "date": "2022-06-26T12:49:06.000Z",
+    "description": "Google&#8217;s guidelines on Go specify that the first argument of a function in GoLang should be Go&#8217;s context.Context type."
+  },
+  {
+    "slug": "using-google-sheets-as-a-source-of-dynamic-data-for-your-static-website",
+    "title": "Using Google Sheets as a Source of Dynamic Data for your Static Website",
+    "date": "2021-12-25T15:21:21.000Z",
+    "description": "Static websites are fantastic."
+  },
+  {
+    "slug": "generating-recommendations-in-a-real-world-job-market",
+    "title": "Generating Recommendations in a Real World Job Market",
+    "date": "2021-10-04T07:42:52.000Z",
+    "description": "When you&#8217;re a job board catering to employers and job-seekers, the recommendations you generate on both ends become critical differentiators for your product."
+  }
+]

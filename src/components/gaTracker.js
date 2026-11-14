@@ -22,7 +22,7 @@ import {
   setTrackingEnabled,
   titleForPath,
 } from '../analytics/ga';
-import { loadEssayTitles, peekEssayTitles, titlesFromLocalPosts } from '../analytics/essayTitles';
+import { essayTitles } from '../analytics/essayTitles';
 
 // Captured at module load, before React Router redirects or drops the landing query.
 const landingHref = typeof window !== 'undefined' ? window.location.href : '';
@@ -30,7 +30,6 @@ const landingHref = typeof window !== 'undefined' ? window.location.href : '';
 const pageViewClaims = new Map();
 let hasSentFirstPageView = false;
 let publishedVisitKey = null;
-let scheduleGeneration = 0;
 let clickListenerBound = false;
 let progressVisit = null;
 let progressTick = null;
@@ -57,30 +56,6 @@ function publishPage(visit, title) {
   });
   commitPageView(document, sendEvent, params);
   if (progressTick) progressTick();
-}
-
-function schedulePageView(visit) {
-  const generation = ++scheduleGeneration;
-  const finish = (titles, catalogReady) => {
-    if (generation !== scheduleGeneration) return;
-    const title = titleForPath(visit.pathname, titles, catalogReady)
-      || 'Essay — Vivek Kaushal';
-    publishPage(visit, title);
-  };
-
-  const local = titlesFromLocalPosts();
-  const cached = peekEssayTitles();
-  const sync = titleForPath(visit.pathname, cached || local, cached != null);
-  if (sync) {
-    finish(cached || local, cached != null);
-    return;
-  }
-
-  loadEssayTitles().then((map) => {
-    if (generation !== scheduleGeneration) return;
-    if (map) finish(map, true);
-    else finish(local, false);
-  });
 }
 
 function linkNameFromAnchor(anchor) {
@@ -262,13 +237,10 @@ const GATracker = () => {
       ensureGtag({ debug: gate.debug });
       ensureClickListener();
     }
-    // Warm the catalog even when GA is quiet, so essay titles are ready for the tab.
-    loadEssayTitles();
-    schedulePageView({
-      key: location.key,
-      pathname: location.pathname,
-      search: location.search,
-    });
+    publishPage(
+      { key: location.key, pathname: location.pathname, search: location.search },
+      titleForPath(location.pathname, essayTitles)
+    );
   }, [location.key, location.pathname, location.search]);
 
   useEffect(() => {

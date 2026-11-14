@@ -1,11 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, Link as RouterLink } from 'react-router-dom';
+import essays from '../../static/essays.json';
 
-const BlogPost = ({ posts }) => {
+const BlogPost = () => {
   const { slug } = useParams();
-  const post = posts.find((p) => p.slug === slug);
+  const essay = essays.find((e) => e.slug === slug);
+  const [content, setContent] = useState(null);
+  const [error, setError] = useState(null);
 
-  if (!post) {
+  useEffect(() => {
+    if (!essay) return undefined;
+    let current = true;
+    setContent(null);
+    setError(null);
+    fetch(`/essays/${essay.slug}.html`)
+      .then((r) => {
+        if (!r.ok) throw new Error(`Essay request failed (${r.status})`);
+        return r.text();
+      })
+      .then((html) => current && setContent(html))
+      .catch((err) => current && setError(err.message));
+    return () => {
+      current = false;
+    };
+  }, [essay]);
+
+  if (!essay) {
     return (
       <div className="col">
         <div className="page-head">
@@ -22,21 +42,15 @@ const BlogPost = ({ posts }) => {
         <div className="post-meta">
           <RouterLink to="/blog">Essays</RouterLink>
           {' · '}
-          {post.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          {new Date(essay.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
         </div>
-        <h1 className="post-title">{post.title}</h1>
+        <h1 className="post-title">{essay.title}</h1>
       </div>
 
-      <article
-        className="doc-body"
-        dangerouslySetInnerHTML={{ __html: post.content }}
-      />
+      {error && <p className="muted">{error}</p>}
+      {content && <article className="doc-body" dangerouslySetInnerHTML={{ __html: content }} />}
 
       <div className="post-end">
-        <a href="https://vivekkaushal.substack.com" target="_blank" rel="noreferrer">
-          Subscribe
-        </a>
-        {' · '}
         <RouterLink to="/blog">All essays</RouterLink>
       </div>
     </div>

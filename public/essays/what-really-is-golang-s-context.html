@@ -1,0 +1,20 @@
+<p>Google’s guidelines on Go specify that the first argument of a function in GoLang should be Go’s context.Context type. While the usage of context is fairly ubiquitous, I feel that most developers (including me) black-box the context argument in GoLang while starting out with development, and lack clarity about its&nbsp;usage.</p><figure><img src="/posts/what-really-is-golang-s-context/1.webp" alt="" loading="lazy"></figure><h3>What is&nbsp;context?</h3><p>context is a request-scoped variable that makes it easy to pass along request-specific values, environment, deadlines and cancellation signals as arguments to functions, without relying on parameters.</p><p>In GoLang, context is available through the <a href="https://pkg.go.dev/context" target="_blank" rel="noreferrer">context package</a>. You may have come across context while reading Golang code,&nbsp;eg:</p><pre><code>import (
+    "context"
+)</code></pre><pre><code>func doSomething (ctx context.Context, param1 string) error {
+  // this function does something
+  return nil
+}</code></pre><h3>What does it&nbsp;hold?</h3><p>context holds information about the request which triggered the current goroutine. This information may comprise&nbsp;of:</p><ul><li><p><strong>cancellation signals&nbsp;: </strong>cancellation signals about the request, populated by the parent where the goroutine to process the request is spawned and consumed by any function invoked to do the processing.</p></li><li><p><strong>response deadlines&nbsp;: </strong>the cutoff of response time for the request, beyond which an error is returned.</p></li><li><p><strong>request-scoped variables</strong>&nbsp;:variables shared across the scope of a request’s processing which may be helpful for the underlying functions.</p></li></ul><p>The interface for the context package’s Context type&nbsp;:</p><pre><code>type Context interface {
+    // Done returns a channel that is closed when this Context is canceled
+    // or times out.
+    Done() &lt;-chan struct{}
+
+    // Err indicates why this context was canceled, after the Done channel
+    // is closed.
+    Err() error
+
+    // Deadline returns the time when this Context will be canceled, if any.
+    Deadline() (deadline time.Time, ok bool)
+
+    // Value returns the value associated with key or nil if none.
+    Value(key interface{}) interface{}
+}</code></pre><h3>How is it&nbsp;useful?</h3><p>In a nutshell, context helps make your code efficient in the following ways:</p><h4>When the Request is Cancelled</h4><p>You can leverage the context to check if the request has been cancelled. If yes, we can avoid the computational effort of following through with function execution, and the function can return early. A request may be cancelled for various reasons, including a cancellation from the parent or a concurrent error.</p><h4>When the Deadline is Too&nbsp;Strict</h4><p>If the deadline of a context if populated, functions can leverage it to understand if continuing with the execution is a smart idea. For example, suppose a function is responsible for writing to disc, and the operation takes 100ms, and the request is scheduled to timeout in 10ms. In that case, it makes more sense to return with an error early and save the computation resource and disc write bandwidth.</p><p>This excellent<a href="https://go.dev/blog/context" target="_blank" rel="noreferrer"> 2014 blog</a> from Sameer Ajmani explains how context can be used to make your application more efficient.</p><h3>The Case Against&nbsp;Context</h3><p>An argument can be made that populating values in context with context.WithValue and reading them in child functions with context.Value(key) skirts the interface exposed by child functions. Though I would weigh in here with my opinion that this is an incorrect usage of context&nbsp;. Be careful with your choice values in context&nbsp;, variables with request-wide-scope should be a strict criterion.</p><p>That’s it! I hope you got some clarity into what happens inside context and how powerful it can be when used to it’s full potential. If you’d like to further discuss this, feel free to reach out!&nbsp;:)</p>
